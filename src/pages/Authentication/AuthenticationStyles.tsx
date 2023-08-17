@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import  background from "../../assets/lohp_1302x955.png"
 
 export const useAuthenticationStyles = makeStyles((theme) => ({
     wrapper: {
@@ -17,9 +18,8 @@ export const useAuthenticationStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "center",
         flex: "0 0 50%",
-        backgroundColor: "#71C9F8",
-        overflow: "hidden",
-        position: "relative"
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center"
     },
     leftSideListInfo: {
         position: "relative",

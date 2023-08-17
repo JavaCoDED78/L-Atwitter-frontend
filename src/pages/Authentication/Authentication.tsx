@@ -1,11 +1,10 @@
 import React, { FC, ReactElement } from "react";
 import { useHistory } from "react-router-dom";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { Button, List, ListItem, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import { useAuthenticationStyles } from "./AuthenticationStyles";
-import { CommunityIcon, ReplyIcon, SearchIcon } from "../../icons";
 import RegistrationModal from "./RegistrationModal/RegistrationModal";
 import CustomizeModal from "./CustomizeModal/CustomizeModal";
 import CreateAccountModal from "./CreateAccountModal/CreateAccountModal";
@@ -29,29 +28,7 @@ const Authentication: FC = (): ReactElement => {
 
     return (
         <div className={classes.wrapper}>
-            <section className={classes.leftSide}>
-                <TwitterIcon color="primary" className={classes.leftSideTwitterIcon} />
-                <List className={classes.leftSideListInfo}>
-                    <ListItem>
-                        <Typography variant="h6">
-                            <>{SearchIcon}</>
-                            Follow your interests.
-                        </Typography>
-                    </ListItem>
-                    <ListItem>
-                        <Typography variant="h6">
-                            <>{CommunityIcon}</>
-                            Hear what people are talking about.
-                        </Typography>
-                    </ListItem>
-                    <ListItem>
-                        <Typography variant="h6">
-                            <>{ReplyIcon}</>
-                            Join the conversation.
-                        </Typography>
-                    </ListItem>
-                </List>
-            </section>
+            <section className={classes.leftSide} />
             <section className={classes.rightSide}>
                 <div className={classes.rightSideWrapper}>
                     <TwitterIcon color="primary" className={classes.rightSideTwitterIcon} />
