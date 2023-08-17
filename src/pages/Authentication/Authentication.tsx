@@ -33,10 +33,10 @@ const Authentication: FC = (): ReactElement => {
                 <div className={classes.rightSideWrapper}>
                     <TwitterIcon color="primary" className={classes.rightSideTwitterIcon} />
                     <Typography className={classes.rightSideTittle} variant="h4">
-                        See what's happening in the world right now
+                        Happening now
                     </Typography>
-                    <Typography>
-                        <b>Join Twitter today!</b>
+                    <Typography variant="h4">
+                        Join today!
                     </Typography>
                     <br />
                     <Button

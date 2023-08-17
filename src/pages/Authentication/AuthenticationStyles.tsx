@@ -66,14 +66,14 @@ export const useAuthenticationStyles = makeStyles((theme) => ({
         flex: "0 0 50%"
     },
     rightSideWrapper: {
-        width: 380
+        width: 400
     },
     rightSideTwitterIcon: {
         fontSize: 45
     },
     rightSideTittle: {
         fontWeight: 700,
-        fontSize: 32,
+        fontSize: 50,
         marginBottom: 45,
         marginTop: 20
     },
