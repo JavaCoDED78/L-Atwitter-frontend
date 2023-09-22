@@ -15,7 +15,7 @@ const AddPollInputButton: FC<AddPollInputButtonProps> = memo(({ pollInputSize, a
 
     return (
         <Grid id={"addPollChoiceButton"} md={1} item>
-            <div className={classes.addPollInputWrapper} style={{ minHeight: (pollInputSize === 0) ? 115 : 185 }}>
+            <div className={classes.addPollInputWrapper} style={{ minHeight: pollInputSize === 0 ? 115 : 185 }}>
                 <ActionIconButton actionText={"Add"} icon={PlusIcon} onClick={addPollInput} />
             </div>
         </Grid>

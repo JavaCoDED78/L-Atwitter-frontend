@@ -80,7 +80,9 @@ export const setFollowRequestToNotificationInfo = (payload: boolean): SetFollowR
     payload
 });
 
-export const updateNotificationInfoTweet = (payload: NotificationResponse | NotificationReplyResponse): UpdateNotificationInfoTweetActionInterface => ({
+export const updateNotificationInfoTweet = (
+    payload: NotificationResponse | NotificationReplyResponse
+): UpdateNotificationInfoTweetActionInterface => ({
     type: NotificationsActionsType.UPDATE_NOTIFICATION_INFO_TWEET,
     payload
 });

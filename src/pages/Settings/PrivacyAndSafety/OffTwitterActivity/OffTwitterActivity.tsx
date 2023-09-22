@@ -12,8 +12,7 @@ const OffTwitterActivity: FC = (): ReactElement => {
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Manage how Twitter uses your online activity outside of Twitter, such as the websites you visit, to
-                    personalize your experience.
+                    Manage how Twitter uses your online activity outside of Twitter, such as the websites you visit, to personalize your experience.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>

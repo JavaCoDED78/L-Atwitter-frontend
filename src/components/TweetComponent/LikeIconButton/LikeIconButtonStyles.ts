@@ -8,7 +8,7 @@ export const useLikeIconButtonStyles = makeStyles<Theme, TweetLikeIconButtonProp
     likeIcon: {
         "& .MuiIconButton-root": {
             "& svg": {
-                color: props => props.isTweetLiked ? "rgb(224, 36, 94)" : theme.palette.text.secondary
+                color: (props) => (props.isTweetLiked ? "rgb(224, 36, 94)" : theme.palette.text.secondary)
             },
             "&:hover": {
                 backgroundColor: "rgba(249, 24, 128, 0.1) !important",
@@ -19,7 +19,7 @@ export const useLikeIconButtonStyles = makeStyles<Theme, TweetLikeIconButtonProp
         },
         "& span": {
             verticalAlign: "middle",
-            color: props => props.isTweetLiked ? "rgb(224, 36, 94)" : theme.palette.text.secondary
+            color: (props) => (props.isTweetLiked ? "rgb(224, 36, 94)" : theme.palette.text.secondary)
         }
     },
     likedTweetsCount: {

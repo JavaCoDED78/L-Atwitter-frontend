@@ -7,7 +7,6 @@ export interface UsersState {
     loadingState: LoadingStatus;
 }
 
-
 export interface FollowUsersPayload {
     userId: number;
     isFollower: boolean;

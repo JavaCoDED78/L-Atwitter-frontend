@@ -1,7 +1,7 @@
 import { AxiosResponse, CancelTokenSource } from "axios";
 
 import { axios } from "../../../core/axios";
-import { ListsRequest, AddUserToListsRequest } from "../../../store/ducks/lists/contracts/state";
+import { AddUserToListsRequest, ListsRequest } from "../../../store/ducks/lists/contracts/state";
 import {
     BaseListResponse,
     ListResponse,

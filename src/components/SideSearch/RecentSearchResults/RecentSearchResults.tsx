@@ -44,35 +44,28 @@ const RecentSearchResults: FC = (): ReactElement => {
                 <Typography className={classes.searchText} variant={"body1"} component={"div"}>
                     Try searching for people, topics, or keywords
                 </Typography>
+            ) : isLoadingSearchResult ? (
+                <Spinner />
             ) : (
-                isLoadingSearchResult ? (
-                    <Spinner />
-                ) : (
-                    <>
-                        <div>
-                            <Typography className={classes.header} variant={"h5"} component={"div"}>
-                                Recent
-                            </Typography>
-                            <Button
-                                className={classes.clearButton}
-                                onClick={onClickClearSearchTerms}
-                                variant="text"
-                                color="primary"
-                            >
-                                Clear all
-                            </Button>
-                        </div>
-                        {recentTextSearchResult.map((text, index) => (
-                            <TextSearchResult key={index} text={text} recentSearch />
-                        ))}
-                        {recentTagsSearchResult.map((tag, index) => (
-                            <TextSearchResult key={index} text={tag} recentSearch />
-                        ))}
-                        {recentUsersSearchResult.map((user) => (
-                            <UserSearchResult key={user.id} user={user} recentSearch />
-                        ))}
-                    </>
-                )
+                <>
+                    <div>
+                        <Typography className={classes.header} variant={"h5"} component={"div"}>
+                            Recent
+                        </Typography>
+                        <Button className={classes.clearButton} onClick={onClickClearSearchTerms} variant="text" color="primary">
+                            Clear all
+                        </Button>
+                    </div>
+                    {recentTextSearchResult.map((text, index) => (
+                        <TextSearchResult key={index} text={text} recentSearch />
+                    ))}
+                    {recentTagsSearchResult.map((tag, index) => (
+                        <TextSearchResult key={index} text={tag} recentSearch />
+                    ))}
+                    {recentUsersSearchResult.map((user) => (
+                        <UserSearchResult key={user.id} user={user} recentSearch />
+                    ))}
+                </>
             )}
         </>
     );

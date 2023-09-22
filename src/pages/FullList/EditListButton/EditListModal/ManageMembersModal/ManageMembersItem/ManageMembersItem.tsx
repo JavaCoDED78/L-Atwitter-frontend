@@ -22,14 +22,7 @@ interface ManageMembersItemProps {
     isSuggested?: boolean;
 }
 
-const ManageMembersItem: FC<ManageMembersItemProps> = memo((
-    {
-        listId,
-        listOwnerId,
-        user,
-        isSuggested
-    }
-): ReactElement => {
+const ManageMembersItem: FC<ManageMembersItemProps> = memo(({ listId, listOwnerId, user, isSuggested }): ReactElement => {
     const classes = useManageMembersItemStyles();
     const myProfileId = useSelector(selectUserDataId);
     const { visiblePopperWindow, handleHoverPopper, handleLeavePopper } = useHoverItem(fetchUserDetail);
@@ -42,7 +35,7 @@ const ManageMembersItem: FC<ManageMembersItemProps> = memo((
                     <div className={classes.header}>
                         <div
                             id={"fullName"}
-                            onMouseEnter={() => handleHoverPopper({ userId: user?.id} as HoverItemDetail)}
+                            onMouseEnter={() => handleHoverPopper({ userId: user?.id } as HoverItemDetail)}
                             onMouseLeave={handleLeavePopper}
                             className={classes.headerUserInfo}
                         >
@@ -55,16 +48,15 @@ const ManageMembersItem: FC<ManageMembersItemProps> = memo((
                             <PopperUserWindow visible={visiblePopperWindow} />
                         </div>
                         <div className={classes.buttonWrapper}>
-                            {(listOwnerId === myProfileId) && (
-                                (user?.id === myProfileId) ? null : (
+                            {listOwnerId === myProfileId &&
+                                (user?.id === myProfileId ? null : (
                                     <ManageMemberButton
                                         userId={user?.id!}
                                         listId={listId!}
                                         isMemberInList={user?.isMemberInList!}
                                         isSuggested={isSuggested}
                                     />
-                                )
-                            )}
+                                ))}
                         </div>
                     </div>
                 </div>

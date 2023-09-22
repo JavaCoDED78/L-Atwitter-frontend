@@ -11,23 +11,13 @@ describe("TweetActions", () => {
     const mockState = { ...mockRootState, userProfile: { ...mockRootState.userProfile, user: mockUserProfile } };
 
     it("should render user profile retweeted", () => {
-        const wrapper = mountWithStore(
-            <TweetActions
-                retweetsUserIds={[1]}
-                tweetId={mockUser.pinnedTweetId}
-                activeTab={0}
-            />, mockState);
+        const wrapper = mountWithStore(<TweetActions retweetsUserIds={[1]} tweetId={mockUser.pinnedTweetId} activeTab={0} />, mockState);
         expect(wrapper.find(TweetActionResult).at(0).prop("text")).toBe("Random Retweeted");
         expect(wrapper.find(TweetActionResult).at(1).prop("text")).toBe("Pinned Tweet");
     });
 
     it("should render my profile retweeted", () => {
-        const wrapper = mountWithStore(
-            <TweetActions
-                retweetsUserIds={[2]}
-                tweetId={mockUser.pinnedTweetId}
-                activeTab={0}
-            />, mockRootState);
+        const wrapper = mountWithStore(<TweetActions retweetsUserIds={[2]} tweetId={mockUser.pinnedTweetId} activeTab={0} />, mockRootState);
         expect(wrapper.find(TweetActionResult).at(0).prop("text")).toBe("You Retweeted");
         expect(wrapper.find(TweetActionResult).at(1).prop("text")).toBe("Pinned Tweet");
     });

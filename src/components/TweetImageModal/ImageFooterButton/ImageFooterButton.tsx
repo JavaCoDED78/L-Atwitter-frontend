@@ -19,7 +19,7 @@ const ImageFooterButton: FC<ImageFooterButtonProps> = memo(({ id, icon, count, o
             <IconButton onClick={onClick} size="small">
                 {icon}
             </IconButton>
-            {(count !== 0) && (
+            {count !== 0 && (
                 <Typography id={id} variant={"body1"} component={"span"}>
                     {count}
                 </Typography>

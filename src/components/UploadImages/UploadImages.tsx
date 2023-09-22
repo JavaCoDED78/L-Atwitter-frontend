@@ -39,12 +39,7 @@ const UploadImages: FC = memo((): ReactElement => {
 
     return (
         <>
-            <ActionIconButton
-                actionText={"Media"}
-                icon={MediaIcon}
-                onClick={handleClickImage}
-                size={"medium"}
-            />
+            <ActionIconButton actionText={"Media"} icon={MediaIcon} onClick={handleClickImage} size={"medium"} />
             <input ref={inputRef} type="file" id="upload-input" hidden />
         </>
     );

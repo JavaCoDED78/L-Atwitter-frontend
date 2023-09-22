@@ -5,8 +5,7 @@ import { createMockRootState, mountWithStore } from "../../../../../util/test-ut
 import { LoadingStatus } from "../../../../../types/common";
 import { mockUserFullList } from "../../../../../util/test-utils/mock-test-data";
 import PopperListInteractionCount from "../PopperListInteractionCount";
-import MembersAndFollowersModal
-    from "../../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
+import MembersAndFollowersModal from "../../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
 import CloseButton from "../../../../../components/CloseButton/CloseButton";
 
 describe("PopperListInteractionCount", () => {

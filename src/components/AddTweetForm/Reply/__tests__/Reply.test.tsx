@@ -11,7 +11,7 @@ describe("Reply", () => {
     const mockState = createMockRootState(LoadingStatus.LOADED);
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should click change reply type", () => {
         const wrapper = mountWithStore(<Reply isUnsentTweet={false} />, mockState);

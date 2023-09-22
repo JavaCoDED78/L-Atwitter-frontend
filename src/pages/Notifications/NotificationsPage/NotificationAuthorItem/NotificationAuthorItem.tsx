@@ -22,11 +22,7 @@ const NotificationAuthorItem: FC<NotificationAuthorItemProps> = memo(({ tweetAut
             onMouseEnter={() => handleHoverPopper({ userId: tweetAuthor?.id } as HoverItemDetail)}
             onMouseLeave={handleLeavePopper}
         >
-            <Avatar
-                className={classes.notificationAvatar}
-                alt={`avatar ${tweetAuthor?.id!}`}
-                src={tweetAuthor?.avatar ?? DEFAULT_PROFILE_IMG}
-            />
+            <Avatar className={classes.notificationAvatar} alt={`avatar ${tweetAuthor?.id!}`} src={tweetAuthor?.avatar ?? DEFAULT_PROFILE_IMG} />
             <PopperUserWindow visible={visiblePopperWindow} />
         </div>
     );

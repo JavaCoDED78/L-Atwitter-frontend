@@ -86,11 +86,13 @@ export function* processNotInterestedTopicRequest({ payload }: ProcessNotInteres
 export function* processFollowTopicRequest({ payload }: ProcessFollowTopicActionInterface) {
     try {
         const response: AxiosResponse<boolean> = yield call(TopicApi.processFollowTopic, payload.topicsId);
-        yield put(setFollowTopic({
-            topicsId: payload.topicsId,
-            topicCategory: payload.topicCategory,
-            isTopicFollowed: response.data
-        }));
+        yield put(
+            setFollowTopic({
+                topicsId: payload.topicsId,
+                topicCategory: payload.topicCategory,
+                isTopicFollowed: response.data
+            })
+        );
     } catch (error) {
         yield put(setTopicsLoadingState(LoadingStatus.ERROR));
     }

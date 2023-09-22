@@ -27,8 +27,16 @@ describe("SettingsModal", () => {
         wrapper.find(ActionIconButton).find(IconButton).simulate("click");
         expect(wrapper.find(Checkbox).at(0).prop("checked")).toBe(true);
         expect(wrapper.find(Checkbox).at(1).prop("checked")).toBe(true);
-        wrapper.find(Checkbox).find("input").at(0).simulate("change", { target: { checked: false } });
-        wrapper.find(Checkbox).find("input").at(1).simulate("change", { target: { checked: false } });
+        wrapper
+            .find(Checkbox)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { checked: false } });
+        wrapper
+            .find(Checkbox)
+            .find("input")
+            .at(1)
+            .simulate("change", { target: { checked: false } });
         expect(wrapper.find(Checkbox).at(0).prop("checked")).toBe(false);
         expect(wrapper.find(Checkbox).at(1).prop("checked")).toBe(false);
     });

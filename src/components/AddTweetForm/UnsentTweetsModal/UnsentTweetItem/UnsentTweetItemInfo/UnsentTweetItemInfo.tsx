@@ -27,7 +27,7 @@ const UnsentTweetItemInfo: FC<UnsentTweetItemInfoProps> = memo(({ scheduledDate,
                 <Typography variant={"body1"} component={"span"}>
                     {text}
                 </Typography>
-                {(images?.length !== 0) && (
+                {images?.length !== 0 && (
                     <div className={classes.imageWrapper}>
                         <img src={images?.[0].src} alt={images?.[0].src} />
                     </div>

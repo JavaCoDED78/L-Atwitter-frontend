@@ -28,7 +28,5 @@ describe("listDetailSaga:", () => {
         testLoadingStatus(worker, setListDetailLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(listDetailSaga, [
-        { actionType: ListDetailActionsType.FETCH_LIST_DETAIL, workSaga: fetchListDetailRequest }
-    ]);
+    testWatchSaga(listDetailSaga, [{ actionType: ListDetailActionsType.FETCH_LIST_DETAIL, workSaga: fetchListDetailRequest }]);
 });

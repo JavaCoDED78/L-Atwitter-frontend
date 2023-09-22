@@ -1,18 +1,7 @@
 import { AxiosResponse } from "axios";
 
-import {
-    addChatMessageRequest,
-    addChatMessageWithTweetRequest,
-    chatMessagesSaga,
-    fetchChatMessagesRequest
-} from "../sagas";
-import {
-    addChatMessage,
-    addChatMessageWithTweet,
-    fetchChatMessages,
-    setChatMessages,
-    setChatMessagesLoadingState
-} from "../actionCreators";
+import { addChatMessageRequest, addChatMessageWithTweetRequest, chatMessagesSaga, fetchChatMessagesRequest } from "../sagas";
+import { addChatMessage, addChatMessageWithTweet, fetchChatMessages, setChatMessages, setChatMessagesLoadingState } from "../actionCreators";
 import { testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { ChatMessageApi } from "../../../../services/api/chat-service/chatMessageApi";
 import { ChatMessageResponse } from "../../../../types/chat";
@@ -21,7 +10,6 @@ import { ChatMessagesActionsType } from "../contracts/actionTypes";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("chatMessagesSaga:", () => {
-
     describe("fetchChatMessagesRequest:", () => {
         const mockChatMessageResponse = { data: [{ id: 1 }, { id: 2 }] } as AxiosResponse<ChatMessageResponse[]>;
         const worker = fetchChatMessagesRequest(fetchChatMessages(1));

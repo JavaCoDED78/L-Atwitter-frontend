@@ -10,10 +10,7 @@ import ResetPassword from "../ResetPassword";
 import { createMockRootState, mountWithStore } from "../../../../util/test-utils/test-helper";
 import { ForgotPasswordTextField } from "../../ForgotPasswordTextField/ForgotPasswordTextField";
 import { API_AUTH_RESET } from "../../../../constants/endpoint-constants";
-import {
-    ACCOUNT_FORGOT_PASSWORD_RESET_COMPLETE,
-    ACCOUNT_FORGOT_RESET_PASSWORD
-} from "../../../../constants/path-constants";
+import { ACCOUNT_FORGOT_PASSWORD_RESET_COMPLETE, ACCOUNT_FORGOT_RESET_PASSWORD } from "../../../../constants/path-constants";
 
 describe("ResetPassword", () => {
     const mockStore = createMockRootState();
@@ -22,7 +19,10 @@ describe("ResetPassword", () => {
 
     beforeEach(() => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: ACCOUNT_FORGOT_RESET_PASSWORD, hash: "", search: "", state: { user: mockUser }
+            pathname: ACCOUNT_FORGOT_RESET_PASSWORD,
+            hash: "",
+            search: "",
+            state: { user: mockUser }
         });
     });
 

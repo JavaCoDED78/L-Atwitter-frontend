@@ -8,12 +8,7 @@ import classnames from "classnames";
 import TweetComponent from "../../components/TweetComponent/TweetComponent";
 import { useHomeStyles } from "./HomeStyles";
 import AddTweetForm from "../../components/AddTweetForm/AddTweetForm";
-import {
-    fetchFollowersTweets,
-    fetchTweets,
-    resetTweets,
-    setTweetsLoadingState
-} from "../../store/ducks/tweets/actionCreators";
+import { fetchFollowersTweets, fetchTweets, resetTweets, setTweetsLoadingState } from "../../store/ducks/tweets/actionCreators";
 import { selectIsTweetsLoading, selectPagesCount, selectTweetsItems } from "../../store/ducks/tweets/selectors";
 import { fetchUserData } from "../../store/ducks/user/actionCreators";
 import { selectUserDataIsProfileStarted } from "../../store/ducks/user/selectors";
@@ -58,7 +53,7 @@ const Home: FC = (): ReactElement => {
         } else {
             dispatch(fetchTweets(page));
         }
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const handleLatestTweets = (): void => {
@@ -75,27 +70,15 @@ const Home: FC = (): ReactElement => {
 
     const handleSwitchTweets = (condition: boolean): void => {
         setSwitchTweets(condition);
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     return (
-        <InfiniteScroll
-            style={{ overflow: "unset" }}
-            dataLength={tweets.length}
-            next={loadTweets}
-            hasMore={page < pagesCount}
-            loader={null}
-        >
+        <InfiniteScroll style={{ overflow: "unset" }} dataLength={tweets.length} next={loadTweets} hasMore={page < pagesCount} loader={null}>
             <Paper className={globalClasses.pageContainer} variant="outlined">
                 <Paper className={classnames(globalClasses.pageHeader, classes.header)} variant="outlined">
-                    <Typography variant="h5">
-                        Home
-                    </Typography>
-                    <TopTweetActions
-                        switchTweets={switchTweets}
-                        handleLatestTweets={handleLatestTweets}
-                        handleTopTweets={handleTopTweets}
-                    />
+                    <Typography variant="h5">Home</Typography>
+                    <TopTweetActions switchTweets={switchTweets} handleLatestTweets={handleLatestTweets} handleTopTweets={handleTopTweets} />
                 </Paper>
                 <div className={classes.addForm}>
                     <AddTweetForm title={"What's happening?"} buttonName={"Tweet"} />
@@ -105,7 +88,9 @@ const Home: FC = (): ReactElement => {
                     <Welcome />
                 ) : (
                     <>
-                        {tweets.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
+                        {tweets.map((tweet) => (
+                            <TweetComponent key={tweet.id} tweet={tweet} />
+                        ))}
                         {isLoading && <Spinner />}
                     </>
                 )}

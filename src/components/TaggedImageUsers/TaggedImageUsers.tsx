@@ -9,11 +9,7 @@ import { getUsersInImage } from "../../util/text-formatter";
 import { TaggedUserResponse } from "../../types/user";
 import { useModalWindow } from "../../hook/useModalWindow";
 import { fetchTaggedImageUsers, resetTaggedImageUsers } from "../../store/ducks/tweet/actionCreators";
-import {
-    selectIsTaggedImageUsersLoading,
-    selectTaggedImageUsers,
-    selectUsersPagesCount
-} from "../../store/ducks/tweet/selectors";
+import { selectIsTaggedImageUsersLoading, selectTaggedImageUsers, selectUsersPagesCount } from "../../store/ducks/tweet/selectors";
 import InfiniteScrollWrapper from "../InfiniteScrollWrapper/InfiniteScrollWrapper";
 import Spinner from "../Spinner/Spinner";
 import UsersItem, { UserItemSize } from "../UsersItem/UsersItem";

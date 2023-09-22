@@ -3,11 +3,7 @@ import { AxiosResponse } from "axios";
 import { UserTweetRequest } from "../../../store/ducks/userTweets/contracts/state";
 import { TweetResponse } from "../../../types/tweet";
 import { axios } from "../../../core/axios";
-import {
-    API_TWEETS_RETWEET,
-    API_TWEETS_RETWEETED_USERS,
-    API_TWEETS_USER_REPLIES
-} from "../../../constants/endpoint-constants";
+import { API_TWEETS_RETWEET, API_TWEETS_RETWEETED_USERS, API_TWEETS_USER_REPLIES } from "../../../constants/endpoint-constants";
 import { FetchTweetUsersPayload } from "../../../store/ducks/tweet/contracts/state";
 import { UserResponse } from "../../../types/user";
 import { TweetActionPayload } from "../../../store/ducks/tweets/contracts/state";

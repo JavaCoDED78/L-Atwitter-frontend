@@ -4,10 +4,10 @@ import MockAdapter from "axios-mock-adapter";
 import { testApiCall } from "../../../../util/test-utils/api-test-helper";
 import {
     API_NOTIFICATION,
+    API_NOTIFICATION_MENTIONS,
     API_NOTIFICATION_SUBSCRIBES,
     API_NOTIFICATION_TIMELINE,
-    API_NOTIFICATION_USER,
-    API_NOTIFICATION_MENTIONS
+    API_NOTIFICATION_USER
 } from "../../../../constants/endpoint-constants";
 import { mockTweets } from "../../../../util/test-utils/mock-test-data";
 import { NotificationApi } from "../notificationApi";

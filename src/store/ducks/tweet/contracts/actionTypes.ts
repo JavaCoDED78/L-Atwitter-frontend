@@ -36,7 +36,7 @@ export enum TweetActionType {
     FETCH_REPLIES = "tweet/FETCH_REPLIES",
     SET_REPLIES = "tweet/SET_REPLIES",
     RESET_REPLIES_STATE = "tweet/RESET_REPLIES_STATE",
-    SET_REPLIES_LOADING_STATE = "tweet/SET_REPLIES_LOADING_STATE",
+    SET_REPLIES_LOADING_STATE = "tweet/SET_REPLIES_LOADING_STATE"
 }
 
 export interface SetFollowToTweetStateActionInterface extends Action<TweetActionType> {
@@ -210,4 +210,4 @@ export type TweetActions =
     // replies
     | SetRepliesActionInterface
     | ResetRepliesStateActionInterface
-    | SetRepliesLoadingStateInterface
+    | SetRepliesLoadingStateInterface;

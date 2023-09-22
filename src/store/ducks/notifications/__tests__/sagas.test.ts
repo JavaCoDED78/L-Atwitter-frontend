@@ -19,19 +19,8 @@ import {
     setTweetAuthorsLoadingState,
     setTweetAuthorsNotifications
 } from "../actionCreators";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
-import {
-    NotificationInfoResponse,
-    NotificationResponse,
-    NotificationsResponse,
-    NotificationUserResponse
-} from "../../../../types/notification";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
+import { NotificationInfoResponse, NotificationResponse, NotificationsResponse, NotificationUserResponse } from "../../../../types/notification";
 import { setPageableTweets, setTweetsLoadingState } from "../../tweets/actionCreators";
 import { TweetResponse } from "../../../../types/tweet";
 import { NotificationsActionsType } from "../contracts/actionTypes";
@@ -39,7 +28,6 @@ import { LoadingStatus } from "../../../../types/common";
 import { NotificationApi } from "../../../../services/api/notification-service/notificationApi";
 
 describe("notificationsSaga:", () => {
-
     describe("fetchNotificationsRequest:", () => {
         const mockPageableNotifications = {
             data: [{ id: 1 }],
@@ -49,7 +37,13 @@ describe("notificationsSaga:", () => {
 
         testLoadingStatus(worker, setNotificationsLoadingState, LoadingStatus.LOADING);
         testCall(worker, NotificationApi.getUserNotifications, 0);
-        testSetResponse(worker, mockPageableNotifications, setNotifications, mockExpectedResponse(mockPageableNotifications), "NotificationsResponse");
+        testSetResponse(
+            worker,
+            mockPageableNotifications,
+            setNotifications,
+            mockExpectedResponse(mockPageableNotifications),
+            "NotificationsResponse"
+        );
         testLoadingStatus(worker, setNotificationsLoadingState, LoadingStatus.ERROR);
     });
 
@@ -59,7 +53,13 @@ describe("notificationsSaga:", () => {
 
         testLoadingStatus(worker, setTweetAuthorsLoadingState, LoadingStatus.LOADING);
         testCall(worker, NotificationApi.getTweetAuthorsNotifications);
-        testSetResponse(worker, mockNotificationInfoResponse, setTweetAuthorsNotifications, mockNotificationInfoResponse.data, "NotificationInfoResponse");
+        testSetResponse(
+            worker,
+            mockNotificationInfoResponse,
+            setTweetAuthorsNotifications,
+            mockNotificationInfoResponse.data,
+            "NotificationInfoResponse"
+        );
         testLoadingStatus(worker, setTweetAuthorsLoadingState, LoadingStatus.ERROR);
     });
 

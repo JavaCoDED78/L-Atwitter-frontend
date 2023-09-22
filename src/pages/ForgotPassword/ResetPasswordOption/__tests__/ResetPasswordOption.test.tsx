@@ -9,10 +9,7 @@ import { setImmediate } from "timers";
 import { createMockRootState, mountWithStore } from "../../../../util/test-utils/test-helper";
 import ResetPasswordOption from "../ResetPasswordOption";
 import { API_AUTH_FORGOT } from "../../../../constants/endpoint-constants";
-import {
-    ACCOUNT_FORGOT_CONFIRM_PIN_RESET,
-    ACCOUNT_FORGOT_SEND_PASSWORD_RESET
-} from "../../../../constants/path-constants";
+import { ACCOUNT_FORGOT_CONFIRM_PIN_RESET, ACCOUNT_FORGOT_SEND_PASSWORD_RESET } from "../../../../constants/path-constants";
 
 describe("ResetPasswordOption", () => {
     const mockStore = createMockRootState();
@@ -20,7 +17,10 @@ describe("ResetPasswordOption", () => {
 
     beforeEach(() => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: ACCOUNT_FORGOT_SEND_PASSWORD_RESET, hash: "", search: "", state: { email: mockUser?.email }
+            pathname: ACCOUNT_FORGOT_SEND_PASSWORD_RESET,
+            hash: "",
+            search: "",
+            state: { email: mockUser?.email }
         });
     });
 

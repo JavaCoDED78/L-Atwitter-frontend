@@ -7,7 +7,6 @@ import TextSearchResult from "../TextSearchResult";
 import { SEARCH } from "../../../../constants/path-constants";
 
 describe("TextSearchResult", () => {
-
     it("should click search result text", () => {
         testClickSearchResult("test");
     });
@@ -25,7 +24,7 @@ describe("TextSearchResult", () => {
         expect(pushSpy).toHaveBeenCalled();
         expect(pushSpy).toHaveBeenCalledWith({
             pathname: SEARCH,
-            state: (Array.from(text)[0] === "#") ? { tag: text } : { text: text }
+            state: Array.from(text)[0] === "#" ? { tag: text } : { text: text }
         });
     };
 });

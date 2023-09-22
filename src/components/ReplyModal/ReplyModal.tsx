@@ -26,17 +26,7 @@ interface ReplyModalProps {
     onClose: () => void;
 }
 
-const ReplyModal: FC<ReplyModalProps> = (
-    {
-        user,
-        tweetId,
-        text,
-        image,
-        dateTime,
-        visible,
-        onClose
-    }
-): ReactElement | null => {
+const ReplyModal: FC<ReplyModalProps> = ({ user, tweetId, text, image, dateTime, visible, onClose }): ReactElement | null => {
     const globalClasses = useGlobalStyles({});
     const classes = useReplyModalStyles();
 
@@ -60,11 +50,16 @@ const ReplyModal: FC<ReplyModalProps> = (
                             <div>
                                 <Typography variant={"h6"} component={"span"}>
                                     {user.fullName}
-                                </Typography>&nbsp;
+                                </Typography>
+                                &nbsp;
                                 <Typography variant={"subtitle1"} component={"span"}>
                                     @{user.username}
-                                </Typography>&nbsp;
-                                <Typography variant={"subtitle1"} component={"span"}>·</Typography>&nbsp;
+                                </Typography>
+                                &nbsp;
+                                <Typography variant={"subtitle1"} component={"span"}>
+                                    ·
+                                </Typography>
+                                &nbsp;
                                 <Typography variant={"subtitle1"} component={"span"}>
                                     {formatDate(new Date(dateTime))}
                                 </Typography>

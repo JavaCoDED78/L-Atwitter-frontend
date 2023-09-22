@@ -15,14 +15,7 @@ interface DisplayModalProps {
     onClose: () => void;
 }
 
-const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
-    {
-        visible,
-        onClose,
-        changeBackgroundColor,
-        changeColorScheme
-    }
-): ReactElement | null => {
+const DisplayModal: FC<DisplayModalProps & DisplayProps> = ({ visible, onClose, changeBackgroundColor, changeColorScheme }): ReactElement | null => {
     const classes = useDisplayModalStyles();
     const dispatch = useDispatch();
     const [selectedBackgroundColor, setSelectedBackgroundColor] = useState<BackgroundTheme>(BackgroundTheme.DEFAULT);
@@ -32,8 +25,8 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
         if (visible) {
             const background = localStorage.getItem(BACKGROUND);
             const color = localStorage.getItem(COLOR);
-            setSelectedBackgroundColor((background !== null) ? background as BackgroundTheme : BackgroundTheme.DEFAULT);
-            setSelectedColor((color !== null) ? color as ColorScheme : ColorScheme.BLUE);
+            setSelectedBackgroundColor(background !== null ? (background as BackgroundTheme) : BackgroundTheme.DEFAULT);
+            setSelectedColor(color !== null ? (color as ColorScheme) : ColorScheme.BLUE);
         }
     }, [visible]);
 
@@ -59,16 +52,8 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
 
     const ColorSelector: FC<{ color: ColorScheme }> = ({ color }): JSX.Element => {
         return (
-            <div
-                id={color.toLowerCase()}
-                className={classes.colorItem}
-                onClick={() => onClickColor(color)}
-            >
-                {(color === selectedColor) && (
-                    <span className={classes.checkIcon}>
-                        {CheckIcon}
-                    </span>
-                )}
+            <div id={color.toLowerCase()} className={classes.colorItem} onClick={() => onClickColor(color)}>
+                {color === selectedColor && <span className={classes.checkIcon}>{CheckIcon}</span>}
             </div>
         );
     };
@@ -84,15 +69,12 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
             </Typography>
             <DialogContent className={classes.content}>
                 <Typography variant={"subtitle1"} component={"div"} className={classes.text}>
-                    Manage your font size, color, and background. These settings affect all the Twitter accounts on this
-                    browser.
+                    Manage your font size, color, and background. These settings affect all the Twitter accounts on this browser.
                 </Typography>
                 <div className={classes.tweetInfoWrapper}>
                     <div>
                         <div className={classes.tweetIconWrapper}>
-                            <span className={classes.tweetIcon}>
-                                {TweetIcon}
-                            </span>
+                            <span className={classes.tweetIcon}>{TweetIcon}</span>
                         </div>
                     </div>
                     <div>
@@ -100,9 +82,7 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                             <Typography variant={"h6"} component={"span"} className={classes.tweetTitle}>
                                 Twitter
                             </Typography>
-                            <span className={classes.tweetVerifiedIcon}>
-                                {VerifiedIcon}
-                            </span>
+                            <span className={classes.tweetVerifiedIcon}>{VerifiedIcon}</span>
                             <Typography variant={"subtitle1"} component={"span"}>
                                 @Twitter
                             </Typography>
@@ -111,9 +91,8 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                             </Typography>
                         </div>
                         <Typography variant={"body1"} component={"div"} className={classes.tweetText}>
-                            At the heart of Twitter are short messages called Tweets — just like this one — which can
-                            include photos, videos, links, text, hashtags, and mentions like <span
-                            className={classes.tweetLink}>@Twitter</span>
+                            At the heart of Twitter are short messages called Tweets — just like this one — which can include photos, videos, links,
+                            text, hashtags, and mentions like <span className={classes.tweetLink}>@Twitter</span>
                         </Typography>
                     </div>
                 </div>
@@ -151,9 +130,7 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                 </Typography>
                 <div className={classes.backgroundContainer}>
                     <div className={classes.backgroundWrapper}>
-                        <div id={"default"} className={classes.backgroundItem}
-                             onClick={() => onClickBackgroundColor(BackgroundTheme.DEFAULT)}
-                        >
+                        <div id={"default"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.DEFAULT)}>
                             <div className={classes.backgroundItemWrapper}>
                                 <Radio
                                     checked={selectedBackgroundColor === BackgroundTheme.DEFAULT}
@@ -172,9 +149,7 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                         </div>
                     </div>
                     <div className={classes.backgroundWrapper}>
-                        <div id={"dim"} className={classes.backgroundItem}
-                             onClick={() => onClickBackgroundColor(BackgroundTheme.DIM)}
-                        >
+                        <div id={"dim"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.DIM)}>
                             <div className={classes.backgroundItemWrapper}>
                                 <Radio
                                     checked={selectedBackgroundColor === BackgroundTheme.DIM}
@@ -193,9 +168,7 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                         </div>
                     </div>
                     <div className={classes.backgroundWrapper}>
-                        <div id={"lights-out"} className={classes.backgroundItem}
-                             onClick={() => onClickBackgroundColor(BackgroundTheme.LIGHTS_OUT)}
-                        >
+                        <div id={"lights-out"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.LIGHTS_OUT)}>
                             <div className={classes.backgroundItemWrapper}>
                                 <Radio
                                     checked={selectedBackgroundColor === BackgroundTheme.LIGHTS_OUT}
@@ -215,12 +188,7 @@ const DisplayModal: FC<DisplayModalProps & DisplayProps> = (
                     </div>
                 </div>
                 <div className={classes.buttonWrapper}>
-                    <Button
-                        onClick={onClose}
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                    >
+                    <Button onClick={onClose} variant="contained" color="primary" size="small">
                         Done
                     </Button>
                 </div>

@@ -22,13 +22,7 @@ const TweetActivityButton: FC<TweetActivityButtonProps> = memo(({ fullName, user
                     View Tweet activity
                 </Typography>
             </ListItem>
-            <TweetAnalyticsModal
-                fullName={fullName}
-                username={username}
-                text={text}
-                visible={visibleModalWindow}
-                onClose={onCloseModalWindow}
-            />
+            <TweetAnalyticsModal fullName={fullName} username={username} text={text} visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </>
     );
 });

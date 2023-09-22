@@ -22,7 +22,7 @@ describe("SetPasswordModal", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should CreateAccountModal and submit form", (done) => {
         const history = createMemoryHistory();
@@ -31,7 +31,10 @@ describe("SetPasswordModal", () => {
         expect(wrapper.text().includes("You'll need a password")).toBe(true);
         expect(wrapper.text().includes("Make sure it’s 8 characters or more.")).toBe(true);
         expect(wrapper.find(Button).text().includes("Next")).toBe(true);
-        wrapper.find(RegistrationInputField).find("input").simulate("change", { target: { value: "test_password" } });
+        wrapper
+            .find(RegistrationInputField)
+            .find("input")
+            .simulate("change", { target: { value: "test_password" } });
         wrapper.find(Button).at(0).simulate("click");
         setImmediate(() => {
             wrapper.update();
@@ -46,7 +49,10 @@ describe("SetPasswordModal", () => {
     it("should render password error", (done) => {
         const mockText = "Your password needs to be at least 8 characters. Please enter a longer one.";
         const wrapper = mountWithStore(<SetPasswordModal />, mockRootStore);
-        wrapper.find(RegistrationInputField).find("input").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(RegistrationInputField)
+            .find("input")
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(Button).at(0).simulate("submit");
         setImmediate(() => {
             wrapper.update();

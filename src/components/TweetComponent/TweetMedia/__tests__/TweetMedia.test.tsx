@@ -18,7 +18,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={mockFullTweet.linkCoverSize}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(YouTubeVideo).exists()).toBeFalsy();
         expect(wrapper.find(SmallLinkPreview).exists()).toBeFalsy();
         expect(wrapper.find(LargeLinkPreview).exists()).toBeFalsy();
@@ -32,7 +34,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={mockFullTweet.linkCoverSize}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(SmallLinkPreview).exists()).toBeTruthy();
     });
 
@@ -44,7 +48,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={mockFullTweet.linkCoverSize}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(YouTubeVideo).exists()).toBeFalsy();
         wrapper.find(SmallLinkPreview).find("#openYouTubeVideo").simulate("click");
         expect(wrapper.find(YouTubeVideo).exists()).toBeTruthy();
@@ -58,7 +64,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={mockFullTweet.linkCoverSize}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(SmallLinkPreview).exists()).toBeTruthy();
     });
 
@@ -70,7 +78,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={mockFullTweet.linkCoverSize}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(SmallLinkPreview).exists()).toBeTruthy();
     });
 
@@ -82,7 +92,9 @@ describe("TweetMedia", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 linkCoverSize={LinkCoverSize.LARGE}
-            />, mockTweet);
+            />,
+            mockTweet
+        );
         expect(wrapper.find(LargeLinkPreview).exists()).toBeTruthy();
     });
 });

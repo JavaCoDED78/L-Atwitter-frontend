@@ -14,14 +14,7 @@ const FullWidthButton: FC<FullWidthButtonProps> = ({ onClick, title, variant, si
     const classes = useFullWidthButtonStyles();
 
     return (
-        <Button
-            onClick={onClick}
-            className={classes.button}
-            color="primary"
-            variant={variant ?? "contained"}
-            size={size ?? "large"}
-            fullWidth
-        >
+        <Button onClick={onClick} className={classes.button} color="primary" variant={variant ?? "contained"} size={size ?? "large"} fullWidth>
             {title}
         </Button>
     );

@@ -26,13 +26,7 @@ const DeleteListModal = (): ReactElement => {
 
     return (
         <>
-            <Typography
-                id={"onOpenDeleteListModal"}
-                className={classes.deleteList}
-                onClick={onOpenModalWindow}
-                variant={"body1"}
-                component={"div"}
-            >
+            <Typography id={"onOpenDeleteListModal"} className={classes.deleteList} onClick={onOpenModalWindow} variant={"body1"} component={"div"}>
                 Delete List
             </Typography>
             <Dialog open={visibleModalWindow} onClose={onCloseModalWindow}>
@@ -45,20 +39,10 @@ const DeleteListModal = (): ReactElement => {
                             This can’t be undone and you’ll lose your List.
                         </Typography>
                         <div className={classes.modalButtonWrapper}>
-                            <Button
-                                className={classes.modalCancelButton}
-                                onClick={onCloseModalWindow}
-                                variant="contained"
-                                size="large"
-                            >
+                            <Button className={classes.modalCancelButton} onClick={onCloseModalWindow} variant="contained" size="large">
                                 Cancel
                             </Button>
-                            <Button
-                                className={classes.modalDeleteButton}
-                                onClick={onDeleteList}
-                                variant="contained"
-                                size="large"
-                            >
+                            <Button className={classes.modalDeleteButton} onClick={onDeleteList} variant="contained" size="large">
                                 Delete
                             </Button>
                         </div>

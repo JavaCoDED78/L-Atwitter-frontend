@@ -36,46 +36,29 @@ const ChatMessage: FC<ChatMessageProps> = memo(({ message, isParticipantMessage 
                 {isParticipantMessage && (
                     <Avatar
                         className={classes.participantAvatar}
-                        src={(myProfileId === chatSecondParticipantId) ? (
-                            chatFirstParticipantAvatar
-                        ) : (
-                            chatSecondParticipantAvatar
-                        )}
+                        src={myProfileId === chatSecondParticipantId ? chatFirstParticipantAvatar : chatSecondParticipantAvatar}
                     />
                 )}
                 <div>
-                    {message.tweet && (
-                        message.tweet.isDeleted ? (
+                    {message.tweet &&
+                        (message.tweet.isDeleted ? (
                             <div>Tweet deleted</div>
                         ) : (
                             <div className={classes.tweetContainer}>
                                 <Link to={`${HOME_TWEET}/${message.tweet.id}`}>
                                     <div className={classes.tweetWrapper}>
                                         <div className={classes.tweetUserInfoWrapper}>
-                                            <Avatar
-                                                className={classes.tweetAvatar}
-                                                src={message.tweet?.user.avatar ?? DEFAULT_PROFILE_IMG}
-                                            />
+                                            <Avatar className={classes.tweetAvatar} src={message.tweet?.user.avatar ?? DEFAULT_PROFILE_IMG} />
                                             <Typography variant={"h6"} component={"span"}>
                                                 {message.tweet?.user.fullName}
                                             </Typography>
-                                            <Typography
-                                                variant={"subtitle1"}
-                                                component={"span"}
-                                                className={classes.tweetUsername}
-                                            >
+                                            <Typography variant={"subtitle1"} component={"span"} className={classes.tweetUsername}>
                                                 @{message.tweet?.user.username}
                                             </Typography>
-                                            <Typography
-                                                variant={"subtitle1"}
-                                                component={"span"}
-                                                className={classes.tweetUsername}
-                                            >·</Typography>
-                                            <Typography
-                                                variant={"subtitle1"}
-                                                component={"span"}
-                                                className={classes.tweetUsername}
-                                            >
+                                            <Typography variant={"subtitle1"} component={"span"} className={classes.tweetUsername}>
+                                                ·
+                                            </Typography>
+                                            <Typography variant={"subtitle1"} component={"span"} className={classes.tweetUsername}>
                                                 {formatDate(new Date(message.tweet?.dateTime!))}
                                             </Typography>
                                         </div>
@@ -85,18 +68,10 @@ const ChatMessage: FC<ChatMessageProps> = memo(({ message, isParticipantMessage 
                                     </div>
                                 </Link>
                             </div>
-                        )
-                    )}
+                        ))}
                     {message.text && (
-                        <div className={classNames(
-                            classes.myMessage,
-                            message.tweet
-                                ? classes.myMessageWithTweet
-                                : classes.myMessageCommon
-                        )}>
-                            <Typography component={"span"}>
-                                {textFormatter(message.text)}
-                            </Typography>
+                        <div className={classNames(classes.myMessage, message.tweet ? classes.myMessageWithTweet : classes.myMessageCommon)}>
+                            <Typography component={"span"}>{textFormatter(message.text)}</Typography>
                         </div>
                     )}
                 </div>

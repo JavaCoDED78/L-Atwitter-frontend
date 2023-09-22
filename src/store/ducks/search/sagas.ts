@@ -1,11 +1,7 @@
 import { AxiosResponse } from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 
-import {
-    FetchRecentSearchResultActionInterface,
-    FetchSearchByTextActionInterface,
-    SearchActionsType
-} from "./contracts/actionTypes";
+import { FetchRecentSearchResultActionInterface, FetchSearchByTextActionInterface, SearchActionsType } from "./contracts/actionTypes";
 import { LoadingStatus } from "../../../types/common";
 import { setRecentSearchResult, setSearchLoadingState, setSearchResult } from "./actionCreators";
 import { CommonUserResponse, SearchResultResponse } from "../../../types/user";
@@ -27,11 +23,13 @@ export function* fetchRecentSearchResultRequest({ payload }: FetchRecentSearchRe
         yield put(setSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<CommonUserResponse[]> = yield call(UserApi.getSearchResults, payload);
         const localStorageItem = localStorage.getItem(SEARCH_TERMS);
-        yield put(setRecentSearchResult({
-            text: localStorageItem ? (JSON.parse(localStorageItem).text ?? []) : [],
-            tags: localStorageItem ? (JSON.parse(localStorageItem).tags ?? []) : [],
-            users: response.data
-        }));
+        yield put(
+            setRecentSearchResult({
+                text: localStorageItem ? JSON.parse(localStorageItem).text ?? [] : [],
+                tags: localStorageItem ? JSON.parse(localStorageItem).tags ?? [] : [],
+                users: response.data
+            })
+        );
     } catch (error) {
         yield put(setSearchLoadingState(LoadingStatus.ERROR));
     }

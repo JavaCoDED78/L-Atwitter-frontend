@@ -16,12 +16,7 @@ describe("DeleteTweetButton", () => {
     });
 
     it("should click open/close TweetComponentActionsModal", () => {
-        const wrapper = mountWithStore(
-            <DeleteTweetButton
-                tweetId={1}
-                addressedTweetId={1}
-                onCloseActionsDropdown={jest.fn()}
-            />);
+        const wrapper = mountWithStore(<DeleteTweetButton tweetId={1} addressedTweetId={1} onCloseActionsDropdown={jest.fn()} />);
         expect(wrapper.text().includes("Delete")).toBe(true);
         expect(wrapper.find(TweetComponentActionsModal).prop("visibleTweetComponentActionsModal")).toBe(false);
         wrapper.find("#delete").at(0).simulate("click");
@@ -39,12 +34,7 @@ describe("DeleteTweetButton", () => {
     });
 
     const testClickDeleteTweet = (tweetActionType: TweetActionType | TweetsActionType, addressedTweetId?: number): void => {
-        const wrapper = mountWithStore(
-            <DeleteTweetButton
-                tweetId={1}
-                addressedTweetId={addressedTweetId}
-                onCloseActionsDropdown={jest.fn()}
-            />);
+        const wrapper = mountWithStore(<DeleteTweetButton tweetId={1} addressedTweetId={addressedTweetId} onCloseActionsDropdown={jest.fn()} />);
         wrapper.find("#delete").at(0).simulate("click");
         wrapper.find(TweetComponentActionsModal).find(Button).at(1).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {

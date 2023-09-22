@@ -19,12 +19,14 @@ describe("SendDirectMessageFooter", () => {
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(
-            <SendDirectMessageFooter
-                tweetId={1}
-                selectedUsers={mockUsers}
-                onSendMessageFinish={jest.fn()}
-            />, mockRootState);
-        wrapper.find(SendDirectMessageInput).find("textarea").at(0).simulate("change", { target: { value: mockText } });
+            <SendDirectMessageFooter tweetId={1} selectedUsers={mockUsers} onSendMessageFinish={jest.fn()} />,
+            mockRootState
+        );
+        wrapper
+            .find(SendDirectMessageInput)
+            .find("textarea")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(IconButton).at(0).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {
             payload: {

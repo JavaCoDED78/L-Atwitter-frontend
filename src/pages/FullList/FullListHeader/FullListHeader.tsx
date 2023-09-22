@@ -6,12 +6,7 @@ import { LockIcon } from "../../../icons";
 import ShareActionsModal from "../ShareActionsModal/ShareActionsModal";
 import TopTweetsActionsModal from "../TopTweetsActionsModal/TopTweetsActionsModal";
 import PageHeaderWrapper from "../../../components/PageHeaderWrapper/PageHeaderWrapper";
-import {
-    selectIsListLoading,
-    selectListItemIsPrivate,
-    selectListItemName,
-    selectListItemOwnerUsername
-} from "../../../store/ducks/list/selectors";
+import { selectIsListLoading, selectListItemIsPrivate, selectListItemName, selectListItemOwnerUsername } from "../../../store/ducks/list/selectors";
 import { useFullListStyles } from "../FullListStyles";
 
 const FullListHeader = memo((): ReactElement => {

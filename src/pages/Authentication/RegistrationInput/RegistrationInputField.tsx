@@ -43,10 +43,5 @@ const useStylesRegistration = makeStyles((theme) =>
 export const RegistrationInputField = (props: TextFieldProps) => {
     const classes = useStylesRegistration();
 
-    return (
-        <TextField
-            InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-            {...props}
-        />
-    );
+    return <TextField InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>} {...props} />;
 };

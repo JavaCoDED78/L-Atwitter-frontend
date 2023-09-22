@@ -37,20 +37,20 @@ const Bookmarks: FC = (): ReactElement => {
             <Paper className={globalClasses.pageContainer} variant="outlined">
                 <BookmarksHeader />
                 <div className={globalClasses.contentWrapper}>
-                    {(isLoading && !tweets.length) ? (
+                    {isLoading && !tweets.length ? (
                         <Spinner />
+                    ) : !isLoading && !tweets.length ? (
+                        <EmptyPageDescription
+                            title={"You haven’t added any Tweets to your Bookmarks yet"}
+                            subtitle={"When you do, they’ll show up here."}
+                        />
                     ) : (
-                        (!isLoading && !tweets.length) ? (
-                            <EmptyPageDescription
-                                title={"You haven’t added any Tweets to your Bookmarks yet"}
-                                subtitle={"When you do, they’ll show up here."}
-                            />
-                        ) : (
-                            <>
-                                {tweets.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
-                                {isLoading && <Spinner />}
-                            </>
-                        )
+                        <>
+                            {tweets.map((tweet) => (
+                                <TweetComponent key={tweet.id} tweet={tweet} />
+                            ))}
+                            {isLoading && <Spinner />}
+                        </>
                     )}
                 </div>
             </Paper>

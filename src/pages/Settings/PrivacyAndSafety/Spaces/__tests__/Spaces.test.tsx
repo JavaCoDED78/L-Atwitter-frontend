@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../util/test-ut
 import { USING_TWITTER_SPACES } from "../../../../../constants/url-constants";
 
 describe("Spaces", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Spaces />, createMockRootState());
         expect(wrapper.text().includes("Manage who can see your Spaces listening activity")).toBe(true);

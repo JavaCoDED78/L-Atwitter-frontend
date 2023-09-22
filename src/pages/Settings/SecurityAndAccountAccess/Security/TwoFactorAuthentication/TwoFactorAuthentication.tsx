@@ -23,8 +23,7 @@ const TwoFactorAuthentication: FC = (): ReactElement => {
                     <Checkbox />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Use your mobile phone to receive a text message with an authentication code to enter when
-                    you log in to Twitter.
+                    Use your mobile phone to receive a text message with an authentication code to enter when you log in to Twitter.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>
@@ -35,8 +34,7 @@ const TwoFactorAuthentication: FC = (): ReactElement => {
                     <Checkbox />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Use a mobile authentication app to get a verification code to enter every time you log in to
-                    Twitter.
+                    Use a mobile authentication app to get a verification code to enter every time you log in to Twitter.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>

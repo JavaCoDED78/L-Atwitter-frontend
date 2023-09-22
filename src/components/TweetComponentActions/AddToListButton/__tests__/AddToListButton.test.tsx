@@ -9,11 +9,7 @@ import ListsModal from "../../../ListsModal/ListsModal";
 
 describe("AddToListButton", () => {
     it("should click open/close ListsModal", () => {
-        const wrapper = mountWithStore(
-            <AddToListButton
-                userId={1}
-                username={"test_name"}
-            />, createMockRootState(LoadingStatus.SUCCESS));
+        const wrapper = mountWithStore(<AddToListButton userId={1} username={"test_name"} />, createMockRootState(LoadingStatus.SUCCESS));
         expect(wrapper.find(ListsModal).prop("visible")).toBe(false);
         wrapper.find("#openListsModal").at(0).simulate("click");
         expect(wrapper.find(ListsModal).prop("visible")).toBe(true);

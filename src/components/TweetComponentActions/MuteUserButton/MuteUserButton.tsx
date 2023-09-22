@@ -13,14 +13,7 @@ interface MuteUserButtonProps {
     isUserMuted: boolean;
 }
 
-const MuteUserButton: FC<MuteUserButtonProps> = memo((
-    {
-        tweetId,
-        userId,
-        username,
-        isUserMuted
-    }
-): ReactElement => {
+const MuteUserButton: FC<MuteUserButtonProps> = memo(({ tweetId, userId, username, isUserMuted }): ReactElement => {
     const dispatch = useDispatch();
 
     const onMuteUser = (): void => {

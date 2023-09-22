@@ -7,7 +7,6 @@ import { AddTweetFormTypes } from "../../../../../store/ducks/addTweetForm/const
 import PollFooter from "../PollFooter";
 
 describe("PollFooter", () => {
-
     it("should render correctly", () => {
         const mockDispatchFn = mockDispatch();
         const wrapper = mountWithStore(<PollFooter />, createMockRootState(LoadingStatus.SUCCESS));

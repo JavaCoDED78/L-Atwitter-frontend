@@ -8,13 +8,7 @@ import classnames from "classnames";
 
 import { useUserPageStyles } from "./UserPageStyles";
 import { selectUserDataId, selectUserIsLoaded } from "../../store/ducks/user/selectors";
-import {
-    fetchUserTweets,
-    resetUserTweets,
-    setAddedUserTweet,
-    setUpdatedUserTweet,
-    setUserVote
-} from "../../store/ducks/userTweets/actionCreators";
+import { fetchUserTweets, resetUserTweets, setAddedUserTweet, setUpdatedUserTweet, setUserVote } from "../../store/ducks/userTweets/actionCreators";
 import {
     selectUserProfileFullName,
     selectUserProfileId,
@@ -29,12 +23,7 @@ import {
     selectUsersIsLoading,
     selectUsersIsSuccessLoaded
 } from "../../store/ducks/userProfile/selectors";
-import {
-    fetchImages,
-    fetchUserProfile,
-    resetImagesState,
-    resetUserProfileState
-} from "../../store/ducks/userProfile/actionCreators";
+import { fetchImages, fetchUserProfile, resetImagesState, resetUserProfileState } from "../../store/ducks/userProfile/actionCreators";
 import { WS_URL } from "../../constants/endpoint-constants";
 import Spinner from "../../components/Spinner/Spinner";
 import UserNotFound from "./UserNotFound/UserNotFound";
@@ -140,42 +129,26 @@ const UserPage = (): ReactElement => {
                         <UserWallpaper />
                         <div className={classes.info}>
                             <UserAvatar />
-                            {(isMyProfileLoaded && isUserProfileSuccessLoaded) && (
-                                isMyProfileBlocked ? null : (
-                                    (userProfileId === myProfileId) ? (
-                                        <EditProfileButton />
-                                    ) : (
-                                        <div className={classes.buttonWrapper}>
-                                            <UserPageActions />
-                                            {(
-                                                (!isPrivateProfile || isFollower) &&
-                                                !isMutedDirectMessages &&
-                                                !isUserBlocked
-                                            ) && (
-                                                <AddUserToChatButton />
-                                            )}
-                                            {isUserBlocked ? (
-                                                <BlockUserButton />
-                                            ) : (
-                                                isFollower ? (
-                                                    <>
-                                                        <NotificationButton />
-                                                        <UnfollowUserButton />
-                                                    </>
-                                                ) : (
-                                                    userProfileId && (
-                                                        isWaitingForApprove ? (
-                                                            <CancelUserButton />
-                                                        ) : (
-                                                            <FollowUserButton />
-                                                        )
-                                                    )
-                                                )
-                                            )}
-                                        </div>
-                                    )
-                                )
-                            )}
+                            {isMyProfileLoaded &&
+                                isUserProfileSuccessLoaded &&
+                                (isMyProfileBlocked ? null : userProfileId === myProfileId ? (
+                                    <EditProfileButton />
+                                ) : (
+                                    <div className={classes.buttonWrapper}>
+                                        <UserPageActions />
+                                        {(!isPrivateProfile || isFollower) && !isMutedDirectMessages && !isUserBlocked && <AddUserToChatButton />}
+                                        {isUserBlocked ? (
+                                            <BlockUserButton />
+                                        ) : isFollower ? (
+                                            <>
+                                                <NotificationButton />
+                                                <UnfollowUserButton />
+                                            </>
+                                        ) : (
+                                            userProfileId && (isWaitingForApprove ? <CancelUserButton /> : <FollowUserButton />)
+                                        )}
+                                    </div>
+                                ))}
                             <UserInfo />
                             <div className={classes.infoList}>
                                 <UserDetails />
@@ -187,17 +160,14 @@ const UserPage = (): ReactElement => {
                         {isUserProfileLoading ? (
                             <Spinner />
                         ) : (
-                            (isUserProfileSuccessLoaded) && (
-                                isMyProfileBlocked ? (
-                                    <UserBlockedMessage />
-                                ) : (
-                                    isPrivateProfile && !isFollower && userProfileId !== myProfileId ? (
-                                        <UserPrivateProfileMessage />
-                                    ) : (
-                                        <UserTweets activeTab={activeTab} handleChangeTab={handleChangeTab} />
-                                    )
-                                )
-                            )
+                            isUserProfileSuccessLoaded &&
+                            (isMyProfileBlocked ? (
+                                <UserBlockedMessage />
+                            ) : isPrivateProfile && !isFollower && userProfileId !== myProfileId ? (
+                                <UserPrivateProfileMessage />
+                            ) : (
+                                <UserTweets activeTab={activeTab} handleChangeTab={handleChangeTab} />
+                            ))
                         )}
                     </div>
                 </Paper>

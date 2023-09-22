@@ -17,8 +17,7 @@ describe("PinTweetButton", () => {
     });
 
     it("should open/close TweetComponentActionsModal", () => {
-        const wrapper = mountWithStore(<PinTweetButton tweetId={1}
-                                                       onCloseActionsDropdown={jest.fn()} />, mockRootState);
+        const wrapper = mountWithStore(<PinTweetButton tweetId={1} onCloseActionsDropdown={jest.fn()} />, mockRootState);
         expect(wrapper.find(TweetComponentActionsModal).prop("visibleTweetComponentActionsModal")).toBe(false);
         wrapper.find("#pin").at(0).simulate("click");
         expect(wrapper.find(TweetComponentActionsModal).prop("visibleTweetComponentActionsModal")).toBe(true);
@@ -35,11 +34,7 @@ describe("PinTweetButton", () => {
     });
 
     const testClickDeleteTweet = (tweetId: number, textMessage: string, snackbarMessage: string): void => {
-        const wrapper = mountWithStore(
-            <PinTweetButton
-                tweetId={tweetId}
-                onCloseActionsDropdown={jest.fn()}
-            />, mockRootState);
+        const wrapper = mountWithStore(<PinTweetButton tweetId={tweetId} onCloseActionsDropdown={jest.fn()} />, mockRootState);
         expect(wrapper.text().includes(textMessage)).toBe(true);
         wrapper.find("#pin").at(0).simulate("click");
         wrapper.find(TweetComponentActionsModal).find(Button).at(1).simulate("click");

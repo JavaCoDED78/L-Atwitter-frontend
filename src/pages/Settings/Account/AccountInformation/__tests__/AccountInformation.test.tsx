@@ -1,12 +1,7 @@
 import React from "react";
 
 import AccountInformation from "../AccountInformation";
-import {
-    createMockRootState,
-    mockDispatch,
-    mountWithStore,
-    testClickOnLink
-} from "../../../../../util/test-utils/test-helper";
+import { createMockRootState, mockDispatch, mountWithStore, testClickOnLink } from "../../../../../util/test-utils/test-helper";
 import { getCountry, getPhoneCode } from "../../../../../util/country-code-helper";
 import { formatScheduleDate } from "../../../../../util/format-date-helper";
 import {

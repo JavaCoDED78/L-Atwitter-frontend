@@ -5,11 +5,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import classnames from "classnames";
 
 import { useMessagesModalStyles } from "./MessagesModalStyles";
-import {
-    fetchUsersSearchByUsername,
-    resetUsersState,
-    setUsersSearch
-} from "../../../store/ducks/usersSearch/actionCreators";
+import { fetchUsersSearchByUsername, resetUsersState, setUsersSearch } from "../../../store/ducks/usersSearch/actionCreators";
 import { selectUsersPagesCount, selectUsersSearch } from "../../../store/ducks/usersSearch/selectors";
 import MessagesModalUser from "./MessagesModalUser/MessagesModalUser";
 import { createChat } from "../../../store/ducks/chats/actionCreators";
@@ -81,23 +77,12 @@ const MessagesModal: FC<MessagesModalProps> = ({ visible, onClose }): ReactEleme
     return (
         <Dialog open={visible} onClose={onClose}>
             <DialogTitleComponent title={"New message"} onClose={onClose} borderBottom>
-                <Button
-                    onClick={handleClickAddUserToChat}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    disabled={!selectedIndex}
-                >
+                <Button onClick={handleClickAddUserToChat} type="submit" variant="contained" color="primary" size="small" disabled={!selectedIndex}>
                     Next
                 </Button>
             </DialogTitleComponent>
             <DialogContent id="scrollableDiv" className={classnames(globalClasses.dialogContent, classes.content)}>
-                <InfiniteScrollWrapper
-                    dataLength={users.length}
-                    pagesCount={usersPagesCount}
-                    loadItems={loadParticipants}
-                >
+                <InfiniteScrollWrapper dataLength={users.length} pagesCount={usersPagesCount} loadItems={loadParticipants}>
                     <form onSubmit={handleSubmitSearch}>
                         <ModalInput placeholder={"Explore people"} searchText={text} onSearch={onSearch} />
                     </form>

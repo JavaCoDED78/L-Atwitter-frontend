@@ -20,11 +20,7 @@ describe("TweetListModal", () => {
     });
 
     const testTweetListModal = (visibleModalWindow: boolean): void => {
-        const wrapper = mountWithStore(
-            <TweetListModal
-                visibleModalWindow={visibleModalWindow}
-                onCloseModalWindow={jest.fn()}
-            />, mockState);
+        const wrapper = mountWithStore(<TweetListModal visibleModalWindow={visibleModalWindow} onCloseModalWindow={jest.fn()} />, mockState);
         const isDialogExist = expect(wrapper.find(Dialog).exists());
         const isTweetListComponentExist = expect(wrapper.find(TweetListComponent).exists());
 

@@ -39,9 +39,7 @@ const ChangeCountry: FC = (): ReactElement => {
         <>
             <div className={classnames(classes.selectWrapper, globalClasses.itemInfoWrapper)}>
                 <FormControl variant="filled">
-                    <InputLabel htmlFor="select-country">
-                        Country
-                    </InputLabel>
+                    <InputLabel htmlFor="select-country">Country</InputLabel>
                     <FilledSelect
                         variant="filled"
                         labelId="select-country"
@@ -57,8 +55,7 @@ const ChangeCountry: FC = (): ReactElement => {
                     </FilledSelect>
                 </FormControl>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    {"This is the primary country associated with your account. Your country helps us to customize " +
-                        "your Twitter experience. "}
+                    {"This is the primary country associated with your account. Your country helps us to customize " + "your Twitter experience. "}
                     <MuiLink href={HOW_TO_CHANGE_COUNTRY_SETTINGS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>

@@ -1,12 +1,7 @@
 import { Action } from "redux";
 
 import { BookmarkedTweetPayload, UserTweetRequest, UserTweetsState } from "./state";
-import {
-    BlockedToTweetsPayload,
-    FollowToTweetsPayload,
-    MutedToTweetsPayload,
-    TweetResponse
-} from "../../../../types/tweet";
+import { BlockedToTweetsPayload, FollowToTweetsPayload, MutedToTweetsPayload, TweetResponse } from "../../../../types/tweet";
 import { NotificationReplyResponse, NotificationResponse } from "../../../../types/notification";
 import { LoadingStatus, PageableResponse } from "../../../../types/common";
 
@@ -25,7 +20,7 @@ export enum UserTweetsActionType {
     FETCH_LIKED_TWEETS = "userTweets/FETCH_LIKED_TWEETS",
     FETCH_MEDIA_TWEETS = "userTweets/FETCH_MEDIA_TWEETS",
     FETCH_RETWEETS_AND_REPLIES = "userTweets/FETCH_RETWEETS_AND_REPLIES",
-    SET_LOADING_STATUS = "userTweets/SET_LOADING_STATUS",
+    SET_LOADING_STATUS = "userTweets/SET_LOADING_STATUS"
 }
 
 export interface SetUserTweetsActionInterface extends Action<UserTweetsActionType> {

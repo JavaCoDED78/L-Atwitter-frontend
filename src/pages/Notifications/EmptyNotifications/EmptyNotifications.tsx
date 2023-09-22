@@ -16,11 +16,9 @@ const EmptyNotifications: FC<EmptyNotificationsProps> = ({ isNotification }): Re
                 Nothing to see here — yet
             </Typography>
             <Typography variant={"subtitle1"} component={"div"}>
-                {isNotification ? (
-                    "From like to Retweets and whole lot more, this is where all the actions happens."
-                ) : (
-                    "When someone mentions you, you’ll find it here."
-                )}
+                {isNotification
+                    ? "From like to Retweets and whole lot more, this is where all the actions happens."
+                    : "When someone mentions you, you’ll find it here."}
             </Typography>
         </div>
     );

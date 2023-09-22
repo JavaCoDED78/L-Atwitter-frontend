@@ -17,12 +17,9 @@ describe("BlockUserButton", () => {
 
     it("should click open/close BlockUserModal", () => {
         const wrapper = mountWithStore(
-            <BlockUserButton
-                tweetId={1}
-                userId={1}
-                username={"test_username"}
-                isUserBlocked
-            />, createMockRootState(LoadingStatus.SUCCESS));
+            <BlockUserButton tweetId={1} userId={1} username={"test_username"} isUserBlocked />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.find(BlockUserModal).prop("visible")).toBe(false);
         wrapper.find("#onOpenBlockUserModal").at(0).simulate("click");
         expect(wrapper.find(BlockUserModal).prop("visible")).toBe(true);
@@ -40,12 +37,9 @@ describe("BlockUserButton", () => {
 
     const testClickButton = (isUserBlocked: boolean, iconId: string, blockMessage: string, snackbarMessage: string) => {
         const wrapper = mountWithStore(
-            <BlockUserButton
-                tweetId={1}
-                userId={1}
-                username={"test_username"}
-                isUserBlocked={isUserBlocked}
-            />, createMockRootState(LoadingStatus.SUCCESS));
+            <BlockUserButton tweetId={1} userId={1} username={"test_username"} isUserBlocked={isUserBlocked} />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.find(iconId).exists()).toBeTruthy();
         expect(wrapper.text().includes(`${blockMessage} @test_username`)).toBe(true);
         wrapper.find("#onOpenBlockUserModal").at(0).simulate("click");

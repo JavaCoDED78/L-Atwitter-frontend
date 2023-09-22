@@ -14,14 +14,7 @@ interface TweetImageProps {
     taggedImageUsers?: TaggedUserResponse[];
 }
 
-const TweetImage: FC<TweetImageProps> = memo((
-    {
-        tweetId,
-        imageSrc,
-        imageDescription,
-        taggedImageUsers
-    }
-): ReactElement => {
+const TweetImage: FC<TweetImageProps> = memo(({ tweetId, imageSrc, imageDescription, taggedImageUsers }): ReactElement => {
     const classes = useTweetImageStyles();
     const location = useLocation();
     const isModal = location.pathname.includes(MODAL);
@@ -32,8 +25,7 @@ const TweetImage: FC<TweetImageProps> = memo((
                 <img className={isModal ? "small" : ""} src={imageSrc} alt={imageSrc} />
             </Link>
             {imageDescription && <ImageDescription imageDescription={imageDescription} />}
-            {(taggedImageUsers && taggedImageUsers.length !== 0) &&
-                <TaggedImageUsers tweetId={tweetId!} taggedImageUsers={taggedImageUsers} />}
+            {taggedImageUsers && taggedImageUsers.length !== 0 && <TaggedImageUsers tweetId={tweetId!} taggedImageUsers={taggedImageUsers} />}
         </div>
     );
 });

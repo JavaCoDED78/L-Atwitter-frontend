@@ -8,6 +8,6 @@ export interface UserDetailState {
 }
 
 export interface UserDetailsRequest {
-    userId: number,
-    cancelTokenSource: CancelTokenSource
+    userId: number;
+    cancelTokenSource: CancelTokenSource;
 }

@@ -15,27 +15,14 @@ interface DirectUserItemProps {
     handleListItemClick: (user: UserResponse) => void;
 }
 
-const DirectUserItem: FC<DirectUserItemProps> = memo((
-    {
-        user,
-        userFromChat,
-        myProfileId,
-        selected,
-        handleListItemClick
-    }
-): ReactElement => {
+const DirectUserItem: FC<DirectUserItemProps> = memo(({ user, userFromChat, myProfileId, selected, handleListItemClick }): ReactElement => {
     const classes = useDirectUserItemStyles();
     const userAvatar = user?.avatar ?? DEFAULT_PROFILE_IMG;
 
     return (
         <ListItem
             button
-            disabled={
-                (user.isMutedDirectMessages && !userFromChat) ||
-                user.isUserBlocked ||
-                user.isMyProfileBlocked ||
-                user.id === myProfileId
-            }
+            disabled={(user.isMutedDirectMessages && !userFromChat) || user.isUserBlocked || user.isMyProfileBlocked || user.id === myProfileId}
             selected={selected}
             onClick={() => handleListItemClick(user)}
         >

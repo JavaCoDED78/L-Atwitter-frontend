@@ -36,6 +36,7 @@ describe("UserItemInfo", () => {
                 isPrivateProfile={isPrivateProfile}
                 isMyProfileBlocked={isMyProfileBlocked}
                 size={size}
-            />);
+            />
+        );
     };
 });

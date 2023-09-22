@@ -8,19 +8,12 @@ interface InfiniteScrollWrapperProps {
     loadItems: (page: number) => void;
 }
 
-const InfiniteScrollWrapper: FC<InfiniteScrollWrapperProps> = (
-    {
-        children,
-        dataLength,
-        pagesCount,
-        loadItems
-    }
-): ReactElement => {
+const InfiniteScrollWrapper: FC<InfiniteScrollWrapperProps> = ({ children, dataLength, pagesCount, loadItems }): ReactElement => {
     const [page, setPage] = useState(1);
 
     const loadNextPage = (): void => {
         loadItems(page);
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     return (

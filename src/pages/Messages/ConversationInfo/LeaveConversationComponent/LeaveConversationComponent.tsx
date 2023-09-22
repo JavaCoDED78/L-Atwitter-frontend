@@ -15,12 +15,7 @@ interface LeaveConversationComponentProps {
     chatId?: number;
 }
 
-const LeaveConversationComponent: FC<LeaveConversationComponentProps> = memo((
-    {
-        participantId,
-        chatId
-    }
-): ReactElement => {
+const LeaveConversationComponent: FC<LeaveConversationComponentProps> = memo(({ participantId, chatId }): ReactElement => {
     const classes = useConversationInfoStyles();
     const dispatch = useDispatch();
     const history = useHistory();

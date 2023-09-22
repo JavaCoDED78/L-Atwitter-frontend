@@ -8,11 +8,7 @@ import { useSendDirectTweetModalStyles } from "./SendDirectTweetModalStyles";
 import { selectUsersPagesCount, selectUsersSearch } from "../../../store/ducks/usersSearch/selectors";
 import { fetchChats } from "../../../store/ducks/chats/actionCreators";
 import { selectChatsItems } from "../../../store/ducks/chats/selectors";
-import {
-    fetchParticipantsByUsername,
-    resetUsersState,
-    setUsersSearch
-} from "../../../store/ducks/usersSearch/actionCreators";
+import { fetchParticipantsByUsername, resetUsersState, setUsersSearch } from "../../../store/ducks/usersSearch/actionCreators";
 import DirectUserItem from "./DirectUserItem/DirectUserItem";
 import { selectUserDataId } from "../../../store/ducks/user/selectors";
 import { UserResponse } from "../../../types/user";
@@ -32,13 +28,7 @@ interface SendDirectTweetModalProps {
     onClose: () => void;
 }
 
-const SendDirectTweetModal: FC<SendDirectTweetModalProps> = (
-    {
-        tweetId,
-        visible,
-        onClose
-    }
-): ReactElement | null => {
+const SendDirectTweetModal: FC<SendDirectTweetModalProps> = ({ tweetId, visible, onClose }): ReactElement | null => {
     const globalClasses = useGlobalStyles({});
     const classes = useSendDirectTweetModalStyles();
     const dispatch = useDispatch();
@@ -99,19 +89,13 @@ const SendDirectTweetModal: FC<SendDirectTweetModalProps> = (
             <DialogTitleComponent title={"Send Tweet"} onClose={onClose} borderBottom />
             <DialogContent id="scrollableDiv" className={classnames(globalClasses.dialogContent, classes.content)}>
                 <ModalInput placeholder={"Search people"} searchText={searchText} onSearch={onSearch} />
-                {selectedUsers && (selectedUsers.map((selectedUser) => (
-                        <UserChip key={selectedUser.id} selectedUser={selectedUser} onDeleteUser={handleDelete} />
-                    ))
-                )}
+                {selectedUsers &&
+                    selectedUsers.map((selectedUser) => <UserChip key={selectedUser.id} selectedUser={selectedUser} onDeleteUser={handleDelete} />)}
                 <Divider style={{ marginTop: 8 }} />
-                <InfiniteScrollWrapper
-                    dataLength={users.length}
-                    pagesCount={usersPagesCount}
-                    loadItems={loadParticipants}
-                >
+                <InfiniteScrollWrapper dataLength={users.length} pagesCount={usersPagesCount} loadItems={loadParticipants}>
                     <List component="nav">
                         {(searchText ? users : chats).map((item) => {
-                            const user = searchText ? item as UserResponse : selectUserFromChat(item as ChatResponse);
+                            const user = searchText ? (item as UserResponse) : selectUserFromChat(item as ChatResponse);
 
                             return (
                                 <DirectUserItem
@@ -126,11 +110,7 @@ const SendDirectTweetModal: FC<SendDirectTweetModalProps> = (
                         })}
                     </List>
                 </InfiniteScrollWrapper>
-                <SendDirectMessageFooter
-                    tweetId={tweetId}
-                    selectedUsers={selectedUsers}
-                    onSendMessageFinish={onSendMessageFinish}
-                />
+                <SendDirectMessageFooter tweetId={tweetId} selectedUsers={selectedUsers} onSendMessageFinish={onSendMessageFinish} />
             </DialogContent>
         </Dialog>
     );

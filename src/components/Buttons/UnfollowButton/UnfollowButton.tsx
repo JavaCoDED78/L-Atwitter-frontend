@@ -15,15 +15,7 @@ interface UnfollowButtonProps {
     isOpenUnfollowModal?: boolean;
 }
 
-const UnfollowButton: FC<UnfollowButtonProps> = (
-    {
-        userId,
-        isPrivateProfile,
-        fullName,
-        size,
-        isOpenUnfollowModal
-    }
-): ReactElement => {
+const UnfollowButton: FC<UnfollowButtonProps> = ({ userId, isPrivateProfile, fullName, size, isOpenUnfollowModal }): ReactElement => {
     const classes = useUnfollowButtonStyles();
     const dispatch = useDispatch();
     const [btnText, setBtnText] = useState<string>("Following");
@@ -56,12 +48,7 @@ const UnfollowButton: FC<UnfollowButtonProps> = (
             >
                 {btnText}
             </Button>
-            <UnfollowModal
-                fullName={fullName}
-                visible={visibleModalWindow}
-                onClose={onCloseModalWindow}
-                handleUnfollow={handleUnfollow}
-            />
+            <UnfollowModal fullName={fullName} visible={visibleModalWindow} onClose={onCloseModalWindow} handleUnfollow={handleUnfollow} />
         </>
     );
 };

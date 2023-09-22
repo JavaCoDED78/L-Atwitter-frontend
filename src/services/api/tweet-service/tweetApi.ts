@@ -22,7 +22,7 @@ import {
 } from "../../../constants/endpoint-constants";
 import { UserTweetRequest } from "../../../store/ducks/userTweets/contracts/state";
 import { Image } from "../../../types/common";
-import { AddQuoteTweetRequest, TweetRequest, ChangeReplyTypeRequest } from "../../../store/ducks/tweets/contracts/state";
+import { AddQuoteTweetRequest, ChangeReplyTypeRequest, TweetRequest } from "../../../store/ducks/tweets/contracts/state";
 import { FetchTweetUsersPayload, ReplyTweetRequest } from "../../../store/ducks/tweet/contracts/state";
 import { UserResponse } from "../../../types/user";
 
@@ -86,7 +86,8 @@ export const TweetApi = {
         return await axios.post<TweetResponse>(`${API_TWEETS_QUOTE}/${request.userId ?? 0}/${request.tweetId}`, request);
     },
     async changeTweetReplyType(request: ChangeReplyTypeRequest): Promise<AxiosResponse<TweetResponse>> {
-        return await axios.get<TweetResponse>(`${API_TWEETS_CHANGE_REPLY}/${request.userId ?? 0}/${request.tweetId}`,
-            { params: { replyType: request.replyType } });
+        return await axios.get<TweetResponse>(`${API_TWEETS_CHANGE_REPLY}/${request.userId ?? 0}/${request.tweetId}`, {
+            params: { replyType: request.replyType }
+        });
     }
 };

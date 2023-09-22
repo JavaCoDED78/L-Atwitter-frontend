@@ -8,10 +8,13 @@ export const addToLocalStorage = (term: "users" | "tags" | "text", item: number 
         const searchTerms: SearchTermsRequest = JSON.parse(localStorageItem);
 
         if (searchTerms[term]) {
-            localStorage.setItem(SEARCH_TERMS, JSON.stringify({
-                ...searchTerms,
-                [term]: [...new Set([...searchTerms[term], item])]
-            }));
+            localStorage.setItem(
+                SEARCH_TERMS,
+                JSON.stringify({
+                    ...searchTerms,
+                    [term]: [...new Set([...searchTerms[term], item])]
+                })
+            );
         } else {
             localStorage.setItem(SEARCH_TERMS, JSON.stringify({ ...searchTerms, [term]: [item] }));
         }

@@ -40,7 +40,7 @@ const ListsItem: FC<ListsItemProps> = memo(({ list, listIndex, isMyList }): Reac
 
     return (
         <Link to={`${LISTS}/${list?.id}`} className={globalClasses.link}>
-            <Paper className={classes.container} style={{ border: (listIndex === 2) ? 0 : 1 }} variant="outlined">
+            <Paper className={classes.container} style={{ border: listIndex === 2 ? 0 : 1 }} variant="outlined">
                 <ListsItemAvatar listWallpaper={list?.wallpaper} listAltWallpaper={list?.altWallpaper} />
                 <div className={classes.listInfoContainer}>
                     <ListInfoDescription
@@ -59,11 +59,8 @@ const ListsItem: FC<ListsItemProps> = memo(({ list, listIndex, isMyList }): Reac
                             icon={list?.isListPinned ? PinIconFilled : PinIcon}
                         />
                     )}
-                    {(myProfileId === list?.listOwner.id || isMyList) ? null : (
-                        <FollowListButton
-                            listId={list!.id}
-                            isFollower={(list as ListResponse).isFollower}
-                        />
+                    {myProfileId === list?.listOwner.id || isMyList ? null : (
+                        <FollowListButton listId={list!.id} isFollower={(list as ListResponse).isFollower} />
                     )}
                 </div>
             </Paper>

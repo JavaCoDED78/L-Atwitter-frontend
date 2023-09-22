@@ -18,13 +18,7 @@ import {
     setPageableUsersSearch,
     setUsersSearchLoadingState
 } from "../actionCreators";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { UserResponse } from "../../../../types/user";
 import { UserApi } from "../../../../services/api/user-service/userApi";
 import { UsersSearchActionsType } from "../contracts/actionTypes";
@@ -47,10 +41,12 @@ describe("usersSearchSaga:", () => {
     });
 
     describe("fetchUsersSearchByUsernameRequest:", () => {
-        const worker = fetchUsersSearchByUsernameRequest(fetchUsersSearchByUsername({
-            username: "test",
-            pageNumber: 1
-        }));
+        const worker = fetchUsersSearchByUsernameRequest(
+            fetchUsersSearchByUsername({
+                username: "test",
+                pageNumber: 1
+            })
+        );
         testLoadingStatus(worker, setUsersSearchLoadingState, LoadingStatus.LOADING);
         testCall(worker, UserApi.searchUsersByUsername, { username: "test", pageNumber: 1 });
         testSetResponse(worker, mockUserResponse, setPageableUsersSearch, mockExpectedResponse(mockUserResponse), "UserResponse");
@@ -58,10 +54,12 @@ describe("usersSearchSaga:", () => {
     });
 
     describe("fetchParticipantsByUsernameRequest:", () => {
-        const worker = fetchParticipantsByUsernameRequest(fetchParticipantsByUsername({
-            username: "test",
-            pageNumber: 1
-        }));
+        const worker = fetchParticipantsByUsernameRequest(
+            fetchParticipantsByUsername({
+                username: "test",
+                pageNumber: 1
+            })
+        );
         testLoadingStatus(worker, setUsersSearchLoadingState, LoadingStatus.LOADING);
         testCall(worker, ChatParticipantApi.searchParticipantsByUsername, { username: "test", pageNumber: 1 });
         testSetResponse(worker, mockUserResponse, setPageableUsersSearch, mockExpectedResponse(mockUserResponse), "UserResponse");

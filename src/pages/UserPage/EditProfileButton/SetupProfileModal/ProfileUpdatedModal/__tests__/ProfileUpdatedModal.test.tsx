@@ -9,24 +9,14 @@ describe("ProfileUpdatedModal", () => {
     const mockRootState = createMockRootState(LoadingStatus.LOADED);
 
     it("should render empty ProfileUpdatedModal", () => {
-        const wrapper = mountWithStore(
-            <ProfileUpdatedModal
-                isOpen={false}
-                onClose={jest.fn()}
-                onSubmit={jest.fn()}
-            />, mockRootState);
+        const wrapper = mountWithStore(<ProfileUpdatedModal isOpen={false} onClose={jest.fn()} onSubmit={jest.fn()} />, mockRootState);
 
         expect(wrapper.find(Dialog).prop("open")).toBe(false);
     });
 
     it("should render correctly and submit", () => {
         const mockOnSubmit = jest.fn();
-        const wrapper = mountWithStore(
-            <ProfileUpdatedModal
-                isOpen={true}
-                onClose={jest.fn()}
-                onSubmit={mockOnSubmit}
-            />, mockRootState);
+        const wrapper = mountWithStore(<ProfileUpdatedModal isOpen={true} onClose={jest.fn()} onSubmit={mockOnSubmit} />, mockRootState);
 
         wrapper.find(Button).simulate("click");
 

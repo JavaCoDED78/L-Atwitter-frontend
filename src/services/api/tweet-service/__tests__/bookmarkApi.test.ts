@@ -11,7 +11,7 @@ describe("BookmarkApi", () => {
     const tweetNotFoundError = "Tweet not found";
 
     beforeEach(() => mockAdapter.reset());
-    
+
     describe("should fetch BookmarkApi.getUserBookmarks", () => {
         it("[200] should get user bookmarks Success", () => {
             testApiCall(mockAdapter, "onGet", API_TWEETS_USER_BOOKMARKS, 200, mockTweets, BookmarkApi.getUserBookmarks, 1);

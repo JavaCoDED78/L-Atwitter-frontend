@@ -7,7 +7,6 @@ export interface UserTweetsState {
     loadingState: LoadingStatus;
 }
 
-
 export interface BookmarkedTweetPayload {
     tweetId: number;
     isTweetBookmarked: boolean;

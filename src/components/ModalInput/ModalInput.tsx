@@ -11,7 +11,6 @@ interface ModalInputProps {
 }
 
 const ModalInput: FC<ModalInputProps> = ({ placeholder, searchText, onSearch }): ReactElement => {
-
     return (
         <ModalInputWrapper
             fullWidth
@@ -20,11 +19,7 @@ const ModalInput: FC<ModalInputProps> = ({ placeholder, searchText, onSearch }):
             onChange={(event) => onSearch(event.target.value)}
             value={searchText}
             InputProps={{
-                startAdornment: (
-                    <InputAdornment position="start">
-                        {SearchIcon}
-                    </InputAdornment>
-                )
+                startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>
             }}
         />
     );

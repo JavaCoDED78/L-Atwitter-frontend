@@ -2,13 +2,7 @@ import { AxiosResponse } from "axios";
 
 import { fetchRelevantUsersRequest, fetchUsersRequest, usersSaga } from "../sagas";
 import { fetchUsers, setPageableUsers, setUsers, setUsersLoadingState } from "../actionCreators";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { UserResponse } from "../../../../types/user";
 import { UserApi } from "../../../../services/api/user-service/userApi";
 import { UsersActionsType } from "../contracts/actionTypes";

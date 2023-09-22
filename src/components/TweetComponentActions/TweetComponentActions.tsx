@@ -17,10 +17,7 @@ import PinTweetButton from "./PinTweetButton/PinTweetButton";
 import DeleteTweetButton from "./DeleteTweetButton/DeleteTweetButton";
 import FollowUserButton from "./FollowUserButton/FollowUserButton";
 import ChangeReplyButton from "./ChangeReplyButton/ChangeReplyButton";
-import {
-    fetchTweetAdditionalInfo,
-    resetTweetAdditionalInfo
-} from "../../store/ducks/tweetAdditionalInfo/actionCreators";
+import { fetchTweetAdditionalInfo, resetTweetAdditionalInfo } from "../../store/ducks/tweetAdditionalInfo/actionCreators";
 import {
     selectIsTweetAdditionalInfoLoading,
     selectTweetInfoAddressedTweetId,
@@ -127,17 +124,14 @@ const TweetComponentActions: FC<TweetComponentActionsProps> = memo(({ tweetId, i
                                 <Spinner paddingTop={95} />
                             ) : (
                                 <List>
-                                    {(myProfileId === tweetUserId) ? (
+                                    {myProfileId === tweetUserId ? (
                                         <>
                                             <DeleteTweetButton
                                                 tweetId={tweetId}
                                                 addressedTweetId={addressedTweetId!}
                                                 onCloseActionsDropdown={handleClickAwayActionsDropdown}
                                             />
-                                            <PinTweetButton
-                                                tweetId={tweetId}
-                                                onCloseActionsDropdown={handleClickAwayActionsDropdown}
-                                            />
+                                            <PinTweetButton tweetId={tweetId} onCloseActionsDropdown={handleClickAwayActionsDropdown} />
                                             <AddToListButton userId={tweetUserId!} username={tweetUserUsername!} />
                                             <ChangeReplyButton handleClickReplyDropdown={handleClickReplyDropdown} />
                                             <ListItem>
@@ -146,11 +140,7 @@ const TweetComponentActions: FC<TweetComponentActionsProps> = memo(({ tweetId, i
                                                     Embed Tweet
                                                 </Typography>
                                             </ListItem>
-                                            <TweetActivityButton
-                                                fullName={tweetUserFullName!}
-                                                username={tweetUserUsername!}
-                                                text={tweetText!}
-                                            />
+                                            <TweetActivityButton fullName={tweetUserFullName!} username={tweetUserUsername!} text={tweetText!} />
                                         </>
                                     ) : (
                                         <>
@@ -162,10 +152,7 @@ const TweetComponentActions: FC<TweetComponentActionsProps> = memo(({ tweetId, i
                                                         username={tweetUserUsername!}
                                                         isFollower={tweetUserIsFollower!}
                                                     />
-                                                    <AddToListButton
-                                                        userId={tweetUserId!}
-                                                        username={tweetUserUsername!}
-                                                    />
+                                                    <AddToListButton userId={tweetUserId!} username={tweetUserUsername!} />
                                                 </>
                                             )}
                                             <MuteUserButton
@@ -200,10 +187,7 @@ const TweetComponentActions: FC<TweetComponentActionsProps> = memo(({ tweetId, i
                     )}
                     {openChangeReplyDropdown && (
                         <div className={classes.replyWindowWrapper}>
-                            <ChangeReplyWindow
-                                replyType={tweetReplyType!}
-                                onChangeTweetReplyType={onChangeTweetReplyType}
-                            />
+                            <ChangeReplyWindow replyType={tweetReplyType!} onChangeTweetReplyType={onChangeTweetReplyType} />
                         </div>
                     )}
                 </div>

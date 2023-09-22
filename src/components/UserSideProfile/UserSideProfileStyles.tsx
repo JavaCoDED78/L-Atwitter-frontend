@@ -55,7 +55,6 @@ export const useUserSideProfileStyles = makeStyles((theme) => ({
                 color: theme.palette.primary.main,
                 height: "1.30em"
             }
-
         }
     },
     listItemWrapper: {

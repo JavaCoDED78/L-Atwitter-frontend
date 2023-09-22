@@ -1,17 +1,17 @@
 export const getPhoneCode = (userCountryCode?: string): string => {
-    const countryCode = countryCodes.find((value) => (value.countryCode === userCountryCode));
+    const countryCode = countryCodes.find((value) => value.countryCode === userCountryCode);
 
     return countryCode ? countryCode.phoneCode : "";
 };
 
 export const getCountryCode = (userCountryCode?: string): string => {
-    const countryCode = countryCodes.find((value) => (value.countryCode === userCountryCode));
+    const countryCode = countryCodes.find((value) => value.countryCode === userCountryCode);
 
     return countryCode ? countryCode.countryCode : "";
 };
 
 export const getCountry = (userCountryCode?: string): string => {
-    const countryCode = countryCodes.find((value) => (value.countryCode === userCountryCode));
+    const countryCode = countryCodes.find((value) => value.countryCode === userCountryCode);
 
     return countryCode ? countryCode.country : "";
 };

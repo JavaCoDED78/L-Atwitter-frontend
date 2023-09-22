@@ -12,12 +12,7 @@ describe("QuoteTweetModal", () => {
     const mockRootState = createMockRootState(LoadingStatus.LOADED);
 
     it("should render correctly", () => {
-        const wrapper = mountWithStore(
-            <QuoteTweetModal
-                quoteTweet={mockQuoteTweet}
-                visible={true}
-                onClose={jest.fn()}
-            />, mockRootState);
+        const wrapper = mountWithStore(<QuoteTweetModal quoteTweet={mockQuoteTweet} visible={true} onClose={jest.fn()} />, mockRootState);
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.find(CloseButton).exists()).toBeTruthy();
@@ -25,12 +20,7 @@ describe("QuoteTweetModal", () => {
     });
 
     it("should render empty QuoteTweetModal", () => {
-        const wrapper = mountWithStore(
-            <QuoteTweetModal
-                quoteTweet={mockQuoteTweet}
-                visible={false}
-                onClose={jest.fn()}
-            />, mockRootState);
+        const wrapper = mountWithStore(<QuoteTweetModal quoteTweet={mockQuoteTweet} visible={false} onClose={jest.fn()} />, mockRootState);
 
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });

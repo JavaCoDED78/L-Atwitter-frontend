@@ -35,10 +35,16 @@ describe("userTweetsSaga:", () => {
 
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getUserTweets, { userId: "1", page: 1 });
-        testSetResponse(worker, mockPageableTweets, setUserTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setUserTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.ERROR);
     });
 
@@ -47,10 +53,16 @@ describe("userTweetsSaga:", () => {
 
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.LOADING);
         testCall(worker, LikeTweetApi.getUserLikedTweets, { userId: "1", page: 1 });
-        testSetResponse(worker, mockPageableTweets, setUserTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setUserTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.ERROR);
     });
 
@@ -59,10 +71,16 @@ describe("userTweetsSaga:", () => {
 
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getUserMediaTweets, { userId: "1", page: 1 });
-        testSetResponse(worker, mockPageableTweets, setUserTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setUserTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.ERROR);
     });
 
@@ -71,10 +89,16 @@ describe("userTweetsSaga:", () => {
 
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.LOADING);
         testCall(worker, RetweetApi.getUserRetweetsAndReplies, { userId: "1", page: 1 });
-        testSetResponse(worker, mockPageableTweets, setUserTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setUserTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setUserTweetsLoadingStatus, LoadingStatus.ERROR);
     });
 

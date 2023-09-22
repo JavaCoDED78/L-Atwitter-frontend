@@ -13,12 +13,14 @@ const UserAvatar = memo((): ReactElement => {
     const avatar = useSelector(selectUserProfileAvatar);
 
     return (
-        <Link to={{
-            pathname: `${PROFILE_PHOTO}/${userProfileId}`,
-            state: { background: location, imageSrc: avatar ?? DEFAULT_PROFILE_IMG }
-        }}>
+        <Link
+            to={{
+                pathname: `${PROFILE_PHOTO}/${userProfileId}`,
+                state: { background: location, imageSrc: avatar ?? DEFAULT_PROFILE_IMG }
+            }}
+        >
             <div style={{ display: "inline-block" }}>
-                <Avatar src={userProfileId ? (avatar ?? DEFAULT_PROFILE_IMG) : undefined}>
+                <Avatar src={userProfileId ? avatar ?? DEFAULT_PROFILE_IMG : undefined}>
                     <div></div>
                 </Avatar>
             </div>

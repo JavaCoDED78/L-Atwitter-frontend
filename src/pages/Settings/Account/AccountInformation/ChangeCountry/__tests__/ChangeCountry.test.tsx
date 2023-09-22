@@ -20,7 +20,10 @@ describe("ChangeCountry", () => {
         expect(wrapper.text().includes("Country")).toBe(true);
         expect(wrapper.find(FilledSelect).prop("value")).toBe("UA");
 
-        wrapper.find(FilledSelect).find("select").simulate("change", { target: { value: "US" } });
+        wrapper
+            .find(FilledSelect)
+            .find("select")
+            .simulate("change", { target: { value: "US" } });
 
         expect(wrapper.find(FilledSelect).prop("value")).toBe("US");
         expect(mockDispatchFn).nthCalledWith(1, { payload: { country: "US" }, type: UserActionsType.UPDATE_COUNTRY });

@@ -17,8 +17,8 @@ const Accessibility: FC = (): ReactElement => {
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Manage aspects of your Twitter experience such as limiting color contrast and motion. These settings
-                    affect all the Twitter accounts on this browser.
+                    Manage aspects of your Twitter experience such as limiting color contrast and motion. These settings affect all the Twitter
+                    accounts on this browser.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>

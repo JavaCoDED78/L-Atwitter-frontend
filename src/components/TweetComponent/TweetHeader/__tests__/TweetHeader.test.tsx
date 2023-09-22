@@ -17,7 +17,9 @@ describe("TweetHeader", () => {
                 username={mockFullTweet.user.username}
                 isPrivateProfile={true}
                 dateTime={mockFullTweet.dateTime}
-            />, createMockRootState(LoadingStatus.SUCCESS));
+            />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.text().includes(mockFullTweet.user.fullName)).toBe(true);
         expect(wrapper.text().includes(mockFullTweet.user.username)).toBe(true);
         expect(wrapper.text().includes(formatDate(new Date(mockFullTweet.dateTime)))).toBe(true);

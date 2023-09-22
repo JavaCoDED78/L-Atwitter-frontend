@@ -26,15 +26,20 @@ describe("Home", () => {
     beforeEach(() => {
         mockDispatchFn = mockDispatch();
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: HOME, hash: "", search: "", state: ""
+            pathname: HOME,
+            hash: "",
+            search: "",
+            state: ""
         });
         history = createMemoryHistory({
-            initialEntries: [{
-                pathname: HOME,
-                search: "",
-                hash: "",
-                state: undefined
-            }]
+            initialEntries: [
+                {
+                    pathname: HOME,
+                    search: "",
+                    hash: "",
+                    state: undefined
+                }
+            ]
         });
     });
 
@@ -79,13 +84,17 @@ describe("Home", () => {
     });
 
     it("should render Welcome message", () => {
-        const wrapper = mountWithStore(<Home />, {
-            ...mockStore,
-            user: {
-                ...mockStore.user,
-                data: { ...mockUser, profileStarted: false }
-            }
-        }, history);
+        const wrapper = mountWithStore(
+            <Home />,
+            {
+                ...mockStore,
+                user: {
+                    ...mockStore.user,
+                    data: { ...mockUser, profileStarted: false }
+                }
+            },
+            history
+        );
 
         expect(wrapper.find(Welcome).exists()).toBe(true);
         expect(wrapper.find(Welcome).text().includes("Welcome to Twitter!")).toBe(true);

@@ -17,7 +17,9 @@ describe("AnalyticsIconButton", () => {
                 tweetUserName={mockFullTweet.user.username}
                 tweetText={mockFullTweet.text}
                 isUserCanReply={false}
-            />, createMockRootState(LoadingStatus.SUCCESS));
+            />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.find(TweetAnalyticsModal).prop("visible")).toBe(false);
         wrapper.find(ActionIconButton).find(IconButton).simulate("click");
         expect(wrapper.find(TweetAnalyticsModal).prop("visible")).toBe(true);

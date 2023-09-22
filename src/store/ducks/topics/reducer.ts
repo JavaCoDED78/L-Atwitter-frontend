@@ -42,7 +42,9 @@ export const topicsReducer = produce((draft: Draft<TopicsState>, action: TopicsA
             if (action.payload.topicCategory) {
                 const topicIndex = draft.topicsByCategories.findIndex((value) => value.topicCategory === action.payload.topicCategory);
                 if (topicIndex !== -1) {
-                    const followedTopicIndex = draft.topicsByCategories[topicIndex].topicsByCategories.findIndex((topic) => topic.id === action.payload.topicsId);
+                    const followedTopicIndex = draft.topicsByCategories[topicIndex].topicsByCategories.findIndex(
+                        (topic) => topic.id === action.payload.topicsId
+                    );
                     if (followedTopicIndex !== -1) {
                         draft.topicsByCategories[topicIndex].topicsByCategories[followedTopicIndex].isTopicFollowed = action.payload.isTopicFollowed;
                     }

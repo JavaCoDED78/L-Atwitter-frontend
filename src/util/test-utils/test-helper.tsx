@@ -13,15 +13,7 @@ import { AxiosResponse } from "axios";
 import { TextDecoder, TextEncoder } from "util";
 
 import { RootState } from "../../store/store";
-import {
-    createMockMyProfile,
-    mockFullTweet,
-    mockProfileImages,
-    mockTweets,
-    mockUser,
-    mockUserDetailResponse,
-    mockUsers
-} from "./mock-test-data";
+import { createMockMyProfile, mockFullTweet, mockProfileImages, mockTweets, mockUser, mockUserDetailResponse, mockUsers } from "./mock-test-data";
 import { LoadingStatus, PageableResponse, ReplyType } from "../../types/common";
 import { PAGE_TOTAL_COUNT } from "../../constants/common-constants";
 import { pollInitialState } from "../../store/ducks/addTweetForm/reducer";
@@ -117,14 +109,12 @@ export const mountWithStore = (component, mockState?, mockHistory?) => {
 
     return mount(
         <Router history={mockHistory ? mockHistory : createMemoryHistory()}>
-            <Provider store={store}>
-                {component}
-            </Provider>
+            <Provider store={store}>{component}</Provider>
         </Router>
     );
 };
 
-export const mockExpectedResponse = <T, >(response: AxiosResponse<T>): PageableResponse<T> => {
+export const mockExpectedResponse = <T,>(response: AxiosResponse<T>): PageableResponse<T> => {
     return {
         items: response.data,
         pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])

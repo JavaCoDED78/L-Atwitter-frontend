@@ -28,9 +28,12 @@ describe("TweetRetweetedIconButton", () => {
 
     it("should render Retweet", () => {
         const mockState = {
-            ...mockRootState, tweet: {
-                ...mockRootState.tweet, tweet: {
-                    ...mockFullTweet, isTweetRetweeted: false
+            ...mockRootState,
+            tweet: {
+                ...mockRootState.tweet,
+                tweet: {
+                    ...mockFullTweet,
+                    isTweetRetweeted: false
                 }
             }
         };

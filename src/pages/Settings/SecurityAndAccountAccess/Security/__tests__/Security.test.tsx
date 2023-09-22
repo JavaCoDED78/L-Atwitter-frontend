@@ -7,7 +7,6 @@ import { SETTINGS_SECURITY_LOGIN_VERIFICATION } from "../../../../../constants/p
 import { ACCOUNT_SECURITY_TIPS, TWO_FACTOR_AUTHENTICATION } from "../../../../../constants/url-constants";
 
 describe("Security", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Security />, createMockRootState());
         expect(wrapper.text().includes("Manage your account’s security.")).toBe(true);

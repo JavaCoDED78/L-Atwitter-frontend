@@ -42,58 +42,23 @@ const SideMenu: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                 <li>
                     <NavLink to={HOME} activeClassName={"selected"}>
                         <div className={classes.logoIcon}>
-                            <IconButton color="primary">
-                                {TweetIcon}
-                            </IconButton>
+                            <IconButton color="primary">{TweetIcon}</IconButton>
                         </div>
                     </NavLink>
                 </li>
-                <SideMenuHomeItem
-                    title={"Home"}
-                    path={HOME}
-                    icon={HomeIcon}
-                    filledIcon={HomeIconFilled}
-                />
-                <SideMenuItem
-                    title={"Explore"}
-                    path={SEARCH}
-                    icon={ExploreIcon}
-                    filledIcon={ExploreIconFilled}
-                />
+                <SideMenuHomeItem title={"Home"} path={HOME} icon={HomeIcon} filledIcon={HomeIconFilled} />
+                <SideMenuItem title={"Explore"} path={SEARCH} icon={ExploreIcon} filledIcon={ExploreIconFilled} />
                 <SideMenuNotificationItem
                     title={"Notifications"}
                     path={NOTIFICATIONS}
                     icon={NotificationsIcon}
                     filledIcon={NotificationsIconFilled}
                 />
-                <SideMenuMessagesItem
-                    title={"Messages"}
-                    path={MESSAGES}
-                    icon={MessagesIcon}
-                    filledIcon={MessagesIconFilled}
-                />
-                <SideMenuItem
-                    title={"Bookmarks"}
-                    path={BOOKMARKS}
-                    icon={BookmarksIcon}
-                    filledIcon={BookmarksIconFilled}
-                />
-                <SideMenuItem
-                    title={"Lists"}
-                    path={LISTS}
-                    icon={ListsIcon}
-                    filledIcon={ListsIconFilled}
-                />
-                <SideMenuItem
-                    title={"Profile"}
-                    path={`${PROFILE}/${myProfileId}`}
-                    icon={ProfileIcon}
-                    filledIcon={ProfileIconFilled}
-                />
-                <SideMenuMoreItem
-                    changeBackgroundColor={changeBackgroundColor}
-                    changeColorScheme={changeColorScheme}
-                />
+                <SideMenuMessagesItem title={"Messages"} path={MESSAGES} icon={MessagesIcon} filledIcon={MessagesIconFilled} />
+                <SideMenuItem title={"Bookmarks"} path={BOOKMARKS} icon={BookmarksIcon} filledIcon={BookmarksIconFilled} />
+                <SideMenuItem title={"Lists"} path={LISTS} icon={ListsIcon} filledIcon={ListsIconFilled} />
+                <SideMenuItem title={"Profile"} path={`${PROFILE}/${myProfileId}`} icon={ProfileIcon} filledIcon={ProfileIconFilled} />
+                <SideMenuMoreItem changeBackgroundColor={changeBackgroundColor} changeColorScheme={changeColorScheme} />
                 <AddTweetButton />
             </ul>
             <UserSideProfile />

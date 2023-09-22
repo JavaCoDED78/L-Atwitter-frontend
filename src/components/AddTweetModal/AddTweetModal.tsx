@@ -28,7 +28,7 @@ const AddTweetModal: FC<AddTweetModalProps> = ({ title, visible, onClose }): Rea
 
     return (
         <Dialog className={classes.content} open={visible} onClose={onClose}>
-            <DialogTitleComponent title={title} onClose={onClose}/>
+            <DialogTitleComponent title={title} onClose={onClose} />
             <DialogContent className={classes.dialogContent}>
                 <AddTweetForm maxRows={6} minRows={6} title={"What's happening?"} buttonName={"Tweet"} />
             </DialogContent>

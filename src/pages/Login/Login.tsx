@@ -46,53 +46,29 @@ const Login: FC = (): ReactElement => {
             <Typography variant={"h4"} component={"div"}>
                 Log in to Twitter
             </Typography>
-            {(errorStatus) && (
+            {errorStatus && (
                 <Typography variant={"body1"} component={"div"} className={classes.error}>
-                    The username and password you entered did not match our records.
-                    Please double-check and try again.
+                    The username and password you entered did not match our records. Please double-check and try again.
                 </Typography>
             )}
             <form onSubmit={onSubmit}>
                 <div className={classes.input}>
-                    <LoginTextField
-                        label="Phone, email or username"
-                        type="email"
-                        variant="filled"
-                        onChange={handleChangeEmail}
-                        value={email}
-                    />
+                    <LoginTextField label="Phone, email or username" type="email" variant="filled" onChange={handleChangeEmail} value={email} />
                 </div>
                 <div className={classes.input}>
-                    <LoginTextField
-                        label="Password"
-                        type="password"
-                        variant="filled"
-                        onChange={handleChangePassword}
-                        value={password}
-                    />
+                    <LoginTextField label="Password" type="password" variant="filled" onChange={handleChangePassword} value={password} />
                 </div>
-                <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    disabled={!(email && password)}
-                    fullWidth
-                >
+                <Button type="submit" variant="contained" color="primary" size="large" disabled={!(email && password)} fullWidth>
                     Login
                 </Button>
             </form>
             <div className={classes.footer}>
                 <Typography variant={"body1"} component={"span"}>
-                    <Link to={ACCOUNT_FORGOT}>
-                        Forgot password?
-                    </Link>
+                    <Link to={ACCOUNT_FORGOT}>Forgot password?</Link>
                 </Typography>
                 {" · "}
                 <Typography variant={"body1"} component={"span"}>
-                    <Link to={ACCOUNT_SIGNIN}>
-                        Sign up for Twitter
-                    </Link>
+                    <Link to={ACCOUNT_SIGNIN}>Sign up for Twitter</Link>
                 </Typography>
             </div>
         </div>

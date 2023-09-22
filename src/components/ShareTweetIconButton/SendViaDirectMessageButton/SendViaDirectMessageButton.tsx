@@ -8,7 +8,6 @@ interface SendViaDirectMessageButtonProps {
 }
 
 const SendViaDirectMessageButton: FC<SendViaDirectMessageButtonProps> = ({ onClickSendViaDirectMessage }): ReactElement => {
-
     return (
         <ListItem id={"clickSendViaDirectMessage"} onClick={onClickSendViaDirectMessage}>
             <>{MessagesIcon}</>

@@ -11,11 +11,9 @@ describe("ChatParticipant", () => {
         const mockChat = mockChats[0];
         const mockHandleListItemClick = jest.fn();
         const wrapper = mountWithStore(
-            <ChatParticipant
-                chat={mockChat}
-                participantUserId={1}
-                handleListItemClick={mockHandleListItemClick}
-            />, createMockRootState(LoadingStatus.LOADED));
+            <ChatParticipant chat={mockChat} participantUserId={1} handleListItemClick={mockHandleListItemClick} />,
+            createMockRootState(LoadingStatus.LOADED)
+        );
         wrapper.find(ListItem).simulate("click");
         expect(mockHandleListItemClick).toHaveBeenCalled();
         expect(wrapper.text().includes(mockChat.participants[0].user.fullName)).toBe(true);

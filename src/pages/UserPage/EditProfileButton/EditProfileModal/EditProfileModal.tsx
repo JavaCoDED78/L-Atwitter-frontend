@@ -44,7 +44,11 @@ const EditProfileModal: FC<EditProfileModalProps> = ({ visible, onClose }): Reac
     const [avatar, setAvatar] = useState<ImageObj>();
     const [wallpaper, setWallpaper] = useState<ImageObj>();
 
-    const { control, handleSubmit, formState: { errors } } = useForm<EditProfileFormProps>({
+    const {
+        control,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<EditProfileFormProps>({
         defaultValues: {
             fullName: userData?.fullName,
             about: userData?.about,
@@ -86,8 +90,7 @@ const EditProfileModal: FC<EditProfileModalProps> = ({ visible, onClose }): Reac
                                 className={classes.wallpaperImg}
                                 key={wallpaper?.src}
                                 alt={"wallpaper"}
-                                src={(userData?.wallpaper && !wallpaper?.src) ?
-                                    userData?.wallpaper : wallpaper?.src}
+                                src={userData?.wallpaper && !wallpaper?.src ? userData?.wallpaper : wallpaper?.src}
                             />
                             <div className={classes.wallpaperEditImg}>
                                 <UploadProfileImage name={"wallpaper"} image={wallpaper} onChangeImage={setWallpaper} />
@@ -95,10 +98,7 @@ const EditProfileModal: FC<EditProfileModalProps> = ({ visible, onClose }): Reac
                         </div>
                         <div className={classes.avatarWrapper}>
                             <UploadProfileImage name={"avatar"} image={avatar} onChangeImage={setAvatar} />
-                            <Avatar
-                                key={avatar?.src}
-                                src={(userData?.avatar && !avatar?.src) ? userData?.avatar : avatar?.src}
-                            >
+                            <Avatar key={avatar?.src} src={userData?.avatar && !avatar?.src ? userData?.avatar : avatar?.src}>
                                 <img alt="default-img" src={DEFAULT_PROFILE_IMG} />
                             </Avatar>
                         </div>
@@ -141,13 +141,7 @@ const EditProfileModal: FC<EditProfileModalProps> = ({ visible, onClose }): Reac
                                     control={control}
                                     defaultValue=""
                                     render={({ field: { onChange, value } }) => (
-                                        <TweetInput
-                                            name="location"
-                                            label={"Location"}
-                                            maxTextLength={30}
-                                            onChange={onChange}
-                                            value={value}
-                                        />
+                                        <TweetInput name="location" label={"Location"} maxTextLength={30} onChange={onChange} value={value} />
                                     )}
                                 />
                                 <Controller
@@ -155,13 +149,7 @@ const EditProfileModal: FC<EditProfileModalProps> = ({ visible, onClose }): Reac
                                     control={control}
                                     defaultValue=""
                                     render={({ field: { onChange, value } }) => (
-                                        <TweetInput
-                                            name="website"
-                                            label={"Website"}
-                                            maxTextLength={100}
-                                            onChange={onChange}
-                                            value={value}
-                                        />
+                                        <TweetInput name="website" label={"Website"} maxTextLength={100} onChange={onChange} value={value} />
                                     )}
                                 />
                             </FormGroup>

@@ -19,7 +19,7 @@ export const useUsersItemStyles = makeStyles<Theme, UsersItemStylesProps>((theme
     },
     userInfo: {
         marginLeft: 12,
-        width: props => (props.size === UserItemSize.SMALL) ? 120 : 360,
+        width: (props) => (props.size === UserItemSize.SMALL ? 120 : 360),
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
         overflow: "hidden",

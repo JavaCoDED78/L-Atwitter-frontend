@@ -43,10 +43,5 @@ const useStylesPoll = makeStyles((theme) =>
 export const PollInputField = (props: TextFieldProps) => {
     const classes = useStylesPoll();
 
-    return (
-        <TextField
-            InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-            {...props}
-        />
-    );
+    return <TextField InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>} {...props} />;
 };

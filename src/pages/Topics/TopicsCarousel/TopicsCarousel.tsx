@@ -9,14 +9,7 @@ interface TopicsCarouselProps {
 
 const TopicsCarousel: FC<TopicsCarouselProps> = ({ children }): ReactElement => {
     return (
-        <Carousel
-            NextIcon={ArrowNextIcon}
-            PrevIcon={ArrowIcon}
-            indicators={false}
-            autoPlay={false}
-            swipe={false}
-            duration={0}
-        >
+        <Carousel NextIcon={ArrowNextIcon} PrevIcon={ArrowIcon} indicators={false} autoPlay={false} swipe={false} duration={0}>
             {children}
         </Carousel>
     );

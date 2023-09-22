@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { ADVANCED_TWITTER_MUTE_OPTIONS } from "../../../../../../constants/url-constants";
 
 describe("MutedWords", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<MutedWords />, createMockRootState());
         expect(wrapper.text().includes("You aren’t muting any words")).toBe(true);

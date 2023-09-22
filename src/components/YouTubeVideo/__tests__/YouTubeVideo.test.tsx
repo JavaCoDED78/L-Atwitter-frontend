@@ -8,11 +8,9 @@ import { LoadingStatus } from "../../../types/common";
 describe("YouTubeVideo", () => {
     it("should render correctly", () => {
         const wrapper = mountWithStore(
-            <YouTubeVideo
-                link={mockFullTweet.link}
-                linkTitle={mockFullTweet.linkTitle}
-                linkDescription={mockFullTweet.linkDescription}
-            />, createMockRootState(LoadingStatus.SUCCESS));
+            <YouTubeVideo link={mockFullTweet.link} linkTitle={mockFullTweet.linkTitle} linkDescription={mockFullTweet.linkDescription} />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.find("iframe").prop("src")).toBe("https://www.youtube.com/embed/ewZZNeYDiLo");
         expect(wrapper.text().includes(mockFullTweet.linkTitle)).toBe(true);
     });

@@ -18,16 +18,14 @@ interface ProfileHeaderModalProps {
     onOpenProfileDescriptionModal: () => void;
 }
 
-const ProfileHeaderModal: FC<ProfileHeaderModalProps> = (
-    {
-        isOpen,
-        avatar,
-        wallpaper,
-        onChangeWallpaper,
-        onClose,
-        onOpenProfileDescriptionModal
-    }
-): ReactElement => {
+const ProfileHeaderModal: FC<ProfileHeaderModalProps> = ({
+    isOpen,
+    avatar,
+    wallpaper,
+    onChangeWallpaper,
+    onClose,
+    onOpenProfileDescriptionModal
+}): ReactElement => {
     const classes = useProfileHeaderModalStyles();
     const myProfileFullName = useSelector(selectUserProfileFullName);
     const myProfileUsername = useSelector(selectUserProfileUsername);
@@ -43,12 +41,7 @@ const ProfileHeaderModal: FC<ProfileHeaderModalProps> = (
             hideBackdrop
         >
             <div className={classes.wallpaperWrapper}>
-                <img
-                    className={classes.wallpaperImg}
-                    key={wallpaper?.src}
-                    alt={"default-wallpaper"}
-                    src={wallpaper ? wallpaper?.src : ""}
-                />
+                <img className={classes.wallpaperImg} key={wallpaper?.src} alt={"default-wallpaper"} src={wallpaper ? wallpaper?.src : ""} />
                 <div className={classes.wallpaperEditImg}>
                     <UploadProfileImage name={"wallpaper"} image={wallpaper} onChangeImage={onChangeWallpaper} />
                 </div>

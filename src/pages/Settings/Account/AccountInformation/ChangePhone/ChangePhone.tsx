@@ -5,11 +5,7 @@ import { Divider, Typography } from "@material-ui/core";
 import { useChangePhoneStyles } from "./ChangePhoneStyles";
 import { ChangeInfoTextField } from "../../../ChangeInfoTextField/ChangeInfoTextField";
 import ChangePhoneModal from "./ChangePhoneModal/ChangePhoneModal";
-import {
-    selectUserIsSuccess,
-    selectUserProfileCountryCode,
-    selectUserProfilePhone
-} from "../../../../../store/ducks/user/selectors";
+import { selectUserIsSuccess, selectUserProfileCountryCode, selectUserProfilePhone } from "../../../../../store/ducks/user/selectors";
 import { getPhoneCode } from "../../../../../util/country-code-helper";
 import { setUserLoadingStatus } from "../../../../../store/ducks/user/actionCreators";
 import { withDocumentTitle } from "../../../../../hoc/withDocumentTitle";
@@ -32,21 +28,10 @@ const ChangePhone: FC = (): ReactElement => {
     return (
         <>
             <div className={classes.textFieldWrapper}>
-                <ChangeInfoTextField
-                    label="Current"
-                    type="text"
-                    variant="filled"
-                    value={`${getPhoneCode(countryCode)}${phone}`}
-                    fullWidth
-                    disabled
-                />
+                <ChangeInfoTextField label="Current" type="text" variant="filled" value={`${getPhoneCode(countryCode)}${phone}`} fullWidth disabled />
             </div>
             <Divider />
-            <div
-                id={"openChangePhoneModal"}
-                className={classes.updatePhoneNumber}
-                onClick={onOpenModalWindow}
-            >
+            <div id={"openChangePhoneModal"} className={classes.updatePhoneNumber} onClick={onOpenModalWindow}>
                 <Typography variant={"body1"} component={"span"}>
                     Update phone number
                 </Typography>

@@ -13,15 +13,7 @@ interface UnfollowModalProps {
     handleUnfollow: () => void;
 }
 
-const UnfollowModal: FC<UnfollowModalProps> = (
-    {
-        fullName,
-        infoText,
-        visible,
-        onClose,
-        handleUnfollow
-    }
-): ReactElement | null => {
+const UnfollowModal: FC<UnfollowModalProps> = ({ fullName, infoText, visible, onClose, handleUnfollow }): ReactElement | null => {
     const classes = useUnfollowModalStyles();
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
@@ -40,24 +32,15 @@ const UnfollowModal: FC<UnfollowModalProps> = (
                         Unfollow {fullName}?
                     </Typography>
                     <Typography variant={"subtitle1"} component={"div"}>
-                        {infoText ?? "Their Tweets will no longer show up in your home timeline. You can still view their" +
-                            " profile, unless their Tweets are protected."}
+                        {infoText ??
+                            "Their Tweets will no longer show up in your home timeline. You can still view their" +
+                                " profile, unless their Tweets are protected."}
                     </Typography>
                     <div className={classes.modalButtonWrapper}>
-                        <Button
-                            className={classes.modalCancelButton}
-                            onClick={onClose}
-                            variant="contained"
-                            size="large"
-                        >
+                        <Button className={classes.modalCancelButton} onClick={onClose} variant="contained" size="large">
                             Cancel
                         </Button>
-                        <Button
-                            onClick={handleUnfollow}
-                            variant="contained"
-                            color="primary"
-                            size="large"
-                        >
+                        <Button onClick={handleUnfollow} variant="contained" color="primary" size="large">
                             Unfollow
                         </Button>
                     </div>

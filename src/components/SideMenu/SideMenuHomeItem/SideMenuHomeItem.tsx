@@ -27,12 +27,7 @@ const SideMenuHomeItem: FC<SideMenuHomeItemProps> = ({ title, path, icon, filled
     }, [loadingStatus]);
 
     return (
-        <SideMenuItem
-            title={title}
-            path={path}
-            icon={icon}
-            filledIcon={filledIcon}
-        >
+        <SideMenuItem title={title} path={path} icon={icon} filledIcon={filledIcon}>
             {visibleHomeNotification && <span id={"homeNotification"} className={classes.homeNotification} />}
         </SideMenuItem>
     );

@@ -12,26 +12,17 @@ interface TopicBlockProps {
     isFollowedTopic?: boolean;
 }
 
-const TopicBlock: FC<TopicBlockProps> = (
-    {
-        topics,
-        startTopicValue,
-        endTopicValue,
-        isFollowedTopic = false
-    }
-): ReactElement => {
+const TopicBlock: FC<TopicBlockProps> = ({ topics, startTopicValue, endTopicValue, isFollowedTopic = false }): ReactElement => {
     const topicClasses = useTopicsStyles();
 
     return (
         <div className={topicClasses.topicsBlock}>
             <div className={topicClasses.topicsContainer}>
-                {topics.slice(startTopicValue, endTopicValue).map((topic) => (
-                    isFollowedTopic ? (
-                        <FollowedTopicButton key={topic.id} topic={topic} />
-                    ) : (
-                        <TopicButton key={topic.id} topic={topic} />
-                    )
-                ))}
+                {topics
+                    .slice(startTopicValue, endTopicValue)
+                    .map((topic) =>
+                        isFollowedTopic ? <FollowedTopicButton key={topic.id} topic={topic} /> : <TopicButton key={topic.id} topic={topic} />
+                    )}
             </div>
         </div>
     );

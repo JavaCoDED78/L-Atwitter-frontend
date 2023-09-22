@@ -225,7 +225,16 @@ describe("ListsApi", () => {
 
     describe("should fetch ListsApi.searchListMembersByUsername", () => {
         it("[200] should search list members by username Success", () => {
-            testApiCall(mockAdapter, "onGet", `${API_LISTS_SEARCH}/1/test`, 200, mockListsOwnerMember, ListsApi.searchListMembersByUsername, 1, "test");
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_LISTS_SEARCH}/1/test`,
+                200,
+                mockListsOwnerMember,
+                ListsApi.searchListMembersByUsername,
+                1,
+                "test"
+            );
         });
     });
 });

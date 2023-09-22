@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../util/test-ut
 import { ACROSS_YOUR_DEVICES, TAILORED_SUGGESTIONS } from "../../../../../constants/url-constants";
 
 describe("OffTwitterActivity", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<OffTwitterActivity />, createMockRootState());
         expect(wrapper.text().includes("Manage how Twitter uses your online activity outside of Twitter")).toBe(true);

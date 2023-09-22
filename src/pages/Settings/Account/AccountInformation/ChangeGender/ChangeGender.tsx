@@ -53,8 +53,8 @@ const ChangeGender: FC = (): ReactElement => {
     return (
         <>
             <Typography variant={"subtitle1"} component={"div"} className={globalClasses.itemInfoWrapper}>
-                If you haven’t already specified a gender, this is the one associated with your account based on
-                your profile and activity. This information won’t be displayed publicly.
+                If you haven’t already specified a gender, this is the one associated with your account based on your profile and activity. This
+                information won’t be displayed publicly.
             </Typography>
             <Divider />
             <div className={globalClasses.itemInfoWrapper}>
@@ -103,7 +103,7 @@ const ChangeGender: FC = (): ReactElement => {
                         size="small"
                     />
                 </div>
-                {(selectedGender === "Other") && (
+                {selectedGender === "Other" && (
                     <div className={classes.textFieldWrapper}>
                         <ChangeInfoTextField
                             onChange={handleChangeGender}
@@ -118,14 +118,7 @@ const ChangeGender: FC = (): ReactElement => {
             </div>
             <Divider />
             <div className={classes.buttonWrapper}>
-                <Button
-                    onClick={onSubmit}
-                    disabled={isLoading}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <Button onClick={onSubmit} disabled={isLoading} type="submit" variant="contained" color="primary" size="small">
                     Save
                 </Button>
             </div>

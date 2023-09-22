@@ -35,7 +35,6 @@ import { mockUser } from "../../../../util/test-utils/mock-test-data";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("user selectors:", () => {
-
     describe("selectUserData", () => {
         it("should return AuthUserResponse", () => {
             expect(selectUserData(createMockRootState())).toBe(mockUser);

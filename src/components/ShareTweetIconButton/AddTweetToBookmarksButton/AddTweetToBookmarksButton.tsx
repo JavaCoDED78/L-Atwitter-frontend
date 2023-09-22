@@ -15,13 +15,7 @@ interface AddTweetToBookmarksButtonProps {
     closeShareTweet: () => void;
 }
 
-const AddTweetToBookmarksButton: FC<AddTweetToBookmarksButtonProps> = (
-    {
-        tweetId,
-        isTweetBookmarked,
-        closeShareTweet
-    }
-): ReactElement => {
+const AddTweetToBookmarksButton: FC<AddTweetToBookmarksButtonProps> = ({ tweetId, isTweetBookmarked, closeShareTweet }): ReactElement => {
     const dispatch = useDispatch();
     const location = useLocation();
 

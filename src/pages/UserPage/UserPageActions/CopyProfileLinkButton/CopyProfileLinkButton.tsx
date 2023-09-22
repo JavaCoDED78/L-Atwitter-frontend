@@ -25,9 +25,7 @@ const CopyProfileLinkButton: FC<CopyProfileLinkButtonProps> = memo(({ onCloseUse
         <CopyToClipboard text={CLIENT_URL + location.pathname}>
             <ListItem id={"copyLinkToProfile"} onClick={onCopyLinkToProfile}>
                 <>{LinkIcon}</>
-                <Typography component={"span"}>
-                    Copy link to profile
-                </Typography>
+                <Typography component={"span"}>Copy link to profile</Typography>
             </ListItem>
         </CopyToClipboard>
     );

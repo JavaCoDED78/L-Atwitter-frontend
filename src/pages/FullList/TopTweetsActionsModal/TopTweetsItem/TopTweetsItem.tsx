@@ -15,9 +15,7 @@ const TopTweetsItem: FC<TopTweetsItemProps> = ({ icon, title, subtitle }): React
     return (
         <ListItem>
             <div className={classes.listItemWrapper}>
-                <span className={classes.textIcon}>
-                    {icon}
-                </span>
+                <span className={classes.textIcon}>{icon}</span>
                 <div>
                     <Typography variant={"body1"} component={"div"}>
                         {title}

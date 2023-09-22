@@ -24,8 +24,7 @@ const TopicButton: FC<TopicsButtonProps> = ({ topic }): ReactElement => {
 
     return (
         <div className={classes.topicItem}>
-            <Button className={classes.topicItemTextInfo} onClick={onClickFollowTopic}
-                    disabled={topic.isTopicNotInterested}>
+            <Button className={classes.topicItemTextInfo} onClick={onClickFollowTopic} disabled={topic.isTopicNotInterested}>
                 <Typography variant={"h6"} component={"div"}>
                     {topic.topicName}
                 </Typography>

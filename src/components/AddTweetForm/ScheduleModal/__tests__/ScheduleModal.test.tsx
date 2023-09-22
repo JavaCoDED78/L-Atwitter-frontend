@@ -11,16 +11,11 @@ describe("ScheduleModal", () => {
     const mockState = createMockRootState(LoadingStatus.LOADED);
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render correctly and click submit", () => {
         const mockOnClose = jest.fn();
-        const wrapper = mountWithStore(
-            <ScheduleModal
-                visible
-                onClose={mockOnClose}
-                onOpenUnsentTweetsModal={jest.fn()}
-            />, mockState);
+        const wrapper = mountWithStore(<ScheduleModal visible onClose={mockOnClose} onOpenUnsentTweetsModal={jest.fn()} />, mockState);
         expect(wrapper.text().includes("Schedule")).toBe(true);
         expect(wrapper.text().includes("Date")).toBe(true);
         expect(wrapper.text().includes("Month")).toBe(true);
@@ -41,12 +36,7 @@ describe("ScheduleModal", () => {
     it("should click Clear Schedule Date", () => {
         const mockRootState = { ...mockState, addTweetForm: { ...mockState.addTweetForm, scheduledDate: new Date() } };
         const mockOnClose = jest.fn();
-        const wrapper = mountWithStore(
-            <ScheduleModal
-                visible
-                onClose={mockOnClose}
-                onOpenUnsentTweetsModal={jest.fn()}
-            />, mockRootState);
+        const wrapper = mountWithStore(<ScheduleModal visible onClose={mockOnClose} onOpenUnsentTweetsModal={jest.fn()} />, mockRootState);
         wrapper.find(Button).at(0).simulate("click");
         expect(wrapper.find(Button).at(0).text().includes("Clear")).toBe(true);
         expect(mockOnClose).toHaveBeenCalled();
@@ -54,12 +44,7 @@ describe("ScheduleModal", () => {
     });
 
     it("should render empty Schedule Modal", () => {
-        const wrapper = mountWithStore(
-            <ScheduleModal
-                visible={false}
-                onClose={jest.fn()}
-                onOpenUnsentTweetsModal={jest.fn()}
-            />, mockState);
+        const wrapper = mountWithStore(<ScheduleModal visible={false} onClose={jest.fn()} onOpenUnsentTweetsModal={jest.fn()} />, mockState);
         expect(wrapper.find(ScheduleModal).prop("visible")).toBe(false);
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });
@@ -85,13 +70,13 @@ describe("ScheduleModal", () => {
     });
 
     const testSelect = (selectId: number, selectName: string, selectValue: string): void => {
-        const wrapper = mountWithStore(
-            <ScheduleModal
-                visible
-                onClose={jest.fn()}
-                onOpenUnsentTweetsModal={jest.fn()}
-            />, mockState);
-        wrapper.find(FilledSelect).find(selectName).at(selectId).find("select").simulate("change", { target: { value: selectValue } });
+        const wrapper = mountWithStore(<ScheduleModal visible onClose={jest.fn()} onOpenUnsentTweetsModal={jest.fn()} />, mockState);
+        wrapper
+            .find(FilledSelect)
+            .find(selectName)
+            .at(selectId)
+            .find("select")
+            .simulate("change", { target: { value: selectValue } });
         expect(wrapper.find(FilledSelect).find(selectName).at(selectId).prop("value")).toBe(selectValue);
     };
 });

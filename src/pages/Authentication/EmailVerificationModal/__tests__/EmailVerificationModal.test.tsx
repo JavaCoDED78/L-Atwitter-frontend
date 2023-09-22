@@ -22,14 +22,17 @@ describe("EmailVerificationModal", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should click and render correctly", () => {
         const wrapper = mountWithStore(<EmailVerificationModal />, mockRootStore);
         expect(wrapper.find(Dialog).prop("open")).toBe(true);
         expect(wrapper.text().includes(`Enter it below to verify ${mockEmail}.`)).toBe(true);
         expect(wrapper.find(Button).text().includes("Next")).toBe(true);
-        wrapper.find(RegistrationInputField).find("input").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(RegistrationInputField)
+            .find("input")
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(Button).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {
             payload: "test",
@@ -48,7 +51,10 @@ describe("EmailVerificationModal", () => {
             }
         };
         const wrapper = mountWithStore(<EmailVerificationModal />, mockRootStore);
-        wrapper.find(RegistrationInputField).find("input").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(RegistrationInputField)
+            .find("input")
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(Button).simulate("click");
         expect(wrapper.find(RegistrationInputField).prop("helperText")).toBe("Test error");
         expect(wrapper.find(RegistrationInputField).prop("error")).toBe(true);

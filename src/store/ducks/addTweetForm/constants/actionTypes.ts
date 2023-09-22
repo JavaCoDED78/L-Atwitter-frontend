@@ -25,7 +25,7 @@ export enum AddTweetFormTypes {
     SET_GIFS = "addTweetForm/SET_GIFS",
     FETCH_GIFS = "addTweetForm/FETCH_GIFS",
     RESET_GIFS = "addTweetForm/RESET_GIFS",
-    SET_LOADING_STATE = "addTweetForm/SET_LOADING_STATE",
+    SET_LOADING_STATE = "addTweetForm/SET_LOADING_STATE"
 }
 
 export interface SetOpenPollActionInterface extends Action<AddTweetFormTypes> {
@@ -113,20 +113,20 @@ export interface SetLoadingGifsStateActionInterface extends Action<AddTweetFormT
 }
 
 export type AddTweetFormActions =
-    SetOpenPollActionInterface |
-    SetClosePollActionInterface |
-    SetPollValueActionInterface |
-    SetGifActionInterface |
-    RemoveGifActionInterface |
-    SetScheduleDateActionInterface |
-    ClearScheduleDateActionInterface |
-    SetReplyTypeActionInterface |
-    SetImageDescriptionActionInterface |
-    SetImagesActionInterface |
-    RemoveImagesActionInterface |
-    SetSelectedUserActionInterface |
-    RemoveSelectedUserActionInterface |
-    ResetAddTweetFormStateActionInterface |
-    SetGifsActionInterface |
-    ResetGifsActionInterface |
-    SetLoadingGifsStateActionInterface
+    | SetOpenPollActionInterface
+    | SetClosePollActionInterface
+    | SetPollValueActionInterface
+    | SetGifActionInterface
+    | RemoveGifActionInterface
+    | SetScheduleDateActionInterface
+    | ClearScheduleDateActionInterface
+    | SetReplyTypeActionInterface
+    | SetImageDescriptionActionInterface
+    | SetImagesActionInterface
+    | RemoveImagesActionInterface
+    | SetSelectedUserActionInterface
+    | RemoveSelectedUserActionInterface
+    | ResetAddTweetFormStateActionInterface
+    | SetGifsActionInterface
+    | ResetGifsActionInterface
+    | SetLoadingGifsStateActionInterface;

@@ -28,7 +28,6 @@ import {
     ProcessFollowRequestActionInterface,
     ProcessUserToBlocklistActionInterface,
     ProcessUserToMuteListActionInterface,
-    StartUseTwitterActionInterface,
     UpdateBackgroundColorActionInterface,
     UpdateColorSchemeActionInterface,
     UpdateCountryActionInterface,
@@ -47,44 +46,18 @@ import { ChatMessageApi } from "../../../services/api/chat-service/chatMessageAp
 import { UserSettingsApi } from "../../../services/api/user-service/userSettingsApi";
 import { AuthenticationResponse } from "../../../types/auth";
 import { AuthUserResponse, UserProfileResponse } from "../../../types/user";
-import {
-    setBlocked,
-    setFollowRequestToUserProfile,
-    setFollowToUserProfile,
-    setMuted
-} from "../userProfile/actionCreators";
-import {
-    setBlockedUsersState,
-    setFollowRequestToUsers,
-    setFollowToUsersState,
-    setMutedUsersState
-} from "../users/actionCreators";
+import { setBlocked, setFollowRequestToUserProfile, setFollowToUserProfile, setMuted } from "../userProfile/actionCreators";
+import { setBlockedUsersState, setFollowRequestToUsers, setFollowToUsersState, setMutedUsersState } from "../users/actionCreators";
 import { setBlockedToTweetState, setFollowToTweetState, setMutedToTweetState } from "../tweet/actionCreators";
 import { setBlockedToTweetsState, setFollowToTweetsState, setMutedToTweetsState } from "../tweets/actionCreators";
-import {
-    setBlockUsersSearchState,
-    setFollowRequestToUsersSearchState,
-    setFollowToUsersSearchState
-} from "../usersSearch/actionCreators";
+import { setBlockUsersSearchState, setFollowRequestToUsersSearchState, setFollowToUsersSearchState } from "../usersSearch/actionCreators";
 import { setBlockUserDetail, setFollowRequestToUserDetail, setFollowToUserDetail } from "../userDetail/actionCreators";
-import {
-    setBlockedUsersTweetState,
-    setFollowToUsersTweetState,
-    setMutedUsersTweetState
-} from "../userTweets/actionCreators";
-import {
-    setBlockedNotificationInfo,
-    setFollowRequestToNotificationInfo,
-    setFollowToNotificationInfo
-} from "../notifications/actionCreators";
+import { setBlockedUsersTweetState, setFollowToUsersTweetState, setMutedUsersTweetState } from "../userTweets/actionCreators";
+import { setBlockedNotificationInfo, setFollowRequestToNotificationInfo, setFollowToNotificationInfo } from "../notifications/actionCreators";
 import { setBlockedUser, setMutedUser } from "../blockedAndMutedUsers/actionCreators";
 import { HOME, PROFILE } from "../../../constants/path-constants";
 import { ChangePhoneResponse } from "./contracts/state";
-import {
-    setBlockedTweetAdditionalInfo,
-    setFollowedTweetAdditionalInfo,
-    setMutedTweetAdditionalInfo
-} from "../tweetAdditionalInfo/actionCreators";
+import { setBlockedTweetAdditionalInfo, setFollowedTweetAdditionalInfo, setMutedTweetAdditionalInfo } from "../tweetAdditionalInfo/actionCreators";
 import { LoadingStatus } from "../../../types/common";
 import { TOKEN } from "../../../constants/common-constants";
 import { AuthenticationApi } from "../../../services/api/user-service/authenticationApi";
@@ -292,11 +265,13 @@ export function* processUserToBlocklistRequest({ payload }: ProcessUserToBlockli
     try {
         const { data }: AxiosResponse<boolean> = yield call(BlockUserApi.processBlockList, payload.userId);
         yield put(setBlockedToTweetsState({ userId: payload.userId, tweetId: payload.tweetId!, isUserBlocked: data }));
-        yield put(setBlockedUsersTweetState({
-            userId: payload.userId,
-            tweetId: payload.tweetId!,
-            isUserBlocked: data
-        }));
+        yield put(
+            setBlockedUsersTweetState({
+                userId: payload.userId,
+                tweetId: payload.tweetId!,
+                isUserBlocked: data
+            })
+        );
         yield put(setBlocked(data));
         yield put(setBlockUserDetail(data));
         yield put(setBlockedUser({ userId: payload.userId, isUserBlocked: data }));
@@ -331,10 +306,12 @@ export function* processFollowRequests({ payload }: ProcessFollowRequestActionIn
         yield put(setFollowRequestToUserProfile(data.isWaitingForApprove));
         yield put(setFollowRequestToUserDetail(data.isWaitingForApprove));
         yield put(setFollowRequestToUsers({ userId: data.id, isWaitingForApprove: data.isWaitingForApprove }));
-        yield put(setFollowRequestToUsersSearchState({
-            userId: data.id,
-            isWaitingForApprove: data.isWaitingForApprove
-        }));
+        yield put(
+            setFollowRequestToUsersSearchState({
+                userId: data.id,
+                isWaitingForApprove: data.isWaitingForApprove
+            })
+        );
         yield put(setFollowRequestToNotificationInfo(data.isWaitingForApprove));
     } catch (error) {
         yield put(setUserLoadingStatus(LoadingStatus.ERROR));

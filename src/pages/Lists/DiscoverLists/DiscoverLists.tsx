@@ -26,9 +26,7 @@ const DiscoverLists = (): ReactElement => {
                     <Spinner />
                 </div>
             ) : (
-                lists.slice(0, 3).map((list, index) => (
-                    <ListsItem key={list.id} list={list} listIndex={index} />
-                ))
+                lists.slice(0, 3).map((list, index) => <ListsItem key={list.id} list={list} listIndex={index} />)
             )}
             <Link to={SUGGESTED} className={globalClasses.link}>
                 <Typography variant={"body1"} component={"div"} className={classes.showMore}>

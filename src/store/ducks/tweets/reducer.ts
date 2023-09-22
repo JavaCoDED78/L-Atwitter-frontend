@@ -12,7 +12,6 @@ export const initialTweetsState: TweetsState = {
 };
 
 export const tweetsReducer = produce((draft: Draft<TweetsState>, action: TweetsActions) => {
-
     switch (action.type) {
         case TweetsActionType.SET_TWEETS:
             draft.items = [...draft.items, ...action.payload];

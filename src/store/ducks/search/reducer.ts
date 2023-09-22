@@ -14,7 +14,6 @@ export const initialSearchState: SearchState = {
 
 export const searchReducer = produce((draft: Draft<SearchState>, action: SearchActions) => {
     switch (action.type) {
-
         case SearchActionsType.SET_SEARCH_RESULT:
             draft.searchResult = action.payload;
             draft.searchLoadingState = LoadingStatus.LOADED;
@@ -30,12 +29,10 @@ export const searchReducer = produce((draft: Draft<SearchState>, action: SearchA
                 let newArray;
 
                 if (action.payload.stateItem === "users") {
-                    newArray = draft.recentSearchResult.users
-                        .filter((storageItem) => storageItem.id !== action.payload.item);
+                    newArray = draft.recentSearchResult.users.filter((storageItem) => storageItem.id !== action.payload.item);
                     draft.recentSearchResult.users = newArray;
                 } else {
-                    newArray = [...draft.recentSearchResult[action.payload.stateItem]]
-                        .filter((storageItem) => storageItem !== action.payload.item);
+                    newArray = [...draft.recentSearchResult[action.payload.stateItem]].filter((storageItem) => storageItem !== action.payload.item);
                     draft.recentSearchResult[action.payload.stateItem] = newArray;
                 }
             }

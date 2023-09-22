@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS } from "../../../../../../constants/url-constants";
 
 describe("ManageContacts", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<ManageContacts />, createMockRootState());
 

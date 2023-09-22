@@ -10,14 +10,8 @@ import ActionIconButton from "../ActionIconButton/ActionIconButton";
 import SendViaDirectMessageButton from "./SendViaDirectMessageButton/SendViaDirectMessageButton";
 import AddTweetToBookmarksButton from "./AddTweetToBookmarksButton/AddTweetToBookmarksButton";
 import CopyLinkToTweetButton from "./CopyLinkToTweetButton/CopyLinkToTweetButton";
-import {
-    fetchIsTweetBookmarkedAdditionalInfo,
-    resetTweetAdditionalInfo
-} from "../../store/ducks/tweetAdditionalInfo/actionCreators";
-import {
-    selectIsTweetAdditionalInfoLoading,
-    selectIsTweetBookmarkedAdditionalInfo
-} from "../../store/ducks/tweetAdditionalInfo/selectors";
+import { fetchIsTweetBookmarkedAdditionalInfo, resetTweetAdditionalInfo } from "../../store/ducks/tweetAdditionalInfo/actionCreators";
+import { selectIsTweetAdditionalInfoLoading, selectIsTweetBookmarkedAdditionalInfo } from "../../store/ducks/tweetAdditionalInfo/selectors";
 import Spinner from "../Spinner/Spinner";
 import SendDirectTweetModal from "./SendDirectTweetModal/SendDirectTweetModal";
 import { useModalWindow } from "../../hook/useModalWindow";
@@ -49,12 +43,7 @@ const ShareTweetIconButton: FC<ShareTweetProps> = memo(({ tweetId, isFullTweet }
     return (
         <ClickAwayListener onClickAway={onClickClose}>
             <div className={classes.root}>
-                <ActionIconButton
-                    actionText={"Share"}
-                    onClick={onClickOpen}
-                    size={isFullTweet ? "medium" : "small"}
-                    icon={ShareIcon}
-                />
+                <ActionIconButton actionText={"Share"} onClick={onClickOpen} size={isFullTweet ? "medium" : "small"} icon={ShareIcon} />
                 {open && (
                     <div className={classnames(classes.dropdown, globalClasses.svg)}>
                         {isTweetAdditionalInfoLoading ? (
@@ -62,11 +51,7 @@ const ShareTweetIconButton: FC<ShareTweetProps> = memo(({ tweetId, isFullTweet }
                         ) : (
                             <List>
                                 <SendViaDirectMessageButton onClickSendViaDirectMessage={onOpenModalWindow} />
-                                <AddTweetToBookmarksButton
-                                    tweetId={tweetId}
-                                    isTweetBookmarked={isTweetBookmarked}
-                                    closeShareTweet={onClickClose}
-                                />
+                                <AddTweetToBookmarksButton tweetId={tweetId} isTweetBookmarked={isTweetBookmarked} closeShareTweet={onClickClose} />
                                 <CopyLinkToTweetButton closeShareTweet={onClickClose} />
                                 <ListItem>
                                     <>{ShareIcon}</>
@@ -78,11 +63,7 @@ const ShareTweetIconButton: FC<ShareTweetProps> = memo(({ tweetId, isFullTweet }
                         )}
                     </div>
                 )}
-                <SendDirectTweetModal
-                    tweetId={tweetId}
-                    visible={visibleModalWindow}
-                    onClose={onCloseModalWindow}
-                />
+                <SendDirectTweetModal tweetId={tweetId} visible={visibleModalWindow} onClose={onCloseModalWindow} />
             </div>
         </ClickAwayListener>
     );

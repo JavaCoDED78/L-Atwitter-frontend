@@ -15,7 +15,7 @@ const RetweetsCount = memo((): ReactElement => {
 
     return (
         <>
-            {(retweetsCount !== 0) && (
+            {retweetsCount !== 0 && (
                 <span className={classes.interactionCount} onClick={onOpenModalWindow}>
                     <div className={classes.contentItem}>
                         <Typography variant={"h6"} component={"span"}>

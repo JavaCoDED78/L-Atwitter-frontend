@@ -12,10 +12,12 @@ export function* fetchUsersRequest({ payload }: FetchUsersActionInterface) {
     try {
         yield put(setUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(UserApi.getUsers, payload);
-        yield put(setPageableUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersLoadingState(LoadingStatus.ERROR));
     }

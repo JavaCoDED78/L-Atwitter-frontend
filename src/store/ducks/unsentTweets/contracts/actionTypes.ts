@@ -7,7 +7,7 @@ export enum UnsentTweetActionType {
     SET_UNSENT_TWEETS = "unsentTweets/SET_UNSENT_TWEETS",
     FETCH_UNSENT_TWEETS = "unsentTweets/FETCH_UNSENT_TWEETS",
     RESET_UNSENT_TWEETS = "unsentTweets/RESET_UNSENT_TWEETS",
-    SET_LOADING_STATE = "unsentTweets/SET_LOADING_STATE",
+    SET_LOADING_STATE = "unsentTweets/SET_LOADING_STATE"
 }
 
 export interface SetUnsentTweetsStateActionInterface extends Action<UnsentTweetActionType> {
@@ -30,7 +30,7 @@ export interface SetUnsentTweetsLoadingStateInterface extends Action<UnsentTweet
 }
 
 export type UnsentTweetsActions =
-    SetUnsentTweetsStateActionInterface
+    | SetUnsentTweetsStateActionInterface
     | FetchUnsentTweetsActionInterface
     | ResetUnsentTweetsActionInterface
-    | SetUnsentTweetsLoadingStateInterface
+    | SetUnsentTweetsLoadingStateInterface;

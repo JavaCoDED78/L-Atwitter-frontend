@@ -1,13 +1,5 @@
 import { testAction } from "../../../../util/test-utils/test-helper";
-import {
-    createChat,
-    fetchChats,
-    leaveFromConversation,
-    resetChatsState,
-    setChat,
-    setChats,
-    setChatsLoadingState
-} from "../actionCreators";
+import { createChat, fetchChats, leaveFromConversation, resetChatsState, setChat, setChats, setChatsLoadingState } from "../actionCreators";
 import { ChatsActionsType } from "../contracts/actionTypes";
 import { ChatResponse } from "../../../../types/chat";
 import { LoadingStatus } from "../../../../types/common";

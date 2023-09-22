@@ -43,10 +43,5 @@ const useStylesListModalInputField = makeStyles((theme) =>
 export const ListModalInputField = (props: TextFieldProps) => {
     const classes = useStylesListModalInputField();
 
-    return (
-        <TextField
-            InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-            {...props}
-        />
-    );
+    return <TextField InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>} {...props} />;
 };

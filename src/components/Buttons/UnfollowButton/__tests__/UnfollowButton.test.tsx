@@ -17,13 +17,9 @@ describe("UnfollowButton", () => {
 
     it("should click process Follow Request", () => {
         const wrapper = mountWithStore(
-            <UnfollowButton
-                userId={11}
-                fullName={"test_name"}
-                size={"medium"}
-                isPrivateProfile
-                isOpenUnfollowModal={false}
-            />, mockState);
+            <UnfollowButton userId={11} fullName={"test_name"} size={"medium"} isPrivateProfile isOpenUnfollowModal={false} />,
+            mockState
+        );
         wrapper.find(Button).simulate("click");
         expect(mockDispatchFn).toHaveBeenNthCalledWith(1, {
             payload: 11,
@@ -33,13 +29,9 @@ describe("UnfollowButton", () => {
 
     it("should click Unfollow user", () => {
         const wrapper = mountWithStore(
-            <UnfollowButton
-                userId={11}
-                fullName={"test_name"}
-                size={"medium"}
-                isPrivateProfile={false}
-                isOpenUnfollowModal={false}
-            />, mockState);
+            <UnfollowButton userId={11} fullName={"test_name"} size={"medium"} isPrivateProfile={false} isOpenUnfollowModal={false} />,
+            mockState
+        );
         wrapper.find(Button).simulate("click");
         expect(mockDispatchFn).toHaveBeenNthCalledWith(1, {
             payload: { userId: 11 },
@@ -49,13 +41,9 @@ describe("UnfollowButton", () => {
 
     it("should hover UnfollowButton", () => {
         const wrapper = mountWithStore(
-            <UnfollowButton
-                userId={11}
-                fullName={"test_name"}
-                size={"medium"}
-                isPrivateProfile
-                isOpenUnfollowModal
-            />, mockState);
+            <UnfollowButton userId={11} fullName={"test_name"} size={"medium"} isPrivateProfile isOpenUnfollowModal />,
+            mockState
+        );
         wrapper.find(Button).simulate("mouseover");
         expect(wrapper.find(Button).text().includes("Unfollow")).toBe(true);
         wrapper.find(Button).simulate("mouseleave");
@@ -64,13 +52,9 @@ describe("UnfollowButton", () => {
 
     it("should click and open/close UnfollowModal", () => {
         const wrapper = mountWithStore(
-            <UnfollowButton
-                userId={11}
-                fullName={"test_name"}
-                size={"medium"}
-                isPrivateProfile
-                isOpenUnfollowModal
-            />, mockState);
+            <UnfollowButton userId={11} fullName={"test_name"} size={"medium"} isPrivateProfile isOpenUnfollowModal />,
+            mockState
+        );
         expect(wrapper.find(UnfollowModal).prop("visible")).toBe(false);
         wrapper.find(Button).simulate("click");
         expect(wrapper.find(UnfollowModal).prop("visible")).toBe(true);

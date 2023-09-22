@@ -86,7 +86,8 @@ describe("tweetsReducer:", () => {
 
         testActionDispatch(
             TweetsActionType.SET_UPDATED_TWEET + "(NotificationType.LIKE)",
-            tweetsReducer({
+            tweetsReducer(
+                {
                     ...initialTweetsState,
                     items: [{ id: 1, isTweetLiked: false, likedTweetsCount: 0 }] as TweetResponse[]
                 },
@@ -97,7 +98,8 @@ describe("tweetsReducer:", () => {
                         tweet: { id: 1, notificationCondition: true },
                         notificationType: NotificationType.LIKE
                     } as NotificationResponse
-                }),
+                }
+            ),
             {
                 ...initialTweetsState,
                 items: [{ id: 1, isTweetLiked: true, likedTweetsCount: 1 }] as TweetResponse[],
@@ -107,7 +109,8 @@ describe("tweetsReducer:", () => {
 
         testActionDispatch(
             TweetsActionType.SET_UPDATED_TWEET + "(NotificationType.RETWEET)",
-            tweetsReducer({
+            tweetsReducer(
+                {
                     ...initialTweetsState,
                     items: [{ id: 1, isTweetRetweeted: false, retweetsCount: 0 }] as TweetResponse[]
                 },
@@ -118,7 +121,8 @@ describe("tweetsReducer:", () => {
                         tweet: { id: 1, notificationCondition: true },
                         notificationType: NotificationType.RETWEET
                     } as NotificationResponse
-                }),
+                }
+            ),
             {
                 ...initialTweetsState,
                 items: [{ id: 1, isTweetRetweeted: true, retweetsCount: 1 }] as TweetResponse[],
@@ -128,7 +132,8 @@ describe("tweetsReducer:", () => {
 
         testActionDispatch(
             TweetsActionType.SET_UPDATED_TWEET + "(NotificationType.REPLY)",
-            tweetsReducer({
+            tweetsReducer(
+                {
                     ...initialTweetsState,
                     items: [{ id: 1, repliesCount: 0 }] as TweetResponse[]
                 },
@@ -139,7 +144,8 @@ describe("tweetsReducer:", () => {
                         tweet: { id: 1 },
                         notificationType: NotificationType.REPLY
                     } as NotificationReplyResponse
-                }),
+                }
+            ),
             {
                 ...initialTweetsState,
                 items: [{ id: 1, repliesCount: 1 }] as TweetResponse[]
@@ -219,19 +225,19 @@ describe("tweetsReducer:", () => {
                 {
                     ...initialUserTweetsState,
                     items: [
-                        { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } },
+                        { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } },
                         { id: 2, poll: null }
                     ] as unknown as TweetResponse[]
                 },
                 {
                     type: TweetsActionType.SET_VOTE,
-                    payload: { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } } as TweetResponse
+                    payload: { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } } as TweetResponse
                 }
             ),
             {
                 ...initialTweetsState,
                 items: [
-                    { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } },
+                    { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } },
                     { id: 2, poll: null }
                 ] as unknown as TweetResponse[]
             }

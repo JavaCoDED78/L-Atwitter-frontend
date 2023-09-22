@@ -7,13 +7,7 @@ import Lists from "../Lists";
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../util/test-utils/test-helper";
 import { ListsActionType } from "../../../store/ducks/lists/contracts/actionTypes";
 import Spinner from "../../../components/Spinner/Spinner";
-import {
-    mockLists,
-    mockPinnedLists,
-    mockSimpleList,
-    mockUser,
-    mockUserLists
-} from "../../../util/test-utils/mock-test-data";
+import { mockLists, mockPinnedLists, mockSimpleList, mockUser, mockUserLists } from "../../../util/test-utils/mock-test-data";
 import PinnedListsItem from "../PinnedLists/PinnedListsItem/PinnedListsItem";
 import ListsItem from "../ListsItem/ListsItem";
 import CreateListsModal from "../ListsHeader/CreateListsModal/CreateListsModal";
@@ -41,7 +35,10 @@ describe("Lists", () => {
     beforeEach(() => {
         mockDispatchFn = mockDispatch();
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: LISTS, hash: "", search: "", state: ""
+            pathname: LISTS,
+            hash: "",
+            search: "",
+            state: ""
         });
     });
 

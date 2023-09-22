@@ -21,12 +21,15 @@ describe("FollowerGroup", () => {
     });
 
     it("should render 3 Followers", () => {
-        const mockFollowers = [...mockSameFollowers, {
-            "id": 12,
-            "fullName": "Random11",
-            "username": "Random11",
-            "avatar": "https://twitterclonestorage.s3.eu-central-1.amazonaws.com/ae83099c-885b-499a-bb6f-5e34e1b69e7d_4ec7201fd370bd9870cdb326f0511f38.jpg"
-        }];
+        const mockFollowers = [
+            ...mockSameFollowers,
+            {
+                id: 12,
+                fullName: "Random11",
+                username: "Random11",
+                avatar: "https://twitterclonestorage.s3.eu-central-1.amazonaws.com/ae83099c-885b-499a-bb6f-5e34e1b69e7d_4ec7201fd370bd9870cdb326f0511f38.jpg"
+            }
+        ];
         const wrapper = mountWithStore(<FollowerGroup userId={1} sameFollowers={mockFollowers} />, mockRootState);
 
         expect(wrapper.find(Avatar).at(0).prop("src")).toBe(mockFollowers[0].avatar);
@@ -50,8 +53,7 @@ describe("FollowerGroup", () => {
     it("should redirect to Same followers page", () => {
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");
-        const wrapper = mountWithStore(<FollowerGroup userId={1}
-                                                      sameFollowers={mockSameFollowers} />, mockRootState, history);
+        const wrapper = mountWithStore(<FollowerGroup userId={1} sameFollowers={mockSameFollowers} />, mockRootState, history);
 
         wrapper.find(Link).at(0).simulate("click", { button: 0 });
 

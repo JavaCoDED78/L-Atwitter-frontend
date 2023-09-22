@@ -11,7 +11,7 @@ import { useUserPageStyles } from "../UserPageStyles";
 
 const EditProfileButton = memo((): ReactElement => {
     const classes = useUserPageStyles();
-    const location = useLocation<{ isRegistered: boolean; }>();
+    const location = useLocation<{ isRegistered: boolean }>();
     const myProfileCustomized = useSelector(selectUserProfileCustomized);
     const isUserProfileSuccessLoaded = useSelector(selectUsersIsSuccessLoaded);
     const [visibleEditProfile, setVisibleEditProfile] = useState<boolean>(false);

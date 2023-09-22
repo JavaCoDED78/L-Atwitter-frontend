@@ -15,13 +15,7 @@ interface TopTweetActionsProps {
     handleTopTweets: () => void;
 }
 
-const TopTweetActions: FC<TopTweetActionsProps> = (
-    {
-        switchTweets,
-        handleLatestTweets,
-        handleTopTweets
-    }
-): ReactElement => {
+const TopTweetActions: FC<TopTweetActionsProps> = ({ switchTweets, handleLatestTweets, handleTopTweets }): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useTopTweetActionsStyles();
     const { open, onClickOpen, onClickClose } = useClickAway();
@@ -35,9 +29,7 @@ const TopTweetActions: FC<TopTweetActionsProps> = (
                 {open && (
                     <div className={classes.dropdown}>
                         <div className={classes.dropdownHeader}>
-                            <div className={classes.dropdownHeaderImage}>
-                                {switchTweets ? ShowLatestTweets : ShowTopTweets}
-                            </div>
+                            <div className={classes.dropdownHeaderImage}>{switchTweets ? ShowLatestTweets : ShowTopTweets}</div>
                             <Typography variant={"h5"} component={"div"}>
                                 {switchTweets ? "Latest Tweets show up as they happen" : "Home shows you top Tweets first"}
                             </Typography>
@@ -46,9 +38,7 @@ const TopTweetActions: FC<TopTweetActionsProps> = (
                         <List>
                             <ListItem id={"switchTweets"} onClick={switchTweets ? handleTopTweets : handleLatestTweets}>
                                 <div className={classes.listItemWrapper}>
-                                    <span className={classes.textIcon}>
-                                        {SeeLatestIcon}
-                                    </span>
+                                    <span className={classes.textIcon}>{SeeLatestIcon}</span>
                                     <div>
                                         <Typography variant={"body1"} component={"div"}>
                                             {switchTweets ? "Go back Home" : "See latest Tweets instead"}
@@ -62,9 +52,7 @@ const TopTweetActions: FC<TopTweetActionsProps> = (
                             <Link to={SETTINGS_CONTENT_PREFERENCES} className={globalClasses.linkWrapper}>
                                 <ListItem>
                                     <div className={classes.listItemWrapper}>
-                                    <span className={classes.textIcon}>
-                                        {SettingsIcon}
-                                    </span>
+                                        <span className={classes.textIcon}>{SettingsIcon}</span>
                                         <div>
                                             <Typography variant={"body1"} component={"div"}>
                                                 View content preferences

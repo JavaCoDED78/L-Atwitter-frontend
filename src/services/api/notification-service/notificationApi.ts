@@ -4,10 +4,10 @@ import { NotificationInfoResponse, NotificationResponse, NotificationUserRespons
 import { axios } from "../../../core/axios";
 import {
     API_NOTIFICATION,
+    API_NOTIFICATION_MENTIONS,
     API_NOTIFICATION_SUBSCRIBES,
     API_NOTIFICATION_TIMELINE,
-    API_NOTIFICATION_USER,
-    API_NOTIFICATION_MENTIONS
+    API_NOTIFICATION_USER
 } from "../../../constants/endpoint-constants";
 import { TweetResponse } from "../../../types/tweet";
 

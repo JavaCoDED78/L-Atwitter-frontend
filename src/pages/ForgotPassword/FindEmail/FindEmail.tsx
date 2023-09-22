@@ -49,18 +49,8 @@ const FindEmail: FC = (): ReactElement => {
                 </>
             )}
             <form onSubmit={findExistingEmail}>
-                <ForgotPasswordTextField
-                    variant="outlined"
-                    onChange={handleChangeEmail}
-                    value={email}
-                />
-                <Button
-                    className={classes.button}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <ForgotPasswordTextField variant="outlined" onChange={handleChangeEmail} value={email} />
+                <Button className={classes.button} type="submit" variant="contained" color="primary" size="small">
                     Search
                 </Button>
             </form>

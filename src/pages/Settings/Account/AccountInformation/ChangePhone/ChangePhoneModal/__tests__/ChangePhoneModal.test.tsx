@@ -27,12 +27,20 @@ describe("ChangePhoneModal", () => {
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.text().includes("Change phone")).toBe(true);
-        expect(wrapper.text().includes(`Your current phone number is ${getPhoneCode(mockStore.user.data?.countryCode)}${mockStore.user.data?.phone}.`)).toBe(true);
+        expect(
+            wrapper.text().includes(`Your current phone number is ${getPhoneCode(mockStore.user.data?.countryCode)}${mockStore.user.data?.phone}.`)
+        ).toBe(true);
         expect(wrapper.text().includes("Country code")).toBe(true);
         expect(wrapper.find(FilledSelect).prop("value")).toBe(getCountryCode(mockStore.user.data?.countryCode));
 
-        wrapper.find(FilledSelect).find("select").simulate("change", { target: { value: "US" } });
-        wrapper.find(ChangeInfoTextField).find("input").simulate("change", { target: { value: 123456789 } });
+        wrapper
+            .find(FilledSelect)
+            .find("select")
+            .simulate("change", { target: { value: "US" } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .find("input")
+            .simulate("change", { target: { value: 123456789 } });
 
         setImmediate(() => {
             wrapper.find(Button).simulate("submit");

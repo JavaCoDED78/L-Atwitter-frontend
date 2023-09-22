@@ -17,9 +17,7 @@ const TextCountProgress: FC<TextCountProgressProps> = memo(({ text }): ReactElem
         <>
             {text && (
                 <>
-                    <span id={"textCount"}>
-                        {textCount}
-                    </span>
+                    <span id={"textCount"}>{textCount}</span>
                     <div className={classes.footerAddFormCircleProgress}>
                         <CircularProgress
                             className={text.length >= MAX_TEXT_LENGTH ? classes.progressColor : undefined}
@@ -28,13 +26,7 @@ const TextCountProgress: FC<TextCountProgressProps> = memo(({ text }): ReactElem
                             size={20}
                             thickness={5}
                         />
-                        <CircularProgress
-                            className={classes.defaultProgressColor}
-                            variant="determinate"
-                            size={20}
-                            thickness={5}
-                            value={100}
-                        />
+                        <CircularProgress className={classes.defaultProgressColor} variant="determinate" size={20} thickness={5} value={100} />
                     </div>
                 </>
             )}

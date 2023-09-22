@@ -54,32 +54,18 @@ const SideSearch: FC = (): ReactElement => {
                     onClick={handleClickOpenPopup}
                     value={text}
                     InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                {SearchIcon}
+                        startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>,
+                        endAdornment: text && (
+                            <InputAdornment position="end">
+                                <IconButton id={"clearText"} color="primary" onClick={handleClearText}>
+                                    {CloseIcon}
+                                </IconButton>
                             </InputAdornment>
-                        ),
-                        endAdornment: (
-                            text && (
-                                <InputAdornment position="end">
-                                    <IconButton id={"clearText"} color="primary" onClick={handleClearText}>
-                                        {CloseIcon}
-                                    </IconButton>
-                                </InputAdornment>
-                            )
                         )
                     }}
                     fullWidth
                 />
-                {open && (
-                    <div className={classes.dropdown}>
-                        {text ? (
-                            <SearchResults />
-                        ) : (
-                            <RecentSearchResults />
-                        )}
-                    </div>
-                )}
+                {open && <div className={classes.dropdown}>{text ? <SearchResults /> : <RecentSearchResults />}</div>}
             </div>
         </ClickAwayListener>
     );

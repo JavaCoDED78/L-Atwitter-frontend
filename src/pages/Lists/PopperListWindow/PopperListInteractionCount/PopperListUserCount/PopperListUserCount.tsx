@@ -11,14 +11,7 @@ interface PopperListUserCountProps {
     onOpenModalWindow: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>, title: string) => void;
 }
 
-const PopperListUserCount: FC<PopperListUserCountProps> = memo((
-    {
-        id,
-        userCount,
-        title,
-        onOpenModalWindow
-    }
-): ReactElement => {
+const PopperListUserCount: FC<PopperListUserCountProps> = memo(({ id, userCount, title, onOpenModalWindow }): ReactElement => {
     const classes = usePopperListUserCountStyles();
 
     return (
@@ -27,7 +20,8 @@ const PopperListUserCount: FC<PopperListUserCountProps> = memo((
                 {userCount}
             </Typography>
             <Typography variant={"subtitle1"} component={"span"}>
-                {" "}{capitalize(title)}
+                {" "}
+                {capitalize(title)}
             </Typography>
         </span>
     );

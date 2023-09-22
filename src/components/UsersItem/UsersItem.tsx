@@ -19,14 +19,14 @@ import { DEFAULT_PROFILE_IMG } from "../../constants/url-constants";
 import { fetchUserDetail } from "../../store/ducks/userDetail/actionCreators";
 
 export interface UsersItemProps {
-    user?: UserResponse,
-    size?: UserItemSize
+    user?: UserResponse;
+    size?: UserItemSize;
 }
 
 export enum UserItemSize {
     SMALL = "SMALL",
     MEDIUM = "MEDIUM",
-    LARGE = "LARGE",
+    LARGE = "LARGE"
 }
 
 const UsersItem: FC<UsersItemProps> = memo(({ user, size }): ReactElement => {
@@ -41,7 +41,7 @@ const UsersItem: FC<UsersItemProps> = memo(({ user, size }): ReactElement => {
                 <div
                     id={"userInfo"}
                     className={classes.userInfo}
-                    onMouseEnter={() => handleHoverPopper({ userId: user?.id} as HoverItemDetail)}
+                    onMouseEnter={() => handleHoverPopper({ userId: user?.id } as HoverItemDetail)}
                     onMouseLeave={handleLeavePopper}
                 >
                     <UserItemInfo
@@ -55,22 +55,16 @@ const UsersItem: FC<UsersItemProps> = memo(({ user, size }): ReactElement => {
                     <PopperUserWindow visible={visiblePopperWindow} />
                 </div>
                 <div className={classes.buttonWrapper}>
-                    {(myProfileId === user?.id) ? null : (
-                        (user?.isMyProfileBlocked) ? null : (
-                            (!user?.isFollower) ? (
-                                (user?.isUserBlocked) ? (
-                                    <BlockButton user={user} />
-                                ) : (
-                                    (user?.isWaitingForApprove) ? (
-                                        <PendingButton user={user} />
-                                    ) : (
-                                        <FollowButton user={user} />
-                                    )
-                                )
-                            ) : (
-                                <UnfollowButton user={user} />
-                            )
+                    {myProfileId === user?.id ? null : user?.isMyProfileBlocked ? null : !user?.isFollower ? (
+                        user?.isUserBlocked ? (
+                            <BlockButton user={user} />
+                        ) : user?.isWaitingForApprove ? (
+                            <PendingButton user={user} />
+                        ) : (
+                            <FollowButton user={user} />
                         )
+                    ) : (
+                        <UnfollowButton user={user} />
                     )}
                 </div>
             </ListItem>

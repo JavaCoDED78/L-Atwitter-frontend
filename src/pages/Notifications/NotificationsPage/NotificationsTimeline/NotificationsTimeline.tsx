@@ -40,11 +40,13 @@ const NotificationsTimeline: FC = (): ReactElement => {
                     </Typography>
                 </PageHeaderWrapper>
                 <div className={globalClasses.contentWrapper}>
-                    {(tweets.length === 0 && !isLoading) ? (
+                    {tweets.length === 0 && !isLoading ? (
                         <Spinner />
                     ) : (
                         <>
-                            {tweets.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
+                            {tweets.map((tweet) => (
+                                <TweetComponent key={tweet.id} tweet={tweet} />
+                            ))}
                             {isLoading && <Spinner />}
                         </>
                     )}

@@ -51,7 +51,10 @@ describe("UserPage", () => {
         mockDispatchFn = mockDispatch();
         jest.spyOn(ReactRouter, "useParams").mockReturnValue({ userId: "2" });
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: `${PROFILE}/2`, hash: "", search: "", state: { isRegistered: false }
+            pathname: `${PROFILE}/2`,
+            hash: "",
+            search: "",
+            state: { isRegistered: false }
         });
     });
 
@@ -91,7 +94,10 @@ describe("UserPage", () => {
 
     it("should visible SetupProfile modal", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: PROFILE + "/2", hash: "", search: "", state: { isRegistered: true }
+            pathname: PROFILE + "/2",
+            hash: "",
+            search: "",
+            state: { isRegistered: true }
         });
         const wrapper = mountWithStore(<UserPage />, {
             ...mockRootState,

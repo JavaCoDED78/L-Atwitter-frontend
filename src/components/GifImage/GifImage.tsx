@@ -22,11 +22,8 @@ interface WithLinkProps {
     tweetId?: number;
 }
 
-const WithLink = ({ children, withLink, tweetId }: WithLinkProps) => (
-    withLink
-        ? <Link to={`${HOME_TWEET}/${tweetId}`}>{children}</Link>
-        : <>{children}</>
-);
+const WithLink = ({ children, withLink, tweetId }: WithLinkProps) =>
+    withLink ? <Link to={`${HOME_TWEET}/${tweetId}`}>{children}</Link> : <>{children}</>;
 
 const GifImage: FC<GifImageProps> = memo(({ tweetId, gifImage, removeButton, withLink }): ReactElement => {
     const classes = useGifImageStyles({ width: gifImage!.width, height: gifImage!.height });
@@ -42,17 +39,11 @@ const GifImage: FC<GifImageProps> = memo(({ tweetId, gifImage, removeButton, wit
                 <img src={gifImage?.url} alt={""} />
                 {removeButton && (
                     <div className={classes.gifRemove}>
-                        <ActionIconButton
-                            actionText={"Remove"}
-                            icon={CloseIcon}
-                            onClick={onClickRemoveGif}
-                            size={"medium"}
-                        />
+                        <ActionIconButton actionText={"Remove"} icon={CloseIcon} onClick={onClickRemoveGif} size={"medium"} />
                     </div>
                 )}
             </div>
         </WithLink>
-
     );
 });
 

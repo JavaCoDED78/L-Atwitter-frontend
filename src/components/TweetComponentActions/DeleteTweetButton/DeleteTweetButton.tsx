@@ -15,13 +15,7 @@ interface DeleteTweetButtonProps {
     onCloseActionsDropdown: () => void;
 }
 
-const DeleteTweetButton: FC<DeleteTweetButtonProps> = memo((
-    {
-        tweetId,
-        addressedTweetId,
-        onCloseActionsDropdown
-    }
-): ReactElement => {
+const DeleteTweetButton: FC<DeleteTweetButtonProps> = memo(({ tweetId, addressedTweetId, onCloseActionsDropdown }): ReactElement => {
     const dispatch = useDispatch();
     const { visibleModalWindow, onOpenModalWindow, onCloseModalWindow } = useModalWindow();
 

@@ -12,12 +12,9 @@ describe("UnfollowModal", () => {
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(
-            <UnfollowModal
-                fullName={mockUserFullName}
-                visible={true}
-                onClose={jest.fn()}
-                handleUnfollow={jest.fn()}
-            />, mockRootState);
+            <UnfollowModal fullName={mockUserFullName} visible={true} onClose={jest.fn()} handleUnfollow={jest.fn()} />,
+            mockRootState
+        );
 
         wrapper.find(Dialog).simulate("click");
 
@@ -29,12 +26,9 @@ describe("UnfollowModal", () => {
 
     it("should render empty UnfollowModal", () => {
         const wrapper = mountWithStore(
-            <UnfollowModal
-                fullName={mockUserFullName}
-                visible={false}
-                onClose={jest.fn()}
-                handleUnfollow={jest.fn()}
-            />, mockRootState);
+            <UnfollowModal fullName={mockUserFullName} visible={false} onClose={jest.fn()} handleUnfollow={jest.fn()} />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });

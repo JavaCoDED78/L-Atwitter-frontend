@@ -10,7 +10,6 @@ export const initialListState: ListState = {
 };
 
 export const listReducer = produce((draft: Draft<ListState>, action: ListActions) => {
-
     switch (action.type) {
         case ListActionType.SET_LIST:
             draft.list = action.payload;

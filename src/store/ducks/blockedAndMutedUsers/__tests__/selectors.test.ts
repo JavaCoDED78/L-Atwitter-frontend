@@ -14,19 +14,23 @@ describe("blockedAndMutedUsers selectors:", () => {
 
     describe("selectMutedUsersItems", () => {
         it("should return MutedUserResponse array", () => {
-            expect(selectMutedUsersItems({
-                ...mockState,
-                blockedAndMutedUsers: { ...mockState.blockedAndMutedUsers, mutedUsers: mockMutedUsers }
-            })).toBe(mockMutedUsers);
+            expect(
+                selectMutedUsersItems({
+                    ...mockState,
+                    blockedAndMutedUsers: { ...mockState.blockedAndMutedUsers, mutedUsers: mockMutedUsers }
+                })
+            ).toBe(mockMutedUsers);
         });
     });
 
     describe("selectBlockedUsersItems", () => {
         it("should return BlockedUserResponse array", () => {
-            expect(selectBlockedUsersItems({
-                ...mockState,
-                blockedAndMutedUsers: { ...mockState.blockedAndMutedUsers, blockedUsers: mockBlockedUsers }
-            })).toBe(mockBlockedUsers);
+            expect(
+                selectBlockedUsersItems({
+                    ...mockState,
+                    blockedAndMutedUsers: { ...mockState.blockedAndMutedUsers, blockedUsers: mockBlockedUsers }
+                })
+            ).toBe(mockBlockedUsers);
         });
     });
 

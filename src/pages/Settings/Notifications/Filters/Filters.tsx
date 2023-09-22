@@ -28,8 +28,7 @@ const Filters: FC = (): ReactElement => {
                 <Typography variant={"subtitle2"} component={"div"}>
                     {"Choose to filter out content such as duplicate or automated Tweets. This doesn’t apply to " +
                         "notifications from accounts you follow or have interacted with recently. "}
-                    <MuiLink href={UNDERSTANDING_THE_NOTIFICATIONS_TIMELINE} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={UNDERSTANDING_THE_NOTIFICATIONS_TIMELINE} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>

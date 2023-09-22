@@ -49,9 +49,8 @@ const Security: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Enabling this setting adds extra security to your account by requiring additional
-                    information to reset your password. If enabled, you must provide either the phone number or
-                    email address associated with your account in order to reset your password.
+                    Enabling this setting adds extra security to your account by requiring additional information to reset your password. If enabled,
+                    you must provide either the phone number or email address associated with your account in order to reset your password.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>

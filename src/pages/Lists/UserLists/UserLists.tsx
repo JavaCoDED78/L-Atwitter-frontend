@@ -19,11 +19,7 @@ const UserLists = (): ReactElement => {
             <Typography variant="h5" className={globalClasses.itemInfoWrapper}>
                 Your Lists
             </Typography>
-            {isUserListsLoading ? (
-                <Spinner />
-            ) : (
-                userLists.map((list) => (<ListsItem key={list.id} list={list} isMyList />))
-            )}
+            {isUserListsLoading ? <Spinner /> : userLists.map((list) => <ListsItem key={list.id} list={list} isMyList />)}
         </Paper>
     );
 };

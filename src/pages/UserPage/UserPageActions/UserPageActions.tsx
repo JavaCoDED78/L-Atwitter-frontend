@@ -53,9 +53,7 @@ const UserPageActions = memo((): ReactElement => {
                                     )}
                                 </>
                             )}
-                            {!isUserBlocked && (
-                                <MuteUserButton onCloseUserPageActions={onClickClose} />
-                            )}
+                            {!isUserBlocked && <MuteUserButton onCloseUserPageActions={onClickClose} />}
                             <BlockUserButton />
                             <UserItemAction title={`Report @${username}`} icon={ReportIcon} />
                         </List>

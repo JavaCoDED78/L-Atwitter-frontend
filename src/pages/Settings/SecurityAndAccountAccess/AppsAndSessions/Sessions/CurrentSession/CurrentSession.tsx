@@ -10,7 +10,7 @@ import { withDocumentTitle } from "../../../../../../hoc/withDocumentTitle";
 const CurrentSession: FC = (): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useCurrentSessionStyles();
-    const location = useLocation<{ OSName: string; browserName: string; countryName: string; }>();
+    const location = useLocation<{ OSName: string; browserName: string; countryName: string }>();
 
     return (
         <>
@@ -18,9 +18,7 @@ const CurrentSession: FC = (): ReactElement => {
                 <div className={globalClasses.itemInfoWrapper}>
                     <div className={classes.sessionInfo}>
                         <div className={classes.deviceIconWrapper}>
-                            <span className={classes.deviceIcon}>
-                                {DeviceIcon}
-                            </span>
+                            <span className={classes.deviceIcon}>{DeviceIcon}</span>
                         </div>
                         <div>
                             <Typography variant={"body1"} component={"div"}>

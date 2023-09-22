@@ -14,7 +14,9 @@ describe("ExploreModalInfo", () => {
                 searchModalTitle={"Location"}
                 title={"Show content in this location"}
                 subtitle={"When this is on, you’ll see what’s happening around you right now."}
-            />, mockStore);
+            />,
+            mockStore
+        );
         expect(wrapper.text().includes("Location")).toBe(true);
         expect(wrapper.text().includes("Show content in this location")).toBe(true);
         expect(wrapper.text().includes("When this is on, you’ll see what’s happening around you right now.")).toBe(true);
@@ -27,7 +29,9 @@ describe("ExploreModalInfo", () => {
                 searchModalTitle={"Location"}
                 title={"Show content in this location"}
                 subtitle={"When this is on, you’ll see what’s happening around you right now."}
-            />, mockStore);
+            />,
+            mockStore
+        );
         expect(wrapper.text().includes("Location")).toBe(false);
         expect(wrapper.text().includes("Show content in this location")).toBe(true);
         expect(wrapper.text().includes("When this is on, you’ll see what’s happening around you right now.")).toBe(true);

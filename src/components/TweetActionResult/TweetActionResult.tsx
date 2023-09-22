@@ -7,12 +7,12 @@ import { LikeOutlinedIcon, PinOutlinedIcon, RetweetOutlinedIconSm } from "../../
 export enum TweetActionResults {
     PIN = "PIN",
     RETWEET = "RETWEET",
-    LIKE = "LIKE",
+    LIKE = "LIKE"
 }
 
 interface TweetActionResultProps {
-    action: TweetActionResults,
-    text: string
+    action: TweetActionResults;
+    text: string;
 }
 
 const TweetActionResult: FC<TweetActionResultProps> = ({ action, text }): ReactElement => {

@@ -43,8 +43,8 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
             }
 
             const formatYear = String(getYear(dateNow));
-            const formatMonth = (getMonth(dateNow) + 1 < 10) ? ("0" + String(getMonth(dateNow) + 1)) : (String(getMonth(dateNow) + 1));
-            const formatDay = (parseInt(scheduledDay) < 10) ? ("0" + String(scheduledDay)) : (String(scheduledDay));
+            const formatMonth = getMonth(dateNow) + 1 < 10 ? "0" + String(getMonth(dateNow) + 1) : String(getMonth(dateNow) + 1);
+            const formatDay = parseInt(scheduledDay) < 10 ? "0" + String(scheduledDay) : String(scheduledDay);
             setYear(formatYear);
             handleDaysCount(formatMonth);
             setMonth(formatMonth);
@@ -114,7 +114,11 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
 
         for (let i = 1; i <= 28; i++) {
             const value = i < 10 ? "0" + i : i;
-            days.push(<option key={i} value={value}>{i}</option>);
+            days.push(
+                <option key={i} value={value}>
+                    {i}
+                </option>
+            );
         }
         return days;
     };
@@ -124,7 +128,11 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
 
         for (let i = 0; i < 24; i++) {
             const value = i < 10 ? "0" + i : i;
-            days.push(<option key={i} value={value}>{value}</option>);
+            days.push(
+                <option key={i} value={value}>
+                    {value}
+                </option>
+            );
         }
         return days;
     };
@@ -134,7 +142,11 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
 
         for (let i = 0; i < 60; i++) {
             const value = i < 10 ? "0" + i : i;
-            days.push(<option key={i} value={value}>{value}</option>);
+            days.push(
+                <option key={i} value={value}>
+                    {value}
+                </option>
+            );
         }
         return days;
     };
@@ -177,9 +189,7 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                             Date
                         </Typography>
                         <FormControl variant="filled" error={isValidSelectedDate}>
-                            <InputLabel htmlFor="select-month">
-                                Month
-                            </InputLabel>
+                            <InputLabel htmlFor="select-month">Month</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 style={{ width: 273, marginRight: 12 }}
@@ -205,9 +215,7 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                             </FilledSelect>
                         </FormControl>
                         <FormControl variant="filled" error={isValidSelectedDate}>
-                            <InputLabel htmlFor="select-day">
-                                Day
-                            </InputLabel>
+                            <InputLabel htmlFor="select-day">Day</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 style={{ width: 123, marginRight: 12 }}
@@ -219,13 +227,13 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                                 label="Day"
                             >
                                 {showDays()}
-                                {(daysCount === 30) && (
+                                {daysCount === 30 && (
                                     <>
                                         <option value={"29"}>29</option>
                                         <option value={"30"}>30</option>
                                     </>
                                 )}
-                                {(daysCount === 31) && (
+                                {daysCount === 31 && (
                                     <>
                                         <option value={"29"}>29</option>
                                         <option value={"30"}>30</option>
@@ -235,9 +243,7 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                             </FilledSelect>
                         </FormControl>
                         <FormControl variant="filled" error={isValidSelectedDate}>
-                            <InputLabel htmlFor="select-year">
-                                Year
-                            </InputLabel>
+                            <InputLabel htmlFor="select-year">Year</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 style={{ width: 144 }}
@@ -248,15 +254,9 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                                 onChange={changeYear}
                                 label="Year"
                             >
-                                <option value={showYear(0)}>
-                                    {showYear(0)}
-                                </option>
-                                <option value={showYear(1)}>
-                                    {showYear(1)}
-                                </option>
-                                <option value={showYear(2)}>
-                                    {showYear(2)}
-                                </option>
+                                <option value={showYear(0)}>{showYear(0)}</option>
+                                <option value={showYear(1)}>{showYear(1)}</option>
+                                <option value={showYear(2)}>{showYear(2)}</option>
                             </FilledSelect>
                         </FormControl>
                         {isValidSelectedDate && (
@@ -270,9 +270,7 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                             Time
                         </Typography>
                         <FormControl variant="filled" error={isValidSelectedDate}>
-                            <InputLabel htmlFor="select-hour">
-                                Hour
-                            </InputLabel>
+                            <InputLabel htmlFor="select-hour">Hour</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 style={{ width: 179, marginRight: 12 }}
@@ -287,9 +285,7 @@ const ScheduleModal: FC<ScheduleModalProps> = ({ visible, onClose, onOpenUnsentT
                             </FilledSelect>
                         </FormControl>
                         <FormControl variant="filled" error={isValidSelectedDate}>
-                            <InputLabel htmlFor="select-minute">
-                                Minute
-                            </InputLabel>
+                            <InputLabel htmlFor="select-minute">Minute</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 style={{ width: 179, marginRight: 12 }}

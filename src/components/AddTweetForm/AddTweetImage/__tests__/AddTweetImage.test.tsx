@@ -27,7 +27,10 @@ describe("AddTweetImage", () => {
 
     it("should on click remove image", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MODAL, hash: "", search: "", state: undefined
+            pathname: MODAL,
+            hash: "",
+            search: "",
+            state: undefined
         });
         const wrapper = mountWithStore(<AddTweetImage />, mockRootState);
         wrapper.find(ActionIconButton).find(IconButton).simulate("click");

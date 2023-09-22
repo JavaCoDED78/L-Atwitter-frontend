@@ -7,11 +7,7 @@ import TweetComponent from "../../components/TweetComponent/TweetComponent";
 import { useUserPageStyles } from "./UserPageStyles";
 import AddTweetModal from "../../components/AddTweetModal/AddTweetModal";
 import Spinner from "../../components/Spinner/Spinner";
-import {
-    selectIsUserTweetsLoading,
-    selectPagesCount,
-    selectUserTweetsItems
-} from "../../store/ducks/userTweets/selectors";
+import { selectIsUserTweetsLoading, selectPagesCount, selectUserTweetsItems } from "../../store/ducks/userTweets/selectors";
 import { selectUserDataId } from "../../store/ducks/user/selectors";
 import { selectUserProfileId, selectUserProfileUsername } from "../../store/ducks/userProfile/selectors";
 import { useModalWindow } from "../../hook/useModalWindow";
@@ -37,27 +33,13 @@ const UserPageTweets: FC<UserPageTweetsProps> = memo(({ activeTab, page, loadUse
             return (
                 <div className={classes.textWrapper}>
                     <Typography variant={"h5"}>
-                        {(userProfileId === myProfileId) ? (
-                            "You haven’t any Tweets yet"
-                        ) : (
-                            `@${username} hasn’t any Tweets`
-                        )}
+                        {userProfileId === myProfileId ? "You haven’t any Tweets yet" : `@${username} hasn’t any Tweets`}
                     </Typography>
                     <Typography variant={"subtitle1"}>
-                        {userProfileId === myProfileId ? (
-                            "When you send Tweets, they will show up here."
-                        ) : (
-                            "When they do, their Tweets show up here."
-                        )}
+                        {userProfileId === myProfileId ? "When you send Tweets, they will show up here." : "When they do, their Tweets show up here."}
                     </Typography>
-                    {(userProfileId === myProfileId) && (
-                        <Button
-                            className={classes.button}
-                            onClick={onOpenModalWindow}
-                            variant="contained"
-                            color="primary"
-                            size="medium"
-                        >
+                    {userProfileId === myProfileId && (
+                        <Button className={classes.button} onClick={onOpenModalWindow} variant="contained" color="primary" size="medium">
                             Send Tweet
                         </Button>
                     )}
@@ -67,18 +49,12 @@ const UserPageTweets: FC<UserPageTweetsProps> = memo(({ activeTab, page, loadUse
             return (
                 <div className={classes.textWrapper}>
                     <Typography variant={"h5"}>
-                        {(userProfileId === myProfileId) ? (
-                            "You haven’t any replies yet"
-                        ) : (
-                            `@${username} hasn’t any replies`
-                        )}
+                        {userProfileId === myProfileId ? "You haven’t any replies yet" : `@${username} hasn’t any replies`}
                     </Typography>
                     <Typography variant={"subtitle1"}>
-                        {(userProfileId === myProfileId) ? (
-                            "When you reply Tweets, they will show up here."
-                        ) : (
-                            "When they do, their replies show up here."
-                        )}
+                        {userProfileId === myProfileId
+                            ? "When you reply Tweets, they will show up here."
+                            : "When they do, their replies show up here."}
                     </Typography>
                 </div>
             );
@@ -86,27 +62,17 @@ const UserPageTweets: FC<UserPageTweetsProps> = memo(({ activeTab, page, loadUse
             return (
                 <div className={classes.textWrapper}>
                     <Typography variant={"h5"}>
-                        {(userProfileId === myProfileId) ? (
-                            "You haven’t Tweeted any photos or videos yet"
-                        ) : (
-                            `@${username} hasn’t Tweeted any photos or videos`
-                        )}
+                        {userProfileId === myProfileId
+                            ? "You haven’t Tweeted any photos or videos yet"
+                            : `@${username} hasn’t Tweeted any photos or videos`}
                     </Typography>
                     <Typography variant={"subtitle1"}>
-                        {(userProfileId === myProfileId) ? (
-                            "When you send Tweets with photos or videos in them, it will show up here."
-                        ) : (
-                            "When they do, their media will show up here."
-                        )}
+                        {userProfileId === myProfileId
+                            ? "When you send Tweets with photos or videos in them, it will show up here."
+                            : "When they do, their media will show up here."}
                     </Typography>
-                    {(userProfileId === myProfileId) && (
-                        <Button
-                            className={classes.button}
-                            onClick={onOpenModalWindow}
-                            variant="contained"
-                            color="primary"
-                            size="medium"
-                        >
+                    {userProfileId === myProfileId && (
+                        <Button className={classes.button} onClick={onOpenModalWindow} variant="contained" color="primary" size="medium">
                             Tweet a photo or video
                         </Button>
                     )}
@@ -116,18 +82,12 @@ const UserPageTweets: FC<UserPageTweetsProps> = memo(({ activeTab, page, loadUse
             return (
                 <div className={classes.textWrapper}>
                     <Typography variant={"h5"}>
-                        {(userProfileId === myProfileId) ? (
-                            "You don’t have any likes yet"
-                        ) : (
-                            `@${username} hasn’t liked any Tweets`
-                        )}
+                        {userProfileId === myProfileId ? "You don’t have any likes yet" : `@${username} hasn’t liked any Tweets`}
                     </Typography>
                     <Typography variant={"subtitle1"}>
-                        {(userProfileId === myProfileId) ? (
-                            "Tap the heart on any Tweet to show it some love. When you do, it’ll show up here."
-                        ) : (
-                            "When they do, those Tweets will show up here."
-                        )}
+                        {userProfileId === myProfileId
+                            ? "Tap the heart on any Tweet to show it some love. When you do, it’ll show up here."
+                            : "When they do, those Tweets will show up here."}
                     </Typography>
                 </div>
             );
@@ -144,13 +104,7 @@ const UserPageTweets: FC<UserPageTweetsProps> = memo(({ activeTab, page, loadUse
     };
 
     return (
-        <InfiniteScroll
-            style={{ overflow: "unset" }}
-            dataLength={tweets.length}
-            next={loadUserTweets}
-            hasMore={page < pagesCount}
-            loader={null}
-        >
+        <InfiniteScroll style={{ overflow: "unset" }} dataLength={tweets.length} next={loadUserTweets} hasMore={page < pagesCount} loader={null}>
             {renderTweets()}
             <AddTweetModal visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </InfiniteScroll>

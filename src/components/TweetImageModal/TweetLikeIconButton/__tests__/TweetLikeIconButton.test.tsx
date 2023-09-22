@@ -28,9 +28,12 @@ describe("TweetLikeIconButton", () => {
 
     it("should render like icon", () => {
         const mockState = {
-            ...mockRootState, tweet: {
-                ...mockRootState.tweet, tweet: {
-                    ...mockFullTweet, isTweetLiked: false
+            ...mockRootState,
+            tweet: {
+                ...mockRootState.tweet,
+                tweet: {
+                    ...mockFullTweet,
+                    isTweetLiked: false
                 }
             }
         };

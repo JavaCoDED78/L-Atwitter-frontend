@@ -1,12 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
 import { ChatMessageResponse } from "../../../types/chat";
-import {
-    API_CHAT_ADD_MESSAGE,
-    API_CHAT_ADD_MESSAGE_TWEET,
-    API_CHAT_MESSAGES,
-    API_CHAT_READ_MESSAGES
-} from "../../../constants/endpoint-constants";
+import { API_CHAT_ADD_MESSAGE, API_CHAT_ADD_MESSAGE_TWEET, API_CHAT_MESSAGES, API_CHAT_READ_MESSAGES } from "../../../constants/endpoint-constants";
 import { ChatMessageRequest, ChatMessageWithTweetRequest } from "../../../store/ducks/chatMessages/contracts/state";
 
 export const ChatMessageApi = {

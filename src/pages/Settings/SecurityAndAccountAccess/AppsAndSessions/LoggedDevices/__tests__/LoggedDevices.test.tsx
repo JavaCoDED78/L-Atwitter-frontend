@@ -7,7 +7,6 @@ import { ACROSS_YOUR_DEVICES } from "../../../../../../constants/url-constants";
 import { SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY } from "../../../../../../constants/path-constants";
 
 describe("LoggedDevices", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<LoggedDevices />, createMockRootState());
         expect(wrapper.text().includes("These are browsers, devices, and information Twitter uses to personalize your experience.")).toBe(true);

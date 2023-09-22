@@ -19,8 +19,7 @@ const ResetPasswordSuccess: FC = (): ReactElement => {
                     Review your applications
                 </MuiLink>
                 <Typography variant={"body1"} component={"div"}>
-                    Take a moment to review the applications that have access to your account. Revoke those you don't
-                    recognize or no longer use.
+                    Take a moment to review the applications that have access to your account. Revoke those you don't recognize or no longer use.
                 </Typography>
             </div>
             <div className={classes.infoWrapper}>

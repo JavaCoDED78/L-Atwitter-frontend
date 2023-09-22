@@ -61,13 +61,17 @@ describe("userTweets actions", () => {
         payload: { id: 1 } as TweetResponse
     });
 
-    testAction(setUpdatedBookmarkedTweetUserTweetState, setUpdatedBookmarkedTweetUserTweetState({
-        tweetId: 1,
-        isTweetBookmarked: true
-    }), {
-        type: UserTweetsActionType.SET_UPDATED_BOOKMARKED_TWEET,
-        payload: { tweetId: 1, isTweetBookmarked: true }
-    });
+    testAction(
+        setUpdatedBookmarkedTweetUserTweetState,
+        setUpdatedBookmarkedTweetUserTweetState({
+            tweetId: 1,
+            isTweetBookmarked: true
+        }),
+        {
+            type: UserTweetsActionType.SET_UPDATED_BOOKMARKED_TWEET,
+            payload: { tweetId: 1, isTweetBookmarked: true }
+        }
+    );
 
     testAction(deleteUserTweet, deleteUserTweet(1), {
         type: UserTweetsActionType.DELETE_TWEET,

@@ -11,13 +11,9 @@ describe("TweeterInput", () => {
 
     it("should focus and blur input field", () => {
         const wrapper = mountWithStore(
-            <TweetInput
-                onChange={jest.fn()}
-                value={undefined}
-                name={"username"}
-                label={"Name"}
-                maxTextLength={50}
-            />, mockRootState);
+            <TweetInput onChange={jest.fn()} value={undefined} name={"username"} label={"Name"} maxTextLength={50} />,
+            mockRootState
+        );
 
         expect(wrapper.text().includes("Name")).toBe(true);
 
@@ -30,15 +26,9 @@ describe("TweeterInput", () => {
 
     it("should render TweeterInput Bio", () => {
         const wrapper = mountWithStore(
-            <TweetInput
-                onChange={jest.fn()}
-                value={"50"}
-                name={"username"}
-                label={"Bio"}
-                maxTextLength={50}
-                multiline
-                rows={3}
-            />, mockRootState);
+            <TweetInput onChange={jest.fn()} value={"50"} name={"username"} label={"Bio"} maxTextLength={50} multiline rows={3} />,
+            mockRootState
+        );
 
         wrapper.find(TweetInputField).at(0).find("textarea").at(0).simulate("focus");
 

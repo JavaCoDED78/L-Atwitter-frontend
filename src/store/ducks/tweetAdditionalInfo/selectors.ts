@@ -14,5 +14,4 @@ export const selectTweetInfoUserIsFollower = (state: RootState) => selectTweetAd
 export const selectTweetInfoUserIsUserMuted = (state: RootState) => selectTweetAdditionalInfo(state)?.user.isUserMuted;
 export const selectTweetInfoUserIsUserBlocked = (state: RootState) => selectTweetAdditionalInfo(state)?.user.isUserBlocked;
 export const selectTweetInfoUserIsMyProfileBlocked = (state: RootState) => selectTweetAdditionalInfo(state)?.user.isMyProfileBlocked;
-export const selectIsTweetAdditionalInfoLoading = (state: RootState) =>
-    selectTweetAdditionalInfoState(state).loadingState === LoadingStatus.LOADING;
+export const selectIsTweetAdditionalInfoLoading = (state: RootState) => selectTweetAdditionalInfoState(state).loadingState === LoadingStatus.LOADING;

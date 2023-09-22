@@ -2,12 +2,7 @@ import React from "react";
 import { Avatar, IconButton } from "@material-ui/core";
 
 import MutedAccountItem from "../MutedAccountItem";
-import {
-    createMockRootState,
-    mockDispatch,
-    mountWithStore,
-    testClickOnLink
-} from "../../../../../../../util/test-utils/test-helper";
+import { createMockRootState, mockDispatch, mountWithStore, testClickOnLink } from "../../../../../../../util/test-utils/test-helper";
 import { mockMutedUsers } from "../../../../../../../util/test-utils/mock-test-data";
 import { MutedUserResponse } from "../../../../../../../types/user";
 import { DEFAULT_PROFILE_IMG } from "../../../../../../../constants/url-constants";

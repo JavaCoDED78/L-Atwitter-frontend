@@ -12,14 +12,7 @@ interface FollowUserButtonProps {
     isFollower: boolean;
 }
 
-const FollowUserButton: FC<FollowUserButtonProps> = memo((
-    {
-        tweetId,
-        userId,
-        username,
-        isFollower
-    }
-): ReactElement => {
+const FollowUserButton: FC<FollowUserButtonProps> = memo(({ tweetId, userId, username, isFollower }): ReactElement => {
     const dispatch = useDispatch();
 
     const handleFollow = (): void => {

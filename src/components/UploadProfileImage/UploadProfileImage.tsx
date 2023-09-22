@@ -43,13 +43,14 @@ const UploadProfileImage: FC<UploadProfileImageProps> = ({ setupProfile, name, i
 
     return (
         <>
-            {name === "wallpaper" ?
+            {name === "wallpaper" ? (
                 <>
                     <IconButton onClick={handleClickImage} style={{ color: "#fff" }}>
                         <PhotoCameraOutlinedIcon />
                     </IconButton>
                     <input ref={uploadRef} type="file" id="upload-wallpaper-input" hidden />
-                </> :
+                </>
+            ) : (
                 <>
                     <IconButton
                         onClick={handleClickImage}
@@ -65,7 +66,7 @@ const UploadProfileImage: FC<UploadProfileImageProps> = ({ setupProfile, name, i
                     </IconButton>
                     <input ref={uploadRef} type="file" id="upload-avatar-input" hidden />
                 </>
-            }
+            )}
         </>
     );
 };

@@ -9,13 +9,7 @@ import {
     UserProfileActionsType
 } from "./contracts/actionTypes";
 import { UserApi } from "../../../services/api/user-service/userApi";
-import {
-    setImages,
-    setImagesLoadingStatus,
-    setSubscribeToUserProfile,
-    setUserProfile,
-    setUserProfileLoadingState
-} from "./actionCreators";
+import { setImages, setImagesLoadingStatus, setSubscribeToUserProfile, setUserProfile, setUserProfileLoadingState } from "./actionCreators";
 import { ChatParticipantApi } from "../../../services/api/chat-service/chatParticipantApi";
 import { UserProfileResponse } from "../../../types/user";
 import { TweetImageResponse } from "../../../types/tweet";

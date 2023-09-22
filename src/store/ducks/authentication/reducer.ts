@@ -20,7 +20,6 @@ export const initialAuthenticationState: AuthenticationState = {
 
 export const authenticationReducer = produce((draft: Draft<AuthenticationState>, action: AuthenticationActions) => {
     switch (action.type) {
-
         case AuthenticationTypes.SET_REGISTRATION_INFO:
             draft.registrationInfo = action.payload;
             break;

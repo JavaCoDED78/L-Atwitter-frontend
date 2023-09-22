@@ -15,16 +15,7 @@ interface ActionIconButtonProps {
     disabled?: boolean;
 }
 
-const ActionIconButton: FC<ActionIconButtonProps> = (
-    {
-        id,
-        onClick,
-        actionText,
-        icon,
-        size = "small",
-        disabled
-    }
-): ReactElement => {
+const ActionIconButton: FC<ActionIconButtonProps> = ({ id, onClick, actionText, icon, size = "small", disabled }): ReactElement => {
     const classes = useActionIconButtonStyles();
     const [delayHandler, setDelayHandler] = useState<any>(null);
     const [visibleHoverAction, setVisibleHoverAction] = useState(false);

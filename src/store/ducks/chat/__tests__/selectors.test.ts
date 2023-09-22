@@ -1,10 +1,5 @@
 import { createMockRootState } from "../../../../util/test-utils/test-helper";
-import {
-    selectChatFirstParticipantAvatar,
-    selectChatItem,
-    selectChatSecondParticipantAvatar,
-    selectChatSecondParticipantId
-} from "../selectors";
+import { selectChatFirstParticipantAvatar, selectChatItem, selectChatSecondParticipantAvatar, selectChatSecondParticipantId } from "../selectors";
 import { mockChats } from "../../../../util/test-utils/mock-test-data";
 
 describe("chat selectors:", () => {

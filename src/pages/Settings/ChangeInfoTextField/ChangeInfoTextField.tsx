@@ -47,10 +47,5 @@ export const useChangeInfoTextFieldStyles = makeStyles((theme) =>
 export const ChangeInfoTextField = (props: TextFieldProps) => {
     const classes = useChangeInfoTextFieldStyles();
 
-    return (
-        <TextField
-            InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-            {...props}
-        />
-    );
+    return <TextField InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>} {...props} />;
 };

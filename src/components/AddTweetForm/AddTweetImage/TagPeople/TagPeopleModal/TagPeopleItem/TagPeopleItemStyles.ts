@@ -1,7 +1,7 @@
 import { makeStyles, Theme } from "@material-ui/core";
 
 interface TagPeopleItemStylesProps {
-    isUserCanTagged: boolean
+    isUserCanTagged: boolean;
 }
 
 export const useTagPeopleItemStyles = makeStyles<Theme, TagPeopleItemStylesProps>((theme) => ({
@@ -12,8 +12,8 @@ export const useTagPeopleItemStyles = makeStyles<Theme, TagPeopleItemStylesProps
         paddingLeft: 15,
         marginTop: 4,
         marginBottom: 4,
-        cursor: props => props.isUserCanTagged ? "default" : "pointer",
-        opacity: props => props.isUserCanTagged ? 0.5 : 1
+        cursor: (props) => (props.isUserCanTagged ? "default" : "pointer"),
+        opacity: (props) => (props.isUserCanTagged ? 0.5 : 1)
     },
     listAvatar: {
         width: theme.spacing(7),

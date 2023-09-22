@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import  background from "../../assets/lohp_1302x955.png"
+import background from "../../assets/lohp_1302x955.png";
 
 export const useAuthenticationStyles = makeStyles((theme) => ({
     wrapper: {

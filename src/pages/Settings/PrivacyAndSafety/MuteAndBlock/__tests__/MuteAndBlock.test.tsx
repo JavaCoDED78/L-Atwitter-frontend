@@ -1,12 +1,7 @@
 import React from "react";
 
 import MuteAndBlock from "../MuteAndBlock";
-import {
-    createMockRootState,
-    mockDispatch,
-    mountWithStore,
-    testClickOnLink
-} from "../../../../../util/test-utils/test-helper";
+import { createMockRootState, mockDispatch, mountWithStore, testClickOnLink } from "../../../../../util/test-utils/test-helper";
 import {
     SETTINGS_PRIVACY_AND_SAFETY_ADVANCED_FILTERS,
     SETTINGS_PRIVACY_AND_SAFETY_BLOCKED,

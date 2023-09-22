@@ -1,15 +1,6 @@
 import React, { ChangeEvent, FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    Button,
-    Checkbox,
-    Dialog,
-    DialogContent,
-    FormControl,
-    InputLabel,
-    Link as MuiLink,
-    Typography
-} from "@material-ui/core";
+import { Button, Checkbox, Dialog, DialogContent, FormControl, InputLabel, Link as MuiLink, Typography } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -18,11 +9,7 @@ import { useChangePhoneModalStyles } from "./ChangePhoneModalStyles";
 import { TweetIcon } from "../../../../../../icons";
 import { ChangeInfoTextField } from "../../../../ChangeInfoTextField/ChangeInfoTextField";
 import { FilledSelect } from "../../../../../../components/FilledSelect/FilledSelect";
-import {
-    selectUserIsLoading,
-    selectUserProfileCountryCode,
-    selectUserProfilePhone
-} from "../../../../../../store/ducks/user/selectors";
+import { selectUserIsLoading, selectUserProfileCountryCode, selectUserProfilePhone } from "../../../../../../store/ducks/user/selectors";
 import { updatePhone } from "../../../../../../store/ducks/user/actionCreators";
 import { getCountryCode, getPhoneCode } from "../../../../../../util/country-code-helper";
 import { EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS } from "../../../../../../constants/url-constants";
@@ -37,7 +24,10 @@ interface PhoneFormProps {
 }
 
 const SetPhoneFormSchema = yup.object().shape({
-    phone: yup.string().matches(/^[0-9]\d{8}$/, "Please enter a valid phone number.").required()
+    phone: yup
+        .string()
+        .matches(/^[0-9]\d{8}$/, "Please enter a valid phone number.")
+        .required()
 });
 
 const ChangePhoneModal: FC<ChangePhoneModalProps> = ({ visible, onClose }): ReactElement | null => {
@@ -47,7 +37,12 @@ const ChangePhoneModal: FC<ChangePhoneModalProps> = ({ visible, onClose }): Reac
     const myProfileCountryCode = useSelector(selectUserProfileCountryCode);
     const isLoading = useSelector(selectUserIsLoading);
     const [countryCode, setCountryCode] = useState<string>("");
-    const { control, handleSubmit, formState: { errors }, getValues } = useForm<PhoneFormProps>({
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues
+    } = useForm<PhoneFormProps>({
         resolver: yupResolver(SetPhoneFormSchema),
         mode: "onChange"
     });
@@ -74,23 +69,21 @@ const ChangePhoneModal: FC<ChangePhoneModalProps> = ({ visible, onClose }): Reac
     return (
         <Dialog transitionDuration={0} open={visible} onClose={onClose} className={classes.dialog}>
             <DialogContent className={classes.content}>
-                <div className={classes.logoIcon}>
-                    {TweetIcon}
-                </div>
+                <div className={classes.logoIcon}>{TweetIcon}</div>
                 <div>
                     <Typography variant={"h3"} component={"div"}>
                         Change phone
                     </Typography>
                     <Typography variant={"subtitle1"} component={"div"}>
-                        {`Your current phone number is ${phoneCode !== "" ? phoneCode : "none"}${myProfilePhone}. What would you like to update it to?`}
+                        {`Your current phone number is ${
+                            phoneCode !== "" ? phoneCode : "none"
+                        }${myProfilePhone}. What would you like to update it to?`}
                     </Typography>
                 </div>
-                <form onSubmit={(!getValues("phone") || !!errors.phone) ? onClose : handleSubmit(onSubmit)}>
+                <form onSubmit={!getValues("phone") || !!errors.phone ? onClose : handleSubmit(onSubmit)}>
                     <div className={classes.selectWrapper}>
                         <FormControl variant="filled">
-                            <InputLabel htmlFor="select-country-code">
-                                Country code
-                            </InputLabel>
+                            <InputLabel htmlFor="select-country-code">Country code</InputLabel>
                             <FilledSelect
                                 variant="filled"
                                 labelId="select-country-code"
@@ -129,22 +122,23 @@ const ChangePhoneModal: FC<ChangePhoneModalProps> = ({ visible, onClose }): Reac
                     <div className={classes.infoWrapper}>
                         <Typography variant={"body1"} component={"span"}>
                             {"Let people who have your phone number find and connect with you on Twitter. "}
-                            <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="body1" target="_blank"
-                                     rel="noopener">
+                            <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="body1" target="_blank" rel="noopener">
                                 Learn more
                             </MuiLink>
                         </Typography>
-                        <span><Checkbox /></span>
+                        <span>
+                            <Checkbox />
+                        </span>
                     </div>
                     <div className={classes.footer}>
                         <Button
                             color="primary"
-                            variant={(!getValues("phone") || errors.phone) ? "outlined" : "contained"}
+                            variant={!getValues("phone") || errors.phone ? "outlined" : "contained"}
                             type="submit"
                             size="small"
                             fullWidth
                         >
-                            {(!getValues("phone") || errors.phone) ? "Cancel" : "Next"}
+                            {!getValues("phone") || errors.phone ? "Cancel" : "Next"}
                         </Button>
                     </div>
                 </form>

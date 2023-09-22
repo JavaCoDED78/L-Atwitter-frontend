@@ -11,15 +11,13 @@ interface ProfileDescriptionModalProps {
     onOpenProfileUpdatedModal: () => void;
 }
 
-const ProfileDescriptionModal: FC<ProfileDescriptionModalProps> = (
-    {
-        isOpen,
-        onClose,
-        text,
-        onChangeText,
-        onOpenProfileUpdatedModal
-    }
-): ReactElement => {
+const ProfileDescriptionModal: FC<ProfileDescriptionModalProps> = ({
+    isOpen,
+    onClose,
+    text,
+    onChangeText,
+    onOpenProfileUpdatedModal
+}): ReactElement => {
     return (
         <ProfileModal
             isOpen={isOpen}

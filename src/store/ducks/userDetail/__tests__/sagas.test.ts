@@ -27,7 +27,5 @@ describe("userDetailSaga:", () => {
         testLoadingStatus(worker, setUserDetailLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(userDetailSaga, [
-        { actionType: UserDetailActionsType.FETCH_USER_DETAIL, workSaga: fetchUserDetailRequest }
-    ]);
+    testWatchSaga(userDetailSaga, [{ actionType: UserDetailActionsType.FETCH_USER_DETAIL, workSaga: fetchUserDetailRequest }]);
 });

@@ -9,13 +9,7 @@ import {
     setFollowerRequests,
     setFollowerRequestsLoadingState
 } from "../actionCreators";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { FollowerUserResponse } from "../../../../types/user";
 import { setFollowersSize, setUserLoadingStatus } from "../../user/actionCreators";
 import { FollowerRequestsActionsType } from "../contracts/actionTypes";
@@ -23,7 +17,6 @@ import { LoadingStatus } from "../../../../types/common";
 import { FollowerUserApi } from "../../../../services/api/user-service/followerUserApi";
 
 describe("fetchFollowerSaga:", () => {
-
     describe("fetchFollowerRequests:", () => {
         const mockFollowerUserResponse = {
             data: [{ id: 1 }, { id: 2 }],
@@ -33,7 +26,13 @@ describe("fetchFollowerSaga:", () => {
 
         testLoadingStatus(worker, setFollowerRequestsLoadingState, LoadingStatus.LOADING);
         testCall(worker, FollowerUserApi.getFollowerRequests, 1);
-        testSetResponse(worker, mockFollowerUserResponse, setFollowerRequests, mockExpectedResponse(mockFollowerUserResponse), "FollowerUserResponse");
+        testSetResponse(
+            worker,
+            mockFollowerUserResponse,
+            setFollowerRequests,
+            mockExpectedResponse(mockFollowerUserResponse),
+            "FollowerUserResponse"
+        );
         testLoadingStatus(worker, setFollowerRequestsLoadingState, LoadingStatus.ERROR);
     });
 

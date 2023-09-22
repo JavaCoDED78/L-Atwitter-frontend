@@ -165,13 +165,17 @@ describe("tweets actions", () => {
         payload: { tweetId: 1 }
     });
 
-    testAction(setUpdatedBookmarkedTweetTweetsState, setUpdatedBookmarkedTweetTweetsState({
-        tweetId: 1,
-        isTweetBookmarked: true
-    }), {
-        type: TweetsActionType.SET_UPDATED_BOOKMARKED_TWEET,
-        payload: { tweetId: 1, isTweetBookmarked: true }
-    });
+    testAction(
+        setUpdatedBookmarkedTweetTweetsState,
+        setUpdatedBookmarkedTweetTweetsState({
+            tweetId: 1,
+            isTweetBookmarked: true
+        }),
+        {
+            type: TweetsActionType.SET_UPDATED_BOOKMARKED_TWEET,
+            payload: { tweetId: 1, isTweetBookmarked: true }
+        }
+    );
 
     testAction(fetchTweets, fetchTweets(1), {
         type: TweetsActionType.FETCH_TWEETS,

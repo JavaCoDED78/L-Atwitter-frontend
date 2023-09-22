@@ -20,7 +20,7 @@ const PollInput: FC<PollInputProps> = memo(({ id, value, label }): ReactElement 
     const { focused, onFocus, onBlur } = useFocus();
 
     const changeChoice = (data: { [key: string]: any }): void => {
-        dispatch(setPollValue({ ...data }  as PollInitialState));
+        dispatch(setPollValue({ ...data } as PollInitialState));
     };
 
     return (

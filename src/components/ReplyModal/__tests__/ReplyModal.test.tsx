@@ -38,6 +38,8 @@ describe("ReplyModal", () => {
                 dateTime={mockMyFullTweet.dateTime}
                 visible={visible}
                 onClose={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
     };
 });

@@ -9,8 +9,7 @@ const ChatUserBlocked = (): ReactElement => {
 
     return (
         <Typography variant={"subtitle2"} component={"div"} className={classes.blockedInfoText}>
-            You can no longer send messages to this person.
-            {" "}
+            You can no longer send messages to this person.{" "}
             <MuiLink href={DIRECT_MESSAGES} variant="subtitle2" target="_blank" rel="noopener">
                 Learn more
             </MuiLink>

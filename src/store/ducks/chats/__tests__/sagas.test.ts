@@ -10,7 +10,6 @@ import { ChatsActionsType } from "../contracts/actionTypes";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("chatsSaga:", () => {
-
     describe("fetchChatsRequest:", () => {
         const mockChatResponse = { data: [{ id: 1 }, { id: 2 }] } as AxiosResponse<ChatResponse[]>;
         const worker = fetchChatsRequest();

@@ -32,11 +32,13 @@ const MentionsPage: FC = (): ReactElement => {
 
     return (
         <InfiniteScrollWrapper dataLength={tweets.length} pagesCount={pagesCount} loadItems={loadTweets}>
-            {(!tweets.length && !isLoading) ? (
+            {!tweets.length && !isLoading ? (
                 <EmptyNotifications isNotification={false} />
             ) : (
                 <>
-                    {tweets.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
+                    {tweets.map((tweet) => (
+                        <TweetComponent key={tweet.id} tweet={tweet} />
+                    ))}
                     {isLoading && <Spinner />}
                 </>
             )}

@@ -32,7 +32,7 @@ import {
 import { ListResponse, ListUserResponse, PinnedListResponse, SimpleListResponse } from "../../../../types/lists";
 import { ListsActionType } from "../contracts/actionTypes";
 import { testAction } from "../../../../util/test-utils/test-helper";
-import { ListsRequest, AddUserToListsRequest } from "../contracts/state";
+import { AddUserToListsRequest, ListsRequest } from "../contracts/state";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("lists actions", () => {
@@ -76,13 +76,17 @@ describe("lists actions", () => {
         payload: 1
     });
 
-    testAction(processUserToLists, processUserToLists({
-        userId: 1,
-        lists: [{ listId: 1, isMemberInList: true }]
-    } as AddUserToListsRequest), {
-        type: ListsActionType.PROCESS_USER_TO_LISTS,
-        payload: { userId: 1, lists: [{ listId: 1, isMemberInList: true }] } as AddUserToListsRequest
-    });
+    testAction(
+        processUserToLists,
+        processUserToLists({
+            userId: 1,
+            lists: [{ listId: 1, isMemberInList: true }]
+        } as AddUserToListsRequest),
+        {
+            type: ListsActionType.PROCESS_USER_TO_LISTS,
+            payload: { userId: 1, lists: [{ listId: 1, isMemberInList: true }] } as AddUserToListsRequest
+        }
+    );
 
     testAction(setFollowList, setFollowList({ id: 1 } as ListUserResponse), {
         type: ListsActionType.SET_FOLLOW_LIST,

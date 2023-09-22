@@ -34,13 +34,7 @@ const ImageDescription: FC<ImageDescriptionProps> = ({ imageDescription, isFullT
                     <Typography variant={"subtitle1"} component={"div"}>
                         {imageDescription}
                     </Typography>
-                    <Button
-                        onClick={handleClosePopup}
-                        color="primary"
-                        variant="outlined"
-                        size="large"
-                        fullWidth
-                    >
+                    <Button onClick={handleClosePopup} color="primary" variant="outlined" size="large" fullWidth>
                         Dismiss
                     </Button>
                 </div>

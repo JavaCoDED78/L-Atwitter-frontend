@@ -2,23 +2,18 @@ import { Action } from "redux";
 
 import {
     AddQuoteTweetRequest,
-    TweetRequest,
     ChangeReplyTypeRequest,
     FetchTweetsByTagRequest,
     FetchTweetsByTextRequest,
     TweetActionPayload,
+    TweetRequest,
     TweetsByListIdRequest,
     TweetsState,
     TweetsWithQuotesByIdRequest,
     UpdatedBookmarkedTweetPayload,
     VoteRequest
 } from "./state";
-import {
-    BlockedToTweetsPayload,
-    FollowToTweetsPayload,
-    MutedToTweetsPayload,
-    TweetResponse
-} from "../../../../types/tweet";
+import { BlockedToTweetsPayload, FollowToTweetsPayload, MutedToTweetsPayload, TweetResponse } from "../../../../types/tweet";
 import { NotificationReplyResponse, NotificationResponse } from "../../../../types/notification";
 import { LoadingStatus, PageableResponse } from "../../../../types/common";
 
@@ -56,7 +51,7 @@ export enum TweetsActionType {
     SET_UPDATED_BOOKMARKED_TWEET = "tweets/SET_UPDATED_BOOKMARKED_TWEET",
     SET_UPDATED_TWEET = "tweets/SET_UPDATED_TWEET",
     FETCH_DELETE_TWEET = "tweets/FETCH_DELETE_TWEET",
-    DELETE_TWEET = "tweets/DELETE_TWEET",
+    DELETE_TWEET = "tweets/DELETE_TWEET"
 }
 
 export interface SetFollowToTweetsStateActionInterface extends Action<TweetsActionType> {

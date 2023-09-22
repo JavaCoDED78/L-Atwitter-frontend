@@ -124,7 +124,8 @@ describe("userTweetsReducer:", () => {
 
         testActionDispatch(
             UserTweetsActionType.SET_UPDATED_TWEET + "(NotificationType.LIKE)",
-            userTweetsReducer({
+            userTweetsReducer(
+                {
                     ...initialUserTweetsState,
                     items: [{ id: 1, isTweetLiked: false, likedTweetsCount: 0 }] as TweetResponse[]
                 },
@@ -135,7 +136,8 @@ describe("userTweetsReducer:", () => {
                         tweet: { id: 1, notificationCondition: true },
                         notificationType: NotificationType.LIKE
                     } as NotificationResponse
-                }),
+                }
+            ),
             {
                 ...initialUserTweetsState,
                 items: [{ id: 1, isTweetLiked: true, likedTweetsCount: 1 }] as TweetResponse[],
@@ -145,7 +147,8 @@ describe("userTweetsReducer:", () => {
 
         testActionDispatch(
             UserTweetsActionType.SET_UPDATED_TWEET + "(NotificationType.RETWEET)",
-            userTweetsReducer({
+            userTweetsReducer(
+                {
                     ...initialUserTweetsState,
                     items: [{ id: 1, isTweetRetweeted: false, retweetsCount: 0 }] as TweetResponse[]
                 },
@@ -156,7 +159,8 @@ describe("userTweetsReducer:", () => {
                         tweet: { id: 1, notificationCondition: true },
                         notificationType: NotificationType.RETWEET
                     } as NotificationResponse
-                }),
+                }
+            ),
             {
                 ...initialUserTweetsState,
                 items: [{ id: 1, isTweetRetweeted: true, retweetsCount: 1 }] as TweetResponse[],
@@ -166,7 +170,8 @@ describe("userTweetsReducer:", () => {
 
         testActionDispatch(
             UserTweetsActionType.SET_UPDATED_TWEET + "(NotificationType.REPLY)",
-            userTweetsReducer({
+            userTweetsReducer(
+                {
                     ...initialUserTweetsState,
                     items: [{ id: 1, repliesCount: 0 }] as TweetResponse[]
                 },
@@ -177,7 +182,8 @@ describe("userTweetsReducer:", () => {
                         tweet: { id: 1 },
                         notificationType: NotificationType.REPLY
                     } as NotificationReplyResponse
-                }),
+                }
+            ),
             {
                 ...initialUserTweetsState,
                 items: [{ id: 1, repliesCount: 1 }] as TweetResponse[]
@@ -190,19 +196,19 @@ describe("userTweetsReducer:", () => {
                 {
                     ...initialUserTweetsState,
                     items: [
-                        { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } },
+                        { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } },
                         { id: 2, poll: null }
                     ] as unknown as TweetResponse[]
                 },
                 {
                     type: UserTweetsActionType.SET_USER_VOTE,
-                    payload: { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } } as TweetResponse
+                    payload: { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } } as TweetResponse
                 }
             ),
             {
                 ...initialUserTweetsState,
                 items: [
-                    { id: 1, poll: { id: 1, pollChoices: [ { id: 1, choice: "test" } ] } },
+                    { id: 1, poll: { id: 1, pollChoices: [{ id: 1, choice: "test" }] } },
                     { id: 2, poll: null }
                 ] as unknown as TweetResponse[]
             }
@@ -210,14 +216,16 @@ describe("userTweetsReducer:", () => {
 
         testActionDispatch(
             UserTweetsActionType.DELETE_TWEET,
-            userTweetsReducer({
+            userTweetsReducer(
+                {
                     ...initialUserTweetsState,
                     items: [{ id: 1 }, { id: 2 }] as TweetResponse[]
                 },
                 {
                     type: UserTweetsActionType.DELETE_TWEET,
                     payload: 1
-                }),
+                }
+            ),
             {
                 ...initialUserTweetsState,
                 items: [{ id: 2 }] as TweetResponse[]
@@ -233,7 +241,8 @@ describe("userTweetsReducer:", () => {
                 },
                 {
                     type: UserTweetsActionType.RESET_TWEETS
-                }),
+                }
+            ),
             {
                 ...initialUserTweetsState,
                 items: [],
@@ -243,11 +252,10 @@ describe("userTweetsReducer:", () => {
 
         testActionDispatch(
             UserTweetsActionType.SET_LOADING_STATUS,
-            userTweetsReducer(initialUserTweetsState,
-                {
-                    type: UserTweetsActionType.SET_LOADING_STATUS,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            userTweetsReducer(initialUserTweetsState, {
+                type: UserTweetsActionType.SET_LOADING_STATUS,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUserTweetsState,
                 loadingState: LoadingStatus.SUCCESS

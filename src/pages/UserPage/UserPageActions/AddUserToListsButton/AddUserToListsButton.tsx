@@ -16,9 +16,7 @@ const AddUserToListsButton = memo((): ReactElement => {
         <>
             <ListItem id={"openListsModal"} onClick={onOpenModalWindow}>
                 <>{AddListsIcon}</>
-                <Typography component={"span"}>
-                    Add/remove @{username} from Lists
-                </Typography>
+                <Typography component={"span"}>Add/remove @{username} from Lists</Typography>
             </ListItem>
             <ListsModal userId={userProfileId!} visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </>

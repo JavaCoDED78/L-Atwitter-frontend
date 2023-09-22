@@ -17,12 +17,11 @@ const LoggedDevices: FC = (): ReactElement => {
         <>
             <div className={classnames(classes.infoItemWrapper, globalClasses.itemInfoWrapper)}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    These are browsers, devices, and information Twitter uses to personalize your experience.
-                    This includes devices and browsers you haven’t used to log in to Twitter, as well as email
-                    addresses and phone numbers like those linked to your Twitter account. <MuiLink
-                    href={ACROSS_YOUR_DEVICES} variant="subtitle2" target="_blank" rel="noopener">
-                    Learn more
-                </MuiLink>
+                    These are browsers, devices, and information Twitter uses to personalize your experience. This includes devices and browsers you
+                    haven’t used to log in to Twitter, as well as email addresses and phone numbers like those linked to your Twitter account.{" "}
+                    <MuiLink href={ACROSS_YOUR_DEVICES} variant="subtitle2" target="_blank" rel="noopener">
+                        Learn more
+                    </MuiLink>
                 </Typography>
             </div>
             <Divider />
@@ -34,7 +33,8 @@ const LoggedDevices: FC = (): ReactElement => {
                     {`You can remove this information by disabling “Personalize based on your inferred identity” in your `}
                     <MuiLink component={Link} variant="subtitle2" to={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY}>
                         Off-Twitter activity
-                    </MuiLink> settings.
+                    </MuiLink>{" "}
+                    settings.
                 </Typography>
             </div>
             <Divider />
@@ -46,7 +46,8 @@ const LoggedDevices: FC = (): ReactElement => {
                     {`You can remove this information by disabling “Personalize based on your inferred identity” in your `}
                     <MuiLink component={Link} variant="subtitle2" to={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY}>
                         Off-Twitter activity
-                    </MuiLink> settings.
+                    </MuiLink>{" "}
+                    settings.
                 </Typography>
             </div>
             <Divider />
@@ -60,7 +61,8 @@ const LoggedDevices: FC = (): ReactElement => {
                         “Personalize based on your inferred identity” in your `}
                     <MuiLink component={Link} variant="subtitle2" to={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY}>
                         Off-Twitter activity
-                    </MuiLink> settings.
+                    </MuiLink>{" "}
+                    settings.
                 </Typography>
             </div>
         </>

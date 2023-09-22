@@ -21,8 +21,8 @@ const TweetReplyInfo = (): ReactElement => {
                         <div className={classes.iconWrapper}>
                             <div className={classes.iconCircle}>
                                 <span className={classes.icon}>
-                                    {(replyType === ReplyType.FOLLOW) && (FollowReplyIcon)}
-                                    {(replyType === ReplyType.MENTION) && (MentionReplyIcon)}
+                                    {replyType === ReplyType.FOLLOW && FollowReplyIcon}
+                                    {replyType === ReplyType.MENTION && MentionReplyIcon}
                                 </span>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ const TweetReplyInfo = (): ReactElement => {
                             </Typography>
                             <Typography variant={"body1"} component={"div"}>
                                 People @{tweetUserFullName}
-                                {(replyType === ReplyType.FOLLOW) ? (" follows or ") : (" ")}
+                                {replyType === ReplyType.FOLLOW ? " follows or " : " "}
                                 mentioned can reply
                             </Typography>
                         </div>

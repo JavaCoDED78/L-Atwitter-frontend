@@ -26,13 +26,7 @@ const FollowButton: FC<FollowButtonProps> = ({ userId, isPrivateProfile, size })
     };
 
     return (
-        <Button
-            className={classes.outlinedButton}
-            onClick={handleFollow}
-            color="primary"
-            variant="outlined"
-            size={size}
-        >
+        <Button className={classes.outlinedButton} onClick={handleFollow} color="primary" variant="outlined" size={size}>
             Follow
         </Button>
     );

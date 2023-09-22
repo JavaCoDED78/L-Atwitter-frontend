@@ -71,8 +71,7 @@ const Languages: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Manage the languages Twitter inferred based on your activity, such as the accounts you follow and
-                    the Tweets you engage with.
+                    Manage the languages Twitter inferred based on your activity, such as the accounts you follow and the Tweets you engage with.
                 </Typography>
             </div>
             <div className={globalClasses.contentLink}>

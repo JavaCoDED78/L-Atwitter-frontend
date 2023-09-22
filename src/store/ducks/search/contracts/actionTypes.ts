@@ -10,7 +10,7 @@ export enum SearchActionsType {
     FETCH_RECENT_SEARCH_RESULT = "search/FETCH_RECENT_SEARCH_RESULT",
     DELETE_RECENT_SEARCH_RESULT = "search/DELETE_RECENT_SEARCH_RESULT",
     RESET_SEARCH_RESULT = "search/RESET_SEARCH_RESULT",
-    SET_SEARCH_LOADING_STATE = "search/SET_SEARCH_LOADING_STATE",
+    SET_SEARCH_LOADING_STATE = "search/SET_SEARCH_LOADING_STATE"
 }
 
 export interface SetSearchResultActionInterface extends Action<SearchActionsType> {

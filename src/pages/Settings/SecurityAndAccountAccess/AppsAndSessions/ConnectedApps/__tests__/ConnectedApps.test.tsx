@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { ACCESS_TO_THIRD_PARTY_APPS } from "../../../../../../constants/url-constants";
 
 describe("ConnectedApps", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<ConnectedApps />, createMockRootState());
         expect(wrapper.text().includes("These are the apps which you connected to your account.")).toBe(true);

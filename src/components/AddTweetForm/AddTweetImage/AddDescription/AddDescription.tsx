@@ -13,11 +13,7 @@ const AddDescription: FC = (): ReactElement => {
 
     return (
         <>
-            <ImageAction
-                subtitle={(imageDescription === "") ? "Add description" : imageDescription}
-                icon={ListsIcon}
-                onClick={onOpenModalWindow}
-            />
+            <ImageAction subtitle={imageDescription === "" ? "Add description" : imageDescription} icon={ListsIcon} onClick={onOpenModalWindow} />
             <AddDescriptionModal visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </>
     );

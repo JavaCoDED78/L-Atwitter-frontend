@@ -7,11 +7,7 @@ import { RegistrationInputField } from "../RegistrationInput/RegistrationInputFi
 import Spinner from "../../../components/Spinner/Spinner";
 import { TWITTER_COOKIES, TWITTER_PRIVACY, TWITTER_TOS_NEW } from "../../../constants/url-constants";
 import DialogWrapper from "../DialogWrapper/DialogWrapper";
-import {
-    selectIsLoading,
-    selectRegistrationInfo,
-    selectRegistrationStep3
-} from "../../../store/ducks/authentication/selector";
+import { selectIsLoading, selectRegistrationInfo, selectRegistrationStep3 } from "../../../store/ducks/authentication/selector";
 import { fetchSendRegistrationCode } from "../../../store/ducks/authentication/actionCreators";
 
 const CreateAccountModal: FC = (): ReactElement => {
@@ -38,27 +34,9 @@ const CreateAccountModal: FC = (): ReactElement => {
                         Create your account
                     </Typography>
                     <div className={classes.form}>
-                        <RegistrationInputField
-                            label="Name"
-                            variant="filled"
-                            value={registrationInfo.username}
-                            fullWidth
-                            disabled
-                        />
-                        <RegistrationInputField
-                            label="Email"
-                            variant="filled"
-                            value={registrationInfo.email}
-                            fullWidth
-                            disabled
-                        />
-                        <RegistrationInputField
-                            label="Birth date"
-                            variant="filled"
-                            value={registrationInfo.birthday}
-                            fullWidth
-                            disabled
-                        />
+                        <RegistrationInputField label="Name" variant="filled" value={registrationInfo.username} fullWidth disabled />
+                        <RegistrationInputField label="Email" variant="filled" value={registrationInfo.email} fullWidth disabled />
+                        <RegistrationInputField label="Birth date" variant="filled" value={registrationInfo.birthday} fullWidth disabled />
                     </div>
                     <Typography variant={"body1"} component={"div"} className={classes.text}>
                         {"By signing up, you agree to the "}

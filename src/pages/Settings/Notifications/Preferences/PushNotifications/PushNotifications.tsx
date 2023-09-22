@@ -19,8 +19,7 @@ const PushNotifications: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Get push notifications to find out what’s going on when you’re not on Twitter. You can turn them off
-                    anytime.
+                    Get push notifications to find out what’s going on when you’re not on Twitter. You can turn them off anytime.
                 </Typography>
             </div>
             <div className={globalClasses.infoText}>
@@ -28,8 +27,8 @@ const PushNotifications: FC = (): ReactElement => {
                     Turn on push notifications
                 </Typography>
                 <Typography variant={"subtitle1"} component={"div"}>
-                    To receive notifications as they happen, turn on push notifications. You’ll also receive them when
-                    you’re not on Twitter. Turn them off anytime.
+                    To receive notifications as they happen, turn on push notifications. You’ll also receive them when you’re not on Twitter. Turn
+                    them off anytime.
                 </Typography>
             </div>
         </>

@@ -12,7 +12,7 @@ export const useImageDescriptionStyles = makeStyles<Theme, ImageDescriptionStyle
         color: theme.palette.common.white,
         backgroundColor: theme.palette.common.black,
         opacity: 0.75,
-        marginTop: props => props.isFullTweet ? -45 : -35,
+        marginTop: (props) => (props.isFullTweet ? -45 : -35),
         marginLeft: 15,
         paddingLeft: 4,
         paddingRight: 4,

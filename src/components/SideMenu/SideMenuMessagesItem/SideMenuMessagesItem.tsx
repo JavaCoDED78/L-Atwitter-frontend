@@ -17,17 +17,8 @@ const SideMenuMessagesItem: FC<SideMenuMessagesItemProps> = ({ title, path, icon
     const unreadMessagesCount = useSelector(selectUserDataUnreadMessagesCount);
 
     return (
-        <SideMenuItem
-            title={title}
-            path={path}
-            icon={icon}
-            filledIcon={filledIcon}
-        >
-            {(unreadMessagesCount !== 0) && (
-                <span className={classes.count}>
-                    {unreadMessagesCount}
-                </span>
-            )}
+        <SideMenuItem title={title} path={path} icon={icon} filledIcon={filledIcon}>
+            {unreadMessagesCount !== 0 && <span className={classes.count}>{unreadMessagesCount}</span>}
         </SideMenuItem>
     );
 };

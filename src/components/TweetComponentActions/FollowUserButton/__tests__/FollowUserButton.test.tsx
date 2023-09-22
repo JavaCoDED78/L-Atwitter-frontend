@@ -20,13 +20,7 @@ describe("FollowUserButton", () => {
     });
 
     const testClickButton = (isFollower: boolean, iconId: string, text: string, actionType: UserActionsType): void => {
-        const wrapper = mountWithStore(
-            <FollowUserButton
-                tweetId={1}
-                userId={1}
-                username={"test_username"}
-                isFollower={isFollower}
-            />);
+        const wrapper = mountWithStore(<FollowUserButton tweetId={1} userId={1} username={"test_username"} isFollower={isFollower} />);
         expect(wrapper.find(iconId).exists()).toBeTruthy();
         expect(wrapper.text().includes(`${text} @test_username`)).toBe(true);
         wrapper.find("#handleFollow").at(0).simulate("click");

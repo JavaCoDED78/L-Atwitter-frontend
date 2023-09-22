@@ -27,7 +27,11 @@ describe("ChangeEmailModal", () => {
         expect(wrapper.text().includes("Change email")).toBe(true);
         expect(wrapper.text().includes(`Your current email is ${mockStore.user.data?.email}.`)).toBe(true);
 
-        wrapper.find(ChangeInfoTextField).at(0).find("input").simulate("change", { target: { value: "test@test.test" } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(0)
+            .find("input")
+            .simulate("change", { target: { value: "test@test.test" } });
 
         setImmediate(() => {
             wrapper.update();
@@ -40,7 +44,11 @@ describe("ChangeEmailModal", () => {
     it("should render ChangeEmailModal input error", (done) => {
         const wrapper = mountWithStore(<ChangeEmailModal visible={true} onClose={jest.fn()} />, mockStore);
 
-        wrapper.find(ChangeInfoTextField).at(0).find("input").simulate("change", { target: { value: "test@test" } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(0)
+            .find("input")
+            .simulate("change", { target: { value: "test@test" } });
 
         setImmediate(() => {
             wrapper.update();

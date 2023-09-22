@@ -14,7 +14,6 @@ describe("authenticationReducer:", () => {
     });
 
     describe("authentication handlers:", () => {
-
         testActionDispatch(
             AuthenticationTypes.SET_REGISTRATION_INFO,
             authenticationReducer(initialAuthenticationState, {

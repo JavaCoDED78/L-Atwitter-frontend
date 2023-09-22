@@ -8,7 +8,7 @@ export const usePollIconButtonStyles = makeStyles<Theme, UsePollIconButtonProps>
     quoteImage: {
         "& .MuiIconButton-root": {
             "& svg": {
-                color: props => props.disabled ? theme.palette.primary.light : theme.palette.primary.main
+                color: (props) => (props.disabled ? theme.palette.primary.light : theme.palette.primary.main)
             }
         }
     }

@@ -14,27 +14,27 @@ const Places: FC = (): ReactElement => {
     const [countryName, setCountryName] = useState<string>("Unknown");
 
     useEffect(() => {
-        axios.get(FIND_USER_LOCATION)
+        axios
+            .get(FIND_USER_LOCATION)
             .then((response) => {
                 setCountryName(response.data.country_name);
-            }).catch((error) => console.log(error));
+            })
+            .catch((error) => console.log(error));
     }, []);
 
     return (
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    These are the places Twitter uses to show you more relevant content. You won’t see places listed
-                    here if you turned off “Personalize based on places you’ve been”.
+                    These are the places Twitter uses to show you more relevant content. You won’t see places listed here if you turned off
+                    “Personalize based on places you’ve been”.
                 </Typography>
             </div>
             <Divider />
             <div className={globalClasses.itemInfoWrapper}>
                 <div className={classes.locationInfoWrapper}>
                     <div className={classes.locationIconWrapper}>
-                        <span className={classes.locationIconIcon}>
-                            {LocationIconFilled}
-                        </span>
+                        <span className={classes.locationIconIcon}>{LocationIconFilled}</span>
                     </div>
                     <Typography variant={"body1"} component={"span"}>
                         {countryName}

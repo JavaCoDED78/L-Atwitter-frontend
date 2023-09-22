@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../util/test-utils
 import UserNotFound from "../UserNotFound";
 
 describe("UserNotFound", () => {
-
     it("should render UserNotFound", () => {
         const wrapper = mountWithStore(<UserNotFound />, createMockRootState());
 

@@ -27,18 +27,13 @@ const TweetReplyIconButton = memo((): ReactElement => {
     const images = useSelector(selectTweetImages);
     const dateTime = useSelector(selectTweetDateTime);
     const tweetReplyType = useSelector(selectTweetReplyType);
-    const isUserCanReply = (tweetReplyType === ReplyType.MENTION) && (myProfileId !== tweetUserId);
+    const isUserCanReply = tweetReplyType === ReplyType.MENTION && myProfileId !== tweetUserId;
     const classes = useTweetReplyIconButtonStyles({ isUserCanReply });
     const { visibleModalWindow, onOpenModalWindow, onCloseModalWindow } = useModalWindow();
 
     return (
         <div className={classes.tweetIcon}>
-            <ActionIconButton
-                actionText={"Reply"}
-                icon={ReplyIcon}
-                onClick={onOpenModalWindow}
-                disabled={isUserCanReply}
-            />
+            <ActionIconButton actionText={"Reply"} icon={ReplyIcon} onClick={onOpenModalWindow} disabled={isUserCanReply} />
             <ReplyModal
                 user={user!}
                 tweetId={tweetId!}

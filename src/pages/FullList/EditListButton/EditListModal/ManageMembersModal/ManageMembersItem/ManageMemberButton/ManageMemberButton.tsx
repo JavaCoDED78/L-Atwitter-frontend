@@ -12,14 +12,7 @@ interface ManageMemberButtonProps {
     isSuggested?: boolean;
 }
 
-const ManageMemberButton: FC<ManageMemberButtonProps> = memo((
-    {
-        userId,
-        listId,
-        isMemberInList,
-        isSuggested
-    }
-): ReactElement => {
+const ManageMemberButton: FC<ManageMemberButtonProps> = memo(({ userId, listId, isMemberInList, isSuggested }): ReactElement => {
     const dispatch = useDispatch();
     const classes = useManageMembersItemStyles();
 

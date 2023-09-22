@@ -85,11 +85,17 @@ describe("listMembersSaga:", () => {
 
             expect(actualYield).toEqual(expectedYield);
         });
-        testSetResponse(worker, { data: true }, setUserToList, {
-            userId: 1,
-            isUserAdded: true,
-            isSuggested: true
-        }, "ListsOwnerMemberResponse");
+        testSetResponse(
+            worker,
+            { data: true },
+            setUserToList,
+            {
+                userId: 1,
+                isUserAdded: true,
+                isSuggested: true
+            },
+            "ListsOwnerMemberResponse"
+        );
         testSetResponse(worker, { data: true }, setMembersSize, true, "ListsOwnerMemberResponse");
     });
 

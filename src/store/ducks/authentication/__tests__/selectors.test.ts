@@ -36,55 +36,67 @@ describe("authentication selectors:", () => {
 
     describe("selectErrorMessage", () => {
         it("should return string", () => {
-            expect(selectErrorMessage({
-                ...mockState,
-                authentication: { ...mockState.authentication, errorMessage: "test_error" }
-            })).toBe("test_error");
+            expect(
+                selectErrorMessage({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, errorMessage: "test_error" }
+                })
+            ).toBe("test_error");
         });
     });
 
     describe("selectRegistrationStep1", () => {
         it("should return boolean", () => {
-            expect(selectRegistrationStep1({
-                ...mockState,
-                authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_1 }
-            })).toBe(true);
+            expect(
+                selectRegistrationStep1({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_1 }
+                })
+            ).toBe(true);
         });
     });
 
     describe("selectRegistrationStep2", () => {
         it("should return boolean", () => {
-            expect(selectRegistrationStep2({
-                ...mockState,
-                authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_2 }
-            })).toBe(true);
+            expect(
+                selectRegistrationStep2({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_2 }
+                })
+            ).toBe(true);
         });
     });
 
     describe("selectRegistrationStep3", () => {
         it("should return boolean", () => {
-            expect(selectRegistrationStep3({
-                ...mockState,
-                authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_3 }
-            })).toBe(true);
+            expect(
+                selectRegistrationStep3({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_3 }
+                })
+            ).toBe(true);
         });
     });
 
     describe("selectRegistrationStep4", () => {
         it("should return boolean", () => {
-            expect(selectRegistrationStep4({
-                ...mockState,
-                authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_4 }
-            })).toBe(true);
+            expect(
+                selectRegistrationStep4({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_4 }
+                })
+            ).toBe(true);
         });
     });
 
     describe("selectRegistrationStep5", () => {
         it("should return boolean", () => {
-            expect(selectRegistrationStep5({
-                ...mockState,
-                authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_5 }
-            })).toBe(true);
+            expect(
+                selectRegistrationStep5({
+                    ...mockState,
+                    authentication: { ...mockState.authentication, registrationStep: RegistrationStep.STEP_5 }
+                })
+            ).toBe(true);
         });
     });
 });

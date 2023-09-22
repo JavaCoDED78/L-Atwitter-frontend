@@ -1,13 +1,5 @@
 import { testAction } from "../../../../util/test-utils/test-helper";
-import {
-    fetchTags,
-    fetchTrends,
-    resetTrendsState,
-    setTags,
-    setTagsLoadingState,
-    setTrends,
-    setTrendsLoadingState
-} from "../actionCreators";
+import { fetchTags, fetchTrends, resetTrendsState, setTags, setTagsLoadingState, setTrends, setTrendsLoadingState } from "../actionCreators";
 import { TagsActionsType } from "../contracts/actionTypes";
 import { TagResponse } from "../../../../types/tag";
 import { LoadingStatus } from "../../../../types/common";

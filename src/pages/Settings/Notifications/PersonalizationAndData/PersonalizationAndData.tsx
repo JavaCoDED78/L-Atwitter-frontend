@@ -21,7 +21,6 @@ const PersonalizationAndData = (): ReactElement => {
     const [checked4, setChecked4] = useState<boolean>(true);
     const [checked5, setChecked5] = useState<boolean>(false);
 
-
     return (
         <div className={classes.content}>
             <Typography variant={"subtitle2"} component={"div"} className={globalClasses.itemInfoWrapper}>
@@ -50,14 +49,13 @@ const PersonalizationAndData = (): ReactElement => {
                     <Typography variant={"body1"} component={"span"}>
                         Personalized ads
                     </Typography>
-                    <Checkbox checked={checked1} onChange={() => setChecked1(prevState => !prevState)} />
+                    <Checkbox checked={checked1} onChange={() => setChecked1((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`You will always see ads on Twitter based on your Twitter activity. When this setting is enabled, 
                     Twitter may further personalize ads from Twitter advertisers, on and off Twitter, by combining your 
                     Twitter activity with other online activity and information from our partners. `}
-                    <MuiLink href={PRIVACY_CONTROLS_FOR_TAILORED_ADS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={PRIVACY_CONTROLS_FOR_TAILORED_ADS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>
@@ -67,7 +65,7 @@ const PersonalizationAndData = (): ReactElement => {
                     <Typography variant={"body1"} component={"span"}>
                         Personalize based on your inferred identity
                     </Typography>
-                    <Checkbox checked={checked2} onChange={() => setChecked2(prevState => !prevState)} />
+                    <Checkbox checked={checked2} onChange={() => setChecked2((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`Twitter will always personalize your experience based on information you’ve provided, as well as 
@@ -84,7 +82,7 @@ const PersonalizationAndData = (): ReactElement => {
                     <Typography variant={"body1"} component={"span"}>
                         Personalize based on the places you’ve been
                     </Typography>
-                    <Checkbox checked={checked3} onChange={() => setChecked3(prevState => !prevState)} />
+                    <Checkbox checked={checked3} onChange={() => setChecked3((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`Twitter always uses some information, like where you signed up and your current location, to help 
@@ -103,7 +101,7 @@ const PersonalizationAndData = (): ReactElement => {
                     <Typography variant={"body1"} component={"span"}>
                         Allow use of where you see Twitter content across the web
                     </Typography>
-                    <Checkbox checked={checked4} onChange={() => setChecked4(prevState => !prevState)} />
+                    <Checkbox checked={checked4} onChange={() => setChecked4((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`This setting lets Twitter keep track of your visits to other websites that integrate Twitter 
@@ -120,7 +118,7 @@ const PersonalizationAndData = (): ReactElement => {
                     <Typography variant={"body1"} component={"span"}>
                         Allow additional information sharing with business partners
                     </Typography>
-                    <Checkbox checked={checked5} onChange={() => setChecked5(prevState => !prevState)} />
+                    <Checkbox checked={checked5} onChange={() => setChecked5((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`Twitter always shares information with business partners as a way to run and improve its products. 

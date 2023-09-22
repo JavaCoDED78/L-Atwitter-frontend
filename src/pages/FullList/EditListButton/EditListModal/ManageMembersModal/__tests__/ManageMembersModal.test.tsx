@@ -148,7 +148,11 @@ describe("ManageMembersModal", () => {
         });
         wrapper.find("#onOpenManageMembersModal").at(0).simulate("click");
         wrapper.find(Tab).at(1).simulate("click");
-        wrapper.find(ManageMembersInput).find("input").at(0).simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(ManageMembersInput)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test" } });
         expect(wrapper.find(ManageMembersInput).exists()).toBe(true);
         expect(mockDispatchFn).nthCalledWith(4, {
             payload: { listId: 3, username: "test" },
@@ -164,7 +168,11 @@ describe("ManageMembersModal", () => {
         });
         wrapper.find("#onOpenManageMembersModal").at(0).simulate("click");
         wrapper.find(Tab).at(1).simulate("click");
-        wrapper.find(ManageMembersInput).find("input").at(0).simulate("change", { target: { value: undefined } });
+        wrapper
+            .find(ManageMembersInput)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: undefined } });
         expect(wrapper.find(ManageMembersInput).exists()).toBe(true);
         expect(mockDispatchFn).nthCalledWith(2, { type: ListMembersActionsType.RESET_LIST_SUGGESTED_STATE });
     });

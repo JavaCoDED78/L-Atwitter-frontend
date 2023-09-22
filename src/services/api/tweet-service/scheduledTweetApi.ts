@@ -17,5 +17,5 @@ export const ScheduledTweetApi = {
     },
     async deleteScheduledTweets(request: { tweetsIds: number[] }): Promise<AxiosResponse<string>> {
         return await axios.delete<string>(API_TWEETS_SCHEDULE, { data: request });
-    },
+    }
 };

@@ -5,16 +5,7 @@ import { deepmerge } from "@mui/utils";
 
 const commonTheme = {
     typography: {
-        fontFamily: [
-            "system-ui",
-            "-apple-system",
-            "BlinkMacSystemFont",
-            "Segoe UI",
-            "Roboto",
-            "Ubuntu",
-            "Helvetica Neue",
-            "sans-serif"
-        ]
+        fontFamily: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "sans-serif"]
     },
     palette: {
         error: {
@@ -165,260 +156,275 @@ const commonTheme = {
     }
 };
 
-export const dimTheme = createTheme(deepmerge({
-    palette: {
-        background: {
-            default: "rgb(21, 32, 43)",
-            paper: "rgb(21, 32, 43)"
-        },
-        secondary: {
-            light: "rgb(29, 155, 240, 0.1)",
-            main: "rgb(25, 39, 52)",
-            dark: "rgb(255, 255, 255, 0.03)"
-        },
-        text: {
-            primary: "rgb(255, 255, 255)",
-            secondary: "rgb(136, 153, 166)"
-        },
-        divider: "rgb(56, 68, 77)",
-        grey: {
-            "100": "rgb(61, 84, 102)",
-            "200": "rgb(37, 51, 65)",
-            "300": "rgb(136, 153, 166)",
-            "400": "rgb(29, 41, 54)",
-            "500": "rgb(78, 92, 104)",
-            "600": "rgb(25, 39, 52)",
-            "700": "rgb(61, 84, 102)",
-            "800": "rgba(91, 112, 131, 0.4)"
-        }
-    },
-    overrides: {
-        MuiPaper: {
-            root: {
-                borderRadius: 0,
-                border: "1px solid rgb(56, 68, 77)"
+export const dimTheme = createTheme(
+    deepmerge(
+        {
+            palette: {
+                background: {
+                    default: "rgb(21, 32, 43)",
+                    paper: "rgb(21, 32, 43)"
+                },
+                secondary: {
+                    light: "rgb(29, 155, 240, 0.1)",
+                    main: "rgb(25, 39, 52)",
+                    dark: "rgb(255, 255, 255, 0.03)"
+                },
+                text: {
+                    primary: "rgb(255, 255, 255)",
+                    secondary: "rgb(136, 153, 166)"
+                },
+                divider: "rgb(56, 68, 77)",
+                grey: {
+                    "100": "rgb(61, 84, 102)",
+                    "200": "rgb(37, 51, 65)",
+                    "300": "rgb(136, 153, 166)",
+                    "400": "rgb(29, 41, 54)",
+                    "500": "rgb(78, 92, 104)",
+                    "600": "rgb(25, 39, 52)",
+                    "700": "rgb(61, 84, 102)",
+                    "800": "rgba(91, 112, 131, 0.4)"
+                }
             },
-            outlined: {
-                borderRadius: 0,
-                border: "1px solid rgb(56, 68, 77)"
-            },
-            elevation1: {
-                boxShadow: "none"
-            },
-            elevation8: {
-                boxShadow: "none"
+            overrides: {
+                MuiPaper: {
+                    root: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(56, 68, 77)"
+                    },
+                    outlined: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(56, 68, 77)"
+                    },
+                    elevation1: {
+                        boxShadow: "none"
+                    },
+                    elevation8: {
+                        boxShadow: "none"
+                    }
+                },
+                MuiTypography: {
+                    h3: {
+                        color: "rgb(255, 255, 255)"
+                    },
+                    h4: {
+                        color: "rgb(255, 255, 255)"
+                    },
+                    h5: {
+                        color: "rgb(255, 255, 255)"
+                    },
+                    h6: {
+                        color: "rgb(255, 255, 255)"
+                    },
+                    subtitle1: {
+                        color: "rgb(136, 153, 166)"
+                    },
+                    subtitle2: {
+                        color: "rgb(136, 153, 166)"
+                    },
+                    body1: {
+                        color: "rgb(255, 255, 255)"
+                    }
+                },
+                MuiButton: {
+                    contained: {
+                        color: "rgb(255, 255, 255)"
+                    }
+                },
+                MuiBackdrop: {
+                    root: {
+                        backgroundColor: "rgba(91, 112, 131, 0.4)"
+                    }
+                },
+                MuiDialogTitle: {
+                    root: {
+                        borderBottom: "1px solid rgb(56, 68, 77)"
+                    }
+                }
             }
         },
-        MuiTypography: {
-            h3: {
-                color: "rgb(255, 255, 255)"
-            },
-            h4: {
-                color: "rgb(255, 255, 255)"
-            },
-            h5: {
-                color: "rgb(255, 255, 255)"
-            },
-            h6: {
-                color: "rgb(255, 255, 255)"
-            },
-            subtitle1: {
-                color: "rgb(136, 153, 166)"
-            },
-            subtitle2: {
-                color: "rgb(136, 153, 166)"
-            },
-            body1: {
-                color: "rgb(255, 255, 255)"
-            }
-        },
-        MuiButton: {
-            contained: {
-                color: "rgb(255, 255, 255)"
-            }
-        },
-        MuiBackdrop: {
-            root: {
-                backgroundColor: "rgba(91, 112, 131, 0.4)"
-            }
-        },
-        MuiDialogTitle: {
-            root: {
-                borderBottom: "1px solid rgb(56, 68, 77)"
-            }
-        }
-    }
-}, commonTheme));
+        commonTheme
+    )
+);
 
-export const lightsOutTheme = createTheme(deepmerge({
-    palette: {
-        background: {
-            default: "rgb(0, 0, 0)",
-            paper: "rgb(0, 0, 0)"
-        },
-        secondary: {
-            light: "rgb(29, 155, 240, 0.1)",
-            main: "rgb(21, 24, 28)",
-            dark: "rgb(255, 255, 255, 0.03)"
-        },
-        text: {
-            primary: "rgb(217, 217, 217)",
-            secondary: "rgb(110, 118, 125)"
-        },
-        divider: "rgb(47, 51, 54)",
-        grey: {
-            "100": "rgb(47, 51, 54)",
-            "200": "rgb(32, 35, 39)",
-            "300": "rgb(110, 118, 125)",
-            "400": "rgb(32, 35, 39, 0.5)",
-            "500": "rgb(110, 118, 125, 0.5)",
-            "600": "rgb(21, 24, 28)",
-            "700": "rgb(47, 51, 54)",
-            "800": "rgba(91, 112, 131, 0.4)"
-        }
-    },
-    overrides: {
-        MuiPaper: {
-            root: {
-                borderRadius: 0,
-                border: "1px solid rgb(47, 51, 54)"
+export const lightsOutTheme = createTheme(
+    deepmerge(
+        {
+            palette: {
+                background: {
+                    default: "rgb(0, 0, 0)",
+                    paper: "rgb(0, 0, 0)"
+                },
+                secondary: {
+                    light: "rgb(29, 155, 240, 0.1)",
+                    main: "rgb(21, 24, 28)",
+                    dark: "rgb(255, 255, 255, 0.03)"
+                },
+                text: {
+                    primary: "rgb(217, 217, 217)",
+                    secondary: "rgb(110, 118, 125)"
+                },
+                divider: "rgb(47, 51, 54)",
+                grey: {
+                    "100": "rgb(47, 51, 54)",
+                    "200": "rgb(32, 35, 39)",
+                    "300": "rgb(110, 118, 125)",
+                    "400": "rgb(32, 35, 39, 0.5)",
+                    "500": "rgb(110, 118, 125, 0.5)",
+                    "600": "rgb(21, 24, 28)",
+                    "700": "rgb(47, 51, 54)",
+                    "800": "rgba(91, 112, 131, 0.4)"
+                }
             },
-            outlined: {
-                borderRadius: 0,
-                border: "1px solid rgb(47, 51, 54)"
-            },
-            elevation1: {
-                boxShadow: "none"
-            },
-            elevation8: {
-                boxShadow: "none"
+            overrides: {
+                MuiPaper: {
+                    root: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(47, 51, 54)"
+                    },
+                    outlined: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(47, 51, 54)"
+                    },
+                    elevation1: {
+                        boxShadow: "none"
+                    },
+                    elevation8: {
+                        boxShadow: "none"
+                    }
+                },
+                MuiTypography: {
+                    h3: {
+                        color: "rgb(217, 217, 217)"
+                    },
+                    h4: {
+                        color: "rgb(217, 217, 217)"
+                    },
+                    h5: {
+                        color: "rgb(217, 217, 217)"
+                    },
+                    h6: {
+                        color: "rgb(217, 217, 217)"
+                    },
+                    subtitle1: {
+                        color: "rgb(110, 118, 125)"
+                    },
+                    subtitle2: {
+                        color: "rgb(110, 118, 125)"
+                    },
+                    body1: {
+                        color: "rgb(217, 217, 217)"
+                    }
+                },
+                MuiButton: {
+                    contained: {
+                        color: "rgb(255, 255, 255)"
+                    }
+                },
+                MuiBackdrop: {
+                    root: {
+                        backgroundColor: "rgba(91, 112, 131, 0.4)"
+                    }
+                },
+                MuiDialogTitle: {
+                    root: {
+                        borderBottom: "1px solid rgb(47, 51, 54)"
+                    }
+                }
             }
         },
-        MuiTypography: {
-            h3: {
-                color: "rgb(217, 217, 217)"
-            },
-            h4: {
-                color: "rgb(217, 217, 217)"
-            },
-            h5: {
-                color: "rgb(217, 217, 217)"
-            },
-            h6: {
-                color: "rgb(217, 217, 217)"
-            },
-            subtitle1: {
-                color: "rgb(110, 118, 125)"
-            },
-            subtitle2: {
-                color: "rgb(110, 118, 125)"
-            },
-            body1: {
-                color: "rgb(217, 217, 217)"
-            }
-        },
-        MuiButton: {
-            contained: {
-                color: "rgb(255, 255, 255)"
-            }
-        },
-        MuiBackdrop: {
-            root: {
-                backgroundColor: "rgba(91, 112, 131, 0.4)"
-            }
-        },
-        MuiDialogTitle: {
-            root: {
-                borderBottom: "1px solid rgb(47, 51, 54)"
-            }
-        }
-    }
-}, commonTheme));
+        commonTheme
+    )
+);
 
-export const defaultTheme = createTheme(deepmerge({
-    palette: {
-        background: {
-            default: "rgb(255, 255, 255)",
-            paper: "rgb(255, 255, 255)"
-        },
-        secondary: {
-            light: "rgb(29, 155, 240, 0.1)",
-            main: "rgb(245, 248, 250)",
-            dark: "rgb(239, 241, 242)"
-        },
-        text: {
-            primary: "rgb(15, 20, 25)",
-            secondary: "rgb(83, 100, 113)"
-        },
-        divider: "rgb(239, 243, 244)",
-        grey: {
-            "100": "#C4C4C4",
-            "200": "rgb(239, 243, 244)",
-            "300": "rgb(136, 153, 166)",
-            "400": "rgb(239, 243, 244)",
-            "500": "rgb(83, 100, 113, 0.5)",
-            "600": "rgb(247, 249, 249)",
-            "700": "rgb(207, 217, 222)",
-            "800": "rgba(0, 0, 0, 0.4)"
-        }
-    },
-    overrides: {
-        MuiPaper: {
-            root: {
-                borderRadius: 0,
-                border: "1px solid rgb(239, 243, 244)"
+export const defaultTheme = createTheme(
+    deepmerge(
+        {
+            palette: {
+                background: {
+                    default: "rgb(255, 255, 255)",
+                    paper: "rgb(255, 255, 255)"
+                },
+                secondary: {
+                    light: "rgb(29, 155, 240, 0.1)",
+                    main: "rgb(245, 248, 250)",
+                    dark: "rgb(239, 241, 242)"
+                },
+                text: {
+                    primary: "rgb(15, 20, 25)",
+                    secondary: "rgb(83, 100, 113)"
+                },
+                divider: "rgb(239, 243, 244)",
+                grey: {
+                    "100": "#C4C4C4",
+                    "200": "rgb(239, 243, 244)",
+                    "300": "rgb(136, 153, 166)",
+                    "400": "rgb(239, 243, 244)",
+                    "500": "rgb(83, 100, 113, 0.5)",
+                    "600": "rgb(247, 249, 249)",
+                    "700": "rgb(207, 217, 222)",
+                    "800": "rgba(0, 0, 0, 0.4)"
+                }
             },
-            outlined: {
-                borderRadius: 0,
-                border: "1px solid rgb(239, 243, 244)"
-            },
-            elevation1: {
-                boxShadow: "none"
-            },
-            elevation8: {
-                boxShadow: "none"
+            overrides: {
+                MuiPaper: {
+                    root: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(239, 243, 244)"
+                    },
+                    outlined: {
+                        borderRadius: 0,
+                        border: "1px solid rgb(239, 243, 244)"
+                    },
+                    elevation1: {
+                        boxShadow: "none"
+                    },
+                    elevation8: {
+                        boxShadow: "none"
+                    }
+                },
+                MuiTypography: {
+                    h3: {
+                        color: "rgb(15, 20, 25)"
+                    },
+                    h4: {
+                        color: "rgb(15, 20, 25)"
+                    },
+                    h5: {
+                        color: "rgb(15, 20, 25)"
+                    },
+                    h6: {
+                        color: "rgb(15, 20, 25)"
+                    },
+                    subtitle1: {
+                        color: "rgb(83, 100, 113)"
+                    },
+                    subtitle2: {
+                        color: "rgb(83, 100, 113)"
+                    },
+                    body1: {
+                        color: "rgb(15, 20, 25)"
+                    }
+                },
+                MuiButton: {
+                    contained: {
+                        color: "rgb(15, 20, 25)"
+                    }
+                },
+                MuiBackdrop: {
+                    root: {
+                        backgroundColor: "rgba(0, 0, 0, 0.4)"
+                    }
+                },
+                MuiDialogTitle: {
+                    root: {
+                        borderBottom: "1px solid rgb(239, 243, 244)"
+                    }
+                }
             }
         },
-        MuiTypography: {
-            h3: {
-                color: "rgb(15, 20, 25)"
-            },
-            h4: {
-                color: "rgb(15, 20, 25)"
-            },
-            h5: {
-                color: "rgb(15, 20, 25)"
-            },
-            h6: {
-                color: "rgb(15, 20, 25)"
-            },
-            subtitle1: {
-                color: "rgb(83, 100, 113)"
-            },
-            subtitle2: {
-                color: "rgb(83, 100, 113)"
-            },
-            body1: {
-                color: "rgb(15, 20, 25)"
-            }
-        },
-        MuiButton: {
-            contained: {
-                color: "rgb(15, 20, 25)"
-            }
-        },
-        MuiBackdrop: {
-            root: {
-                backgroundColor: "rgba(0, 0, 0, 0.4)"
-            }
-        },
-        MuiDialogTitle: {
-            root: {
-                borderBottom: "1px solid rgb(239, 243, 244)"
-            }
-        }
-    }
-}, commonTheme));
+        commonTheme
+    )
+);
 
 export const blueColor = {
     palette: {

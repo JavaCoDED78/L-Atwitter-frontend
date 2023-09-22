@@ -22,14 +22,8 @@ const SideMenuItem: FC<SideMenuItemProps> = ({ title, path, icon, filledIcon, ch
                 <div>
                     <Hidden smDown>
                         {children}
-                        {(location.pathname.includes(path)) ? (
-                            <span>{filledIcon}</span>
-                        ) : (
-                            <span>{icon}</span>
-                        )}
-                        <Typography variant={"h5"}>
-                            {title}
-                        </Typography>
+                        {location.pathname.includes(path) ? <span>{filledIcon}</span> : <span>{icon}</span>}
+                        <Typography variant={"h5"}>{title}</Typography>
                     </Hidden>
                 </div>
             </NavLink>

@@ -12,20 +12,12 @@ interface InteractionCountProps {
     onOpenUsersModalWindow: (modalAction: UsersListModalAction) => void;
 }
 
-const InteractionCount: FC<InteractionCountProps> = (
-    {
-        id,
-        title,
-        interactionCount,
-        modalAction,
-        onOpenUsersModalWindow
-    }
-): ReactElement => {
+const InteractionCount: FC<InteractionCountProps> = ({ id, title, interactionCount, modalAction, onOpenUsersModalWindow }): ReactElement => {
     const classes = useInteractionCountStyles();
 
     return (
         <>
-            {(interactionCount !== 0) && (
+            {interactionCount !== 0 && (
                 <span id={id} className={classes.interactionCount} onClick={() => onOpenUsersModalWindow(modalAction)}>
                     <span style={{ marginRight: 20 }}>
                         <Typography variant={"h6"} component={"span"}>

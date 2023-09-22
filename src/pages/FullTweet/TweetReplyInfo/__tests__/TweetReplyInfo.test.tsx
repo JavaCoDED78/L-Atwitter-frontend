@@ -20,7 +20,8 @@ describe("TweetReplyInfo", () => {
             tweet: {
                 ...mockRootState.tweet,
                 tweet: {
-                    ...mockFullTweet, replyType: ReplyType.FOLLOW
+                    ...mockFullTweet,
+                    replyType: ReplyType.FOLLOW
                 }
             }
         };
@@ -35,7 +36,8 @@ describe("TweetReplyInfo", () => {
             tweet: {
                 ...mockRootState.tweet,
                 tweet: {
-                    ...mockFullTweet, replyType: ReplyType.MENTION
+                    ...mockFullTweet,
+                    replyType: ReplyType.MENTION
                 }
             }
         };

@@ -54,13 +54,7 @@ import { AxiosResponse } from "axios";
 import { TagApi } from "../../../../services/api/tag-service/tagApi";
 import { ListsApi } from "../../../../services/api/lists-service/listsApi";
 import { AddQuoteTweetRequest, TweetRequest, VoteRequest } from "../contracts/state";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { TweetsActionType } from "../contracts/actionTypes";
 import { LoadingStatus, ReplyType } from "../../../../types/common";
 import { PAGE_TOTAL_COUNT } from "../../../../constants/common-constants";
@@ -82,10 +76,16 @@ describe("tweetsSaga:", () => {
         const worker = fetchTweetsRequest(fetchTweets(1));
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getTweets, 1);
-        testSetResponse(worker, mockPageableTweets, setPageableTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setPageableTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.ERROR);
     });
 
@@ -93,10 +93,16 @@ describe("tweetsSaga:", () => {
         const worker = fetchMediaTweetsRequest(fetchMediaTweets(1));
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getMediaTweets, 1);
-        testSetResponse(worker, mockPageableTweets, setPageableTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setPageableTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.ERROR);
     });
 
@@ -104,10 +110,16 @@ describe("tweetsSaga:", () => {
         const worker = fetchTweetsWithVideoRequest(fetchTweetsWithVideo(1));
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getTweetsWithVideo, 1);
-        testSetResponse(worker, mockPageableTweets, setPageableTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setPageableTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.ERROR);
     });
 
@@ -115,10 +127,16 @@ describe("tweetsSaga:", () => {
         const worker = fetchFollowersTweetsRequest(fetchFollowersTweets(1));
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.LOADING);
         testCall(worker, TweetApi.getFollowersTweets, 1);
-        testSetResponse(worker, mockPageableTweets, setPageableTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setPageableTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setTweetsLoadingState, LoadingStatus.ERROR);
     });
 

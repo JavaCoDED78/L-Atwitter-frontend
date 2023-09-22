@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox, Dialog, IconButton } from "@material-ui/core";
+import { Dialog, IconButton } from "@material-ui/core";
 
 import ExploreModal from "../ExploreModal";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
@@ -10,23 +10,13 @@ describe("ExploreModal", () => {
     const mockStore = createMockRootState(LoadingStatus.LOADED);
 
     it("should render empty ExploreModal", () => {
-        const wrapper = mountWithStore(
-            <ExploreModal
-                visible={false}
-                onClose={jest.fn()}
-                isSearchModal={true}
-            />, mockStore);
+        const wrapper = mountWithStore(<ExploreModal visible={false} onClose={jest.fn()} isSearchModal={true} />, mockStore);
 
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });
 
     it("should render Search settings ExploreModal", () => {
-        const wrapper = mountWithStore(
-            <ExploreModal
-                visible={true}
-                onClose={jest.fn()}
-                isSearchModal={true}
-            />, mockStore);
+        const wrapper = mountWithStore(<ExploreModal visible={true} onClose={jest.fn()} isSearchModal={true} />, mockStore);
 
         expect(wrapper.text().includes("Search settings")).toBe(true);
         expect(wrapper.text().includes("Hide sensitive content")).toBe(true);
@@ -36,12 +26,7 @@ describe("ExploreModal", () => {
     });
 
     it("should render Explore settings ExploreModal", () => {
-        const wrapper = mountWithStore(
-            <ExploreModal
-                visible={true}
-                onClose={jest.fn()}
-                isSearchModal={false}
-            />, mockStore);
+        const wrapper = mountWithStore(<ExploreModal visible={true} onClose={jest.fn()} isSearchModal={false} />, mockStore);
 
         expect(wrapper.text().includes("Explore settings")).toBe(true);
         expect(wrapper.text().includes("Location")).toBe(true);
@@ -54,12 +39,7 @@ describe("ExploreModal", () => {
 
     it("should close on Checkbox", () => {
         const mockOnClose = jest.fn();
-        const wrapper = mountWithStore(
-            <ExploreModal
-                visible={true}
-                onClose={mockOnClose}
-                isSearchModal={true}
-            />, mockStore);
+        const wrapper = mountWithStore(<ExploreModal visible={true} onClose={mockOnClose} isSearchModal={true} />, mockStore);
 
         wrapper.find(CloseButton).find(IconButton).simulate("click");
 

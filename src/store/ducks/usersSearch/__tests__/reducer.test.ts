@@ -127,7 +127,8 @@ describe("usersSearchReducer:", () => {
                 },
                 {
                     type: UsersSearchActionsType.RESET_USERS_STATE
-                }),
+                }
+            ),
             {
                 ...initialUsersSearchState,
                 users: [],
@@ -139,11 +140,10 @@ describe("usersSearchReducer:", () => {
 
         testActionDispatch(
             UsersSearchActionsType.SET_USERS_LOADING_STATE,
-            usersSearchReducer(initialUsersSearchState,
-                {
-                    type: UsersSearchActionsType.SET_USERS_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            usersSearchReducer(initialUsersSearchState, {
+                type: UsersSearchActionsType.SET_USERS_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUsersSearchState,
                 loadingState: LoadingStatus.SUCCESS

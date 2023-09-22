@@ -8,7 +8,7 @@ export const useSpinnerStyles = makeStyles<Theme, SpinnerStylesProps>((theme) =>
     loading: {
         width: 30,
         margin: "0px auto",
-        paddingTop: props => (props.paddingTop !== undefined) ? props.paddingTop : 50,
+        paddingTop: (props) => (props.paddingTop !== undefined ? props.paddingTop : 50),
         paddingBottom: 50
     },
     spinner: {

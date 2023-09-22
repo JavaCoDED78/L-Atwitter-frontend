@@ -55,7 +55,11 @@ describe("Messages", () => {
 
     it("should search people", () => {
         const wrapper = mountWithStore(<Messages />, mockChatsStore);
-        wrapper.find(PeopleSearchInput).find("input").at(0).simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(PeopleSearchInput)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test" } });
 
         expect(wrapper.find(PeopleSearchInput).prop("value")).toBe("test");
     });
@@ -89,7 +93,10 @@ describe("Messages", () => {
 
     it("should reset chat participant", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: HOME, hash: "", search: "", state: { removeParticipant: true }
+            pathname: HOME,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         mountWithStore(<Messages />, mockChatsStore);
 
@@ -98,15 +105,20 @@ describe("Messages", () => {
 
     it("should click open/close MessagesModal", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: true }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         const history = createMemoryHistory({
-            initialEntries: [{
-                pathname: MESSAGES,
-                search: "",
-                hash: "",
-                state: undefined
-            }]
+            initialEntries: [
+                {
+                    pathname: MESSAGES,
+                    search: "",
+                    hash: "",
+                    state: undefined
+                }
+            ]
         });
         const wrapper = mountWithStore(<Messages />, mockChatsStore, history);
         expect(wrapper.find(EmptyChatMessages).find(MessagesModal).prop("visible")).toBe(false);
@@ -118,15 +130,20 @@ describe("Messages", () => {
 
     it("should click block participant", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: true }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         const history = createMemoryHistory({
-            initialEntries: [{
-                pathname: MESSAGES,
-                search: "",
-                hash: "",
-                state: undefined
-            }]
+            initialEntries: [
+                {
+                    pathname: MESSAGES,
+                    search: "",
+                    hash: "",
+                    state: undefined
+                }
+            ]
         });
         const wrapper = mountWithStore(<Messages />, mockChatsStore, history);
         wrapper.find(ChatParticipant).find(ListItem).simulate("click");
@@ -142,7 +159,10 @@ describe("Messages", () => {
 
     it("should hover Settings icon and render Hover Action", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: true }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         jest.useFakeTimers();
         const wrapper = mountWithStore(<Messages />, mockChatsStore);
@@ -157,7 +177,10 @@ describe("Messages", () => {
 
     it("should hover New Message icon and render Hover Action", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: true }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         jest.useFakeTimers();
         const wrapper = mountWithStore(<Messages />, mockChatsStore);
@@ -192,7 +215,10 @@ describe("Messages", () => {
 
     it("should reset Messages State", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: false }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: false }
         });
         const wrapper = mountWithStore(<Messages />, mockChatsStore);
         wrapper.unmount();
@@ -204,19 +230,29 @@ describe("Messages", () => {
     const processHoverAction = (actionIndex: number, actionText: string): void => {
         jest.useFakeTimers();
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MESSAGES, hash: "", search: "", state: { removeParticipant: true }
+            pathname: MESSAGES,
+            hash: "",
+            search: "",
+            state: { removeParticipant: true }
         });
         const history = createMemoryHistory({
-            initialEntries: [{
-                pathname: MESSAGES,
-                search: "",
-                hash: "",
-                state: undefined
-            }]
+            initialEntries: [
+                {
+                    pathname: MESSAGES,
+                    search: "",
+                    hash: "",
+                    state: undefined
+                }
+            ]
         });
         const wrapper = mountWithStore(<Messages />, mockChatsStore, history);
         wrapper.find(ListItem).at(0).simulate("click");
-        wrapper.find(ChatMessages).find(MessageInput).find("textarea").at(0).simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(ChatMessages)
+            .find(MessageInput)
+            .find("textarea")
+            .at(0)
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(ChatMessages).find(IconButton).at(actionIndex).simulate("mouseenter");
         jest.runAllTimers();
         wrapper.update();

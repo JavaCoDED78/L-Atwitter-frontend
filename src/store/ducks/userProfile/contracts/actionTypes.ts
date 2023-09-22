@@ -20,7 +20,7 @@ export enum UserProfileActionsType {
     FETCH_IMAGES = "userProfile/FETCH_IMAGES",
     SET_IMAGES = "userProfile/SET_IMAGES",
     RESET_IMAGES_STATE = "userProfile/RESET_IMAGES_STATE",
-    SET_IMAGES_LOADING_STATE = "userProfile/SET_IMAGES_LOADING_STATE",
+    SET_IMAGES_LOADING_STATE = "userProfile/SET_IMAGES_LOADING_STATE"
 }
 
 export interface FetchUserProfileActionInterface extends Action<UserProfileActionsType> {

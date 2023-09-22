@@ -1,8 +1,4 @@
-import {
-    NotificationInfoResponse,
-    NotificationResponse,
-    NotificationUserResponse
-} from "../../../../types/notification";
+import { NotificationInfoResponse, NotificationResponse, NotificationUserResponse } from "../../../../types/notification";
 import { LoadingStatus } from "../../../../types/common";
 
 export interface NotificationsState {

@@ -33,7 +33,12 @@ const SetPasswordModal: FC = (): ReactElement => {
     const history = useHistory();
     const registrationInfo = useSelector(selectRegistrationInfo);
     const registrationStep5 = useSelector(selectRegistrationStep5);
-    const { control, handleSubmit, watch, formState: { errors } } = useForm<PasswordFormProps>({
+    const {
+        control,
+        handleSubmit,
+        watch,
+        formState: { errors }
+    } = useForm<PasswordFormProps>({
         resolver: yupResolver(SetPasswordFormSchema),
         mode: "onChange"
     });
@@ -43,11 +48,7 @@ const SetPasswordModal: FC = (): ReactElement => {
     };
 
     return (
-        <DialogWrapper
-            isOpen={registrationStep5}
-            onClick={handleSubmit(onSubmit)}
-            disabledButton={!watch("password")}
-        >
+        <DialogWrapper isOpen={registrationStep5} onClick={handleSubmit(onSubmit)} disabledButton={!watch("password")}>
             <Typography variant={"h3"} component={"div"} className={classes.title}>
                 You'll need a password
             </Typography>

@@ -7,11 +7,7 @@ import { useGlobalStyles } from "../../../util/globalClasses";
 import { useFollowingFollowersStyles } from "../FollowingFollowersStyles";
 import BackButton from "../../../components/BackButton/BackButton";
 import PageHeaderTitle from "../../../components/PageHeaderTitle/PageHeaderTitle";
-import {
-    selectUserProfileFullName,
-    selectUserProfileId,
-    selectUserProfileUsername
-} from "../../../store/ducks/userProfile/selectors";
+import { selectUserProfileFullName, selectUserProfileId, selectUserProfileUsername } from "../../../store/ducks/userProfile/selectors";
 
 const FollowingFollowersHeader = memo((): ReactElement => {
     const globalClasses = useGlobalStyles({});
@@ -22,7 +18,7 @@ const FollowingFollowersHeader = memo((): ReactElement => {
 
     return (
         <Paper className={classnames(globalClasses.pageHeader, classes.header)} variant="outlined">
-            {(userProfileId) && (
+            {userProfileId && (
                 <>
                     <BackButton />
                     <PageHeaderTitle title={fullName!} subtitle={`@${username}`} />

@@ -4,11 +4,7 @@ import { Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 
 import BlockUserModal from "../../../components/BlockUserModal/BlockUserModal";
-import {
-    selectUserProfileId,
-    selectUserProfileIsUserBlocked,
-    selectUserProfileUsername
-} from "../../../store/ducks/userProfile/selectors";
+import { selectUserProfileId, selectUserProfileIsUserBlocked, selectUserProfileUsername } from "../../../store/ducks/userProfile/selectors";
 import { processUserToBlocklist } from "../../../store/ducks/user/actionCreators";
 import { setOpenSnackBar } from "../../../store/ducks/actionSnackbar/actionCreators";
 import { useUserPageStyles } from "../UserPageStyles";

@@ -7,7 +7,6 @@ export interface SearchState {
     searchLoadingState: LoadingStatus;
 }
 
-
 export interface RecentSearchResult {
     users: CommonUserResponse[];
     tags: string[];
@@ -15,8 +14,8 @@ export interface RecentSearchResult {
 }
 
 export interface DeleteRecentSearchPayload {
-    stateItem: "text" | "tags" | "users",
-    item: string | number
+    stateItem: "text" | "tags" | "users";
+    item: string | number;
 }
 
 export interface SearchTermsRequest {

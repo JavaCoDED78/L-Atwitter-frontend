@@ -7,7 +7,6 @@ import ImageAction from "../../ImageAction/ImageAction";
 import { UserResponse } from "../../../../../types/user";
 
 describe("TagPeople", () => {
-
     it("should render correctly", () => {
         createTagPeopleComponent("Tag people", []);
     });
@@ -18,7 +17,10 @@ describe("TagPeople", () => {
     });
 
     it("should render two users", () => {
-        const selectedUsers = [{ id: 1, fullName: "test name 1" }, { id: 2, fullName: "test name 2" }] as UserResponse[];
+        const selectedUsers = [
+            { id: 1, fullName: "test name 1" },
+            { id: 2, fullName: "test name 2" }
+        ] as UserResponse[];
         createTagPeopleComponent("test name 1 and test name 2", selectedUsers);
     });
 

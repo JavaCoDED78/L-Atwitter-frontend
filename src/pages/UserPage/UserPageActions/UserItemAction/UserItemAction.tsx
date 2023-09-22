@@ -11,9 +11,7 @@ const UserItemAction: FC<UserItemActionProps> = memo(({ title, icon }): ReactEle
     return (
         <ListItem>
             <>{icon}</>
-            <Typography component={"span"}>
-                {title}
-            </Typography>
+            <Typography component={"span"}>{title}</Typography>
         </ListItem>
     );
 });

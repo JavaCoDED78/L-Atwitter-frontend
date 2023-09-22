@@ -16,8 +16,7 @@ const DataUsage: FC = (): ReactElement => {
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Limit how Twitter uses some of your network data. These settings affect all the Twitter accounts on
-                    this browser.
+                    Limit how Twitter uses some of your network data. These settings affect all the Twitter accounts on this browser.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>

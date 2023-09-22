@@ -13,13 +13,7 @@ interface TweetLikeIconButtonProps {
     likedTweetsCount?: number;
 }
 
-const LikeIconButton: FC<TweetLikeIconButtonProps> = memo((
-    {
-        tweetId,
-        isTweetLiked,
-        likedTweetsCount
-    }
-): ReactElement => {
+const LikeIconButton: FC<TweetLikeIconButtonProps> = memo(({ tweetId, isTweetLiked, likedTweetsCount }): ReactElement => {
     const classes = useLikeIconButtonStyles({ isTweetLiked: isTweetLiked });
     const dispatch = useDispatch();
     const params = useParams<{ userId: string }>();
@@ -30,12 +24,8 @@ const LikeIconButton: FC<TweetLikeIconButtonProps> = memo((
 
     return (
         <div className={classes.likeIcon}>
-            <ActionIconButton
-                actionText={isTweetLiked ? "Unlike" : "Like"}
-                icon={isTweetLiked ? LikeIcon : LikeOutlinedIcon}
-                onClick={handleLike}
-            />
-            {(likedTweetsCount !== 0) && (
+            <ActionIconButton actionText={isTweetLiked ? "Unlike" : "Like"} icon={isTweetLiked ? LikeIcon : LikeOutlinedIcon} onClick={handleLike} />
+            {likedTweetsCount !== 0 && (
                 <span id={"likedTweetsCount"} className={classes.likedTweetsCount}>
                     {likedTweetsCount}
                 </span>

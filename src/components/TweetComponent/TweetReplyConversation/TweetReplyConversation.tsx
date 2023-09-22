@@ -11,9 +11,7 @@ const TweetReplyConversation = memo((): ReactElement => {
         <>
             <div className={classes.iconWrapper}>
                 <div className={classes.iconCircle}>
-                    <span className={classes.icon}>
-                        {FollowReplyIcon}
-                    </span>
+                    <span className={classes.icon}>{FollowReplyIcon}</span>
                 </div>
             </div>
             <Typography variant={"subtitle2"} component={"span"}>

@@ -11,7 +11,6 @@ export const initialUnsentTweetsState: UnsentTweetsState = {
 };
 
 export const unsentTweetsReducer = produce((draft: Draft<UnsentTweetsState>, action: UnsentTweetsActions) => {
-
     switch (action.type) {
         case UnsentTweetActionType.SET_UNSENT_TWEETS:
             draft.items = [...draft.items, ...action.payload.items];

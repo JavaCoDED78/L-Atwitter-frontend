@@ -2,11 +2,7 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 
 import { setBlockedAndMutedUsersLoadingState, setBlockedUsers, setMutedUsers } from "./actionCreators";
-import {
-    BlockedAndMutedUsersActionsType,
-    FetchBlockedUsersActionInterface,
-    FetchMutedUsersActionInterface
-} from "./contracts/actionTypes";
+import { BlockedAndMutedUsersActionsType, FetchBlockedUsersActionInterface, FetchMutedUsersActionInterface } from "./contracts/actionTypes";
 import { BlockedUserResponse, MutedUserResponse } from "../../../types/user";
 import { LoadingStatus } from "../../../types/common";
 import { PAGE_TOTAL_COUNT } from "../../../constants/common-constants";
@@ -17,10 +13,12 @@ export function* fetchBlockedUsersRequest({ payload }: FetchBlockedUsersActionIn
     try {
         yield put(setBlockedAndMutedUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<Array<BlockedUserResponse>> = yield call(BlockUserApi.getBlockList, payload);
-        yield put(setBlockedUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setBlockedUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setBlockedAndMutedUsersLoadingState(LoadingStatus.ERROR));
     }
@@ -30,10 +28,12 @@ export function* fetchMutedUsersRequest({ payload }: FetchMutedUsersActionInterf
     try {
         yield put(setBlockedAndMutedUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<Array<MutedUserResponse>> = yield call(MuteUserApi.getMutedList, payload);
-        yield put(setMutedUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setMutedUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setBlockedAndMutedUsersLoadingState(LoadingStatus.ERROR));
     }

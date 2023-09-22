@@ -16,15 +16,12 @@ const ImageList: FC<ImageListProps> = ({ images, removeImage }): ReactElement =>
 
     return (
         <>
-            {(images.length !== 0) &&
+            {images.length !== 0 && (
                 <div className={classes.container}>
                     {images.map((image, index) => (
                         <div key={index} className={classes.item}>
                             {removeImage && (
-                                <IconButton
-                                    className={classes.itemRemove}
-                                    onClick={(): void => removeImage(image.src)}
-                                >
+                                <IconButton className={classes.itemRemove} onClick={(): void => removeImage(image.src)}>
                                     <ClearIcon style={{ fontSize: 15 }} />
                                 </IconButton>
                             )}
@@ -32,7 +29,7 @@ const ImageList: FC<ImageListProps> = ({ images, removeImage }): ReactElement =>
                         </div>
                     ))}
                 </div>
-            }
+            )}
         </>
     );
 };

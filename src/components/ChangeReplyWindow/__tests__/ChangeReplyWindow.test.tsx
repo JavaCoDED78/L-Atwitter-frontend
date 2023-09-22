@@ -22,11 +22,7 @@ describe("ChangeReplyWindow", () => {
 
     const testReply = (reply: ReplyType, itemIndex: number, text: string): void => {
         const mockOnChangeTweetReplyType = jest.fn();
-        const wrapper = mountWithStore(
-            <ChangeReplyWindow
-                replyType={reply}
-                onChangeTweetReplyType={mockOnChangeTweetReplyType}
-            />, mockRootState);
+        const wrapper = mountWithStore(<ChangeReplyWindow replyType={reply} onChangeTweetReplyType={mockOnChangeTweetReplyType} />, mockRootState);
 
         wrapper.find(ListItem).at(itemIndex).simulate("click");
 

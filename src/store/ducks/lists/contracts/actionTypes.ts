@@ -1,6 +1,6 @@
 import { Action } from "redux";
 
-import { ListsRequest, AddUserToListsRequest, ListsState, UpdateListsPayload } from "./state";
+import { AddUserToListsRequest, ListsRequest, ListsState, UpdateListsPayload } from "./state";
 import { ListUserResponse, PinnedListResponse } from "../../../../types/lists";
 import { LoadingStatus } from "../../../../types/common";
 
@@ -33,7 +33,7 @@ export enum ListsActionType {
     SET_LISTS_LOADING_STATE = "lists/SET_LISTS_LOADING_STATE",
     SET_USER_LISTS_LOADING_STATE = "lists/SET_USER_LISTS_LOADING_STATE",
     SET_PINNED_LISTS_LOADING_STATE = "lists/SET_PINNED_LISTS_LOADING_STATE",
-    SET_SIMPLE_LISTS_LOADING_STATE = "lists/SET_SIMPLE_LISTS_LOADING_STATE",
+    SET_SIMPLE_LISTS_LOADING_STATE = "lists/SET_SIMPLE_LISTS_LOADING_STATE"
 }
 
 export interface SetListsActionInterface extends Action<ListsActionType> {
@@ -193,4 +193,4 @@ export type ListsActions =
     | SetListsLoadingStateInterface
     | SetUserListsLoadingStateInterface
     | SetPinnedListsLoadingStateInterface
-    | SetSimpleListsLoadingStateInterface
+    | SetSimpleListsLoadingStateInterface;

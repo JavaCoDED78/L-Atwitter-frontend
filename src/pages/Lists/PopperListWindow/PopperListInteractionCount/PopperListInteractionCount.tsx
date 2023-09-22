@@ -6,8 +6,7 @@ import {
     selectListDetailItemMembersSize,
     selectListDetailItemOwnerId
 } from "../../../../store/ducks/listDetail/selectors";
-import MembersAndFollowersModal
-    from "../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
+import MembersAndFollowersModal from "../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
 import { useListModal } from "../../../../hook/useListModal";
 import PopperListUserCount from "./PopperListUserCount/PopperListUserCount";
 
@@ -20,12 +19,7 @@ const PopperListInteractionCount = memo((): ReactElement => {
 
     return (
         <div>
-            <PopperListUserCount
-                id={"openMembersModalWindow"}
-                userCount={membersSize}
-                title={"members"}
-                onOpenModalWindow={onOpenModalWindow}
-            />
+            <PopperListUserCount id={"openMembersModalWindow"} userCount={membersSize} title={"members"} onOpenModalWindow={onOpenModalWindow} />
             <PopperListUserCount
                 id={"openFollowersModalWindow"}
                 userCount={followersSize}

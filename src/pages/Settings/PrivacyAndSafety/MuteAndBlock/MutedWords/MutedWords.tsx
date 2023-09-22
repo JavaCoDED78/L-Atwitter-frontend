@@ -17,8 +17,7 @@ const MutedWords: FC = (): ReactElement => {
                 <Typography variant={"subtitle1"} component={"div"}>
                     {`When you mute words, you won’t get any new notifications for Tweets that include them or see Tweets
                         with those words in your timeline. `}
-                    <MuiLink href={ADVANCED_TWITTER_MUTE_OPTIONS} component="div" variant="subtitle1" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={ADVANCED_TWITTER_MUTE_OPTIONS} component="div" variant="subtitle1" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>

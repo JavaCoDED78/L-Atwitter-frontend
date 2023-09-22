@@ -2,11 +2,7 @@ import React, { FC, ReactElement, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Dialog, DialogContent, Divider, List } from "@material-ui/core";
 
-import {
-    fetchUsersSearchByUsername,
-    resetUsersState,
-    setUsersSearch
-} from "../../../../../store/ducks/usersSearch/actionCreators";
+import { fetchUsersSearchByUsername, resetUsersState, setUsersSearch } from "../../../../../store/ducks/usersSearch/actionCreators";
 import { selectUsersPagesCount, selectUsersSearch } from "../../../../../store/ducks/usersSearch/selectors";
 import InfiniteScrollWrapper from "../../../../InfiniteScrollWrapper/InfiniteScrollWrapper";
 import TagPeopleItem from "./TagPeopleItem/TagPeopleItem";
@@ -57,31 +53,22 @@ const TagPeopleModal: FC<TagPeopleModalProps> = ({ visible, onClose }): ReactEle
     return (
         <Dialog open={visible} onClose={onClose}>
             <DialogTitleComponent title={"Tag people"} onClose={onClose} borderBottom>
-                <Button
-                    disabled={selectedUsers.length === 0}
-                    onClick={onClose}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <Button disabled={selectedUsers.length === 0} onClick={onClose} type="submit" variant="contained" color="primary" size="small">
                     Done
                 </Button>
             </DialogTitleComponent>
             <DialogContent id="scrollableDiv" className={globalClasses.dialogContent}>
                 <ModalInput placeholder={"Search people"} searchText={searchText} onSearch={onSearch} />
-                {selectedUsers && (selectedUsers.map((selectedUser) => (
+                {selectedUsers &&
+                    selectedUsers.map((selectedUser) => (
                         <UserChip key={selectedUser.id} selectedUser={selectedUser} onDeleteUser={onClickDeleteUser} />
-                    ))
-                )}
+                    ))}
                 <Divider style={{ marginTop: 8 }} />
-                <InfiniteScrollWrapper
-                    dataLength={users.length}
-                    pagesCount={usersPagesCount}
-                    loadItems={loadParticipants}
-                >
+                <InfiniteScrollWrapper dataLength={users.length} pagesCount={usersPagesCount} loadItems={loadParticipants}>
                     <List component="nav">
-                        {users.map((user) => <TagPeopleItem key={user.id} user={user} />)}
+                        {users.map((user) => (
+                            <TagPeopleItem key={user.id} user={user} />
+                        ))}
                     </List>
                 </InfiniteScrollWrapper>
             </DialogContent>

@@ -7,8 +7,7 @@ import EditListModal from "../EditListModal";
 import ManageMembersModal from "../ManageMembersModal/ManageMembersModal";
 import { mockFullList } from "../../../../../util/test-utils/mock-test-data";
 import DeleteListModal from "../DeleteListModal/DeleteListModal";
-import CreateListsModalInput
-    from "../../../../Lists/ListsHeader/CreateListsModal/CreateListsModalInput/CreateListsModalInput";
+import CreateListsModalInput from "../../../../Lists/ListsHeader/CreateListsModal/CreateListsModalInput/CreateListsModalInput";
 import { ListActionType } from "../../../../../store/ducks/list/contracts/actionTypes";
 import { LoadingStatus } from "../../../../../types/common";
 

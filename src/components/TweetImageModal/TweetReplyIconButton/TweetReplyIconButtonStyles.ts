@@ -8,7 +8,7 @@ export const useTweetReplyIconButtonStyles = makeStyles<Theme, TweetReplyIconBut
     tweetIcon: {
         "& .MuiIconButton-root": {
             "& svg": {
-                color: props => props.isUserCanReply ? "rgb(185, 192, 197)" : theme.palette.text.secondary
+                color: (props) => (props.isUserCanReply ? "rgb(185, 192, 197)" : theme.palette.text.secondary)
             }
         }
     }

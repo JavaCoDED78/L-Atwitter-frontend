@@ -10,7 +10,7 @@ export enum TagsActionsType {
     FETCH_TRENDS = "tags/FETCH_TRENDS",
     RESET_TRENDS_STATE = "tags/RESET_TRENDS_STATE",
     SET_TAGS_LOADING_STATE = "tags/SET_TAGS_LOADING_STATE",
-    SET_TRENDS_LOADING_STATE = "tags/SET_TRENDS_LOADING_STATE",
+    SET_TRENDS_LOADING_STATE = "tags/SET_TRENDS_LOADING_STATE"
 }
 
 export interface SetTagsActionInterface extends Action<TagsActionsType> {

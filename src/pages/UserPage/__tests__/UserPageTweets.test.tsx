@@ -19,21 +19,14 @@ describe("UserPageTweets", () => {
 
     it("should render Loading Spinner", () => {
         const wrapper = mountWithStore(
-            <UserPageTweets
-                activeTab={0}
-                page={0}
-                loadUserTweets={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADING));
+            <UserPageTweets activeTab={0} page={0} loadUserTweets={jest.fn()} />,
+            createMockRootState(LoadingStatus.LOADING)
+        );
         expect(wrapper.find(Spinner).exists()).toBe(true);
     });
 
     it("should render Tweet Components", () => {
-        const wrapper = mountWithStore(
-            <UserPageTweets
-                activeTab={0}
-                page={0}
-                loadUserTweets={jest.fn()}
-            />, mockWithTweets);
+        const wrapper = mountWithStore(<UserPageTweets activeTab={0} page={0} loadUserTweets={jest.fn()} />, mockWithTweets);
         expect(wrapper.find(TweetComponent).length).toEqual(2);
     });
 
@@ -62,15 +55,30 @@ describe("UserPageTweets", () => {
     });
 
     it("should render empty tweets message on Media tab my profile", () => {
-        testTitleWithEmptyTweet(2, true, "You haven’t Tweeted any photos or videos yet", "When you send Tweets with photos or videos in them, it will show up here.");
+        testTitleWithEmptyTweet(
+            2,
+            true,
+            "You haven’t Tweeted any photos or videos yet",
+            "When you send Tweets with photos or videos in them, it will show up here."
+        );
     });
 
     it("should render empty tweets message on Media tab user profile", () => {
-        testTitleWithEmptyTweet(2, false, `@${mockUserProfile.username} hasn’t Tweeted any photos or videos`, "When they do, their media will show up here.");
+        testTitleWithEmptyTweet(
+            2,
+            false,
+            `@${mockUserProfile.username} hasn’t Tweeted any photos or videos`,
+            "When they do, their media will show up here."
+        );
     });
 
     it("should render empty tweets message on Likes tab my profile", () => {
-        testTitleWithEmptyTweet(3, true, "You don’t have any likes yet", "Tap the heart on any Tweet to show it some love. When you do, it’ll show up here.");
+        testTitleWithEmptyTweet(
+            3,
+            true,
+            "You don’t have any likes yet",
+            "Tap the heart on any Tweet to show it some love. When you do, it’ll show up here."
+        );
     });
 
     it("should render empty tweets message on Likes tab user profile", () => {
@@ -78,8 +86,7 @@ describe("UserPageTweets", () => {
     });
 
     const testAddTweetModal = (activeTab: number, buttonText: string): void => {
-        const wrapper = mountWithStore(<UserPageTweets activeTab={activeTab} page={0}
-                                                       loadUserTweets={jest.fn()} />, mockRootState);
+        const wrapper = mountWithStore(<UserPageTweets activeTab={activeTab} page={0} loadUserTweets={jest.fn()} />, mockRootState);
 
         expect(wrapper.find(AddTweetModal).prop("visible")).toBe(false);
         expect(wrapper.find(Button).at(0).text().includes(buttonText)).toBe(true);
@@ -94,18 +101,13 @@ describe("UserPageTweets", () => {
     };
 
     const testTitleWithEmptyTweet = (activeTab: number, isUserProfile: boolean, title: string, text: string): void => {
-        const wrapper = mountWithStore(
-            <UserPageTweets
-                activeTab={activeTab}
-                page={0}
-                loadUserTweets={jest.fn()}
-            />, {
-                ...mockRootState,
-                userProfile: {
-                    ...mockRootState.userProfile,
-                    user: isUserProfile ? mockMyProfile : mockUserProfile
-                }
-            });
+        const wrapper = mountWithStore(<UserPageTweets activeTab={activeTab} page={0} loadUserTweets={jest.fn()} />, {
+            ...mockRootState,
+            userProfile: {
+                ...mockRootState.userProfile,
+                user: isUserProfile ? mockMyProfile : mockUserProfile
+            }
+        });
         expect(wrapper.find(Typography).at(0).text().includes(title)).toBe(true);
         expect(wrapper.find(Typography).at(1).text().includes(text)).toBe(true);
     };

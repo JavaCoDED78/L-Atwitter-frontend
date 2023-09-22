@@ -11,26 +11,18 @@ describe("ProfileDescriptionModal", () => {
 
     it("should render empty ProfileDescriptionModal", () => {
         const wrapper = mountWithStore(
-            <ProfileDescriptionModal
-                isOpen={false}
-                onClose={jest.fn()}
-                text={""}
-                onChangeText={jest.fn()}
-                onOpenProfileUpdatedModal={jest.fn()}
-            />, mockRootState);
+            <ProfileDescriptionModal isOpen={false} onClose={jest.fn()} text={""} onChangeText={jest.fn()} onOpenProfileUpdatedModal={jest.fn()} />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(false);
     });
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(
-            <ProfileDescriptionModal
-                isOpen={true}
-                onClose={jest.fn()}
-                text={""}
-                onChangeText={jest.fn()}
-                onOpenProfileUpdatedModal={jest.fn()}
-            />, mockRootState);
+            <ProfileDescriptionModal isOpen={true} onClose={jest.fn()} text={""} onChangeText={jest.fn()} onOpenProfileUpdatedModal={jest.fn()} />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(true);
         expect(wrapper.text().includes("Describe yourself")).toBe(true);
@@ -49,9 +41,14 @@ describe("ProfileDescriptionModal", () => {
                 text={mockText}
                 onChangeText={mockOnChangeText}
                 onOpenProfileUpdatedModal={mockOnOpenProfileUpdatedModal}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
-        wrapper.find(ProfileDescriptionInput).find("input").simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ProfileDescriptionInput)
+            .find("input")
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(Button).simulate("click");
 
         expect(mockOnChangeText).toHaveBeenCalled();

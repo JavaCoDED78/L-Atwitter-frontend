@@ -1,10 +1,10 @@
-import React, {FC, memo, ReactElement} from "react";
-import {useDispatch} from "react-redux";
-import {Button} from "@material-ui/core";
+import React, { FC, memo, ReactElement } from "react";
+import { useDispatch } from "react-redux";
+import { Button } from "@material-ui/core";
 
-import {processUserToBlocklist} from "../../../../../../../store/ducks/user/actionCreators";
-import {setOpenSnackBar} from "../../../../../../../store/ducks/actionSnackbar/actionCreators";
-import {useBlockAccountButtonStyles} from "./BlockAccountButtonStyles";
+import { processUserToBlocklist } from "../../../../../../../store/ducks/user/actionCreators";
+import { setOpenSnackBar } from "../../../../../../../store/ducks/actionSnackbar/actionCreators";
+import { useBlockAccountButtonStyles } from "./BlockAccountButtonStyles";
 
 interface BlockAccountButtonProps {
     userId: number;
@@ -12,13 +12,13 @@ interface BlockAccountButtonProps {
     isUserBlocked: boolean;
 }
 
-const BlockAccountButton: FC<BlockAccountButtonProps> = memo(({userId, username, isUserBlocked}): ReactElement => {
-    const classes = useBlockAccountButtonStyles({isUserBlocked})
+const BlockAccountButton: FC<BlockAccountButtonProps> = memo(({ userId, username, isUserBlocked }): ReactElement => {
+    const classes = useBlockAccountButtonStyles({ isUserBlocked });
     const dispatch = useDispatch();
 
     const unblockUser = (event: React.MouseEvent<HTMLButtonElement>): void => {
         event.preventDefault();
-        dispatch(processUserToBlocklist({userId}));
+        dispatch(processUserToBlocklist({ userId }));
         dispatch(setOpenSnackBar(`@${username} has been ${isUserBlocked ? "unblocked" : "blocked"}.`));
     };
 

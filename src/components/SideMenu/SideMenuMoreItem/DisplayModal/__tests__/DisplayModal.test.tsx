@@ -137,7 +137,9 @@ describe("DisplayModal", () => {
                 onClose={mockOnClose}
                 changeBackgroundColor={mockChangeBackgroundColor}
                 changeColorScheme={mockChangeColorScheme}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         return { wrapper, mockOnClose, mockChangeBackgroundColor, mockChangeColorScheme };
     };

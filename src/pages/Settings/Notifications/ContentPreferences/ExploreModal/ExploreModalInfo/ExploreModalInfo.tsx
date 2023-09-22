@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement } from "react";
 import { Checkbox, Typography } from "@material-ui/core";
 
 import { useGlobalStyles } from "../../../../../../util/globalClasses";
@@ -10,14 +10,7 @@ interface ExploreModalInfoProps {
     subtitle: string | JSX.Element;
 }
 
-const ExploreModalInfo: FC<ExploreModalInfoProps> = (
-    {
-        isSearchModal,
-        searchModalTitle,
-        title,
-        subtitle
-    }
-): ReactElement => {
+const ExploreModalInfo: FC<ExploreModalInfoProps> = ({ isSearchModal, searchModalTitle, title, subtitle }): ReactElement => {
     const globalClasses = useGlobalStyles({});
 
     return (

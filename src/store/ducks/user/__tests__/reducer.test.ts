@@ -397,11 +397,10 @@ describe("userReducer:", () => {
 
         testActionDispatch(
             UserActionsType.SET_USER_LOADING_STATE,
-            userReducer(initialUserState,
-                {
-                    type: UserActionsType.SET_USER_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            userReducer(initialUserState, {
+                type: UserActionsType.SET_USER_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUserState,
                 status: LoadingStatus.SUCCESS

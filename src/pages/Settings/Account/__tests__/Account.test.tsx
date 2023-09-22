@@ -2,15 +2,9 @@ import React from "react";
 
 import Account from "../Account";
 import { createMockRootState, mountWithStore, testClickOnLink } from "../../../../util/test-utils/test-helper";
-import {
-    SETTINGS_DEACTIVATE,
-    SETTINGS_INFO,
-    SETTINGS_PASSWORD,
-    SETTINGS_TEAMS
-} from "../../../../constants/path-constants";
+import { SETTINGS_DEACTIVATE, SETTINGS_INFO, SETTINGS_PASSWORD, SETTINGS_TEAMS } from "../../../../constants/path-constants";
 
 describe("Account", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Account />, createMockRootState());
 

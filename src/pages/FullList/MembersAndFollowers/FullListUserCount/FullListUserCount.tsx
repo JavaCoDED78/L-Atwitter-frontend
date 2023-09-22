@@ -11,14 +11,7 @@ interface FullListUserCountProps {
     onOpenModalWindow: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>, title: string) => void;
 }
 
-const FullListUserCount: FC<FullListUserCountProps> = memo((
-    {
-        id,
-        userCount,
-        title,
-        onOpenModalWindow
-    }
-): ReactElement => {
+const FullListUserCount: FC<FullListUserCountProps> = memo(({ id, userCount, title, onOpenModalWindow }): ReactElement => {
     const classes = useFullListUserCountStyles();
 
     return (
@@ -27,7 +20,8 @@ const FullListUserCount: FC<FullListUserCountProps> = memo((
                 {userCount}
             </Typography>
             <Typography variant={"subtitle1"} component={"span"}>
-                {" "}{capitalize(title)}
+                {" "}
+                {capitalize(title)}
             </Typography>
         </span>
     );

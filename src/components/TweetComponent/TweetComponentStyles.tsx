@@ -26,7 +26,7 @@ export const useTweetComponentStyles = makeStyles<Theme, TweetComponentStylesPro
     tweetContainer: {
         flex: 1,
         marginLeft: 15,
-        width: props => props.isTweetImageModal ? 263 : 0
+        width: (props) => (props.isTweetImageModal ? 263 : 0)
     },
     headerWrapper: {
         color: "inherit",

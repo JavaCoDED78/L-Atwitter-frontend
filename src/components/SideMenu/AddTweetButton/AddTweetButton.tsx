@@ -12,16 +12,8 @@ const AddTweetButton: FC = (): ReactElement => {
 
     return (
         <li className={classes.itemWrapper}>
-            <Button
-                onClick={onOpenModalWindow}
-                className={classes.button}
-                variant="contained"
-                color="primary"
-                fullWidth
-            >
-                <Hidden smDown>
-                    Tweet
-                </Hidden>
+            <Button onClick={onOpenModalWindow} className={classes.button} variant="contained" color="primary" fullWidth>
+                <Hidden smDown>Tweet</Hidden>
                 <Hidden mdUp>
                     <CreateIcon />
                 </Hidden>

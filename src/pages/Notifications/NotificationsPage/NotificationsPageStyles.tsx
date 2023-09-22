@@ -14,7 +14,6 @@ export const useNotificationsPageStyles = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: theme.palette.secondary.main
         }
-
     },
     notificationIcon: {
         alignItems: "flex-end",

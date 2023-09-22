@@ -13,7 +13,8 @@ import FollowedTopicButton from "../../TopicBlock/FollowedTopicButton/FollowedTo
 describe("Followed", () => {
     const mockRootState = createMockRootState(LoadingStatus.LOADED);
     const mockState = {
-        ...mockRootState, topics: {
+        ...mockRootState,
+        topics: {
             ...mockRootState,
             topics: mockTopics,
             followedTopics: mockTopics
@@ -47,5 +48,4 @@ describe("Followed", () => {
         wrapper.unmount();
         expect(mockDispatchFn).nthCalledWith(3, { type: TopicsActionsType.RESET_TOPICS_STATE });
     });
-
 });

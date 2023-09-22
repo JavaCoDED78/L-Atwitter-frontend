@@ -55,7 +55,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({ participantId, chatId }): ReactEl
 
     return (
         <Paper className={classnames(globalClasses.pageContainer, classes.chatContainer)} variant="outlined">
-            {(!participantId) ? (
+            {!participantId ? (
                 <EmptyChatMessages />
             ) : (
                 <>
@@ -66,23 +66,13 @@ const ChatMessages: FC<ChatMessagesProps> = ({ participantId, chatId }): ReactEl
                         ) : (
                             <>
                                 {messages.map((message) => (
-                                    <ChatMessage
-                                        key={message.id}
-                                        message={message}
-                                        isParticipantMessage={message.authorId !== myProfileId}
-                                    />
+                                    <ChatMessage key={message.id} message={message} isParticipantMessage={message.authorId !== myProfileId} />
                                 ))}
                                 <div ref={chatEndRef} />
                             </>
                         )}
                     </Paper>
-                    <>
-                        {chatParticipant?.isUserBlocked ? (
-                            <ChatUserBlocked />
-                        ) : (
-                            <ChatFooter chatId={chatId!} />
-                        )}
-                    </>
+                    <>{chatParticipant?.isUserBlocked ? <ChatUserBlocked /> : <ChatFooter chatId={chatId!} />}</>
                 </>
             )}
         </Paper>

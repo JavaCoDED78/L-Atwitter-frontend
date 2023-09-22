@@ -22,7 +22,6 @@ import {
 import { LoadingStatus } from "../../../../types/common";
 
 describe("topics actions", () => {
-
     testAction(setTopics, setTopics([{ id: 1 }] as TopicsState["topics"]), {
         type: TopicsActionsType.SET_TOPICS,
         payload: [{ id: 1 }] as TopicsState["topics"]

@@ -8,10 +8,12 @@ describe("chats selectors:", () => {
 
     describe("selectChatsItems", () => {
         it("should return ChatResponse array", () => {
-            expect(selectChatsItems({
-                ...mockState,
-                chats: { ...mockState.chats, items: mockChats }
-            })).toBe(mockChats);
+            expect(
+                selectChatsItems({
+                    ...mockState,
+                    chats: { ...mockState.chats, items: mockChats }
+                })
+            ).toBe(mockChats);
         });
     });
 

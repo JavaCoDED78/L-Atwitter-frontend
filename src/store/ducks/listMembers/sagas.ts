@@ -1,13 +1,7 @@
 import { AxiosResponse } from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 
-import {
-    setListMembers,
-    setListSuggested,
-    setLoadingMembersState,
-    setLoadingSuggestedState,
-    setUserToList
-} from "./actionCreators";
+import { setListMembers, setListSuggested, setLoadingMembersState, setLoadingSuggestedState, setUserToList } from "./actionCreators";
 import {
     FetchListFollowersActionInterface,
     FetchListMembersActionInterface,
@@ -44,7 +38,11 @@ export function* fetchListFollowersRequest({ payload }: FetchListFollowersAction
 export function* fetchListMembersByUsernameRequest({ payload }: FetchListMembersByUsernameActionInterface) {
     try {
         yield put(setLoadingSuggestedState(LoadingStatus.LOADING));
-        const response: AxiosResponse<ListsOwnerMemberResponse[]> = yield call(ListsApi.searchListMembersByUsername, payload.listId, payload.username);
+        const response: AxiosResponse<ListsOwnerMemberResponse[]> = yield call(
+            ListsApi.searchListMembersByUsername,
+            payload.listId,
+            payload.username
+        );
         yield put(setListSuggested(response.data));
     } catch (error) {
         yield put(setLoadingSuggestedState(LoadingStatus.ERROR));

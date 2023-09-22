@@ -1,10 +1,10 @@
 import {
     AddQuoteTweetRequest,
-    TweetRequest,
     ChangeReplyTypeRequest,
     FetchTweetsByTagRequest,
     FetchTweetsByTextRequest,
     TweetActionPayload,
+    TweetRequest,
     TweetsByListIdRequest,
     TweetsState,
     TweetsWithQuotesByIdRequest,
@@ -48,12 +48,7 @@ import {
     UpdateScheduledTweetActionInterface,
     VoteActionInterface
 } from "./contracts/actionTypes";
-import {
-    BlockedToTweetsPayload,
-    FollowToTweetsPayload,
-    MutedToTweetsPayload,
-    TweetResponse
-} from "../../../types/tweet";
+import { BlockedToTweetsPayload, FollowToTweetsPayload, MutedToTweetsPayload, TweetResponse } from "../../../types/tweet";
 import { NotificationReplyResponse, NotificationResponse } from "../../../types/notification";
 import { LoadingStatus, PageableResponse } from "../../../types/common";
 

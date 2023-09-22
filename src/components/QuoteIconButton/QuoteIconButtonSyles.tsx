@@ -8,7 +8,7 @@ export const useQuoteIconButtonStyles = makeStyles<Theme, QuoteTweetStyles>((the
     footerIcon: {
         "& .MuiIconButton-root": {
             "& svg": {
-                color: props => props.isTweetRetweetedByMe ? "rgb(23, 191, 99)" : theme.palette.text.secondary
+                color: (props) => (props.isTweetRetweetedByMe ? "rgb(23, 191, 99)" : theme.palette.text.secondary)
             },
             "&:hover": {
                 backgroundColor: "rgba(0, 186, 124, 0.1) !important",
@@ -19,7 +19,7 @@ export const useQuoteIconButtonStyles = makeStyles<Theme, QuoteTweetStyles>((the
         },
         "& #retweets": {
             verticalAlign: "middle",
-            color: props => props.isTweetRetweetedByMe ? "rgb(23, 191, 99)" : theme.palette.text.secondary
+            color: (props) => (props.isTweetRetweetedByMe ? "rgb(23, 191, 99)" : theme.palette.text.secondary)
         }
     },
     dropdown: {

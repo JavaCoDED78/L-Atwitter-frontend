@@ -21,15 +21,9 @@ const PollIconButton: FC<PollIconButtonProps> = memo(({ buttonName, disabled }):
 
     return (
         <>
-            {(buttonName !== "Reply") && (
+            {buttonName !== "Reply" && (
                 <div className={classes.quoteImage}>
-                    <ActionIconButton
-                        actionText={"Poll"}
-                        icon={PullIcon}
-                        onClick={onClickOpenPoll}
-                        disabled={disabled}
-                        size={"medium"}
-                    />
+                    <ActionIconButton actionText={"Poll"} icon={PullIcon} onClick={onClickOpenPoll} disabled={disabled} size={"medium"} />
                 </div>
             )}
         </>

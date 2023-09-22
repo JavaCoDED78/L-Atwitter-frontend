@@ -8,11 +8,7 @@ const TweetPoll = (): ReactElement => {
     const tweetId = useSelector(selectTweetId);
     const poll = useSelector(selectTweetPoll);
 
-    return (
-        <>
-            {poll && <VoteComponent tweetId={tweetId!} poll={poll} />}
-        </>
-    );
+    return <>{poll && <VoteComponent tweetId={tweetId!} poll={poll} />}</>;
 };
 
 export default TweetPoll;

@@ -18,13 +18,7 @@ const FollowListButton = memo((): ReactElement => {
     };
 
     return (
-        <Button
-            className={classes.outlinedButton}
-            onClick={handleFollow}
-            variant="outlined"
-            color="primary"
-            size="small"
-        >
+        <Button className={classes.outlinedButton} onClick={handleFollow} variant="outlined" color="primary" size="small">
             Follow
         </Button>
     );

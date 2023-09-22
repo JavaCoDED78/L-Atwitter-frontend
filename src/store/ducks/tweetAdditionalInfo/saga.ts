@@ -1,11 +1,7 @@
 import { AxiosResponse } from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 
-import {
-    setIsTweetBookmarkedAdditionalInfo,
-    setTweetAdditionalInfo,
-    setTweetAdditionalInfoLoadingState
-} from "./actionCreators";
+import { setIsTweetBookmarkedAdditionalInfo, setTweetAdditionalInfo, setTweetAdditionalInfoLoadingState } from "./actionCreators";
 import {
     FetchIsTweetBookmarkedAdditionalInfoActionInterface,
     FetchTweetAdditionalInfoActionInterface,

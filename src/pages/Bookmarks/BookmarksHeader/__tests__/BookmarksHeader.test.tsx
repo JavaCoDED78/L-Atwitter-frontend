@@ -1,7 +1,6 @@
 import React from "react";
 
 import { createMockRootState, mountWithStore } from "../../../../util/test-utils/test-helper";
-import Bookmarks from "../../Bookmarks";
 import BookmarksHeader from "../BookmarksHeader";
 
 describe("BookmarksHeader", () => {

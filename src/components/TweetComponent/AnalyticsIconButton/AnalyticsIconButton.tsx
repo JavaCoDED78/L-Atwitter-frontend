@@ -13,25 +13,13 @@ interface AnalyticsIconButtonProps {
     isUserCanReply: boolean;
 }
 
-const AnalyticsIconButton: FC<AnalyticsIconButtonProps> = memo((
-    {
-        tweetUserFullName,
-        tweetUserName,
-        tweetText,
-        isUserCanReply
-    }
-): ReactElement => {
+const AnalyticsIconButton: FC<AnalyticsIconButtonProps> = memo(({ tweetUserFullName, tweetUserName, tweetText, isUserCanReply }): ReactElement => {
     const classes = useAnalyticsIconButtonStyles();
     const { visibleModalWindow, onOpenModalWindow, onCloseModalWindow } = useModalWindow();
 
     return (
         <div id={"analytics"} className={classes.replyIcon}>
-            <ActionIconButton
-                actionText={"Analytics"}
-                icon={AnalyticsIcon}
-                onClick={onOpenModalWindow}
-                disabled={isUserCanReply}
-            />
+            <ActionIconButton actionText={"Analytics"} icon={AnalyticsIcon} onClick={onOpenModalWindow} disabled={isUserCanReply} />
             <TweetAnalyticsModal
                 fullName={tweetUserFullName!}
                 username={tweetUserName!}

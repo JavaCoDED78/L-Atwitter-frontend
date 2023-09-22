@@ -27,19 +27,23 @@ describe("tweetAdditionalInfoReducer:", () => {
 
         testActionDispatch(
             TweetAdditionalInfoType.SET_MUTED_TWEET_ADDITIONAL_INFO,
-            tweetAdditionalInfoReducer({
-                ...initialTweetAdditionalInfoState,
-                tweetAdditionalInfo: mockUserTweetAdditionalInfo
-            }, {
-                type: TweetAdditionalInfoType.SET_MUTED_TWEET_ADDITIONAL_INFO,
-                payload: true
-            }),
+            tweetAdditionalInfoReducer(
+                {
+                    ...initialTweetAdditionalInfoState,
+                    tweetAdditionalInfo: mockUserTweetAdditionalInfo
+                },
+                {
+                    type: TweetAdditionalInfoType.SET_MUTED_TWEET_ADDITIONAL_INFO,
+                    payload: true
+                }
+            ),
             {
                 ...initialTweetAdditionalInfoState,
                 tweetAdditionalInfo: {
                     ...mockUserTweetAdditionalInfo,
                     user: {
-                        ...mockUserTweetAdditionalInfo.user, isUserMuted: true
+                        ...mockUserTweetAdditionalInfo.user,
+                        isUserMuted: true
                     }
                 }
             }
@@ -47,19 +51,23 @@ describe("tweetAdditionalInfoReducer:", () => {
 
         testActionDispatch(
             TweetAdditionalInfoType.SET_BLOCKED_TWEET_ADDITIONAL_INFO,
-            tweetAdditionalInfoReducer({
-                ...initialTweetAdditionalInfoState,
-                tweetAdditionalInfo: mockUserTweetAdditionalInfo
-            }, {
-                type: TweetAdditionalInfoType.SET_BLOCKED_TWEET_ADDITIONAL_INFO,
-                payload: true
-            }),
+            tweetAdditionalInfoReducer(
+                {
+                    ...initialTweetAdditionalInfoState,
+                    tweetAdditionalInfo: mockUserTweetAdditionalInfo
+                },
+                {
+                    type: TweetAdditionalInfoType.SET_BLOCKED_TWEET_ADDITIONAL_INFO,
+                    payload: true
+                }
+            ),
             {
                 ...initialTweetAdditionalInfoState,
                 tweetAdditionalInfo: {
                     ...mockUserTweetAdditionalInfo,
                     user: {
-                        ...mockUserTweetAdditionalInfo.user, isUserBlocked: true
+                        ...mockUserTweetAdditionalInfo.user,
+                        isUserBlocked: true
                     }
                 }
             }
@@ -67,19 +75,23 @@ describe("tweetAdditionalInfoReducer:", () => {
 
         testActionDispatch(
             TweetAdditionalInfoType.SET_FOLLOWED_TWEET_ADDITIONAL_INFO,
-            tweetAdditionalInfoReducer({
-                ...initialTweetAdditionalInfoState,
-                tweetAdditionalInfo: mockUserTweetAdditionalInfo
-            }, {
-                type: TweetAdditionalInfoType.SET_FOLLOWED_TWEET_ADDITIONAL_INFO,
-                payload: true
-            }),
+            tweetAdditionalInfoReducer(
+                {
+                    ...initialTweetAdditionalInfoState,
+                    tweetAdditionalInfo: mockUserTweetAdditionalInfo
+                },
+                {
+                    type: TweetAdditionalInfoType.SET_FOLLOWED_TWEET_ADDITIONAL_INFO,
+                    payload: true
+                }
+            ),
             {
                 ...initialTweetAdditionalInfoState,
                 tweetAdditionalInfo: {
                     ...mockUserTweetAdditionalInfo,
                     user: {
-                        ...mockUserTweetAdditionalInfo.user, isFollower: true
+                        ...mockUserTweetAdditionalInfo.user,
+                        isFollower: true
                     }
                 }
             }
@@ -100,12 +112,15 @@ describe("tweetAdditionalInfoReducer:", () => {
 
         testActionDispatch(
             TweetAdditionalInfoType.RESET_TWEET_ADDITIONAL_INFO_STATE,
-            tweetAdditionalInfoReducer({
-                ...initialTweetAdditionalInfoState,
-                tweetAdditionalInfo: mockUserTweetAdditionalInfo
-            }, {
-                type: TweetAdditionalInfoType.RESET_TWEET_ADDITIONAL_INFO_STATE
-            }),
+            tweetAdditionalInfoReducer(
+                {
+                    ...initialTweetAdditionalInfoState,
+                    tweetAdditionalInfo: mockUserTweetAdditionalInfo
+                },
+                {
+                    type: TweetAdditionalInfoType.RESET_TWEET_ADDITIONAL_INFO_STATE
+                }
+            ),
             {
                 tweetAdditionalInfo: undefined,
                 isTweetBookmarked: false,

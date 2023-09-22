@@ -1,12 +1,7 @@
 import { testCall, testLoadingStatus, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { LoadingStatus } from "../../../../types/common";
 import { AuthenticationTypes } from "../constants/actionTypes";
-import {
-    authenticationSaga,
-    fetchCheckRegistrationCodeRequest,
-    fetchRegistrationRequest,
-    fetchSendRegistrationCodeRequest
-} from "../sagas";
+import { authenticationSaga, fetchCheckRegistrationCodeRequest, fetchRegistrationRequest, fetchSendRegistrationCodeRequest } from "../sagas";
 import {
     fetchCheckRegistrationCode,
     fetchRegistration,

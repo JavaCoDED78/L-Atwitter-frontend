@@ -40,9 +40,7 @@ const UserSideProfile: FC = (): ReactElement | null => {
                         {fullName}
                         {isPrivateProfile && <LockIcon />}
                     </Typography>
-                    <Typography variant={"subtitle1"}>
-                        @{username}
-                    </Typography>
+                    <Typography variant={"subtitle1"}>@{username}</Typography>
                 </div>
                 <div className={classes.icon}>
                     <span>{EditIcon}</span>

@@ -17,13 +17,7 @@ describe("ManageMemberButton", () => {
     });
 
     it("should remove member from list", () => {
-        const wrapper = mountWithStore(
-            <ManageMemberButton
-                userId={mockMember.id}
-                listId={3}
-                isMemberInList
-                isSuggested
-            />, mockStore);
+        const wrapper = mountWithStore(<ManageMemberButton userId={mockMember.id} listId={3} isMemberInList isSuggested />, mockStore);
         expect(wrapper.text().includes("Remove")).toBe(true);
         expect(wrapper.find(Button).prop("variant")).toBe("contained");
         wrapper.find(Button).simulate("click");
@@ -34,13 +28,7 @@ describe("ManageMemberButton", () => {
     });
 
     it("should add member to list", () => {
-        const wrapper = mountWithStore(
-            <ManageMemberButton
-                userId={mockMember.id}
-                listId={3}
-                isMemberInList={false}
-                isSuggested
-            />, mockStore);
+        const wrapper = mountWithStore(<ManageMemberButton userId={mockMember.id} listId={3} isMemberInList={false} isSuggested />, mockStore);
         expect(wrapper.text().includes("Add")).toBe(true);
         expect(wrapper.find(Button).prop("variant")).toBe("outlined");
         wrapper.find(Button).simulate("click");

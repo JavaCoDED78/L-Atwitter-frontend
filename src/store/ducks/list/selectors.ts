@@ -13,10 +13,8 @@ export const selectListItemIsFollower = (state: RootState) => selectListItem(sta
 export const selectListItemMembersSize = (state: RootState) => selectListItem(state)?.membersSize;
 export const selectListItemFollowersSize = (state: RootState) => selectListItem(state)?.followersSize;
 export const selectListItemOwnerId = (state: RootState) => selectListItem(state)?.listOwner.id;
-export const selectListItemOwnerAvatar = (state: RootState) =>
-    selectListItem(state)?.listOwner.avatar ?? DEFAULT_PROFILE_IMG;
-export const selectListItemOwnerWallpaper = (state: RootState) =>
-    selectListItem(state)?.wallpaper ?? selectListItem(state)?.altWallpaper;
+export const selectListItemOwnerAvatar = (state: RootState) => selectListItem(state)?.listOwner.avatar ?? DEFAULT_PROFILE_IMG;
+export const selectListItemOwnerWallpaper = (state: RootState) => selectListItem(state)?.wallpaper ?? selectListItem(state)?.altWallpaper;
 export const selectListItemOwnerUsername = (state: RootState) => selectListItem(state)?.listOwner.username;
 export const selectListItemOwnerFullName = (state: RootState) => selectListItem(state)?.listOwner.fullName;
 

@@ -17,13 +17,7 @@ const EmptyChatMessages = memo((): ReactElement => {
             <Typography variant={"subtitle1"} component={"div"}>
                 Choose one from your existing messages, or start a new one.
             </Typography>
-            <Button
-                onClick={onOpenModalWindow}
-                className={classes.chatInfoButton}
-                variant="contained"
-                color="primary"
-                size="large"
-            >
+            <Button onClick={onOpenModalWindow} className={classes.chatInfoButton} variant="contained" color="primary" size="large">
                 New message
             </Button>
             <MessagesModal visible={visibleModalWindow} onClose={onCloseModalWindow} />

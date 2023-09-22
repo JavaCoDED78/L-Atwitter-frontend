@@ -12,7 +12,7 @@ import { AddTweetFormTypes } from "../constants/actionTypes";
 describe("addTweetFormSaga:", () => {
     describe("fetchGifsRequest:", () => {
         const mockGiphyDataProps = {
-            data: { data: mockGiphyData },
+            data: { data: mockGiphyData }
         } as AxiosResponse<{ data: GiphyDataProps[] }>;
         const worker = fetchGifsRequest(fetchGifs("test"));
         testLoadingStatus(worker, setLoadingGifsState, LoadingStatus.LOADING);
@@ -22,7 +22,5 @@ describe("addTweetFormSaga:", () => {
         testLoadingStatus(worker, setLoadingGifsState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(addTweetFormSaga, [
-        { actionType: AddTweetFormTypes.FETCH_GIFS, workSaga: fetchGifsRequest },
-    ]);
+    testWatchSaga(addTweetFormSaga, [{ actionType: AddTweetFormTypes.FETCH_GIFS, workSaga: fetchGifsRequest }]);
 });

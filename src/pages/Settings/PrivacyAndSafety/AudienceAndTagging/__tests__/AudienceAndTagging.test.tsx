@@ -2,12 +2,7 @@ import React from "react";
 import { Checkbox } from "@material-ui/core";
 
 import AudienceAndTagging from "../AudienceAndTagging";
-import {
-    createMockRootState,
-    mockDispatch,
-    mountWithStore,
-    testClickOnLink
-} from "../../../../../util/test-utils/test-helper";
+import { createMockRootState, mockDispatch, mountWithStore, testClickOnLink } from "../../../../../util/test-utils/test-helper";
 import { SETTINGS_PRIVACY_AND_SAFETY_TAGGING } from "../../../../../constants/path-constants";
 import { UserActionsType } from "../../../../../store/ducks/user/contracts/actionTypes";
 import { LoadingStatus } from "../../../../../types/common";
@@ -42,7 +37,10 @@ describe("AudienceAndTagging", () => {
         const wrapper = mountWithStore(<AudienceAndTagging />, mockStore);
         expect(wrapper.find(Checkbox).prop("checked")).toBe(false);
 
-        wrapper.find(Checkbox).find("input").simulate("change", { target: { checked: true } });
+        wrapper
+            .find(Checkbox)
+            .find("input")
+            .simulate("change", { target: { checked: true } });
 
         expect(wrapper.find(Checkbox).prop("checked")).toBe(true);
         expect(mockDispatchFn).nthCalledWith(1, {

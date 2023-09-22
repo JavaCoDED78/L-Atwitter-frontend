@@ -11,7 +11,7 @@ export enum ChatsActionsType {
     CREATE_CHAT = "chats/CREATE_CHAT",
     LEAVE_FROM_CONVERSATION = "chats/LEAVE_FROM_CONVERSATION",
     RESET_CHATS_STATE = "chats/RESET_CHATS_STATE",
-    SET_LOADING_STATE = "chats/SET_LOADING_STATE",
+    SET_LOADING_STATE = "chats/SET_LOADING_STATE"
 }
 
 export interface SetChatsActionInterface extends Action<ChatsActionsType> {

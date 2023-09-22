@@ -10,7 +10,8 @@ describe("ImageAction", () => {
     it("should render correctly", () => {
         const wrapper = mountWithStore(
             <ImageAction subtitle={"subtitle"} icon={ListsIcon} onClick={jest.fn()} />,
-            createMockRootState(LoadingStatus.LOADED));
+            createMockRootState(LoadingStatus.LOADED)
+        );
         expect(wrapper.find(Typography).at(0).text().includes("subtitle")).toBe(true);
     });
 });

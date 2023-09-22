@@ -10,21 +10,11 @@ interface BlockUserComponentProps {
     username?: string;
 }
 
-const BlockUserComponent: FC<BlockUserComponentProps> = memo((
-    {
-        onOpenBlockUserModal,
-        isUserBlocked,
-        username
-    }
-): ReactElement => {
+const BlockUserComponent: FC<BlockUserComponentProps> = memo(({ onOpenBlockUserModal, isUserBlocked, username }): ReactElement => {
     const classes = useConversationInfoStyles();
 
     return (
-        <div
-            id={"onOpenBlockUserModal"}
-            className={classnames(classes.conversationInfoButton, classes.blockUser)}
-            onClick={onOpenBlockUserModal}
-        >
+        <div id={"onOpenBlockUserModal"} className={classnames(classes.conversationInfoButton, classes.blockUser)} onClick={onOpenBlockUserModal}>
             <Typography variant={"body1"} component={"span"}>
                 {isUserBlocked ? "Unblock " : "Block "} @{username}
             </Typography>

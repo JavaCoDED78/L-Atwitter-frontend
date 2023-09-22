@@ -45,17 +45,12 @@ const UserTopics = (): ReactElement => {
     return (
         <PageWrapper title={"Topics"}>
             <div className={globalClasses.contentWrapper}>
-                {(isFollowedTopicsLoading && !followedTopics.length) ? (
+                {isFollowedTopicsLoading && !followedTopics.length ? (
                     <Spinner />
+                ) : !isFollowedTopicsLoading && !followedTopics.length ? (
+                    <EmptyPageDescription title={"User isn’t following any Topics."} subtitle={"When they do, it will be listed here."} />
                 ) : (
-                    (!isFollowedTopicsLoading && !followedTopics.length) ? (
-                        <EmptyPageDescription
-                            title={"User isn’t following any Topics."}
-                            subtitle={"When they do, it will be listed here."}
-                        />
-                    ) : (
-                        followedTopics.map((topic) => <TopicItem key={topic.id} topic={topic} />)
-                    )
+                    followedTopics.map((topic) => <TopicItem key={topic.id} topic={topic} />)
                 )}
             </div>
         </PageWrapper>

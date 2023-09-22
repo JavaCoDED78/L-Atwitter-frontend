@@ -63,7 +63,7 @@ const FullList: FC = (): ReactElement => {
                             <FullListDescription />
                             <MembersAndFollowers />
                             <div className={classes.buttonWrapper}>
-                                {(myProfileId === listOwnerId) ? (
+                                {myProfileId === listOwnerId ? (
                                     <EditListButton />
                                 ) : (
                                     <FollowListButton listId={listId!} isFollower={listIsFollower!} />

@@ -17,12 +17,7 @@ describe("LikeIconButton", () => {
     });
 
     it("should render like button", () => {
-        const wrapper = mountWithStore(
-            <LikeIconButton
-                tweetId={1}
-                isTweetLiked={false}
-                likedTweetsCount={1}
-            />, mockRootState);
+        const wrapper = mountWithStore(<LikeIconButton tweetId={1} isTweetLiked={false} likedTweetsCount={1} />, mockRootState);
         expect(wrapper.find(ActionIconButton).prop("actionText")).toBe("Like");
         expect(wrapper.find(ActionIconButton).prop("icon")).toBe(LikeOutlinedIcon);
         expect(wrapper.find("#likedTweetsCount").exists()).toBeTruthy();
@@ -31,12 +26,7 @@ describe("LikeIconButton", () => {
     });
 
     it("should render unlike button", () => {
-        const wrapper = mountWithStore(
-            <LikeIconButton
-                tweetId={1}
-                isTweetLiked
-                likedTweetsCount={0}
-            />, mockRootState);
+        const wrapper = mountWithStore(<LikeIconButton tweetId={1} isTweetLiked likedTweetsCount={0} />, mockRootState);
         expect(wrapper.find(ActionIconButton).prop("actionText")).toBe("Unlike");
         expect(wrapper.find(ActionIconButton).prop("icon")).toBe(LikeIcon);
         expect(wrapper.find("#likedTweetsCount").exists()).toBeFalsy();

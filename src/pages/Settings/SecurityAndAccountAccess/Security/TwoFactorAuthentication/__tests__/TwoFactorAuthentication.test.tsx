@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { TWO_FACTOR_AUTHENTICATION } from "../../../../../../constants/url-constants";
 
 describe("TwoFactorAuthentication", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<TwoFactorAuthentication />, createMockRootState());
         expect(wrapper.text().includes("Two-factor authentication")).toBe(true);

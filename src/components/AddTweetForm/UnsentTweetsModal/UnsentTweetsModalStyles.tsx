@@ -8,7 +8,7 @@ export const useUnsentTweetsModalStyles = makeStyles<Theme, UnsentTweetsModalSty
     dialog: {
         "& .MuiDialogTitle-root": {
             marginBottom: 0,
-            borderBottom: props => props.visibleEditTweetModal ? `1px solid ${theme.palette.divider}` : "1px solid transparent",
+            borderBottom: (props) => (props.visibleEditTweetModal ? `1px solid ${theme.palette.divider}` : "1px solid transparent"),
             "& .MuiButtonBase-root": {
                 marginLeft: "auto"
             }
@@ -18,7 +18,7 @@ export const useUnsentTweetsModalStyles = makeStyles<Theme, UnsentTweetsModalSty
         width: 598,
         overflowX: "hidden",
         padding: 0,
-        minHeight: props => props.visibleEditTweetModal ? 220 : 600
+        minHeight: (props) => (props.visibleEditTweetModal ? 220 : 600)
     },
     tweetContainer: {
         padding: "12px 16px",

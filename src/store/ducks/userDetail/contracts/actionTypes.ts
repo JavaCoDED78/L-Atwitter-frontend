@@ -11,7 +11,7 @@ export enum UserDetailActionsType {
     SET_FOLLOW_REQUEST_TO_USER_DETAIL = "userProfile/SET_FOLLOW_REQUEST_TO_USER_DETAIL",
     FETCH_USER_DETAIL = "userDetail/FETCH_USER_DETAIL",
     RESET_USER_DETAIL_STATE = "userDetail/RESET_USER_DETAIL_STATE",
-    SET_LOADING_STATE = "userDetail/SET_LOADING_STATE",
+    SET_LOADING_STATE = "userDetail/SET_LOADING_STATE"
 }
 
 export interface SetUserDetailActionInterface extends Action<UserDetailActionsType> {

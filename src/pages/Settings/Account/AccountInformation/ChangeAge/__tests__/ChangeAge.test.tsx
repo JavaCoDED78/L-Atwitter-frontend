@@ -4,7 +4,6 @@ import ChangeAge from "../ChangeAge";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 
 describe("ChangeAge", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<ChangeAge />, createMockRootState());
         expect(wrapper.text().includes("13-64")).toBe(true);

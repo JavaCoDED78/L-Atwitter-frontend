@@ -6,7 +6,6 @@ import { LoadingStatus, ReplyType } from "../../../../types/common";
 import { ImageObj } from "../../../../components/AddTweetForm/AddTweetForm";
 
 describe("addTweetFormReducer:", () => {
-
     describe("initial state:", () => {
         it("should return initial state", () => {
             expect(addTweetFormReducer(undefined, {} as AddTweetFormActions)).toEqual(initialAddTweetFormState);
@@ -14,7 +13,6 @@ describe("addTweetFormReducer:", () => {
     });
 
     describe("addTweetForm handlers:", () => {
-
         testActionDispatch(
             AddTweetFormTypes.SET_OPEN_POLL,
             addTweetFormReducer(initialAddTweetFormState, {
@@ -146,10 +144,13 @@ describe("addTweetFormReducer:", () => {
 
         testActionDispatch(
             AddTweetFormTypes.SET_SELECTED_USER,
-            addTweetFormReducer({ ...initialAddTweetFormState, selectedUsers: mockUsers }, {
-                type: AddTweetFormTypes.SET_SELECTED_USER,
-                payload: mockUsers[0]
-            }),
+            addTweetFormReducer(
+                { ...initialAddTweetFormState, selectedUsers: mockUsers },
+                {
+                    type: AddTweetFormTypes.SET_SELECTED_USER,
+                    payload: mockUsers[0]
+                }
+            ),
             {
                 ...initialAddTweetFormState,
                 selectedUsers: [mockUsers[1]]
@@ -158,10 +159,13 @@ describe("addTweetFormReducer:", () => {
 
         testActionDispatch(
             AddTweetFormTypes.REMOVE_SELECTED_USER,
-            addTweetFormReducer({ ...initialAddTweetFormState, selectedUsers: mockUsers }, {
-                type: AddTweetFormTypes.REMOVE_SELECTED_USER,
-                payload: mockUsers[0]
-            }),
+            addTweetFormReducer(
+                { ...initialAddTweetFormState, selectedUsers: mockUsers },
+                {
+                    type: AddTweetFormTypes.REMOVE_SELECTED_USER,
+                    payload: mockUsers[0]
+                }
+            ),
             {
                 ...initialAddTweetFormState,
                 selectedUsers: [mockUsers[1]]

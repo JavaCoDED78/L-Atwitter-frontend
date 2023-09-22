@@ -8,7 +8,7 @@ export const useHoverActionStyles = makeStyles<Theme, HoverActionStylesProps>((t
     container: {
         zIndex: 2,
         position: "absolute",
-        marginTop: props => props.positionTop ? -50 : 60,
+        marginTop: (props) => (props.positionTop ? -50 : 60),
         backgroundColor: "rgba(0, 0, 0, 0.6)",
         borderRadius: 2,
         fontSize: 11,

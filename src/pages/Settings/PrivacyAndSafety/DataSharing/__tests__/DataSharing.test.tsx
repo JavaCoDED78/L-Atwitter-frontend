@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../util/test-ut
 import { DATA_THROUGH_PARTNERSHIPS } from "../../../../../constants/url-constants";
 
 describe("DataSharing", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<DataSharing />, createMockRootState());
 

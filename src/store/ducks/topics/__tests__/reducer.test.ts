@@ -6,7 +6,6 @@ import { TopicsState } from "../contracts/state";
 import { TopicCategory } from "../../../../types/topic";
 
 describe("topicsReducer:", () => {
-
     describe("initial state:", () => {
         it("should return initial state", () => {
             expect(topicsReducer(undefined, {} as TopicsActions)).toEqual(initialTopicsState);
@@ -55,14 +54,16 @@ describe("topicsReducer:", () => {
 
         testActionDispatch(
             TopicsActionsType.SET_NOT_INTERESTED_TOPIC,
-            topicsReducer({
+            topicsReducer(
+                {
                     ...initialTopicsState,
                     topics: [{ id: 2, isTopicNotInterested: false }] as TopicsState["topics"]
                 },
                 {
                     type: TopicsActionsType.SET_NOT_INTERESTED_TOPIC,
                     payload: { topicsId: 2, isTopicNotInterested: true }
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 topics: [{ id: 2, isTopicNotInterested: true }] as TopicsState["topics"]
@@ -71,25 +72,31 @@ describe("topicsReducer:", () => {
 
         testActionDispatch(
             TopicsActionsType.SET_FOLLOW_TOPIC,
-            topicsReducer({
+            topicsReducer(
+                {
                     ...initialTopicsState,
                     topics: [{ id: 2, isTopicFollowed: false }] as TopicsState["topics"],
-                    topicsByCategories: [{
-                        topicCategory: TopicCategory.GAMING,
-                        topicsByCategories: [{ id: 2, isTopicFollowed: false }]
-                    }] as TopicsState["topicsByCategories"]
+                    topicsByCategories: [
+                        {
+                            topicCategory: TopicCategory.GAMING,
+                            topicsByCategories: [{ id: 2, isTopicFollowed: false }]
+                        }
+                    ] as TopicsState["topicsByCategories"]
                 },
                 {
                     type: TopicsActionsType.SET_FOLLOW_TOPIC,
                     payload: { topicsId: 2, isTopicFollowed: true, topicCategory: TopicCategory.GAMING }
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 topics: [{ id: 2, isTopicFollowed: true }] as TopicsState["topics"],
-                topicsByCategories: [{
-                    topicCategory: TopicCategory.GAMING,
-                    topicsByCategories: [{ id: 2, isTopicFollowed: true }]
-                }] as TopicsState["topicsByCategories"]
+                topicsByCategories: [
+                    {
+                        topicCategory: TopicCategory.GAMING,
+                        topicsByCategories: [{ id: 2, isTopicFollowed: true }]
+                    }
+                ] as TopicsState["topicsByCategories"]
             }
         );
 
@@ -103,7 +110,8 @@ describe("topicsReducer:", () => {
                 },
                 {
                     type: TopicsActionsType.RESET_TOPICS_STATE
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 topics: [],
@@ -121,7 +129,8 @@ describe("topicsReducer:", () => {
                 {
                     type: TopicsActionsType.SET_TOPICS_LOADING_STATE,
                     payload: LoadingStatus.LOADING
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 topics: [],
@@ -139,7 +148,8 @@ describe("topicsReducer:", () => {
                 {
                     type: TopicsActionsType.SET_TOPICS_BY_CATEGORIES_LOADING_STATE,
                     payload: LoadingStatus.LOADING
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 topicsByCategoriesLoadingState: LoadingStatus.LOADING
@@ -156,7 +166,8 @@ describe("topicsReducer:", () => {
                 {
                     type: TopicsActionsType.SET_FOLLOWED_TOPICS_LOADING_STATE,
                     payload: LoadingStatus.LOADING
-                }),
+                }
+            ),
             {
                 ...initialTopicsState,
                 followedTopicsLoadingState: LoadingStatus.LOADING

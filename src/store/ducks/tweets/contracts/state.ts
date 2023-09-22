@@ -7,7 +7,6 @@ export interface TweetsState {
     loadingState: LoadingStatus;
 }
 
-
 export interface TweetRequest {
     id?: number;
     text: string;
@@ -39,13 +38,13 @@ export interface VoteRequest {
 }
 
 export interface TweetsByListIdRequest {
-    listId: number,
-    pageNumber: number
+    listId: number;
+    pageNumber: number;
 }
 
 export interface TweetsWithQuotesByIdRequest {
-    tweetId: number,
-    pageNumber: number
+    tweetId: number;
+    pageNumber: number;
 }
 
 export interface ChangeReplyTypeRequest {

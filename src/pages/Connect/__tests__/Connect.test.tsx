@@ -12,7 +12,7 @@ window.scrollTo = jest.fn();
 describe("Connect", () => {
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render loading Spinner", () => {
         const wrapper = mountWithStore(<Connect />, createMockRootState());

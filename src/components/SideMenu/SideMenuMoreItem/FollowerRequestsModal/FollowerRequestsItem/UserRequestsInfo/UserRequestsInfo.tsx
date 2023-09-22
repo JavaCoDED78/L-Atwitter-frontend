@@ -18,18 +18,11 @@ const UserRequestsInfo: FC<UserRequestsInfoProps> = memo(({ user }): ReactElemen
     return (
         <div className={classes.header}>
             <div id={"handleLeavePopper"} onMouseLeave={handleLeavePopper} className={classes.headerUserInfo}>
-                <Typography
-                    id={"handleHoverPopper"}
-                    variant={"h6"}
-                    onMouseEnter={() => handleHoverPopper({ userId: user.id } as HoverItemDetail)}>
+                <Typography id={"handleHoverPopper"} variant={"h6"} onMouseEnter={() => handleHoverPopper({ userId: user.id } as HoverItemDetail)}>
                     {user?.fullName}
                 </Typography>
-                <Typography variant={"subtitle1"}>
-                    @{user?.username}
-                </Typography>
-                <Typography variant={"body1"}>
-                    {user?.about}
-                </Typography>
+                <Typography variant={"subtitle1"}>@{user?.username}</Typography>
+                <Typography variant={"body1"}>{user?.about}</Typography>
                 <PopperUserWindow visible={visiblePopperWindow} />
             </div>
         </div>

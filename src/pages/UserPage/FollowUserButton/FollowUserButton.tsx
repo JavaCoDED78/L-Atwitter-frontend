@@ -21,13 +21,7 @@ const FollowUserButton = memo((): ReactElement => {
     };
 
     return (
-        <Button
-            className={classes.outlinedButton}
-            onClick={handleFollow}
-            color="primary"
-            variant="outlined"
-            size="large"
-        >
+        <Button className={classes.outlinedButton} onClick={handleFollow} color="primary" variant="outlined" size="large">
             Follow
         </Button>
     );

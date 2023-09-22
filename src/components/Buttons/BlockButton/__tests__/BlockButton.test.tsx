@@ -25,14 +25,7 @@ describe("BlockButton", () => {
     });
 
     it("should click and open/close BlockUserModal", () => {
-        const wrapper = mountWithStore(
-            <BlockButton
-                userId={11}
-                username={"test_name"}
-                size={"medium"}
-                isOpenBlockModal
-                isUserBlocked
-            />, mockState);
+        const wrapper = mountWithStore(<BlockButton userId={11} username={"test_name"} size={"medium"} isOpenBlockModal isUserBlocked />, mockState);
         expect(wrapper.find(BlockUserModal).prop("visible")).toBe(false);
         wrapper.find(Button).simulate("click");
         expect(wrapper.find(BlockUserModal).prop("visible")).toBe(true);
@@ -41,14 +34,7 @@ describe("BlockButton", () => {
     });
 
     it("should hover BlockButton", () => {
-        const wrapper = mountWithStore(
-            <BlockButton
-                userId={11}
-                username={"test_name"}
-                size={"medium"}
-                isOpenBlockModal
-                isUserBlocked
-            />, mockState);
+        const wrapper = mountWithStore(<BlockButton userId={11} username={"test_name"} size={"medium"} isOpenBlockModal isUserBlocked />, mockState);
         wrapper.find(Button).simulate("mouseover");
         expect(wrapper.find(Button).text().includes("Unblock")).toBe(true);
         wrapper.find(Button).simulate("mouseleave");
@@ -57,13 +43,9 @@ describe("BlockButton", () => {
 
     const testClickButton = (isUserBlocked: boolean, message: string): void => {
         const wrapper = mountWithStore(
-            <BlockButton
-                userId={11}
-                username={"test_name"}
-                size={"medium"}
-                isOpenBlockModal={false}
-                isUserBlocked={isUserBlocked}
-            />, mockState);
+            <BlockButton userId={11} username={"test_name"} size={"medium"} isOpenBlockModal={false} isUserBlocked={isUserBlocked} />,
+            mockState
+        );
         wrapper.find(Button).simulate("click");
         expect(wrapper.find(Button).text().includes("Blocked")).toBe(true);
         expect(mockDispatchFn).toHaveBeenNthCalledWith(1, {

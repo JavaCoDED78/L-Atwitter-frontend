@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 
-import {
-    fetchFetchTweetAuthorsNotifications,
-    fetchNotifications,
-    resetNotificationState
-} from "../../../store/ducks/notifications/actionCreators";
+import { fetchFetchTweetAuthorsNotifications, fetchNotifications, resetNotificationState } from "../../../store/ducks/notifications/actionCreators";
 import { resetNotifications } from "../../../store/ducks/user/actionCreators";
 import {
     selectIsNotificationsLoading,
@@ -50,69 +46,51 @@ const NotificationsPage: FC = (): ReactElement => {
 
     return (
         <>
-            {(isNotificationLoading && !notifications.length) ? (
+            {isNotificationLoading && !notifications.length ? (
                 <Spinner />
+            ) : !isNotificationLoading && !notifications.length ? (
+                <EmptyNotifications isNotification />
             ) : (
-                (!isNotificationLoading && !notifications.length) ? (
-                    <EmptyNotifications isNotification />
-                ) : (
-                    <>
-                        {(tweetAuthors.length !== 0) && (
-                            <Link to={NOTIFICATIONS_TIMELINE}>
-                                <Paper className={classes.notificationWrapper} variant="outlined">
-                                    <div className={classes.notificationIcon}>
-                                        <span id={"notification"}>
-                                            {NotificationsIconFilled}
-                                        </span>
-                                    </div>
-                                    <div style={{ flex: 1 }}>
-                                        {tweetAuthors.slice(0, 6).map((tweetAuthor, index) => (
-                                            <NotificationAuthorItem key={index} tweetAuthor={tweetAuthor} />
-                                        ))}
-                                        <Typography
-                                            variant={"body1"}
-                                            component={"div"}
-                                            className={classes.notificationInfoText}
-                                        >
-                                            {"New Tweet notifications for "}
-                                            <Typography variant={"h6"} component={"span"}>
-                                                {tweetAuthors[0].fullName}
-                                            </Typography>
-                                            {(tweetAuthors.length > 2) ? (
-                                                ` and ${tweetAuthors.length - 1} others`
-                                            ) : (
-                                                (tweetAuthors.length === 2) && (
-                                                    <>
-                                                        <Typography
-                                                            variant={"body1"}
-                                                            component={"span"}
-                                                            className={classes.notificationInfoText}
-                                                        >
-                                                            {" and "}
-                                                        </Typography>
-                                                        <Typography variant={"h6"} component={"span"}>
-                                                            {tweetAuthors[1].fullName}
-                                                        </Typography>
-                                                    </>
-                                                )
-                                            )}
+                <>
+                    {tweetAuthors.length !== 0 && (
+                        <Link to={NOTIFICATIONS_TIMELINE}>
+                            <Paper className={classes.notificationWrapper} variant="outlined">
+                                <div className={classes.notificationIcon}>
+                                    <span id={"notification"}>{NotificationsIconFilled}</span>
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    {tweetAuthors.slice(0, 6).map((tweetAuthor, index) => (
+                                        <NotificationAuthorItem key={index} tweetAuthor={tweetAuthor} />
+                                    ))}
+                                    <Typography variant={"body1"} component={"div"} className={classes.notificationInfoText}>
+                                        {"New Tweet notifications for "}
+                                        <Typography variant={"h6"} component={"span"}>
+                                            {tweetAuthors[0].fullName}
                                         </Typography>
-                                    </div>
-                                </Paper>
-                            </Link>
-                        )}
-                        <InfiniteScrollWrapper
-                            dataLength={notifications.length}
-                            pagesCount={pagesCount}
-                            loadItems={loadNotifications}
-                        >
-                            {notifications.map((notification) => (
-                                <NotificationItem key={notification.id} notification={notification} />
-                            ))}
-                            {isNotificationLoading && <Spinner />}
-                        </InfiniteScrollWrapper>
-                    </>
-                )
+                                        {tweetAuthors.length > 2
+                                            ? ` and ${tweetAuthors.length - 1} others`
+                                            : tweetAuthors.length === 2 && (
+                                                  <>
+                                                      <Typography variant={"body1"} component={"span"} className={classes.notificationInfoText}>
+                                                          {" and "}
+                                                      </Typography>
+                                                      <Typography variant={"h6"} component={"span"}>
+                                                          {tweetAuthors[1].fullName}
+                                                      </Typography>
+                                                  </>
+                                              )}
+                                    </Typography>
+                                </div>
+                            </Paper>
+                        </Link>
+                    )}
+                    <InfiniteScrollWrapper dataLength={notifications.length} pagesCount={pagesCount} loadItems={loadNotifications}>
+                        {notifications.map((notification) => (
+                            <NotificationItem key={notification.id} notification={notification} />
+                        ))}
+                        {isNotificationLoading && <Spinner />}
+                    </InfiniteScrollWrapper>
+                </>
             )}
         </>
     );

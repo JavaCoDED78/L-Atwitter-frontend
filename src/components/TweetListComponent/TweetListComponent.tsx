@@ -23,9 +23,7 @@ const TweetListComponent: FC<TweetListComponentProps> = memo(({ tweetList }): Re
                 <img className={classes.wallpaper} src={listWallpaper} alt={listWallpaper} />
                 <div className={classes.contentInfo}>
                     <div>
-                        <div className={classes.listIcon}>
-                            {ListsIconFilled}
-                        </div>
+                        <div className={classes.listIcon}>{ListsIconFilled}</div>
                         <Typography className={classes.listName} variant={"subtitle2"} component={"span"}>
                             List
                         </Typography>
@@ -48,10 +46,7 @@ const TweetListComponent: FC<TweetListComponentProps> = memo(({ tweetList }): Re
                         <Typography className={classes.listOwnerFullName} variant={"subtitle2"} component={"span"}>
                             {tweetList.listOwner.fullName}
                         </Typography>
-                        {tweetList.listOwner.isPrivateProfile && (
-                            <span className={classes.lockIcon}>{LockIcon}</span>
-                        )}
-                        {" "}
+                        {tweetList.listOwner.isPrivateProfile && <span className={classes.lockIcon}>{LockIcon}</span>}{" "}
                         <Typography variant={"subtitle2"} component={"span"}>
                             @{tweetList.listOwner.username}
                         </Typography>

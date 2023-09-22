@@ -27,7 +27,9 @@ const Tags = (): ReactElement => {
                 <Spinner />
             ) : (
                 <List>
-                    {tags.slice(0, 3).map((tag) => (<TagItem key={tag.id} tag={tag} classes={classes} />))}
+                    {tags.slice(0, 3).map((tag) => (
+                        <TagItem key={tag.id} tag={tag} classes={classes} />
+                    ))}
                     <Link to={HOME_TRENDS}>
                         <ListItem className={classes.footer}>
                             <Typography variant={"body1"} component={"span"}>

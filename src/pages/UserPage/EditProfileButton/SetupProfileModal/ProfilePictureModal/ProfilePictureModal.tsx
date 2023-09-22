@@ -15,15 +15,7 @@ interface ProfilePictureModalProps {
     onOpenProfileHeaderModal: () => void;
 }
 
-const ProfilePictureModal: FC<ProfilePictureModalProps> = (
-    {
-        isOpen,
-        onClose,
-        avatar,
-        onChangeAvatar,
-        onOpenProfileHeaderModal
-    }
-): ReactElement => {
+const ProfilePictureModal: FC<ProfilePictureModalProps> = ({ isOpen, onClose, avatar, onChangeAvatar, onOpenProfileHeaderModal }): ReactElement => {
     const classes = useProfilePictureModalStyles();
 
     return (
@@ -36,12 +28,7 @@ const ProfilePictureModal: FC<ProfilePictureModalProps> = (
             isComponentSelected={avatar?.src !== undefined}
         >
             <div className={classes.avatarWrapper}>
-                <UploadProfileImage
-                    name={"avatar"}
-                    image={avatar}
-                    onChangeImage={onChangeAvatar}
-                    setupProfile
-                />
+                <UploadProfileImage name={"avatar"} image={avatar} onChangeImage={onChangeAvatar} setupProfile />
                 <Avatar key={avatar?.src} src={avatar ? avatar.src : DEFAULT_PROFILE_IMG} />
             </div>
         </ProfileModal>

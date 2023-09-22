@@ -8,10 +8,12 @@ describe("chatMessages selectors:", () => {
 
     describe("selectChatMessagesItems", () => {
         it("should return ChatMessageResponse array", () => {
-            expect(selectChatMessagesItems({
-                ...mockState,
-                chatMessages: { ...mockState.chatMessages, items: mockMessages }
-            })).toBe(mockMessages);
+            expect(
+                selectChatMessagesItems({
+                    ...mockState,
+                    chatMessages: { ...mockState.chatMessages, items: mockMessages }
+                })
+            ).toBe(mockMessages);
         });
     });
 

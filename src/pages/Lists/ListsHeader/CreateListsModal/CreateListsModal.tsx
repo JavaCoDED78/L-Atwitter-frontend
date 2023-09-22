@@ -36,7 +36,12 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
     const classes = useCreateListsModalStyles();
     const dispatch = useDispatch();
     const [wallpaper, setWallpaper] = useState<ImageObj>();
-    const { control, watch, handleSubmit, formState: { errors } } = useForm<CreateListsModalFormProps>({
+    const {
+        control,
+        watch,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<CreateListsModalFormProps>({
         resolver: yupResolver(CreateListsModalFormSchema),
         mode: "onChange"
     });
@@ -49,11 +54,13 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
             wallpaperResponse = await uploadImage(wallpaper.file);
         }
 
-        dispatch(createList({
-            ...data,
-            altWallpaper: wallpapers[altWallpaper],
-            wallpaper: wallpaperResponse
-        }));
+        dispatch(
+            createList({
+                ...data,
+                altWallpaper: wallpapers[altWallpaper],
+                wallpaper: wallpaperResponse
+            })
+        );
         onClose();
     };
 
@@ -65,13 +72,7 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
         <Dialog open={visible} onClose={onClose}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <DialogTitleComponent title={"Create a new List"} onClose={onClose}>
-                    <Button
-                        disabled={!watch("name")}
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                    >
+                    <Button disabled={!watch("name")} type="submit" variant="contained" color="primary" size="small">
                         Next
                     </Button>
                 </DialogTitleComponent>
@@ -123,12 +124,7 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
                                     control={control}
                                     defaultValue={false}
                                     render={({ field: { onChange, value } }) => (
-                                        <Checkbox
-                                            checked={value}
-                                            onChange={onChange}
-                                            name="private"
-                                            color="primary"
-                                        />
+                                        <Checkbox checked={value} onChange={onChange} name="private" color="primary" />
                                     )}
                                 />
                             </div>

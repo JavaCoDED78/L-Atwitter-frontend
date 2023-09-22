@@ -27,15 +27,13 @@ const AddReplyToTweet = memo((): ReactElement => {
 
     return (
         <>
-            {((replyType !== ReplyType.FOLLOW) && (replyType !== ReplyType.MENTION) ||
-                (myProfileId === tweetUserId) || (tweetUserIsFollower && replyType === ReplyType.FOLLOW)
-            ) ? (
+            {(replyType !== ReplyType.FOLLOW && replyType !== ReplyType.MENTION) ||
+            myProfileId === tweetUserId ||
+            (tweetUserIsFollower && replyType === ReplyType.FOLLOW) ? (
                 <>
                     <Typography variant={"subtitle1"} className={classes.replyWrapper}>
                         {"Replying to "}
-                        <Link to={`${PROFILE}/${tweetUserId}`}>
-                            @{tweetUserUsername}
-                        </Link>
+                        <Link to={`${PROFILE}/${tweetUserId}`}>@{tweetUserUsername}</Link>
                     </Typography>
                     <AddTweetForm
                         tweetId={tweetId}

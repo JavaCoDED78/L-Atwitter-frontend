@@ -15,14 +15,7 @@ interface BlockUserButtonProps {
     isUserBlocked: boolean;
 }
 
-const BlockUserButton: FC<BlockUserButtonProps> = memo((
-    {
-        tweetId,
-        userId,
-        username,
-        isUserBlocked
-    }
-): ReactElement => {
+const BlockUserButton: FC<BlockUserButtonProps> = memo(({ tweetId, userId, username, isUserBlocked }): ReactElement => {
     const dispatch = useDispatch();
     const { visibleModalWindow, onOpenModalWindow, onCloseModalWindow } = useModalWindow();
 

@@ -35,7 +35,7 @@ export interface TweetComponentProps {
 
 const TweetComponent: FC<TweetComponentProps> = memo(({ tweet, activeTab, isTweetImageModal }): ReactElement => {
     const myProfileId = useSelector(selectUserDataId);
-    const isUserCanReply = (tweet?.replyType === ReplyType.MENTION) && (myProfileId !== tweet?.user.id);
+    const isUserCanReply = tweet?.replyType === ReplyType.MENTION && myProfileId !== tweet?.user.id;
     const classes = useTweetComponentStyles({ isTweetImageModal });
 
     return (
@@ -56,13 +56,10 @@ const TweetComponent: FC<TweetComponentProps> = memo(({ tweet, activeTab, isTwee
                     </div>
                     <div className={classes.tweetContent}>
                         {tweet?.addressedUsername && (
-                            <TweetReplyingUsername
-                                addressedId={tweet?.addressedId}
-                                addressedUsername={tweet.addressedUsername}
-                            />
+                            <TweetReplyingUsername addressedId={tweet?.addressedId} addressedUsername={tweet.addressedUsername} />
                         )}
                         <TweetText text={tweet?.text} tweetId={tweet?.id} />
-                        {(tweet?.images?.length !== 0) && (
+                        {tweet?.images?.length !== 0 && (
                             <TweetImage
                                 tweetId={tweet?.id}
                                 imageSrc={tweet?.images?.[0].src}
@@ -72,16 +69,8 @@ const TweetComponent: FC<TweetComponentProps> = memo(({ tweet, activeTab, isTwee
                         )}
                         {tweet?.gifImage && <GifImage tweetId={tweet?.id} gifImage={tweet?.gifImage} withLink />}
                         {tweet?.poll && <VoteComponent tweetId={tweet?.id} poll={tweet?.poll} />}
-                        {(tweet?.user.isFollower && tweet?.replyType === ReplyType.FOLLOW) && (
-                            <TweetReplyConversation />
-                        )}
-                        {tweet?.quoteTweet && (
-                            tweet?.quoteTweet.isDeleted ? (
-                                <TweetDeleted />
-                            ) : (
-                                <Quote quoteTweet={tweet?.quoteTweet} />
-                            ))
-                        }
+                        {tweet?.user.isFollower && tweet?.replyType === ReplyType.FOLLOW && <TweetReplyConversation />}
+                        {tweet?.quoteTweet && (tweet?.quoteTweet.isDeleted ? <TweetDeleted /> : <Quote quoteTweet={tweet?.quoteTweet} />)}
                         <TweetMedia
                             link={tweet?.link}
                             linkTitle={tweet?.linkTitle}
@@ -109,13 +98,9 @@ const TweetComponent: FC<TweetComponentProps> = memo(({ tweet, activeTab, isTwee
                             isTweetRetweeted={tweet?.isTweetRetweeted}
                             retweetsCount={tweet?.retweetsCount}
                         />
-                        <LikeIconButton
-                            tweetId={tweet?.id}
-                            isTweetLiked={tweet?.isTweetLiked}
-                            likedTweetsCount={tweet?.likedTweetsCount}
-                        />
+                        <LikeIconButton tweetId={tweet?.id} isTweetLiked={tweet?.isTweetLiked} likedTweetsCount={tweet?.likedTweetsCount} />
                         <ShareTweetIconButton tweetId={tweet!.id} />
-                        {(myProfileId === tweet?.user.id) && (
+                        {myProfileId === tweet?.user.id && (
                             <AnalyticsIconButton
                                 tweetUserFullName={tweet?.user.fullName}
                                 tweetUserName={tweet?.user.username}

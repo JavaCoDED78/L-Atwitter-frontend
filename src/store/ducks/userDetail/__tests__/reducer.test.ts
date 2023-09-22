@@ -54,7 +54,8 @@ describe("userDetailReducer:", () => {
                 {
                     type: UserDetailActionsType.SET_BLOCK_USER_DETAIL,
                     payload: true
-                }),
+                }
+            ),
             {
                 ...initialUserDetailState,
                 item: { id: 1, isUserBlocked: true } as UserDetailResponse,
@@ -72,7 +73,8 @@ describe("userDetailReducer:", () => {
                 {
                     type: UserDetailActionsType.SET_FOLLOW_REQUEST_TO_USER_DETAIL,
                     payload: true
-                }),
+                }
+            ),
             {
                 ...initialUserDetailState,
                 item: { id: 1, isWaitingForApprove: true } as UserDetailResponse,
@@ -89,7 +91,8 @@ describe("userDetailReducer:", () => {
                 },
                 {
                     type: UserDetailActionsType.RESET_USER_DETAIL_STATE
-                }),
+                }
+            ),
             {
                 ...initialUserDetailState,
                 item: undefined,
@@ -99,11 +102,10 @@ describe("userDetailReducer:", () => {
 
         testActionDispatch(
             UserDetailActionsType.SET_LOADING_STATE,
-            userDetailReducer(initialUserDetailState,
-                {
-                    type: UserDetailActionsType.SET_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            userDetailReducer(initialUserDetailState, {
+                type: UserDetailActionsType.SET_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUserDetailState,
                 loadingState: LoadingStatus.SUCCESS

@@ -135,11 +135,7 @@ const FullTweet = (): ReactElement | null => {
                         <AddReplyToTweet />
                     </Paper>
                     <div className={classes.divider} />
-                    {isRepliesLoading ? (
-                        <Spinner />
-                    ) : (
-                        replies.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)
-                    )}
+                    {isRepliesLoading ? <Spinner /> : replies.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
                 </div>
             </PageWrapper>
         );

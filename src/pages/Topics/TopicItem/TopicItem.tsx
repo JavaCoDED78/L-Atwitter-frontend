@@ -33,9 +33,7 @@ const TopicItem: FC<TopicItemProps> = ({ topic }): ReactElement => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.iconCircle}>
-                {TopicIconContained}
-            </div>
+            <div className={classes.iconCircle}>{TopicIconContained}</div>
             <div className={classes.topicInfo}>
                 <Typography variant={"h6"} component={"div"}>
                     {topic.topicName}

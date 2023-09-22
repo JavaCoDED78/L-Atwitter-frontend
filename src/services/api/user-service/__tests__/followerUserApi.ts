@@ -68,11 +68,27 @@ describe("FollowerUserApi", () => {
 
     describe("should fetch FollowerUserApi.processFollowRequestToPrivateProfile", () => {
         it("[200] should process follow request to private profile Success", () => {
-            testApiCall(mockAdapter, "onGet", `${API_USER_FOLLOW_PRIVATE}/1`, 200, mockMyProfile, FollowerUserApi.processFollowRequestToPrivateProfile, 1);
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_USER_FOLLOW_PRIVATE}/1`,
+                200,
+                mockMyProfile,
+                FollowerUserApi.processFollowRequestToPrivateProfile,
+                1
+            );
         });
 
         it("[404] should user not found", () => {
-            testApiCall(mockAdapter, "onGet", `${API_USER_FOLLOW_PRIVATE}/1`, 404, mockUserNotFound, FollowerUserApi.processFollowRequestToPrivateProfile, 1);
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_USER_FOLLOW_PRIVATE}/1`,
+                404,
+                mockUserNotFound,
+                FollowerUserApi.processFollowRequestToPrivateProfile,
+                1
+            );
         });
     });
 

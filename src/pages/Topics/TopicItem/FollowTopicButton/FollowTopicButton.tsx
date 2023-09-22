@@ -11,13 +11,7 @@ const FollowTopicButton: FC<FollowTopicButtonProps> = ({ onClickButton }): React
     const classes = useFollowTopicButtonStyles();
 
     return (
-        <Button
-            className={classes.outlinedButton}
-            onClick={onClickButton}
-            color="primary"
-            variant="outlined"
-            size="small"
-        >
+        <Button className={classes.outlinedButton} onClick={onClickButton} color="primary" variant="outlined" size="small">
             Follow
         </Button>
     );

@@ -38,7 +38,7 @@ export const useReplyModalStyles = makeStyles((theme) => ({
     header: {
         display: "flex",
         justifyContent: "space-between",
-        "span": {
+        span: {
             color: theme.palette.info.light
         }
     },

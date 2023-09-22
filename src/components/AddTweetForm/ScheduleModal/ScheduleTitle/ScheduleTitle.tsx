@@ -13,47 +13,42 @@ interface ScheduleModalTitleProps {
     onSubmitClearScheduleDate: () => void;
 }
 
-const ScheduleTitle: FC<ScheduleModalTitleProps> = memo((
-    {
-        onClose,
-        isValidSelectedDate,
-        onSubmitScheduleDate,
-        onSubmitClearScheduleDate
-    }
-): ReactElement => {
-    const classes = useScheduleModalStyles();
-    const scheduledDate = useSelector(selectScheduledDate);
+const ScheduleTitle: FC<ScheduleModalTitleProps> = memo(
+    ({ onClose, isValidSelectedDate, onSubmitScheduleDate, onSubmitClearScheduleDate }): ReactElement => {
+        const classes = useScheduleModalStyles();
+        const scheduledDate = useSelector(selectScheduledDate);
 
-    return (
-        <DialogTitle>
-            <CloseButton onClose={onClose} />
-            Schedule
-            <div className={classes.buttonWrapper}>
-                {scheduledDate && (
+        return (
+            <DialogTitle>
+                <CloseButton onClose={onClose} />
+                Schedule
+                <div className={classes.buttonWrapper}>
+                    {scheduledDate && (
+                        <Button
+                            onClick={onSubmitClearScheduleDate}
+                            type="submit"
+                            variant="text"
+                            color="primary"
+                            size="small"
+                            disabled={isValidSelectedDate}
+                        >
+                            Clear
+                        </Button>
+                    )}
                     <Button
-                        onClick={onSubmitClearScheduleDate}
+                        onClick={onSubmitScheduleDate}
                         type="submit"
-                        variant="text"
+                        variant="contained"
                         color="primary"
                         size="small"
                         disabled={isValidSelectedDate}
                     >
-                        Clear
+                        {scheduledDate ? "Update" : "Confirm"}
                     </Button>
-                )}
-                <Button
-                    onClick={onSubmitScheduleDate}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    disabled={isValidSelectedDate}
-                >
-                    {scheduledDate ? "Update" : "Confirm"}
-                </Button>
-            </div>
-        </DialogTitle>
-    );
-});
+                </div>
+            </DialogTitle>
+        );
+    }
+);
 
 export default ScheduleTitle;

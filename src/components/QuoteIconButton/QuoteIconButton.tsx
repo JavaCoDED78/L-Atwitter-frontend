@@ -24,16 +24,7 @@ export interface QuoteTweetProps {
     retweetsCount?: number;
 }
 
-const QuoteIconButton: FC<QuoteTweetProps> = memo((
-    {
-        tweetId,
-        dateTime,
-        text,
-        user,
-        isTweetRetweeted,
-        retweetsCount
-    }
-): ReactElement => {
+const QuoteIconButton: FC<QuoteTweetProps> = memo(({ tweetId, dateTime, text, user, isTweetRetweeted, retweetsCount }): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useQuoteIconButtonStyles({ isTweetRetweetedByMe: isTweetRetweeted });
     const dispatch = useDispatch();
@@ -62,7 +53,7 @@ const QuoteIconButton: FC<QuoteTweetProps> = memo((
                     icon={isTweetRetweeted ? RetweetIcon : RetweetOutlinedIcon}
                     onClick={onClickOpen}
                 />
-                {(retweetsCount !== 0) && (
+                {retweetsCount !== 0 && (
                     <span id={"retweets"} className={classes.retweetsCount}>
                         {retweetsCount}
                     </span>
@@ -73,7 +64,7 @@ const QuoteIconButton: FC<QuoteTweetProps> = memo((
                             <ListItem id={"clickRetweet"} onClick={onClickRetweet}>
                                 <>{RetweetOutlinedIcon}</>
                                 <Typography variant={"body1"} component={"span"}>
-                                    {isTweetRetweeted ? ("Undo Retweet") : ("Retweet")}
+                                    {isTweetRetweeted ? "Undo Retweet" : "Retweet"}
                                 </Typography>
                             </ListItem>
                             <ListItem id={"clickOpenAddTweet"} onClick={handleClickOpenAddTweet}>

@@ -10,7 +10,6 @@ import {
 } from "../../../../../constants/path-constants";
 
 describe("AppsAndSessions", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<AppsAndSessions />, createMockRootState());
         expect(wrapper.text().includes("See information about when you logged into your account")).toBe(true);

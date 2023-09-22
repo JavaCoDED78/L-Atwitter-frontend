@@ -3,11 +3,11 @@ import EmojiConvertor from "emoji-js";
 import { EmojiData } from "emoji-mart";
 
 interface UseInputText {
-    text: string,
-    setText: (value: (((prevState: string) => string) | string)) => void
-    handleChangeText: (event: ChangeEvent<HTMLTextAreaElement>) => void,
-    addEmoji: (emoji: EmojiData) => void,
-    textConverter: () => string,
+    text: string;
+    setText: (value: ((prevState: string) => string) | string) => void;
+    handleChangeText: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+    addEmoji: (emoji: EmojiData) => void;
+    textConverter: () => string;
 }
 
 export const useInputText = (): UseInputText => {
@@ -17,12 +17,15 @@ export const useInputText = (): UseInputText => {
         setText(event.target.value);
     };
 
-    const addEmoji = useCallback((emoji: EmojiData): void => {
-        const emojiConvertor = new EmojiConvertor();
-        emojiConvertor.replace_mode = "unified";
-        const convertedEmoji = emojiConvertor.replace_colons(emoji.colons!);
-        setText(text + " " + convertedEmoji);
-    }, [text]);
+    const addEmoji = useCallback(
+        (emoji: EmojiData): void => {
+            const emojiConvertor = new EmojiConvertor();
+            emojiConvertor.replace_mode = "unified";
+            const convertedEmoji = emojiConvertor.replace_colons(emoji.colons!);
+            setText(text + " " + convertedEmoji);
+        },
+        [text]
+    );
 
     const textConverter = (): string => {
         const emojiConvertor = new EmojiConvertor();

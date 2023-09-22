@@ -22,7 +22,7 @@ describe("CreateAccountModal", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render empty CreateAccountModal", () => {
         const wrapper = mountWithStore(<CreateAccountModal />, mockStore);

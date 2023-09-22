@@ -6,8 +6,7 @@ import MembersAndFollowersModal from "../MembersAndFollowersModal";
 import { mockFullList, mockListsOwnerMember } from "../../../../../util/test-utils/mock-test-data";
 import Spinner from "../../../../../components/Spinner/Spinner";
 import { ListMembersActionsType } from "../../../../../store/ducks/listMembers/contracts/actionTypes";
-import ManageMembersItem
-    from "../../../EditListButton/EditListModal/ManageMembersModal/ManageMembersItem/ManageMembersItem";
+import ManageMembersItem from "../../../EditListButton/EditListModal/ManageMembersModal/ManageMembersItem/ManageMembersItem";
 import { LoadingStatus } from "../../../../../types/common";
 
 describe("MembersAndFollowersModal", () => {
@@ -26,7 +25,9 @@ describe("MembersAndFollowersModal", () => {
                 visible={false}
                 title={"List members"}
                 onClose={jest.fn()}
-            />, mockStore);
+            />,
+            mockStore
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });
@@ -39,7 +40,9 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List members"}
                 onClose={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADING));
+            />,
+            createMockRootState(LoadingStatus.LOADING)
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.text().includes("List members")).toBe(true);
@@ -58,7 +61,9 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List followers"}
                 onClose={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADING));
+            />,
+            createMockRootState(LoadingStatus.LOADING)
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.text().includes("List followers")).toBe(true);
@@ -77,14 +82,16 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List followers"}
                 onClose={jest.fn()}
-            />, {
+            />,
+            {
                 ...mockStore,
                 listMembers: {
                     ...mockStore.listMembers,
                     members: mockListsOwnerMember,
                     membersLoadingState: LoadingStatus.LOADED
                 }
-            });
+            }
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.find(ManageMembersItem).length).toEqual(3);
@@ -98,14 +105,16 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List members"}
                 onClose={jest.fn()}
-            />, {
+            />,
+            {
                 ...mockStore,
                 listMembers: {
                     ...mockStore.listMembers,
                     members: [],
                     membersLoadingState: LoadingStatus.LOADED
                 }
-            });
+            }
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.text().includes("There isn’t anyone in this List")).toBe(true);
@@ -120,14 +129,16 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List followers"}
                 onClose={jest.fn()}
-            />, {
+            />,
+            {
                 ...mockStore,
                 listMembers: {
                     ...mockStore.listMembers,
                     members: [],
                     membersLoadingState: LoadingStatus.LOADED
                 }
-            });
+            }
+        );
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
         expect(wrapper.text().includes("There aren’t any followers of this List")).toBe(true);
@@ -142,7 +153,9 @@ describe("MembersAndFollowersModal", () => {
                 visible={true}
                 title={"List followers"}
                 onClose={jest.fn()}
-            />, mockStore);
+            />,
+            mockStore
+        );
         wrapper.find(Dialog).simulate("click");
 
         expect(wrapper.find(Dialog).exists()).toBeTruthy();
@@ -156,7 +169,9 @@ describe("MembersAndFollowersModal", () => {
                 visible={false}
                 title={"List members"}
                 onClose={jest.fn()}
-            />, mockStore);
+            />,
+            mockStore
+        );
         wrapper.unmount();
         expect(mockDispatchFn).nthCalledWith(1, { type: ListMembersActionsType.RESET_LIST_MEMBERS_STATE });
     });

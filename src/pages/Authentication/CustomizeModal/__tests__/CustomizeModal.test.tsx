@@ -15,7 +15,7 @@ describe("CustomizeModal", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render correctly CustomizeModal and click", () => {
         const wrapper = mountWithStore(<CustomizeModal />, mockRootStore);

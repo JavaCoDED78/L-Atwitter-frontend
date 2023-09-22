@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { UNDERSTANDING_THE_NOTIFICATIONS_TIMELINE } from "../../../../../../constants/url-constants";
 
 describe("MutedNotifications", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<MutedNotifications />, createMockRootState());
         expect(wrapper.text().includes("You don’t follow")).toBe(true);

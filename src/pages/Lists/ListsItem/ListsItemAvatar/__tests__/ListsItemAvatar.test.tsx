@@ -11,11 +11,7 @@ describe("ListsItemAvatar", () => {
     const mockList = mockLists[0];
 
     it("should render ListsItemAvatar", () => {
-        const wrapper = mountWithStore(
-            <ListsItemAvatar
-                listWallpaper={mockList.wallpaper}
-                listAltWallpaper={mockList.altWallpaper}
-            />, mockStore);
+        const wrapper = mountWithStore(<ListsItemAvatar listWallpaper={mockList.wallpaper} listAltWallpaper={mockList.altWallpaper} />, mockStore);
         expect(wrapper.find(Avatar).prop("src")).toBe(mockList.altWallpaper);
     });
 });

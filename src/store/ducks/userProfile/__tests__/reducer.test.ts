@@ -154,11 +154,10 @@ describe("userProfileReducer:", () => {
 
         testActionDispatch(
             UserProfileActionsType.SET_USER_LOADING_STATE,
-            userProfileReducer(initialUserProfileState,
-                {
-                    type: UserProfileActionsType.SET_USER_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            userProfileReducer(initialUserProfileState, {
+                type: UserProfileActionsType.SET_USER_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUserProfileState,
                 loadingState: LoadingStatus.SUCCESS
@@ -185,11 +184,10 @@ describe("userProfileReducer:", () => {
 
         testActionDispatch(
             UserProfileActionsType.SET_IMAGES_LOADING_STATE,
-            userProfileReducer(initialUserProfileState,
-                {
-                    type: UserProfileActionsType.SET_IMAGES_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            userProfileReducer(initialUserProfileState, {
+                type: UserProfileActionsType.SET_IMAGES_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUserProfileState,
                 imagesLoadingState: LoadingStatus.SUCCESS

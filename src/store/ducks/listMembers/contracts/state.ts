@@ -8,7 +8,6 @@ export interface ListMembersState {
     suggestedLoadingState: LoadingStatus;
 }
 
-
 export interface ListUsersRequest {
     listId: number;
     listOwnerId: number;

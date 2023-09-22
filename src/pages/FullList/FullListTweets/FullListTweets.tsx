@@ -5,12 +5,7 @@ import { useParams } from "react-router-dom";
 import EmptyPageDescription from "../../../components/EmptyPageDescription/EmptyPageDescription";
 import TweetComponent from "../../../components/TweetComponent/TweetComponent";
 import Spinner from "../../../components/Spinner/Spinner";
-import {
-    selectIsTweetsLoaded,
-    selectIsTweetsLoading,
-    selectPagesCount,
-    selectTweetsItems
-} from "../../../store/ducks/tweets/selectors";
+import { selectIsTweetsLoaded, selectIsTweetsLoading, selectPagesCount, selectTweetsItems } from "../../../store/ducks/tweets/selectors";
 import InfiniteScrollWrapper from "../../../components/InfiniteScrollWrapper/InfiniteScrollWrapper";
 import { fetchTweetsByListId, resetTweets } from "../../../store/ducks/tweets/actionCreators";
 
@@ -36,14 +31,16 @@ const FullListTweets = memo((): ReactElement => {
 
     return (
         <InfiniteScrollWrapper dataLength={tweets.length} pagesCount={pagesCount} loadItems={loadTweets}>
-            {(tweets.length === 0 && isTweetsLoaded) ? (
+            {tweets.length === 0 && isTweetsLoaded ? (
                 <EmptyPageDescription
                     title={"There aren’t any Tweets in this List"}
                     subtitle={"When anyone in this List Tweets, they’ll show up here."}
                 />
             ) : (
                 <>
-                    {tweets.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} />)}
+                    {tweets.map((tweet) => (
+                        <TweetComponent key={tweet.id} tweet={tweet} />
+                    ))}
                     {isTweetsLoading && <Spinner paddingTop={150} />}
                 </>
             )}

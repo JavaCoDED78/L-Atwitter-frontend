@@ -5,7 +5,6 @@ import { createMockRootState, mountWithStore } from "../../../../../util/test-ut
 import { mockUser } from "../../../../../util/test-utils/mock-test-data";
 
 describe("Languages", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Languages />, createMockRootState());
 

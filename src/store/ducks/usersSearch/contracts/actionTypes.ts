@@ -1,12 +1,5 @@
 import { Action } from "redux";
-import {
-    BlockedUsersPayload,
-    FollowersRequest,
-    FollowRequestUsersPayload,
-    FollowUsersPayload,
-    SearchByNameRequest,
-    UsersSearchState
-} from "./state";
+import { BlockedUsersPayload, FollowersRequest, FollowRequestUsersPayload, FollowUsersPayload, SearchByNameRequest, UsersSearchState } from "./state";
 import { LoadingStatus, PageableResponse } from "../../../../types/common";
 
 export enum UsersSearchActionsType {
@@ -22,7 +15,7 @@ export enum UsersSearchActionsType {
     FETCH_FOLLOWERS = "usersSearch/FETCH_FOLLOWERS",
     FETCH_FOLLOWINGS = "usersSearch/FETCH_FOLLOWINGS",
     RESET_USERS_STATE = "usersSearch/RESET_USERS_STATE",
-    SET_USERS_LOADING_STATE = "usersSearch/SET_USER_LOADING_STATE",
+    SET_USERS_LOADING_STATE = "usersSearch/SET_USER_LOADING_STATE"
 }
 
 export interface SetUsersSearchActionInterface extends Action<UsersSearchActionsType> {

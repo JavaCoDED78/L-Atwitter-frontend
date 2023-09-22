@@ -19,8 +19,7 @@ import TweetDeckTeams from "./Account/TweetDeckTeams/TweetDeckTeams";
 import SecurityAndAccountAccess from "./SecurityAndAccountAccess/SecurityAndAccountAccess";
 import DeactivateAccount from "./Account/DeactivateAccount/DeactivateAccount";
 import Security from "./SecurityAndAccountAccess/Security/Security";
-import TwoFactorAuthentication
-    from "./SecurityAndAccountAccess/Security/TwoFactorAuthentication/TwoFactorAuthentication";
+import TwoFactorAuthentication from "./SecurityAndAccountAccess/Security/TwoFactorAuthentication/TwoFactorAuthentication";
 import AppsAndSessions from "./SecurityAndAccountAccess/AppsAndSessions/AppsAndSessions";
 import ConnectedApps from "./SecurityAndAccountAccess/AppsAndSessions/ConnectedApps/ConnectedApps";
 import Sessions from "./SecurityAndAccountAccess/AppsAndSessions/Sessions/Sessions";
@@ -227,8 +226,7 @@ const Settings: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                     <SettingsHeader path={SETTINGS_PASSWORD} title={"Change your password"} />
                     <SettingsHeader path={SETTINGS_TEAMS} title={"TweetDeck Teams"} />
                     <SettingsHeader path={SETTINGS_DEACTIVATE} title={"Deactivate account"} />
-                    <SettingsHeader path={SETTINGS_SECURITY_AND_ACCOUNT_ACCESS} title={"Security and account access"}
-                                    excludeBackButton />
+                    <SettingsHeader path={SETTINGS_SECURITY_AND_ACCOUNT_ACCESS} title={"Security and account access"} excludeBackButton />
                     <SettingsHeader path={SETTINGS_SECURITY} title={"Security"} />
                     <SettingsHeader path={SETTINGS_SECURITY_LOGIN_VERIFICATION} title={"Two-factor authentication"} />
                     <SettingsHeader path={SETTINGS_SECURITY_APPS_AND_SESSIONS} title={"Apps and sessions"} />
@@ -241,8 +239,7 @@ const Settings: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_AUDIENCE} title={"Audience and tagging"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_TAGGING} title={"Photo tagging"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_YOUR_TWEETS} title={"Your Tweets"} />
-                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_LOCATION}
-                                    title={"Add location information to your Tweets"} />
+                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_LOCATION} title={"Add location information to your Tweets"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_CONTENT_YOU_SEE} title={"Content you see"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_MUTE_AND_BLOCK} title={"Mute and block"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_BLOCKED} title={"Blocked accounts"} />
@@ -251,37 +248,35 @@ const Settings: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_ADVANCED_FILTERS} title={"Muted notifications"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_DIRECT_MESSAGES} title={"Direct Messages"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_SPACES} title={"Spaces"} />
-                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_CONTACTS}
-                                    title={"Discoverability and contacts"} />
+                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_CONTACTS} title={"Discoverability and contacts"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_CONTACTS_DASHBOARD} title={"Manage contacts"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_ADS_PREFERENCES} title={"Ads preferences"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_AUDIENCES} title={"Your advertiser list"} />
-                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY}
-                                    title={"Off-Twitter activity"} />
-                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_DATA_SHARING_WITH_BUSINESS_PARTNERS}
-                                    title={"Data sharing with business partners"} />
-                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_LOCATION_INFORMATION}
-                                    title={"Location information"} />
+                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY} title={"Off-Twitter activity"} />
+                    <SettingsHeader
+                        path={SETTINGS_PRIVACY_AND_SAFETY_DATA_SHARING_WITH_BUSINESS_PARTNERS}
+                        title={"Data sharing with business partners"}
+                    />
+                    <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_LOCATION_INFORMATION} title={"Location information"} />
                     <SettingsHeader path={SETTINGS_PRIVACY_AND_SAFETY_LOCATIONS} title={"See places you’ve been"} />
                     <SettingsHeader path={SETTINGS_NOTIFICATION} title={"Notifications"} excludeBackButton />
                     <SettingsHeader path={SETTINGS_NOTIFICATION_FILTERS} title={"Filters"} />
                     <SettingsHeader path={SETTINGS_NOTIFICATION_PREFERENCES} title={"Preferences"} />
                     <SettingsHeader path={SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS} title={"Push notifications"} />
                     <SettingsHeader path={SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS} title={"Email notifications"} />
-                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES}
-                                    title={"Accessibility, display and languages"} excludeBackButton />
-                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY}
-                                    title={"Accessibility"} />
+                    <SettingsHeader
+                        path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES}
+                        title={"Accessibility, display and languages"}
+                        excludeBackButton
+                    />
+                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY} title={"Accessibility"} />
                     <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_DISPLAY} title={"Display"} />
-                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_LANGUAGES}
-                                    title={"Languages"} />
+                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_LANGUAGES} title={"Languages"} />
                     <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_DATA} title={"Data usage"} />
-                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_AUTOPLAY}
-                                    title={"Autoplay"} />
+                    <SettingsHeader path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_AUTOPLAY} title={"Autoplay"} />
                     <SettingsHeader path={SETTINGS_PERSONALIZATION} title={"Personalization and data"} />
                     <SettingsHeader path={SETTINGS_ABOUT} title={"Additional resources"} excludeBackButton />
-                    <SettingsHeader path={SETTINGS_CONTENT_PREFERENCES} title={"Content preferences"}
-                                    excludeBackButton />
+                    <SettingsHeader path={SETTINGS_CONTENT_PREFERENCES} title={"Content preferences"} excludeBackButton />
                 </Paper>
                 <Paper className={classnames(globalClasses.pageContainer, classes.pageContainer)} variant="outlined">
                     <div className={globalClasses.contentWrapper}>
@@ -316,18 +311,15 @@ const Settings: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_BLOCKED} component={BlockedAccounts} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_MUTED} component={MutedAccounts} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_MUTED_KEYWORDS} component={MutedWords} />
-                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_ADVANCED_FILTERS}
-                               component={MutedNotifications} />
+                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_ADVANCED_FILTERS} component={MutedNotifications} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_DIRECT_MESSAGES} component={DirectMessages} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_SPACES} component={Spaces} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_CONTACTS} component={Discoverability} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_CONTACTS_DASHBOARD} component={ManageContacts} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_ADS_PREFERENCES} component={AdsPreferences} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_AUDIENCES} component={YourAdvertiserList} />
-                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY}
-                               component={OffTwitterActivity} />
-                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_DATA_SHARING_WITH_BUSINESS_PARTNERS}
-                               component={DataSharing} />
+                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_OFF_TWITTER_ACTIVITY} component={OffTwitterActivity} />
+                        <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_DATA_SHARING_WITH_BUSINESS_PARTNERS} component={DataSharing} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_LOCATION_INFORMATION} component={Location} />
                         <Route exact path={SETTINGS_PRIVACY_AND_SAFETY_LOCATIONS} component={Places} />
                         <Route exact path={SETTINGS_NOTIFICATION} component={Notifications} />
@@ -335,20 +327,16 @@ const Settings: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme }
                         <Route exact path={SETTINGS_NOTIFICATION_PREFERENCES} component={Preferences} />
                         <Route exact path={SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS} component={PushNotifications} />
                         <Route exact path={SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS} component={EmailNotifications} />
-                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES}
-                               component={AccessibilityDisplayLanguages} />
-                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY}
-                               component={Accessibility} />
-                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_DISPLAY}
-                               render={() => <Display
-                                   changeBackgroundColor={changeBackgroundColor}
-                                   changeColorScheme={changeColorScheme} />
-                               } />
-                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_LANGUAGES}
-                               component={Languages} />
+                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES} component={AccessibilityDisplayLanguages} />
+                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY} component={Accessibility} />
+                        <Route
+                            exact
+                            path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_DISPLAY}
+                            render={() => <Display changeBackgroundColor={changeBackgroundColor} changeColorScheme={changeColorScheme} />}
+                        />
+                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_LANGUAGES} component={Languages} />
                         <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_DATA} component={DataUsage} />
-                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_AUTOPLAY}
-                               component={Autoplay} />
+                        <Route exact path={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_AUTOPLAY} component={Autoplay} />
                         <Route exact path={SETTINGS_ABOUT} component={AdditionalResources} />
                         <Route exact path={SETTINGS_CONTENT_PREFERENCES} component={ContentPreferences} />
                         <Route exact path={SETTINGS_PERSONALIZATION} component={PersonalizationAndData} />

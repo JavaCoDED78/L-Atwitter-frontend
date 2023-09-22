@@ -43,11 +43,7 @@ const UserImageModal: FC = (): ReactElement | null => {
     return (
         <div className={classes.container} onClick={onCloseUserAvatarModalWindow}>
             <div className={classes.imageModalClose}>
-                <img
-                    className={classes.imageModal}
-                    alt={location.state.imageSrc}
-                    src={location.state.imageSrc}
-                />
+                <img className={classes.imageModal} alt={location.state.imageSrc} src={location.state.imageSrc} />
                 <IconButton onClick={onCloseModalWindow} size="small">
                     {CloseIcon}
                 </IconButton>

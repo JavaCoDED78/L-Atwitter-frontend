@@ -1,5 +1,5 @@
-import {createMockRootState} from "../../../../util/test-utils/test-helper";
-import {mockUserTweetAdditionalInfo} from "../../../../util/test-utils/mock-test-data";
+import { createMockRootState } from "../../../../util/test-utils/test-helper";
+import { mockUserTweetAdditionalInfo } from "../../../../util/test-utils/mock-test-data";
 import {
     selectIsTweetAdditionalInfoLoading,
     selectIsTweetBookmarkedAdditionalInfo,
@@ -22,7 +22,7 @@ describe("tweetAdditionalInfo selectors:", () => {
         ...mockState,
         tweetAdditionalInfo: {
             ...mockState.tweetAdditionalInfo,
-            tweetAdditionalInfo: mockUserTweetAdditionalInfo,
+            tweetAdditionalInfo: mockUserTweetAdditionalInfo
         }
     };
 

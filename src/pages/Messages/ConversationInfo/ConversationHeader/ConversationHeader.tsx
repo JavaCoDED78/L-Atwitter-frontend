@@ -13,9 +13,7 @@ const ConversationHeader = memo((): ReactElement => {
     return (
         <Paper className={classnames(globalClasses.pageHeader, classes.header)} variant="outlined">
             <BackButton />
-            <Typography variant="h5">
-                Conversation info
-            </Typography>
+            <Typography variant="h5">Conversation info</Typography>
         </Paper>
     );
 });

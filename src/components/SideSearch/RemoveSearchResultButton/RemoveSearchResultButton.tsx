@@ -9,8 +9,8 @@ import { SearchTermsRequest } from "../../../store/ducks/search/contracts/state"
 import { SEARCH_TERMS } from "../../../constants/common-constants";
 
 interface RemoveSearchResultButtonProps {
-    stateItem: "text" | "tags" | "users",
-    item: string | number
+    stateItem: "text" | "tags" | "users";
+    item: string | number;
 }
 
 const RemoveSearchResultButton: FC<RemoveSearchResultButtonProps> = ({ stateItem, item }): ReactElement => {

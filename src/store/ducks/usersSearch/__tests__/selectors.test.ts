@@ -4,7 +4,6 @@ import { mockUsers } from "../../../../util/test-utils/mock-test-data";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("usersSearch selectors:", () => {
-
     describe("selectUsersSearch", () => {
         it("should return UserResponse array", () => {
             expect(selectUsersSearch(createMockRootState())).toBe(mockUsers);

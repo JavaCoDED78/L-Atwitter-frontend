@@ -9,11 +9,7 @@ import { useManageMembersModalStyles } from "./ManageMembersModalStyles";
 import ManageMembersItem from "./ManageMembersItem/ManageMembersItem";
 import { ArrowIcon, ForwardArrowIcon, SearchIcon } from "../../../../../icons";
 import { selectListItem } from "../../../../../store/ducks/list/selectors";
-import {
-    selectIsListMembersLoading,
-    selectListMembersItems,
-    selectListSuggestedItems
-} from "../../../../../store/ducks/listMembers/selectors";
+import { selectIsListMembersLoading, selectListMembersItems, selectListSuggestedItems } from "../../../../../store/ducks/listMembers/selectors";
 import {
     fetchListMembers,
     fetchListMembersByUsername,
@@ -81,12 +77,7 @@ const ManageMembersModal = (): ReactElement => {
                 Manage members
                 <>{ForwardArrowIcon}</>
             </Typography>
-            <Dialog
-                className={classes.dialog}
-                open={visibleModalWindow}
-                onClose={onCloseModalWindow}
-                hideBackdrop
-            >
+            <Dialog className={classes.dialog} open={visibleModalWindow} onClose={onCloseModalWindow} hideBackdrop>
                 <DialogTitle>
                     <IconButton onClick={onCloseModalWindow} color="primary" size="small">
                         <>{ArrowIcon}</>
@@ -100,25 +91,18 @@ const ManageMembersModal = (): ReactElement => {
                             <Tab className={classes.tab} label="Suggested" />
                         </Tabs>
                     </div>
-                    {(activeTab === 0) ? (
+                    {activeTab === 0 ? (
                         isMembersLoading ? (
                             <Spinner />
+                        ) : members.length !== 0 ? (
+                            members.map((member) => (
+                                <ManageMembersItem key={member.id} listId={list?.id} listOwnerId={list?.listOwner.id} user={member} />
+                            ))
                         ) : (
-                            (members.length !== 0) ? (
-                                members.map((member) => (
-                                    <ManageMembersItem
-                                        key={member.id}
-                                        listId={list?.id}
-                                        listOwnerId={list?.listOwner.id}
-                                        user={member}
-                                    />
-                                ))
-                            ) : (
-                                <EmptyPageDescription
-                                    title={"There isn’t anyone in this List"}
-                                    subtitle={"When people get added, they’ll show up here."}
-                                />
-                            )
+                            <EmptyPageDescription
+                                title={"There isn’t anyone in this List"}
+                                subtitle={"When people get added, they’ll show up here."}
+                            />
                         )
                     ) : (
                         <div className={classes.container}>
@@ -129,14 +113,10 @@ const ManageMembersModal = (): ReactElement => {
                                 onChange={(event) => onSearch(event.target.value)}
                                 value={searchText}
                                 InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            {SearchIcon}
-                                        </InputAdornment>
-                                    )
+                                    startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>
                                 }}
                             />
-                            {(suggested.length !== 0) ? (
+                            {suggested.length !== 0 ? (
                                 suggested.map((suggest) => (
                                     <ManageMembersItem
                                         key={suggest.id}

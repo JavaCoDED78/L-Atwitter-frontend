@@ -4,8 +4,7 @@ import { Avatar, Button, IconButton } from "@material-ui/core";
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../../util/test-utils/test-helper";
 import PopperListWindow from "../PopperListWindow";
 import { mockUserFullList } from "../../../../util/test-utils/mock-test-data";
-import MembersAndFollowersModal
-    from "../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
+import MembersAndFollowersModal from "../../../FullList/FullListTweets/MembersAndFollowersModal/MembersAndFollowersModal";
 import CloseButton from "../../../../components/CloseButton/CloseButton";
 import { ListsActionType } from "../../../../store/ducks/lists/contracts/actionTypes";
 import { DEFAULT_PROFILE_IMG } from "../../../../constants/url-constants";
@@ -16,7 +15,7 @@ describe("PopperListWindow", () => {
     const mockListDetail = { ...mockStore, listDetail: { ...mockStore.listDetail, item: mockUserFullList } };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(<PopperListWindow visible={true} />, mockListDetail);

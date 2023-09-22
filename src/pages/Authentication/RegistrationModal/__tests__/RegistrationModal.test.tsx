@@ -17,7 +17,7 @@ describe("RegistrationModal", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render empty RegistrationModal", () => {
         const wrapper = mountWithStore(<RegistrationModal />, mockStore);
@@ -65,15 +65,30 @@ describe("RegistrationModal", () => {
     });
 
     const fillInputFields = (wrapper: any, username: string = "", email: string = ""): void => {
-        wrapper.find(RegistrationInput).at(0).find("input").simulate("change",
-            { target: { value: username } });
-        wrapper.find(RegistrationInput).at(1).find("input").simulate("change",
-            { target: { value: email } });
-        wrapper.find(FilledSelect).at(0).find("select").simulate("change",
-            { target: { value: "Feb" } });
-        wrapper.find(FilledSelect).at(1).find("select").simulate("change",
-            { target: { value: 31 } });
-        wrapper.find(FilledSelect).at(2).find("select").simulate("change",
-            { target: { value: 1901 } });
+        wrapper
+            .find(RegistrationInput)
+            .at(0)
+            .find("input")
+            .simulate("change", { target: { value: username } });
+        wrapper
+            .find(RegistrationInput)
+            .at(1)
+            .find("input")
+            .simulate("change", { target: { value: email } });
+        wrapper
+            .find(FilledSelect)
+            .at(0)
+            .find("select")
+            .simulate("change", { target: { value: "Feb" } });
+        wrapper
+            .find(FilledSelect)
+            .at(1)
+            .find("select")
+            .simulate("change", { target: { value: 31 } });
+        wrapper
+            .find(FilledSelect)
+            .at(2)
+            .find("select")
+            .simulate("change", { target: { value: 1901 } });
     };
 });

@@ -13,27 +13,21 @@ interface UnsentTweetItemProps {
     visibleEditListFooter: boolean;
 }
 
-const UnsentTweetItem: FC<UnsentTweetItemProps> = memo((
-    {
-        tweet,
-        onOpenEditTweetModal,
-        onToggleCheckTweet,
-        isTweetSelected,
-        visibleEditListFooter
-    }
-): ReactElement => {
-    const classes = useUnsentTweetItemStyles();
+const UnsentTweetItem: FC<UnsentTweetItemProps> = memo(
+    ({ tweet, onOpenEditTweetModal, onToggleCheckTweet, isTweetSelected, visibleEditListFooter }): ReactElement => {
+        const classes = useUnsentTweetItemStyles();
 
-    return (
-        <div className={classes.tweetContainer} onClick={() => onOpenEditTweetModal(tweet)}>
-            {visibleEditListFooter && (
-                <div>
-                    <Checkbox value={tweet.id} onClick={() => onToggleCheckTweet(tweet.id)} checked={isTweetSelected} />
-                </div>
-            )}
-            <UnsentTweetItemInfo scheduledDate={tweet.scheduledDate} text={tweet.text} images={tweet.images} />
-        </div>
-    );
-});
+        return (
+            <div className={classes.tweetContainer} onClick={() => onOpenEditTweetModal(tweet)}>
+                {visibleEditListFooter && (
+                    <div>
+                        <Checkbox value={tweet.id} onClick={() => onToggleCheckTweet(tweet.id)} checked={isTweetSelected} />
+                    </div>
+                )}
+                <UnsentTweetItemInfo scheduledDate={tweet.scheduledDate} text={tweet.text} images={tweet.images} />
+            </div>
+        );
+    }
+);
 
 export default UnsentTweetItem;

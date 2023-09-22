@@ -7,12 +7,7 @@ import { createMemoryHistory } from "history";
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../util/test-utils/test-helper";
 import FollowingFollowers from "../FollowingFollowers";
 import Spinner from "../../../components/Spinner/Spinner";
-import {
-    createMockMyProfile,
-    createMockUserProfile,
-    mockMyProfile,
-    mockUserProfile
-} from "../../../util/test-utils/mock-test-data";
+import { createMockMyProfile, createMockUserProfile, mockMyProfile, mockUserProfile } from "../../../util/test-utils/mock-test-data";
 import UsersItem from "../../../components/UsersItem/UsersItem";
 import { UserProfileActionsType } from "../../../store/ducks/userProfile/contracts/actionTypes";
 import { UsersSearchActionsType } from "../../../store/ducks/usersSearch/contracts/actionTypes";

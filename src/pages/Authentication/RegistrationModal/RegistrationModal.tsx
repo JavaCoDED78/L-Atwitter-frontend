@@ -29,7 +29,12 @@ const RegistrationModal: FC = (): ReactElement => {
     const classes = useRegistrationModalStyles();
     const dispatch = useDispatch();
     const registrationStep1 = useSelector(selectRegistrationStep1);
-    const { control, handleSubmit, setError, formState: { errors } } = useForm<RegistrationFormProps>({
+    const {
+        control,
+        handleSubmit,
+        setError,
+        formState: { errors }
+    } = useForm<RegistrationFormProps>({
         resolver: yupResolver(RegistrationFormSchema)
     });
 
@@ -47,7 +52,11 @@ const RegistrationModal: FC = (): ReactElement => {
         let days = [];
 
         for (let i = 1; i <= 31; i++) {
-            days.push(<option key={i} value={i}>{i}</option>);
+            days.push(
+                <option key={i} value={i}>
+                    {i}
+                </option>
+            );
         }
         return days;
     };
@@ -56,7 +65,11 @@ const RegistrationModal: FC = (): ReactElement => {
         let years = [];
 
         for (let i = 2021; i >= 1901; i--) {
-            years.push(<option key={i} value={i}>{i}</option>);
+            years.push(
+                <option key={i} value={i}>
+                    {i}
+                </option>
+            );
         }
         return years;
     };
@@ -108,8 +121,7 @@ const RegistrationModal: FC = (): ReactElement => {
                     Date of birth
                 </Typography>
                 <Typography variant={"subtitle1"} component={"div"}>
-                    This will not be shown publicly. Confirm your own age, even if this account is for a
-                    business, a pet, or something else.
+                    This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
                 </Typography>
                 <div className={classes.formControl}>
                     <FormControl variant="filled">
@@ -119,9 +131,7 @@ const RegistrationModal: FC = (): ReactElement => {
                             defaultValue=""
                             render={({ field: { onChange, value } }) => (
                                 <>
-                                    <InputLabel htmlFor="select-month">
-                                        Month
-                                    </InputLabel>
+                                    <InputLabel htmlFor="select-month">Month</InputLabel>
                                     <FilledSelect
                                         name="month"
                                         variant="filled"
@@ -158,9 +168,7 @@ const RegistrationModal: FC = (): ReactElement => {
                             defaultValue={0}
                             render={({ field: { onChange, value } }) => (
                                 <>
-                                    <InputLabel htmlFor="select-day">
-                                        Day
-                                    </InputLabel>
+                                    <InputLabel htmlFor="select-day">Day</InputLabel>
                                     <FilledSelect
                                         name="day"
                                         variant="filled"
@@ -186,9 +194,7 @@ const RegistrationModal: FC = (): ReactElement => {
                             defaultValue={0}
                             render={({ field: { onChange, value } }) => (
                                 <>
-                                    <InputLabel htmlFor="select-year">
-                                        Year
-                                    </InputLabel>
+                                    <InputLabel htmlFor="select-year">Year</InputLabel>
                                     <FilledSelect
                                         name="year"
                                         variant="filled"

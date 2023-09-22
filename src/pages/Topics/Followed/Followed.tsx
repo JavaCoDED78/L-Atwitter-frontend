@@ -42,15 +42,10 @@ const Followed = (): ReactElement => {
     return (
         <>
             <Typography variant={"subtitle1"} component={"div"} className={globalClasses.itemInfoWrapper}>
-                The Topics you follow are used to personalize the Tweets, events, and ads that you see, and show up
-                publicly on your profile
+                The Topics you follow are used to personalize the Tweets, events, and ads that you see, and show up publicly on your profile
             </Typography>
             <Divider />
-            {isFollowedTopicsLoading ? (
-                <Spinner />
-            ) : (
-                followedTopics.map((topic) => <TopicItem key={topic.id} topic={topic} />)
-            )}
+            {isFollowedTopicsLoading ? <Spinner /> : followedTopics.map((topic) => <TopicItem key={topic.id} topic={topic} />)}
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"h5"} component={"div"}>
                     Suggested Topics
@@ -81,14 +76,15 @@ const Followed = (): ReactElement => {
             </Typography>
             <Divider />
             <Typography variant={"subtitle1"} component={"div"} className={globalClasses.itemInfoWrapper}>
-                Topics that you follow are shown here. To see all the things that Twitter thinks you’re interested in,
-                check out{" "}
+                Topics that you follow are shown here. To see all the things that Twitter thinks you’re interested in, check out{" "}
                 <MuiLink href={ACCESSING_YOUR_TWITTER_DATA} variant="subtitle1" target="_blank" rel="noopener">
                     Your Twitter data.
-                </MuiLink>{" You can also "}
+                </MuiLink>
+                {" You can also "}
                 <MuiLink href={FOLLOW_AND_UNFOLLOW_TOPICS} variant="subtitle1" target="_blank" rel="noopener">
                     learn more
-                </MuiLink> about following Topics.
+                </MuiLink>{" "}
+                about following Topics.
             </Typography>
         </>
     );

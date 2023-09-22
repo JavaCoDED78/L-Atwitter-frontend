@@ -16,7 +16,9 @@ describe("MemberItemInfo", () => {
                 username={mockUserProfile.username}
                 about={mockUserProfile.about}
                 isPrivateProfile={false}
-            />, mockStore);
+            />,
+            mockStore
+        );
         expect(wrapper.find(LockIcon).exists()).toBeFalsy();
         expect(wrapper.text().includes(mockUserProfile.fullName)).toBe(true);
         expect(wrapper.text().includes(mockUserProfile.username)).toBe(true);
@@ -24,12 +26,9 @@ describe("MemberItemInfo", () => {
 
     it("should render LockIcon", () => {
         const wrapper = mountWithStore(
-            <MemberItemInfo
-                fullName={mockUserProfile.fullName}
-                username={mockUserProfile.username}
-                about={mockUserProfile.about}
-                isPrivateProfile
-            />, mockStore);
+            <MemberItemInfo fullName={mockUserProfile.fullName} username={mockUserProfile.username} about={mockUserProfile.about} isPrivateProfile />,
+            mockStore
+        );
         expect(wrapper.find(LockIcon).exists()).toBeTruthy();
     });
 });

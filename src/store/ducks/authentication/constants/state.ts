@@ -11,7 +11,6 @@ export interface AuthenticationState {
     loadingState: LoadingStatus;
 }
 
-
 export interface RegistrationPayload {
     registrationData: RegistrationRequest;
     setError: UseFormSetError<RegistrationFormProps>;

@@ -25,13 +25,7 @@ const FollowButton: FC<FollowButtonProps> = ({ user }): ReactElement => {
     };
 
     return (
-        <Button
-            className={classes.outlinedButton}
-            onClick={handleFollow}
-            color="primary"
-            variant="outlined"
-            size="small"
-        >
+        <Button className={classes.outlinedButton} onClick={handleFollow} color="primary" variant="outlined" size="small">
             Follow
         </Button>
     );

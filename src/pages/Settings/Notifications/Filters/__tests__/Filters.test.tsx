@@ -5,7 +5,6 @@ import { createMockRootState, mountWithStore, testClickOnLink } from "../../../.
 import { SETTINGS_PRIVACY_AND_SAFETY_ADVANCED_FILTERS } from "../../../../../constants/path-constants";
 
 describe("Filters", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Filters />, createMockRootState());
 

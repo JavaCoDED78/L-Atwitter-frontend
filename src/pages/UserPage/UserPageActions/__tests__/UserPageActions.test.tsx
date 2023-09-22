@@ -103,7 +103,9 @@ describe("UserPageActions", () => {
             userProfile: {
                 ...mockRootState.userProfile,
                 user: {
-                    ...mockUserProfile, isUserMuted, isUserBlocked
+                    ...mockUserProfile,
+                    isUserMuted,
+                    isUserBlocked
                 }
             }
         };

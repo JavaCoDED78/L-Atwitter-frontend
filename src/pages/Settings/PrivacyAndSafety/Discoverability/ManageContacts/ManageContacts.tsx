@@ -23,8 +23,7 @@ const ManageContacts: FC = (): ReactElement => {
                         personalize your experience on Twitter, such as suggesting accounts to follow. You can remove any
                         contacts you’ve previously uploaded and turn off syncing with Twitter on all devices. Please be
                         aware that this takes a little time. `}
-                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>

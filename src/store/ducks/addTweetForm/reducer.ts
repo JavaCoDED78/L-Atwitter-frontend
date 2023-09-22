@@ -79,7 +79,7 @@ export const addTweetFormReducer = produce((draft: Draft<AddTweetFormState>, act
 
         case AddTweetFormTypes.SET_SELECTED_USER:
             const newSelectedUsers = [...draft.selectedUsers];
-            const selectedUserIndex = draft.selectedUsers.findIndex(user => user.id === action.payload.id);
+            const selectedUserIndex = draft.selectedUsers.findIndex((user) => user.id === action.payload.id);
 
             if (selectedUserIndex === -1) {
                 newSelectedUsers.push(action.payload);

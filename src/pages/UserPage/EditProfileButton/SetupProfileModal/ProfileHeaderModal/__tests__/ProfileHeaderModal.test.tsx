@@ -23,7 +23,9 @@ describe("ProfileHeaderModal", () => {
                 wallpaper={mockImage}
                 onChangeWallpaper={jest.fn()}
                 onOpenProfileDescriptionModal={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(false);
     });
@@ -38,7 +40,9 @@ describe("ProfileHeaderModal", () => {
                 wallpaper={undefined}
                 onChangeWallpaper={jest.fn()}
                 onOpenProfileDescriptionModal={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(true);
         expect(wrapper.text().includes("Pick a header")).toBe(true);
@@ -60,7 +64,9 @@ describe("ProfileHeaderModal", () => {
                 wallpaper={mockImage}
                 onChangeWallpaper={jest.fn()}
                 onOpenProfileDescriptionModal={mockOnOpenProfileDescriptionModal}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         wrapper.find(Button).simulate("click");
 

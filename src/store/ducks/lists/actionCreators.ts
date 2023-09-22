@@ -30,7 +30,7 @@ import {
     UnfollowListActionInterface,
     UnpinListActionInterface
 } from "./contracts/actionTypes";
-import { ListsRequest, AddUserToListsRequest, ListsState, UpdateListsPayload } from "./contracts/state";
+import { AddUserToListsRequest, ListsRequest, ListsState, UpdateListsPayload } from "./contracts/state";
 import { ListUserResponse, PinnedListResponse } from "../../../types/lists";
 import { LoadingStatus } from "../../../types/common";
 

@@ -23,37 +23,45 @@ describe("lists selectors:", () => {
 
     describe("selectListsItems", () => {
         it("should return ListResponse array", () => {
-            expect(selectListsItems({
-                ...mockState,
-                lists: { ...mockState.lists, lists: mockLists }
-            })).toBe(mockLists);
+            expect(
+                selectListsItems({
+                    ...mockState,
+                    lists: { ...mockState.lists, lists: mockLists }
+                })
+            ).toBe(mockLists);
         });
     });
 
     describe("selectUserListsItems", () => {
         it("should return ListUserResponse array", () => {
-            expect(selectUserListsItems({
-                ...mockState,
-                lists: { ...mockState.lists, userLists: mockUserLists }
-            })).toBe(mockUserLists);
+            expect(
+                selectUserListsItems({
+                    ...mockState,
+                    lists: { ...mockState.lists, userLists: mockUserLists }
+                })
+            ).toBe(mockUserLists);
         });
     });
 
     describe("selectPinnedListsItems", () => {
         it("should return PinnedListResponse array", () => {
-            expect(selectPinnedListsItems({
-                ...mockState,
-                lists: { ...mockState.lists, pinnedLists: mockPinnedLists }
-            })).toBe(mockPinnedLists);
+            expect(
+                selectPinnedListsItems({
+                    ...mockState,
+                    lists: { ...mockState.lists, pinnedLists: mockPinnedLists }
+                })
+            ).toBe(mockPinnedLists);
         });
     });
 
     describe("selectSimpleListsItems", () => {
         it("should return SimpleListResponse array", () => {
-            expect(selectSimpleListsItems({
-                ...mockState,
-                lists: { ...mockState.lists, simpleLists: mockSimpleList }
-            })).toBe(mockSimpleList);
+            expect(
+                selectSimpleListsItems({
+                    ...mockState,
+                    lists: { ...mockState.lists, simpleLists: mockSimpleList }
+                })
+            ).toBe(mockSimpleList);
         });
     });
 

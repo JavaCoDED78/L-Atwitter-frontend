@@ -116,12 +116,7 @@ describe("PopperUserWindow", () => {
     });
 
     it("should render empty PopperUserWindow", () => {
-        const wrapper = mountWithStore(
-            <PopperUserWindow
-                visible={false}
-                isTweetComponent={true}
-                isTweetImageModal={false}
-            />, mockState);
+        const wrapper = mountWithStore(<PopperUserWindow visible={false} isTweetComponent={true} isTweetImageModal={false} />, mockState);
 
         expect(wrapper.find("div").exists()).toBeFalsy();
     });
@@ -162,11 +157,6 @@ describe("PopperUserWindow", () => {
     };
 
     const mountWrapper = (mockState: any) => {
-        return mountWithStore(
-            <PopperUserWindow
-                visible={true}
-                isTweetComponent={true}
-                isTweetImageModal={false}
-            />, mockState);
+        return mountWithStore(<PopperUserWindow visible={true} isTweetComponent={true} isTweetImageModal={false} />, mockState);
     };
 });

@@ -39,7 +39,10 @@ describe("chatMessagesReducer:", () => {
             ),
             {
                 ...initialChatMessagesState,
-                items: [{ id: 1, chat: { id: 1 } }, { id: 2, chat: { id: 1 } }] as ChatMessageResponse[],
+                items: [
+                    { id: 1, chat: { id: 1 } },
+                    { id: 2, chat: { id: 1 } }
+                ] as ChatMessageResponse[],
                 loadingState: LoadingStatus.LOADED
             }
         );

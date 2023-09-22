@@ -18,10 +18,12 @@ export function* fetchFollowRequests({ payload }: FetchFollowerRequestsActionInt
     try {
         yield put(setFollowerRequestsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<FollowerUserResponse[]> = yield call(FollowerUserApi.getFollowerRequests, payload);
-        yield put(setFollowerRequests({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setFollowerRequests({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setFollowerRequestsLoadingState(LoadingStatus.ERROR));
     }

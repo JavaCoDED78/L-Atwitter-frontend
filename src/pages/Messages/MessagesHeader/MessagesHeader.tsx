@@ -21,18 +21,8 @@ const MessagesHeader = memo((): ReactElement => {
                 Messages
             </Typography>
             <div className={classes.iconGroup}>
-                <ActionIcon
-                    path={MESSAGES_SETTINGS}
-                    actionText={"Settings"}
-                    className={"icon"}
-                    icon={SettingsIcon}
-                />
-                <ActionIcon
-                    onClick={onOpenModalWindow}
-                    actionText={"New message"}
-                    className={"icon"}
-                    icon={NewMessageIcon}
-                />
+                <ActionIcon path={MESSAGES_SETTINGS} actionText={"Settings"} className={"icon"} icon={SettingsIcon} />
+                <ActionIcon onClick={onOpenModalWindow} actionText={"New message"} className={"icon"} icon={NewMessageIcon} />
             </div>
             <MessagesModal visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </Paper>

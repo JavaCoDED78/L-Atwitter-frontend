@@ -17,7 +17,7 @@ export const useTweetListComponentStyles = makeStyles((theme) => ({
         borderRadius: "20px 20px 0px 0px"
     },
     contentInfo: {
-        padding: "4px 12px 12px 12px",
+        padding: "4px 12px 12px 12px"
     },
     listIcon: {
         display: "inline-block",
@@ -30,7 +30,7 @@ export const useTweetListComponentStyles = makeStyles((theme) => ({
         }
     },
     listName: {
-        fontWeight: 700,
+        fontWeight: 700
     },
     listTitle: {
         margin: "4px 0px",

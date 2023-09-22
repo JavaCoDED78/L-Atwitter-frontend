@@ -18,51 +18,43 @@ interface ListInfoDescriptionProps {
     listOwnerAvatar?: string;
 }
 
-const ListInfoDescription: FC<ListInfoDescriptionProps> = memo((
-    {
-        listId,
-        listName,
-        listDescription,
-        listIsPrivate,
-        listOwnerFullName,
-        listOwnerUsername,
-        listOwnerAvatar
-    }
-): ReactElement => {
-    const classes = useListsItemStyles();
-    const { visiblePopperWindow, handleHoverPopper, handleLeavePopper } = useHoverItem(fetchListDetail);
-    const avatar = listOwnerAvatar ? listOwnerAvatar : DEFAULT_PROFILE_IMG;
+const ListInfoDescription: FC<ListInfoDescriptionProps> = memo(
+    ({ listId, listName, listDescription, listIsPrivate, listOwnerFullName, listOwnerUsername, listOwnerAvatar }): ReactElement => {
+        const classes = useListsItemStyles();
+        const { visiblePopperWindow, handleHoverPopper, handleLeavePopper } = useHoverItem(fetchListDetail);
+        const avatar = listOwnerAvatar ? listOwnerAvatar : DEFAULT_PROFILE_IMG;
 
-    return (
-        <div
-            id={"listInfoWrapper"}
-            className={classes.listInfoWrapper}
-            onMouseEnter={() => handleHoverPopper({ listId: listId! } as HoverItemDetail)}
-            onMouseLeave={handleLeavePopper}
-        >
-            <div>
-                <Typography variant={"h6"} component={"span"} className={classes.listTitle}>
-                    {listName}
+        return (
+            <div
+                id={"listInfoWrapper"}
+                className={classes.listInfoWrapper}
+                onMouseEnter={() => handleHoverPopper({ listId: listId! } as HoverItemDetail)}
+                onMouseLeave={handleLeavePopper}
+            >
+                <div>
+                    <Typography variant={"h6"} component={"span"} className={classes.listTitle}>
+                        {listName}
+                    </Typography>
+                    {listIsPrivate && <LockIcon />}
+                </div>
+                <Typography variant={"subtitle2"} component={"div"}>
+                    {listDescription}
                 </Typography>
-                {listIsPrivate && <LockIcon />}
+                <div className={classes.listOwnerWrapper}>
+                    <Avatar className={classes.listOwnerAvatar} src={avatar} />
+                </div>
+                <div className={classes.listOwnerInfoWrapper}>
+                    <Typography variant={"subtitle2"} component={"span"} className={classes.listOwnerFullName}>
+                        {listOwnerFullName}
+                    </Typography>
+                    <Typography variant={"subtitle2"} component={"span"}>
+                        @{listOwnerUsername}
+                    </Typography>
+                </div>
+                <PopperListWindow visible={visiblePopperWindow} />
             </div>
-            <Typography variant={"subtitle2"} component={"div"}>
-                {listDescription}
-            </Typography>
-            <div className={classes.listOwnerWrapper}>
-                <Avatar className={classes.listOwnerAvatar} src={avatar} />
-            </div>
-            <div className={classes.listOwnerInfoWrapper}>
-                <Typography variant={"subtitle2"} component={"span"} className={classes.listOwnerFullName}>
-                    {listOwnerFullName}
-                </Typography>
-                <Typography variant={"subtitle2"} component={"span"}>
-                    @{listOwnerUsername}
-                </Typography>
-            </div>
-            <PopperListWindow visible={visiblePopperWindow} />
-        </div>
-    );
-});
+        );
+    }
+);
 
 export default ListInfoDescription;

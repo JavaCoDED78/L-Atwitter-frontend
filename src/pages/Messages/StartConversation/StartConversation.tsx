@@ -15,16 +15,9 @@ const StartConversation = memo((): ReactElement => {
                 Send a message, get a message
             </Typography>
             <Typography variant={"subtitle1"} component={"div"} className={classes.messagesText}>
-                Direct Messages are private conversations between you and other people on Twitter.
-                Share Tweets, media, and more!
+                Direct Messages are private conversations between you and other people on Twitter. Share Tweets, media, and more!
             </Typography>
-            <Button
-                onClick={onOpenModalWindow}
-                className={classes.messagesButton}
-                variant="contained"
-                color="primary"
-                size="large"
-            >
+            <Button onClick={onOpenModalWindow} className={classes.messagesButton} variant="contained" color="primary" size="large">
                 Start a conversation
             </Button>
             <MessagesModal visible={visibleModalWindow} onClose={onCloseModalWindow} />

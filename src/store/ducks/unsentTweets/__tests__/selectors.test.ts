@@ -8,10 +8,12 @@ describe("unsentTweets selectors:", () => {
 
     describe("selectUnsentTweets", () => {
         it("should return TweetResponse array", () => {
-            expect(selectUnsentTweets({
-                ...mockState,
-                unsentTweets: { ...mockState.unsentTweets, items: mockTweets }
-            })).toBe(mockTweets);
+            expect(
+                selectUnsentTweets({
+                    ...mockState,
+                    unsentTweets: { ...mockState.unsentTweets, items: mockTweets }
+                })
+            ).toBe(mockTweets);
         });
     });
 

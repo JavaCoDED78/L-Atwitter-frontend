@@ -43,13 +43,7 @@ const Reply: FC<ReplyProps> = memo(({ isUnsentTweet }): ReactElement => {
                 </Button>
                 <Divider />
             </div>
-            <Popover
-                id={popoverId}
-                className={classes.popover}
-                open={openPopover}
-                anchorEl={anchorEl}
-                onClose={handleClosePopup}
-            >
+            <Popover id={popoverId} className={classes.popover} open={openPopover} anchorEl={anchorEl} onClose={handleClosePopup}>
                 <ChangeReplyWindow replyType={replyType} onChangeTweetReplyType={handleListItemClick} />
             </Popover>
         </>

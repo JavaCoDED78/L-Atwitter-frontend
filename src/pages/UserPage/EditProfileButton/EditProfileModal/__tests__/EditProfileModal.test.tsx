@@ -51,7 +51,8 @@ describe("EditProfileModal", () => {
                     avatar: undefined,
                     wallpaper: undefined,
                     about: mockUser.about
-                }, type: UserActionsType.UPDATE_USER_DATA
+                },
+                type: UserActionsType.UPDATE_USER_DATA
             });
         });
     });

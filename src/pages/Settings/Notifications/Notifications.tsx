@@ -21,9 +21,7 @@ const Notifications: FC = (): ReactElement => {
                 <List component="nav" aria-label="main mailbox folders">
                     <Link to={SETTINGS_NOTIFICATION_FILTERS}>
                         <ListItem>
-                            <div className={globalClasses.listIconWrapper}>
-                                {FiltersIcon}
-                            </div>
+                            <div className={globalClasses.listIconWrapper}>{FiltersIcon}</div>
                             <div>
                                 <Typography variant={"body1"} component={"div"}>
                                     Filters
@@ -32,16 +30,12 @@ const Notifications: FC = (): ReactElement => {
                                     Choose the notifications you’d like to see — and those you don’t.
                                 </Typography>
                             </div>
-                            <div className={globalClasses.arrowIcon}>
-                                {ArrowRightIcon}
-                            </div>
+                            <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                         </ListItem>
                     </Link>
                     <Link to={SETTINGS_NOTIFICATION_PREFERENCES}>
                         <ListItem>
-                            <div className={globalClasses.listIconWrapper}>
-                                {PreferencesIcon}
-                            </div>
+                            <div className={globalClasses.listIconWrapper}>{PreferencesIcon}</div>
                             <div>
                                 <Typography variant={"body1"} component={"div"}>
                                     Preferences
@@ -50,9 +44,7 @@ const Notifications: FC = (): ReactElement => {
                                     Select your preferences by notification type.
                                 </Typography>
                             </div>
-                            <div className={globalClasses.arrowIcon}>
-                                {ArrowRightIcon}
-                            </div>
+                            <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                         </ListItem>
                     </Link>
                 </List>

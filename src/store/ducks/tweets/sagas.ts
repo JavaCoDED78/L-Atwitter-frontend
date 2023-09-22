@@ -42,10 +42,12 @@ export function* fetchTweetsRequest({ payload }: FetchTweetsActionInterface) {
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.getTweets, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -55,10 +57,12 @@ export function* fetchMediaTweetsRequest({ payload }: FetchMediaTweetsActionInte
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.getMediaTweets, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -68,10 +72,12 @@ export function* fetchTweetsWithVideoRequest({ payload }: FetchTweetsWithVideoAc
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.getTweetsWithVideo, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -81,10 +87,12 @@ export function* fetchFollowersTweetsRequest({ payload }: FetchFollowersTweetsAc
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.getFollowersTweets, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -104,10 +112,12 @@ export function* fetchTweetsByTextRequest({ payload }: FetchTweetsByTextActionIn
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.searchTweets, payload.text, payload.pageNumber);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -117,10 +127,12 @@ export function* fetchTweetsByListIdRequest({ payload }: FetchTweetsByListIdActi
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(ListsApi.getTweetsByListId, payload.listId, payload.pageNumber);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -130,10 +142,12 @@ export function* fetchQuotesByTweetIdRequest({ payload }: FetchTweetsWithQuotesB
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(TweetApi.getQuotesByTweetId, payload.tweetId, payload.pageNumber);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }
@@ -225,10 +239,12 @@ export function* fetchUserBookmarksRequest({ payload }: FetchBookmarksActionInte
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(BookmarkApi.getUserBookmarks, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }

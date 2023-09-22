@@ -33,7 +33,11 @@ const UserInteractionCount = memo((): ReactElement => {
         if (isPrivateProfile && userProfileId !== myProfileId && !isFollower) {
             return <div className={classes.followLink}>{children}</div>;
         } else {
-            return <Link to={`${USER}/${userProfileId}/${linkTo}`} className={classes.followLink}>{children}</Link>;
+            return (
+                <Link to={`${USER}/${userProfileId}/${linkTo}`} className={classes.followLink}>
+                    {children}
+                </Link>
+            );
         }
     };
 

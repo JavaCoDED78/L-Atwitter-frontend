@@ -22,10 +22,12 @@ export function* fetchTrendsRequest({ payload }: FetchTrendsActionInterface) {
     try {
         yield put(setTrendsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TagResponse[]> = yield call(TagApi.getTrends, payload);
-        yield put(setTrends({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setTrends({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTrendsLoadingState(LoadingStatus.ERROR));
     }

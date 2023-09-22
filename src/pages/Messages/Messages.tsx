@@ -27,7 +27,7 @@ const Messages: FC = (): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useMessagesStyles();
     const dispatch = useDispatch();
-    const location = useLocation<{ removeParticipant: boolean | undefined; }>();
+    const location = useLocation<{ removeParticipant: boolean | undefined }>();
     const myProfileId = useSelector(selectUserDataId);
     const chats = useSelector(selectChatsItems);
     const isChatsLoading = useSelector(selectIsChatsLoading);
@@ -53,7 +53,7 @@ const Messages: FC = (): ReactElement => {
     }, [location.state?.removeParticipant]);
 
     const handleListItemClick = useCallback((chat: ChatResponse): void => {
-        setParticipantId((chat.participants[0].user.id === myProfileId) ? chat.participants[1].id : chat.participants[0].id);
+        setParticipantId(chat.participants[0].user.id === myProfileId ? chat.participants[1].id : chat.participants[0].id);
         setChatId(chat.id);
     }, []);
 
@@ -64,24 +64,22 @@ const Messages: FC = (): ReactElement => {
                     <MessagesHeader />
                     {isChatsLoading ? (
                         <Spinner paddingTop={150} />
+                    ) : chats.length === 0 ? (
+                        <StartConversation />
                     ) : (
-                        (chats.length === 0) ? (
-                            <StartConversation />
-                        ) : (
-                            <>
-                                <SearchChatParticipant />
-                                <List component="nav" className={classes.list}>
-                                    {chats.map((chat) => (
-                                        <ChatParticipant
-                                            key={chat.id}
-                                            chat={chat}
-                                            participantUserId={participantId}
-                                            handleListItemClick={handleListItemClick}
-                                        />
-                                    ))}
-                                </List>
-                            </>
-                        )
+                        <>
+                            <SearchChatParticipant />
+                            <List component="nav" className={classes.list}>
+                                {chats.map((chat) => (
+                                    <ChatParticipant
+                                        key={chat.id}
+                                        chat={chat}
+                                        participantUserId={participantId}
+                                        handleListItemClick={handleListItemClick}
+                                    />
+                                ))}
+                            </List>
+                        </>
                     )}
                 </Paper>
             </Grid>

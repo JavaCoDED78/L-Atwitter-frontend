@@ -13,45 +13,32 @@ interface UnsentTweetsHeaderProps {
     onClose: () => void;
 }
 
-const UnsentTweetsHeader: FC<UnsentTweetsHeaderProps> = memo((
-    {
-        visibleEditTweetModal,
-        visibleEditListFooter,
-        onCloseEditTweetList,
-        onOpenEditTweetList,
-        onCloseEditTweetModal,
-        onClose
-    }
-): ReactElement => {
-    const classes = useUnsentTweetsHeaderStyles();
+const UnsentTweetsHeader: FC<UnsentTweetsHeaderProps> = memo(
+    ({ visibleEditTweetModal, visibleEditListFooter, onCloseEditTweetList, onOpenEditTweetList, onCloseEditTweetModal, onClose }): ReactElement => {
+        const classes = useUnsentTweetsHeaderStyles();
 
-    return (
-        <DialogTitle>
-            <CloseButton onClose={!visibleEditTweetModal ? onClose : onCloseEditTweetModal} />
-            {!visibleEditTweetModal && "Unsent Tweets"}
-            {visibleEditTweetModal ? (
-                <Button
-                    className={classes.outlinedButton}
-                    onClick={onCloseEditTweetModal}
-                    type="submit"
-                    variant="text"
-                    color="primary"
-                >
-                    Unsent Tweets
-                </Button>
-            ) : (
-                <Button
-                    onClick={visibleEditListFooter ? onCloseEditTweetList : onOpenEditTweetList}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
-                    {visibleEditListFooter ? "Done" : "Edit"}
-                </Button>
-            )}
-        </DialogTitle>
-    );
-});
+        return (
+            <DialogTitle>
+                <CloseButton onClose={!visibleEditTweetModal ? onClose : onCloseEditTweetModal} />
+                {!visibleEditTweetModal && "Unsent Tweets"}
+                {visibleEditTweetModal ? (
+                    <Button className={classes.outlinedButton} onClick={onCloseEditTweetModal} type="submit" variant="text" color="primary">
+                        Unsent Tweets
+                    </Button>
+                ) : (
+                    <Button
+                        onClick={visibleEditListFooter ? onCloseEditTweetList : onOpenEditTweetList}
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                    >
+                        {visibleEditListFooter ? "Done" : "Edit"}
+                    </Button>
+                )}
+            </DialogTitle>
+        );
+    }
+);
 
 export default UnsentTweetsHeader;

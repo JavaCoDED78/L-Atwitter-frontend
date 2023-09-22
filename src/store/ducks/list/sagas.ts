@@ -1,12 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 
-import {
-    DeleteListActionInterface,
-    EditListActionInterface,
-    FetchListByIdActionInterface,
-    ListActionType
-} from "./contracts/actionTypes";
+import { DeleteListActionInterface, EditListActionInterface, FetchListByIdActionInterface, ListActionType } from "./contracts/actionTypes";
 import { setList, setListLoadingState } from "./actionCreators";
 import { ListsApi } from "../../../services/api/lists-service/listsApi";
 import { BaseListResponse } from "../../../types/lists";

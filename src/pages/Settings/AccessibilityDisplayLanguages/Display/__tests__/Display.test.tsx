@@ -15,11 +15,7 @@ describe("Display", () => {
     });
 
     it("should render correctly", () => {
-        const wrapper = mountWithStore(
-            <Display
-                changeBackgroundColor={jest.fn()}
-                changeColorScheme={jest.fn()}
-            />, createMockRootState());
+        const wrapper = mountWithStore(<Display changeBackgroundColor={jest.fn()} changeColorScheme={jest.fn()} />, createMockRootState());
 
         expect(wrapper.text().includes("Twitter")).toBe(true);
         expect(wrapper.text().includes("@Twitter · 31m")).toBe(true);
@@ -31,11 +27,7 @@ describe("Display", () => {
     });
 
     it("should change Background", () => {
-        const wrapper = mountWithStore(
-            <Display
-                changeBackgroundColor={jest.fn()}
-                changeColorScheme={jest.fn()}
-            />, createMockRootState());
+        const wrapper = mountWithStore(<Display changeBackgroundColor={jest.fn()} changeColorScheme={jest.fn()} />, createMockRootState());
 
         expect(wrapper.find(Radio).at(0).prop("checked")).toBe(true);
         expect(wrapper.find(Radio).at(1).prop("checked")).toBe(false);
@@ -50,10 +42,9 @@ describe("Display", () => {
         localStorage.setItem(COLOR, "BLUE");
         const mockChangeColorScheme = jest.fn();
         const wrapper = mountWithStore(
-            <Display
-                changeBackgroundColor={jest.fn()}
-                changeColorScheme={mockChangeColorScheme}
-            />, createMockRootState());
+            <Display changeBackgroundColor={jest.fn()} changeColorScheme={mockChangeColorScheme} />,
+            createMockRootState()
+        );
         expect(wrapper.find("#blue").find("span").exists()).toBe(true);
         expect(wrapper.find("#yellow").find("span").exists()).toBe(false);
 
@@ -81,10 +72,9 @@ describe("Display", () => {
     const testOnClickBackground = (itemIndex: number, background: BackgroundTheme): void => {
         const mockChangeBackgroundColor = jest.fn();
         const wrapper = mountWithStore(
-            <Display
-                changeBackgroundColor={mockChangeBackgroundColor}
-                changeColorScheme={jest.fn()}
-            />, createMockRootState());
+            <Display changeBackgroundColor={mockChangeBackgroundColor} changeColorScheme={jest.fn()} />,
+            createMockRootState()
+        );
 
         expect(wrapper.find(Radio).at(itemIndex).prop("checked")).toBe(false);
 

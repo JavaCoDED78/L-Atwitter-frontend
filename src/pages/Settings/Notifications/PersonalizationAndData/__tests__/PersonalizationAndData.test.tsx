@@ -5,7 +5,6 @@ import PersonalizationAndData from "../PersonalizationAndData";
 import { createMockRootState, mountWithStore } from "../../../../../util/test-utils/test-helper";
 
 describe("PersonalizationAndData", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<PersonalizationAndData />, createMockRootState());
 

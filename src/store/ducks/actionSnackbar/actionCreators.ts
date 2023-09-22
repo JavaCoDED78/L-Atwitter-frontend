@@ -1,8 +1,4 @@
-import {
-    ActionSnackbarTypes,
-    SetCloseSnackBarActionInterface,
-    SetOpenSnackBarActionInterface
-} from "./contracts/actionTypes";
+import { ActionSnackbarTypes, SetCloseSnackBarActionInterface, SetOpenSnackBarActionInterface } from "./contracts/actionTypes";
 
 export const setOpenSnackBar = (payload: string): SetOpenSnackBarActionInterface => ({
     type: ActionSnackbarTypes.SET_OPEN_SNACKBAR,

@@ -14,11 +14,7 @@ const UserFollowingCount = memo((): ReactElement => {
     return (
         <ListItem>
             <Typography variant={"h6"} component={"span"}>
-                {(userProfileId === myProfileId) ? (
-                    myProfileFollowingSize
-                ) : (
-                    userProfileFollowingSize
-                )}
+                {userProfileId === myProfileId ? myProfileFollowingSize : userProfileFollowingSize}
             </Typography>
             <Typography variant={"subtitle1"} component={"span"}>
                 {" Followers"}

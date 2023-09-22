@@ -19,14 +19,22 @@ describe("ScheduledTweetApi", () => {
             testApiCall(mockAdapter, "onGet", API_TWEETS_SCHEDULE, 200, mockTweets, ScheduledTweetApi.getScheduledTweets, 1);
         });
     });
-    
+
     describe("should fetch ScheduledTweetApi.createScheduledTweet", () => {
         it("[200] should create scheduled tweet Success", () => {
             testApiCall(mockAdapter, "onPost", API_TWEETS_SCHEDULE, 200, mockFullTweet, ScheduledTweetApi.createScheduledTweet, mockAddTweetRequest);
         });
 
         it("[400] should return incorrect poll choices", () => {
-            testApiCall(mockAdapter, "onPost", API_TWEETS_SCHEDULE, 400, "Incorrect poll choices", ScheduledTweetApi.createScheduledTweet, mockAddTweetRequest);
+            testApiCall(
+                mockAdapter,
+                "onPost",
+                API_TWEETS_SCHEDULE,
+                400,
+                "Incorrect poll choices",
+                ScheduledTweetApi.createScheduledTweet,
+                mockAddTweetRequest
+            );
         });
     });
 
@@ -36,11 +44,27 @@ describe("ScheduledTweetApi", () => {
         });
 
         it("[400] should return Incorrect tweet text length", () => {
-            testApiCall(mockAdapter, "onPut", API_TWEETS_SCHEDULE, 400, "Incorrect tweet text length", ScheduledTweetApi.updateScheduledTweet, mockAddTweetRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_TWEETS_SCHEDULE,
+                400,
+                "Incorrect tweet text length",
+                ScheduledTweetApi.updateScheduledTweet,
+                mockAddTweetRequest
+            );
         });
 
         it("[404] should return tweet Not Found", () => {
-            testApiCall(mockAdapter, "onPut", API_TWEETS_SCHEDULE, 404, tweetNotFoundError, ScheduledTweetApi.updateScheduledTweet, mockAddTweetRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_TWEETS_SCHEDULE,
+                404,
+                tweetNotFoundError,
+                ScheduledTweetApi.updateScheduledTweet,
+                mockAddTweetRequest
+            );
         });
     });
 
@@ -48,11 +72,27 @@ describe("ScheduledTweetApi", () => {
         const mockTweetsIds = { tweetsIds: [1, 2, 3] };
 
         it("[200] should delete scheduled tweets Success", () => {
-            testApiCall(mockAdapter, "onDelete", API_TWEETS_SCHEDULE, 200, "Scheduled tweets deleted.", ScheduledTweetApi.deleteScheduledTweets, mockTweetsIds);
+            testApiCall(
+                mockAdapter,
+                "onDelete",
+                API_TWEETS_SCHEDULE,
+                200,
+                "Scheduled tweets deleted.",
+                ScheduledTweetApi.deleteScheduledTweets,
+                mockTweetsIds
+            );
         });
 
         it("[404] should return tweet Not Found", () => {
-            testApiCall(mockAdapter, "onDelete", API_TWEETS_SCHEDULE, 404, tweetNotFoundError, ScheduledTweetApi.deleteScheduledTweets, mockTweetsIds);
+            testApiCall(
+                mockAdapter,
+                "onDelete",
+                API_TWEETS_SCHEDULE,
+                404,
+                tweetNotFoundError,
+                ScheduledTweetApi.deleteScheduledTweets,
+                mockTweetsIds
+            );
         });
     });
 });

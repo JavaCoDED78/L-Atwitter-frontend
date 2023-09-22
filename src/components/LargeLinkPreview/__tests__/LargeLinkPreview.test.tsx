@@ -16,7 +16,9 @@ describe("LargeLinkPreview", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 isFullTweet
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.text().includes(mockFullTweet.linkTitle)).toBe(true);
         expect(wrapper.text().includes("www.youtube.com")).toBe(true);
     });

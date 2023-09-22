@@ -13,15 +13,7 @@ interface TweetMediaProps {
     linkCoverSize?: LinkCoverSize;
 }
 
-const TweetMedia: FC<TweetMediaProps> = memo((
-    {
-        link,
-        linkTitle,
-        linkDescription,
-        linkCover,
-        linkCoverSize
-    }
-): ReactElement => {
+const TweetMedia: FC<TweetMediaProps> = memo(({ link, linkTitle, linkDescription, linkCover, linkCoverSize }): ReactElement => {
     const [openYouTubeVideo, setOpenYouTubeVideo] = useState<boolean>(false);
     const isYouTubeLink = link && link.includes("youtu");
 
@@ -31,14 +23,10 @@ const TweetMedia: FC<TweetMediaProps> = memo((
 
     return (
         <>
-            {link && (
-                isYouTubeLink ? (
+            {link &&
+                (isYouTubeLink ? (
                     openYouTubeVideo ? (
-                        <YouTubeVideo
-                            link={link!}
-                            linkTitle={linkTitle!}
-                            linkDescription={linkDescription!}
-                        />
+                        <YouTubeVideo link={link!} linkTitle={linkTitle!} linkDescription={linkDescription!} />
                     ) : (
                         <SmallLinkPreview
                             link={link}
@@ -48,24 +36,11 @@ const TweetMedia: FC<TweetMediaProps> = memo((
                             onOpenYouTubeVideo={onOpenYouTubeVideo}
                         />
                     )
+                ) : linkCoverSize === LinkCoverSize.LARGE ? (
+                    <LargeLinkPreview link={link} linkTitle={linkTitle!} linkDescription={linkDescription!} linkCover={linkCover!} />
                 ) : (
-                    (linkCoverSize === LinkCoverSize.LARGE) ? (
-                        <LargeLinkPreview
-                            link={link}
-                            linkTitle={linkTitle!}
-                            linkDescription={linkDescription!}
-                            linkCover={linkCover!}
-                        />
-                    ) : (
-                        <SmallLinkPreview
-                            link={link}
-                            linkTitle={linkTitle!}
-                            linkDescription={linkDescription!}
-                            linkCover={linkCover!}
-                        />
-                    )
-                )
-            )}
+                    <SmallLinkPreview link={link} linkTitle={linkTitle!} linkDescription={linkDescription!} linkCover={linkCover!} />
+                ))}
         </>
     );
 });

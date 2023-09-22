@@ -9,7 +9,7 @@ import { UserDetailsRequest } from "../store/ducks/userDetail/contracts/state";
 import { ListDetailsRequest } from "../store/ducks/listDetail/contracts/state";
 
 export type HoverItemDetail = {
-    [key in "userId" | "listId"]: number
+    [key in "userId" | "listId"]: number;
 };
 
 interface UseHoverItem {
@@ -19,8 +19,7 @@ interface UseHoverItem {
 }
 
 export const useHoverItem = (
-    fetchDetail: ((payload: UserDetailsRequest) => FetchUserDetailActionInterface)
-        | ((payload: ListDetailsRequest) => FetchListDetailActionInterface)
+    fetchDetail: ((payload: UserDetailsRequest) => FetchUserDetailActionInterface) | ((payload: ListDetailsRequest) => FetchListDetailActionInterface)
 ): UseHoverItem => {
     const dispatch = useDispatch();
     const [visiblePopperWindow, setVisiblePopperWindow] = useState<boolean>(false);
@@ -28,13 +27,17 @@ export const useHoverItem = (
     const cancelTokenSource = axios.CancelToken.source();
 
     const handleHoverPopper = (detail: HoverItemDetail): void => {
-        setDelayHandler(setTimeout(() => {
-            dispatch(fetchDetail({ ...detail, cancelTokenSource }));
-        }, HOVER_DELAY_FETCH));
+        setDelayHandler(
+            setTimeout(() => {
+                dispatch(fetchDetail({ ...detail, cancelTokenSource }));
+            }, HOVER_DELAY_FETCH)
+        );
 
-        setDelayHandler(setTimeout(() => {
-            setVisiblePopperWindow(true);
-        }, HOVER_DELAY_SHOW));
+        setDelayHandler(
+            setTimeout(() => {
+                setVisiblePopperWindow(true);
+            }, HOVER_DELAY_SHOW)
+        );
     };
 
     const handleLeavePopper = (): void => {

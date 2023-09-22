@@ -20,9 +20,9 @@ export const useUserImageModalStyles = makeStyles<Theme, UserImageModalStylesPro
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        height: props => props.pathname.includes("header_photo") ? "100%" : 368,
-        width: props => props.pathname.includes("header_photo") ? "auto" : 368,
-        borderRadius: props => props.pathname.includes("header_photo") ? "none" : "50%"
+        height: (props) => (props.pathname.includes("header_photo") ? "100%" : 368),
+        width: (props) => (props.pathname.includes("header_photo") ? "auto" : 368),
+        borderRadius: (props) => (props.pathname.includes("header_photo") ? "none" : "50%")
     },
     imageModalClose: {
         margin: 10,

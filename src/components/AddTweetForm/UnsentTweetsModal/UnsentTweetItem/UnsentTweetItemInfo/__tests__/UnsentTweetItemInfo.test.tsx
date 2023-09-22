@@ -9,11 +9,9 @@ import { formatScheduleDate } from "../../../../../../util/format-date-helper";
 describe("UnsentTweetItemInfo", () => {
     it("should render correctly", () => {
         const wrapper = mountWithStore(
-            <UnsentTweetItemInfo
-                scheduledDate={"2022-10-15T21:20:33"}
-                text={"test"}
-                images={mockFullTweet.images}
-            />, createMockRootState(LoadingStatus.LOADED));
+            <UnsentTweetItemInfo scheduledDate={"2022-10-15T21:20:33"} text={"test"} images={mockFullTweet.images} />,
+            createMockRootState(LoadingStatus.LOADED)
+        );
         expect(wrapper.text().includes(`Will send on ${formatScheduleDate(new Date("2022-10-15T21:20:33"))}`)).toBe(true);
         expect(wrapper.text().includes("test")).toBe(true);
     });

@@ -1,11 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 
-import {
-    ChatsActionsType,
-    CreateChatActionInterface,
-    LeaveFromConversationActionInterface
-} from "./contracts/actionTypes";
+import { ChatsActionsType, CreateChatActionInterface, LeaveFromConversationActionInterface } from "./contracts/actionTypes";
 import { setChat, setChats, setChatsLoadingState } from "./actionCreators";
 import { ChatApi } from "../../../services/api/chat-service/chatApi";
 import { ChatParticipantApi } from "../../../services/api/chat-service/chatParticipantApi";

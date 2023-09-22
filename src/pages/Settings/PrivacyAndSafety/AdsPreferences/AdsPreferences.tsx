@@ -26,12 +26,10 @@ const AdsPreferences: FC = (): ReactElement => {
                     <Checkbox />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    You will always see ads on Twitter based on your Twitter activity. When this setting is enabled,
-                    Twitter may further personalize ads from Twitter advertisers, on and off Twitter, by combining your
-                    Twitter activity with other online activity and information from our partners.
-                    {" "}
-                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    You will always see ads on Twitter based on your Twitter activity. When this setting is enabled, Twitter may further personalize
+                    ads from Twitter advertisers, on and off Twitter, by combining your Twitter activity with other online activity and information
+                    from our partners.{" "}
+                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>

@@ -10,14 +10,7 @@ interface MemberItemInfoProps {
     about?: string;
 }
 
-const MemberItemInfo: FC<MemberItemInfoProps> = memo((
-    {
-        fullName,
-        username,
-        isPrivateProfile,
-        about
-    }
-): ReactElement => {
+const MemberItemInfo: FC<MemberItemInfoProps> = memo(({ fullName, username, isPrivateProfile, about }): ReactElement => {
     return (
         <>
             <Typography variant={"h6"} component={"span"}>

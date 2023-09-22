@@ -51,7 +51,15 @@ describe("ChatParticipantApi", () => {
     describe("should fetch ChatParticipantApi.searchParticipantsByUsername", () => {
         it("[200] should leave from conversation Success", () => {
             const mockRequest = { username: "test_username", pageNumber: 1 };
-            testApiCall(mockAdapter, "onGet", `${API_CHAT_SEARCH}/test_username`, 200, mockUsers, ChatParticipantApi.searchParticipantsByUsername, mockRequest);
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_CHAT_SEARCH}/test_username`,
+                200,
+                mockUsers,
+                ChatParticipantApi.searchParticipantsByUsername,
+                mockRequest
+            );
         });
     });
 });

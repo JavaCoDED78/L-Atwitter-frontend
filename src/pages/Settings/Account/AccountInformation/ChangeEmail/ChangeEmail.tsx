@@ -26,21 +26,10 @@ const ChangeEmail: FC = (): ReactElement => {
     return (
         <>
             <div className={classes.textFieldWrapper}>
-                <ChangeInfoTextField
-                    label="Current"
-                    type="text"
-                    variant="filled"
-                    value={myProfileEmail}
-                    fullWidth
-                    disabled
-                />
+                <ChangeInfoTextField label="Current" type="text" variant="filled" value={myProfileEmail} fullWidth disabled />
             </div>
             <Divider />
-            <div
-                id={"openChangeEmailModal"}
-                className={classes.updateEmailAddress}
-                onClick={onOpenModalWindow}
-            >
+            <div id={"openChangeEmailModal"} className={classes.updateEmailAddress} onClick={onOpenModalWindow}>
                 <Typography variant={"body1"} component={"span"}>
                     Update email address
                 </Typography>

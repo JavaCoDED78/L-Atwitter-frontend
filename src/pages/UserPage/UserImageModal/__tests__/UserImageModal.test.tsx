@@ -9,10 +9,12 @@ import { PROFILE_PHOTO } from "../../../../constants/path-constants";
 import { mockUser } from "../../../../util/test-utils/mock-test-data";
 
 describe("UserImageModal", () => {
-
     beforeEach(() => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: `${PROFILE_PHOTO}/2`, hash: "", search: "", state: { imageSrc: mockUser.avatar }
+            pathname: `${PROFILE_PHOTO}/2`,
+            hash: "",
+            search: "",
+            state: { imageSrc: mockUser.avatar }
         });
     });
 

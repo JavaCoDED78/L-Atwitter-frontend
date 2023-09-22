@@ -21,8 +21,7 @@ const ChangeReplyWindow: FC<ChangeReplyWindowProps> = memo(({ replyType, onChang
                     Who can reply?
                 </Typography>
                 <Typography variant={"subtitle1"} component={"div"}>
-                    Choose who can reply to this Tweet.
-                    Anyone mentioned can always reply.
+                    Choose who can reply to this Tweet. Anyone mentioned can always reply.
                 </Typography>
             </div>
             <List component="nav">

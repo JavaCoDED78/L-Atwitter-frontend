@@ -7,11 +7,7 @@ import { ImageObj } from "../../../../components/AddTweetForm/AddTweetForm";
 import ProfileDescriptionModal from "./ProfileDescriptionModal/ProfileDescriptionModal";
 import ProfileUpdatedModal from "./ProfileUpdatedModal/ProfileUpdatedModal";
 import { uploadImage } from "../../../../util/upload-image-helper";
-import {
-    selectUserProfileFullName,
-    selectUserProfileLocation,
-    selectUserProfileWebsite
-} from "../../../../store/ducks/user/selectors";
+import { selectUserProfileFullName, selectUserProfileLocation, selectUserProfileWebsite } from "../../../../store/ducks/user/selectors";
 import { updatedUserData } from "../../../../store/ducks/user/actionCreators";
 import { useSetupProfileModalStyles } from "./SetupProfileModalStyles";
 
@@ -63,14 +59,16 @@ const SetupProfileModal: FC<SetupProfileModalProps> = ({ visible, onClose }): Re
             wallpaperResponse = await uploadImage(wallpaper.file);
         }
 
-        dispatch(updatedUserData({
-            fullName: fullName!,
-            location: location!,
-            website: website!,
-            avatar: avatarResponse!,
-            wallpaper: wallpaperResponse!,
-            about: bio
-        }));
+        dispatch(
+            updatedUserData({
+                fullName: fullName!,
+                location: location!,
+                website: website!,
+                avatar: avatarResponse!,
+                wallpaper: wallpaperResponse!,
+                about: bio
+            })
+        );
         handleCloseModal();
     };
 
@@ -98,11 +96,7 @@ const SetupProfileModal: FC<SetupProfileModalProps> = ({ visible, onClose }): Re
                 onChangeText={setBio}
                 onOpenProfileUpdatedModal={onOpenProfileUpdatedModal}
             />
-            <ProfileUpdatedModal
-                isOpen={visibleProfileUpdatedModal}
-                onClose={handleCloseModal}
-                onSubmit={onSubmit}
-            />
+            <ProfileUpdatedModal isOpen={visibleProfileUpdatedModal} onClose={handleCloseModal} onSubmit={onSubmit} />
         </div>
     );
 };

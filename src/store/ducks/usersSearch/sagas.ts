@@ -21,10 +21,12 @@ export function* fetchUsersSearchRequest({ payload }: FetchUsersSearchActionInte
     try {
         yield put(setUsersSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(UserApi.getUsers, payload);
-        yield put(setPageableUsersSearch({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableUsersSearch({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersSearchLoadingState(LoadingStatus.ERROR));
     }
@@ -34,10 +36,12 @@ export function* fetchUsersSearchByUsernameRequest({ payload }: FetchUsersSearch
     try {
         yield put(setUsersSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(UserApi.searchUsersByUsername, payload);
-        yield put(setPageableUsersSearch({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableUsersSearch({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersSearchLoadingState(LoadingStatus.ERROR));
     }
@@ -47,10 +51,12 @@ export function* fetchParticipantsByUsernameRequest({ payload }: FetchParticipan
     try {
         yield put(setUsersSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(ChatParticipantApi.searchParticipantsByUsername, payload);
-        yield put(setPageableUsersSearch({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableUsersSearch({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersSearchLoadingState(LoadingStatus.ERROR));
     }
@@ -60,10 +66,12 @@ export function* fetchFollowersRequest({ payload }: FetchFollowersActionInterfac
     try {
         yield put(setUsersSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(FollowerUserApi.getFollowers, payload);
-        yield put(setPageableFollowers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableFollowers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersSearchLoadingState(LoadingStatus.ERROR));
     }
@@ -73,10 +81,12 @@ export function* fetchFollowingsRequest({ payload }: FetchFollowingsActionInterf
     try {
         yield put(setUsersSearchLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(FollowerUserApi.getFollowing, payload);
-        yield put(setPageableFollowers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableFollowers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setUsersSearchLoadingState(LoadingStatus.ERROR));
     }

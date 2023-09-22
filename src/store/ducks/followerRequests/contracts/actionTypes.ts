@@ -10,7 +10,7 @@ export enum FollowerRequestsActionsType {
     DECLINE_FOLLOW_REQUEST = "followerRequests/DECLINE_FOLLOW_REQUEST",
     PROCESS_FOLLOW_REQUEST = "followerRequests/PROCESS_FOLLOW_REQUEST",
     RESET_FOLLOWER_REQUESTS_STATE = "followerRequests/RESET_FOLLOWER_REQUESTS_STATE",
-    SET_LOADING_STATE = "followerRequests/SET_FOLLOWER_REQUESTS_LOADING_STATE",
+    SET_LOADING_STATE = "followerRequests/SET_FOLLOWER_REQUESTS_LOADING_STATE"
 }
 
 export interface SetFollowerRequestsActionInterface extends Action<FollowerRequestsActionsType> {

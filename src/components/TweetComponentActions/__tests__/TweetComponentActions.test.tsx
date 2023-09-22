@@ -2,11 +2,7 @@ import React from "react";
 import { Button, ClickAwayListener, IconButton, List, ListItem } from "@material-ui/core";
 
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../util/test-utils/test-helper";
-import {
-    mockFullTweet,
-    mockMyTweetAdditionalInfo,
-    mockUserTweetAdditionalInfo
-} from "../../../util/test-utils/mock-test-data";
+import { mockFullTweet, mockMyTweetAdditionalInfo, mockUserTweetAdditionalInfo } from "../../../util/test-utils/mock-test-data";
 import TweetComponentActionsModal from "../TweetComponentActionsModal/TweetComponentActionsModal";
 import ChangeReplyWindow from "../../ChangeReplyWindow/ChangeReplyWindow";
 import { TweetsActionType } from "../../../store/ducks/tweets/contracts/actionTypes";
@@ -222,12 +218,7 @@ describe("TweetComponentActions", () => {
     };
 
     const testPinTweet = (tweetId: number, snackbarText: string): void => {
-        const wrapper = mountWithStore(
-            <TweetComponentActions
-                tweetId={tweetId}
-                isFullTweet
-                onOpenTweetAnalytics={jest.fn()}
-            />, mockMyTweetState);
+        const wrapper = mountWithStore(<TweetComponentActions tweetId={tweetId} isFullTweet onOpenTweetAnalytics={jest.fn()} />, mockMyTweetState);
         wrapper.find(IconButton).simulate("click");
         wrapper.find("#pin").at(0).simulate("click");
         wrapper.find(TweetComponentActionsModal).find(Button).at(1).simulate("click");
@@ -292,12 +283,7 @@ describe("TweetComponentActions", () => {
     };
 
     const createTweetComponentActionsWrapper = (mockState = mockUserTweetState) => {
-        const wrapper = mountWithStore(
-            <TweetComponentActions
-                tweetId={mockFullTweet.id}
-                isFullTweet
-                onOpenTweetAnalytics={jest.fn()}
-            />, mockState);
+        const wrapper = mountWithStore(<TweetComponentActions tweetId={mockFullTweet.id} isFullTweet onOpenTweetAnalytics={jest.fn()} />, mockState);
 
         return { wrapper };
     };

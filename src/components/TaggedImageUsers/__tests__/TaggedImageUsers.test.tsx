@@ -19,8 +19,7 @@ describe("TaggedImageUsers", () => {
     });
 
     it("should render loading spinner", () => {
-        const wrapper = mountWithStore(<TaggedImageUsers tweetId={1} taggedImageUsers={mockUsers} />,
-            createMockRootState(LoadingStatus.LOADING));
+        const wrapper = mountWithStore(<TaggedImageUsers tweetId={1} taggedImageUsers={mockUsers} />, createMockRootState(LoadingStatus.LOADING));
         wrapper.find("#onClickGetTaggedImageUsers").at(0).simulate("click");
         expect(wrapper.find(Spinner).exists()).toBe(true);
     });

@@ -38,13 +38,7 @@ import { setUpdatedBookmarkedTweetTweetsState } from "../../tweets/actionCreator
 import { setUpdatedBookmarkedTweetUserTweetState } from "../../userTweets/actionCreators";
 import { ReplyTweetRequest } from "../contracts/state";
 import { UserResponse } from "../../../../types/user";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { TweetActionType } from "../contracts/actionTypes";
 import { LoadingStatus } from "../../../../types/common";
 import { BookmarkApi } from "../../../../services/api/tweet-service/bookmarkApi";
@@ -124,14 +118,18 @@ describe("tweetSaga:", () => {
         testLoadingStatus(worker, setRepliesLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(tweetSaga, [
-        { actionType: TweetActionType.FETCH_TWEET_DATA, workSaga: fetchTweetDataRequest },
-        { actionType: TweetActionType.ADD_TWEET_TO_BOOKMARKS, workSaga: addTweetToBookmarksRequest },
-        { actionType: TweetActionType.FETCH_REPLY_TWEET, workSaga: fetchReplyTweetRequest },
-        { actionType: TweetActionType.DELETE_TWEET_REPLY, workSaga: deleteTweetReplyRequest },
-        { actionType: TweetActionType.FETCH_LIKED_USERS, workSaga: fetchLikedUsersRequest },
-        { actionType: TweetActionType.FETCH_RETWEETED_USERS, workSaga: fetchRetweetedUsersRequest },
-        { actionType: TweetActionType.FETCH_TAGGED_IMAGE_USERS, workSaga: fetchTaggedImageUsersRequest },
-        { actionType: TweetActionType.FETCH_REPLIES, workSaga: fetchRepliesRequest }
-    ], takeEvery);
+    testWatchSaga(
+        tweetSaga,
+        [
+            { actionType: TweetActionType.FETCH_TWEET_DATA, workSaga: fetchTweetDataRequest },
+            { actionType: TweetActionType.ADD_TWEET_TO_BOOKMARKS, workSaga: addTweetToBookmarksRequest },
+            { actionType: TweetActionType.FETCH_REPLY_TWEET, workSaga: fetchReplyTweetRequest },
+            { actionType: TweetActionType.DELETE_TWEET_REPLY, workSaga: deleteTweetReplyRequest },
+            { actionType: TweetActionType.FETCH_LIKED_USERS, workSaga: fetchLikedUsersRequest },
+            { actionType: TweetActionType.FETCH_RETWEETED_USERS, workSaga: fetchRetweetedUsersRequest },
+            { actionType: TweetActionType.FETCH_TAGGED_IMAGE_USERS, workSaga: fetchTaggedImageUsersRequest },
+            { actionType: TweetActionType.FETCH_REPLIES, workSaga: fetchRepliesRequest }
+        ],
+        takeEvery
+    );
 });

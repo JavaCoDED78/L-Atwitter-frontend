@@ -23,11 +23,7 @@ const SuggestedLists: FC = (): ReactElement => {
     return (
         <Paper className={globalClasses.pageContainer} variant="outlined">
             <SuggestedListsDescription />
-            {isLoading ? (
-                <Spinner />
-            ) : (
-                lists.map((list) => <ListsItem key={list.id} list={list} />)
-            )}
+            {isLoading ? <Spinner /> : lists.map((list) => <ListsItem key={list.id} list={list} />)}
         </Paper>
     );
 };

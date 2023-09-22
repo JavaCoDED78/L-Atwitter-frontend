@@ -4,10 +4,7 @@ import { Dialog, DialogContent } from "@material-ui/core";
 
 import { useFollowerRequestsModalStyles } from "./FollowerRequestsModalSyles";
 import { useGlobalStyles } from "../../../../util/globalClasses";
-import {
-    fetchFollowerRequests,
-    resetFollowerRequestsState
-} from "../../../../store/ducks/followerRequests/actionCreators";
+import { fetchFollowerRequests, resetFollowerRequestsState } from "../../../../store/ducks/followerRequests/actionCreators";
 import {
     selectFollowerRequestsItems,
     selectFollowerRequestsPagesCount,
@@ -53,29 +50,23 @@ const FollowerRequestsModal: FC<FollowerRequestsModalProps> = ({ visible, onClos
         <Dialog open={visible} onClose={onClose} className={classes.dialog}>
             <DialogTitleComponent title={"Follower requests"} onClose={onClose} />
             <DialogContent id="scrollableDiv" className={globalClasses.dialogContent}>
-                <InfiniteScrollWrapper
-                    dataLength={followerRequests.length}
-                    pagesCount={followerRequestsPagesCount}
-                    loadItems={loadFollowerRequests}
-                >
-                    {(isFollowerRequestsLoading && !followerRequests.length) ? (
+                <InfiniteScrollWrapper dataLength={followerRequests.length} pagesCount={followerRequestsPagesCount} loadItems={loadFollowerRequests}>
+                    {isFollowerRequestsLoading && !followerRequests.length ? (
                         <Spinner />
+                    ) : !isFollowerRequestsLoading && !followerRequests.length ? (
+                        <div className={globalClasses.contentWrapper}>
+                            <EmptyPageDescription
+                                title={"You don’t have any follower requests"}
+                                subtitle={"When someone requests to follow you, it’ll show up here."}
+                            />
+                        </div>
                     ) : (
-                        (!isFollowerRequestsLoading && !followerRequests.length) ? (
-                            <div className={globalClasses.contentWrapper}>
-                                <EmptyPageDescription
-                                    title={"You don’t have any follower requests"}
-                                    subtitle={"When someone requests to follow you, it’ll show up here."}
-                                />
-                            </div>
-                        ) : (
-                            <>
-                                {followerRequests.map((followers) => (
-                                    <FollowerRequestsItem key={followers.id} user={followers} onClose={onClose} />
-                                ))}
-                                {isFollowerRequestsLoading && <Spinner />}
-                            </>
-                        )
+                        <>
+                            {followerRequests.map((followers) => (
+                                <FollowerRequestsItem key={followers.id} user={followers} onClose={onClose} />
+                            ))}
+                            {isFollowerRequestsLoading && <Spinner />}
+                        </>
                     )}
                 </InfiniteScrollWrapper>
             </DialogContent>

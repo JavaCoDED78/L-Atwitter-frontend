@@ -10,7 +10,6 @@ Object.defineProperty(window.navigator, "userAgent", {
 });
 
 describe("Sessions", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Sessions />, createMockRootState());
         expect(wrapper.text().includes("Current active session")).toBe(true);

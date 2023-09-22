@@ -23,18 +23,20 @@ const Sessions: FC = (): ReactElement => {
         setOSName(result.getOS().name);
         setBrowserName(result.getBrowserName());
 
-        axios.get(FIND_USER_LOCATION)
+        axios
+            .get(FIND_USER_LOCATION)
             .then((response) => {
                 setCountryName(response.data.country_name);
-            }).catch((error) => console.log(error));
+            })
+            .catch((error) => console.log(error));
     }, []);
 
     return (
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Sessions are the devices you are using or that have used your Twitter account. These are the
-                    sessions where your account is currently logged in. You can log out of each session.
+                    Sessions are the devices you are using or that have used your Twitter account. These are the sessions where your account is
+                    currently logged in. You can log out of each session.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>
@@ -57,23 +59,21 @@ const Sessions: FC = (): ReactElement => {
                 <div className={classes.sessionLink}>
                     <div className={classes.sessionInfo}>
                         <div className={classes.deviceIconWrapper}>
-                            <span className={classes.deviceIcon}>
-                                {DeviceIcon}
-                            </span>
+                            <span className={classes.deviceIcon}>{DeviceIcon}</span>
                         </div>
                         <div>
                             <Typography variant={"body1"} component={"div"}>
                                 {OSName}
                             </Typography>
                             <Typography variant={"subtitle2"} component={"div"}>
-                                {countryName} · <Typography component={"span"} className={classes.active}>Active
-                                now</Typography>
+                                {countryName} ·{" "}
+                                <Typography component={"span"} className={classes.active}>
+                                    Active now
+                                </Typography>
                             </Typography>
                         </div>
                     </div>
-                    <span className={classes.arrowIcon}>
-                        {ArrowRightIcon}
-                    </span>
+                    <span className={classes.arrowIcon}>{ArrowRightIcon}</span>
                 </div>
             </Link>
             <Divider />

@@ -10,7 +10,6 @@ import {
 } from "../../../../constants/path-constants";
 
 describe("AccessibilityDisplayLanguages", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<AccessibilityDisplayLanguages />, createMockRootState());
 
@@ -22,8 +21,7 @@ describe("AccessibilityDisplayLanguages", () => {
     });
 
     it("should link to Accessibility", () => {
-        testClickOnLink(
-            <AccessibilityDisplayLanguages />, SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY, 0);
+        testClickOnLink(<AccessibilityDisplayLanguages />, SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_ACCESSIBILITY, 0);
     });
 
     it("should link to Display", () => {

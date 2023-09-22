@@ -33,7 +33,7 @@ export interface ChatMessageResponse {
             fullName: string;
             username: string;
             avatar: string;
-        }
+        };
     };
     chat: {
         id: number;

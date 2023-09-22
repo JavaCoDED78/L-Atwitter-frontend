@@ -27,7 +27,13 @@ const ChangeYourPassword = (): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useChangeYourPasswordStyles();
     const dispatch = useDispatch();
-    const { control, handleSubmit, setError, formState: { errors }, reset } = useForm<ChangeYourPasswordFormProps>({
+    const {
+        control,
+        handleSubmit,
+        setError,
+        formState: { errors },
+        reset
+    } = useForm<ChangeYourPasswordFormProps>({
         resolver: yupResolver(ChangeYourPasswordFormSchema)
     });
 
@@ -132,12 +138,7 @@ const ChangeYourPassword = (): ReactElement => {
                 </div>
                 <Divider />
                 <div className={classnames(classes.buttonWrapper, globalClasses.itemInfoWrapper)}>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                    >
+                    <Button type="submit" variant="contained" color="primary" size="small">
                         Save
                     </Button>
                 </div>

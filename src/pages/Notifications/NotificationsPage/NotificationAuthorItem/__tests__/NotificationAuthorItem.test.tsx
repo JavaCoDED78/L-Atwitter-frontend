@@ -34,7 +34,6 @@ describe("NotificationAuthorItem", () => {
 
         wrapper.find("div").at(0).simulate("mouseleave");
         expect(wrapper.find(PopperUserWindow).prop("visible")).toBe(false);
-
     });
 
     it("should render default avatar image", () => {
@@ -42,6 +41,5 @@ describe("NotificationAuthorItem", () => {
         const wrapper = mountWithStore(<NotificationAuthorItem tweetAuthor={mockAuthor} />, mockStore);
 
         expect(wrapper.find(Avatar).prop("src")).toBe(DEFAULT_PROFILE_IMG);
-
     });
 });

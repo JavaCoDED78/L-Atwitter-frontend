@@ -36,11 +36,7 @@ const PinTweetButton: FC<PinTweetButtonProps> = memo(({ tweetId, onCloseActionsD
             <ListItem id={"pin"} onClick={onOpenModalWindow}>
                 <>{PinIcon}</>
                 <Typography variant={"body1"} component={"span"}>
-                    {(isTweetPinned) ? (
-                        "Unpin from profile"
-                    ) : (
-                        "Pin to your profile"
-                    )}
+                    {isTweetPinned ? "Unpin from profile" : "Pin to your profile"}
                 </Typography>
             </ListItem>
             <TweetComponentActionsModal

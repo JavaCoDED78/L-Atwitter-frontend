@@ -37,6 +37,8 @@ describe("TweetComponentActionsModal", () => {
                 visibleTweetComponentActionsModal={true}
                 onCloseTweetComponentActionsModal={jest.fn()}
                 onClick={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
     };
 });

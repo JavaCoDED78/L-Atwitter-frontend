@@ -35,9 +35,7 @@ const Notifications: FC = (): ReactElement => {
         <Paper className={globalClasses.pageContainer} variant="outlined">
             <Paper className={classnames(globalClasses.pageHeader, classes.header)}>
                 <div className={globalClasses.pageHeaderTitleWrapper}>
-                    <Typography variant="h5">
-                        Notifications
-                    </Typography>
+                    <Typography variant="h5">Notifications</Typography>
                 </div>
             </Paper>
             <div className={globalClasses.contentWrapper}>

@@ -38,9 +38,7 @@ const ChangeLanguage: FC = (): ReactElement => {
         <>
             <div className={classes.selectWrapper}>
                 <FormControl variant="filled">
-                    <InputLabel htmlFor="select-language">
-                        Display Language
-                    </InputLabel>
+                    <InputLabel htmlFor="select-language">Display Language</InputLabel>
                     <FilledSelect
                         variant="filled"
                         labelId="select-language"
@@ -56,20 +54,13 @@ const ChangeLanguage: FC = (): ReactElement => {
                     </FilledSelect>
                 </FormControl>
                 <Typography variant={"subtitle2"} component={"div"} className={classes.languageInfo}>
-                    Select your preferred language for headlines, buttons, and other text from Twitter on this account.
-                    This does not change the language of the content you see in your timeline.
+                    Select your preferred language for headlines, buttons, and other text from Twitter on this account. This does not change the
+                    language of the content you see in your timeline.
                 </Typography>
             </div>
             <Divider />
             <div className={classes.buttonWrapper}>
-                <Button
-                    onClick={onSubmit}
-                    disabled={isLoading}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <Button onClick={onSubmit} disabled={isLoading} type="submit" variant="contained" color="primary" size="small">
                     Save
                 </Button>
             </div>

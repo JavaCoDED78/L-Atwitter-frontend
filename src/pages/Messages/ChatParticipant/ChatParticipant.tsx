@@ -13,13 +13,7 @@ interface ChatParticipantProps {
     handleListItemClick: (chat: ChatResponse) => void;
 }
 
-const ChatParticipant: FC<ChatParticipantProps> = memo((
-    {
-        chat,
-        participantUserId,
-        handleListItemClick
-    }
-): ReactElement => {
+const ChatParticipant: FC<ChatParticipantProps> = memo(({ chat, participantUserId, handleListItemClick }): ReactElement => {
     const classes = useChatParticipantStyles();
     const myProfileId = useSelector(selectUserDataId);
     const isParticipantSelected = chat.participants.findIndex((participant) => participant.id === participantUserId);
@@ -36,26 +30,18 @@ const ChatParticipant: FC<ChatParticipantProps> = memo((
             <div className={classes.userWrapper}>
                 <Avatar
                     className={classes.userAvatar}
-                    src={(isMyProfile) ? (
-                        chat.participants[0].user.avatar ?? DEFAULT_PROFILE_IMG
-                    ) : (
-                        chat.participants[1].user.avatar ?? DEFAULT_PROFILE_IMG
-                    )}
+                    src={
+                        isMyProfile
+                            ? chat.participants[0].user.avatar ?? DEFAULT_PROFILE_IMG
+                            : chat.participants[1].user.avatar ?? DEFAULT_PROFILE_IMG
+                    }
                 />
                 <div>
                     <Typography variant={"h6"} component={"span"}>
-                        {(isMyProfile) ? (
-                            chat.participants[0].user.fullName
-                        ) : (
-                            chat.participants[1].user.fullName
-                        )}
+                        {isMyProfile ? chat.participants[0].user.fullName : chat.participants[1].user.fullName}
                     </Typography>
                     <Typography variant={"subtitle1"} component={"span"} className={classes.username}>
-                        {(isMyProfile) ? (
-                            `@${chat.participants[0].user.username}`
-                        ) : (
-                            `@${chat.participants[1].user.username}`
-                        )}
+                        {isMyProfile ? `@${chat.participants[0].user.username}` : `@${chat.participants[1].user.username}`}
                     </Typography>
                 </div>
             </div>

@@ -21,7 +21,10 @@ describe("ChangeLanguage", () => {
         expect(wrapper.text().includes("Display Language")).toBe(true);
         expect(wrapper.find(FilledSelect).prop("value")).toBe(mockStore.user.data?.language);
 
-        wrapper.find(FilledSelect).find("select").simulate("change", { target: { value: "English" } });
+        wrapper
+            .find(FilledSelect)
+            .find("select")
+            .simulate("change", { target: { value: "English" } });
         wrapper.find(Button).simulate("click");
 
         expect(wrapper.find(FilledSelect).prop("value")).toBe("English");

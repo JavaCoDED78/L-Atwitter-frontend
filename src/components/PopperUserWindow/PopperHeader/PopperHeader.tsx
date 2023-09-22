@@ -40,22 +40,16 @@ const PopperHeader = memo((): ReactElement => {
             <Link to={`${PROFILE}/${userId}`}>
                 <Avatar className={classes.avatar} src={avatar} alt={`avatar ${userId}`} />
             </Link>
-            {(myProfileId === userId) ? null : (
-                (isMyProfileBlocked) ? null : (
-                    (!isFollower) ? (
-                        (isUserBlocked) ? (
-                            <BlockButton userId={userId!} username={username!} isUserBlocked={isUserBlocked} />
-                        ) : (
-                            (isWaitingForApprove) ? (
-                                <PendingButton userId={userId!} />
-                            ) : (
-                                <FollowButton userId={userId!} isPrivateProfile={isPrivateProfile!} />
-                            )
-                        )
-                    ) : (
-                        <UnfollowButton userId={userId!} isPrivateProfile={isPrivateProfile!} fullName={fullName!} />
-                    )
+            {myProfileId === userId ? null : isMyProfileBlocked ? null : !isFollower ? (
+                isUserBlocked ? (
+                    <BlockButton userId={userId!} username={username!} isUserBlocked={isUserBlocked} />
+                ) : isWaitingForApprove ? (
+                    <PendingButton userId={userId!} />
+                ) : (
+                    <FollowButton userId={userId!} isPrivateProfile={isPrivateProfile!} />
                 )
+            ) : (
+                <UnfollowButton userId={userId!} isPrivateProfile={isPrivateProfile!} fullName={fullName!} />
             )}
         </div>
     );

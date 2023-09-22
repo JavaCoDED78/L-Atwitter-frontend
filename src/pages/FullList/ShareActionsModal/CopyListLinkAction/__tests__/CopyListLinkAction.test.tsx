@@ -14,9 +14,7 @@ describe("CopyListLinkAction", () => {
     });
 
     it("should click onCopyLinkToList", () => {
-        const wrapper = mountWithStore(
-            <CopyListLinkAction onClickClose={jest.fn()} />,
-            createMockRootState(LoadingStatus.LOADED));
+        const wrapper = mountWithStore(<CopyListLinkAction onClickClose={jest.fn()} />, createMockRootState(LoadingStatus.LOADED));
         wrapper.find(ListItem).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {
             payload: "Copied to clipboard",

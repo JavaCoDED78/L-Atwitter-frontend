@@ -15,43 +15,28 @@ interface SendDirectMessageFooterProps {
     onSendMessageFinish: () => void;
 }
 
-const SendDirectMessageFooter: FC<SendDirectMessageFooterProps> = memo((
-    {
-        tweetId,
-        selectedUsers,
-        onSendMessageFinish
-    }
-): ReactElement => {
+const SendDirectMessageFooter: FC<SendDirectMessageFooterProps> = memo(({ tweetId, selectedUsers, onSendMessageFinish }): ReactElement => {
     const classes = useSendDirectTweetModalStyles();
     const dispatch = useDispatch();
     const { text, setText, handleChangeText } = useInputText();
 
     const handleClickSendMessage = (): void => {
-        dispatch(addChatMessageWithTweet({
-            text,
-            tweetId,
-            usersIds: selectedUsers.map((user) => user.id!)
-        }));
+        dispatch(
+            addChatMessageWithTweet({
+                text,
+                tweetId,
+                usersIds: selectedUsers.map((user) => user.id!)
+            })
+        );
         setText("");
         onSendMessageFinish();
     };
 
     return (
         <div className={classes.footer}>
-            <SendDirectMessageInput
-                multiline
-                value={text}
-                onChange={handleChangeText}
-                variant="outlined"
-                placeholder="Add a comment"
-            />
+            <SendDirectMessageInput multiline value={text} onChange={handleChangeText} variant="outlined" placeholder="Add a comment" />
             <div className={classes.chatIcon}>
-                <IconButton
-                    onClick={handleClickSendMessage}
-                    disabled={selectedUsers.length === 0}
-                    color="primary"
-                    size="small"
-                >
+                <IconButton onClick={handleClickSendMessage} disabled={selectedUsers.length === 0} color="primary" size="small">
                     <>{SendMessageIcon}</>
                 </IconButton>
             </div>

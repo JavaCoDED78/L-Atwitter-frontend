@@ -24,10 +24,10 @@ export const AuthenticationApi = {
     async getUserByPasswordResetCode(resetCode: string): Promise<AxiosResponse<AuthUserResponse>> {
         return await axios.get<AuthUserResponse>(`${API_AUTH_RESET}/${resetCode}`);
     },
-    async passwordReset(postData: { email: string; password: string, password2: string }): Promise<AxiosResponse<string>> {
+    async passwordReset(postData: { email: string; password: string; password2: string }): Promise<AxiosResponse<string>> {
         return await axios.post<string>(API_AUTH_RESET, postData);
     },
-    async currentPasswordReset(postData: { currentPassword: string; password: string, password2: string }): Promise<AxiosResponse<string>> {
+    async currentPasswordReset(postData: { currentPassword: string; password: string; password2: string }): Promise<AxiosResponse<string>> {
         return await axios.post<string>(API_AUTH_RESET_CURRENT, postData);
     }
 };

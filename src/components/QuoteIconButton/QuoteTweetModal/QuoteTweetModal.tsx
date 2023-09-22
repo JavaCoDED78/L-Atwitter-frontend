@@ -24,13 +24,7 @@ const QuoteTweetModal: FC<QuoteTweetModalProps> = ({ quoteTweet, visible, onClos
         <Dialog className={classes.content} open={visible} onClose={onClose}>
             <DialogTitleComponent onClose={onClose} />
             <DialogContent className={classes.dialogContent}>
-                <AddTweetForm
-                    quoteTweet={quoteTweet}
-                    minRows={1}
-                    title={"Add a comment"}
-                    buttonName={"Tweet"}
-                    onCloseModal={onClose}
-                />
+                <AddTweetForm quoteTweet={quoteTweet} minRows={1} title={"Add a comment"} buttonName={"Tweet"} onCloseModal={onClose} />
             </DialogContent>
         </Dialog>
     );

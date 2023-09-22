@@ -3,19 +3,12 @@ import { AxiosResponse } from "axios";
 import { testCall, testLoadingStatus, testSetResponse } from "../../../../util/test-utils/test-helper";
 import { LoadingStatus } from "../../../../types/common";
 import { fetchRecentSearchResultRequest, fetchSearchByTextRequest } from "../sagas";
-import {
-    fetchRecentSearchResult,
-    fetchSearchByText,
-    setRecentSearchResult,
-    setSearchLoadingState,
-    setSearchResult
-} from "../actionCreators";
+import { fetchRecentSearchResult, fetchSearchByText, setRecentSearchResult, setSearchLoadingState, setSearchResult } from "../actionCreators";
 import { UserApi } from "../../../../services/api/user-service/userApi";
 import { CommonUserResponse, SearchResultResponse } from "../../../../types/user";
 import { SearchTermsRequest } from "../contracts/state";
 
 describe("searchSaga:", () => {
-
     describe("fetchSearchByTextRequest:", () => {
         const mockSearchResult = { data: { text: "test" } } as AxiosResponse<SearchResultResponse>;
         const worker = fetchSearchByTextRequest(fetchSearchByText("test"));
@@ -31,11 +24,17 @@ describe("searchSaga:", () => {
         const worker = fetchRecentSearchResultRequest(fetchRecentSearchResult(searchTermsRequest));
         testLoadingStatus(worker, setSearchLoadingState, LoadingStatus.LOADING);
         testCall(worker, UserApi.getSearchResults, searchTermsRequest);
-        testSetResponse(worker, mockCommonUser, setRecentSearchResult, {
-            text: [],
-            tags: [],
-            users: mockCommonUser.data
-        }, "RecentSearchResult");
+        testSetResponse(
+            worker,
+            mockCommonUser,
+            setRecentSearchResult,
+            {
+                text: [],
+                tags: [],
+                users: mockCommonUser.data
+            },
+            "RecentSearchResult"
+        );
         testLoadingStatus(worker, setSearchLoadingState, LoadingStatus.ERROR);
     });
 });

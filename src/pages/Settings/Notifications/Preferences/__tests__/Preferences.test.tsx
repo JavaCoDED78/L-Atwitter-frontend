@@ -2,13 +2,9 @@ import React from "react";
 
 import Preferences from "../Preferences";
 import { createMockRootState, mountWithStore, testClickOnLink } from "../../../../../util/test-utils/test-helper";
-import {
-    SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS,
-    SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS
-} from "../../../../../constants/path-constants";
+import { SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS, SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS } from "../../../../../constants/path-constants";
 
 describe("Preferences", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Preferences />, createMockRootState());
 

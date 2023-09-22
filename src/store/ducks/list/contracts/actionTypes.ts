@@ -11,7 +11,7 @@ export enum ListActionType {
     EDIT_LIST = "list/EDIT_LIST",
     DELETE_LIST = "list/DELETE_LIST",
     RESET_LIST_STATE = "list/RESET_LIST_STATE",
-    SET_LOADING_STATE = "list/SET_LOADING_STATE",
+    SET_LOADING_STATE = "list/SET_LOADING_STATE"
 }
 
 export interface SetListActionInterface extends Action<ListActionType> {

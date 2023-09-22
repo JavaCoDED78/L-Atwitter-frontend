@@ -28,7 +28,7 @@ describe("FollowedTopicButton", () => {
         expect(wrapper.find("#closeIcon").exists()).toBeTruthy();
         wrapper.find(Button).at(1).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {
-            payload:  mockTopics[0].id,
+            payload: mockTopics[0].id,
             type: TopicsActionsType.PROCESS_NOT_INTERESTED_TOPIC
         });
     });

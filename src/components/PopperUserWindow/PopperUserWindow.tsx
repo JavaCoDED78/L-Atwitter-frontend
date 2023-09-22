@@ -14,13 +14,7 @@ interface PopperUserWindowProps {
     isTweetImageModal?: boolean;
 }
 
-const PopperUserWindow: FC<PopperUserWindowProps> = (
-    {
-        visible,
-        isTweetComponent,
-        isTweetImageModal
-    }
-): ReactElement | null => {
+const PopperUserWindow: FC<PopperUserWindowProps> = ({ visible, isTweetComponent, isTweetImageModal }): ReactElement | null => {
     const classes = usePopperUserWindowStyles({ isTweetComponent });
     const isMyProfileBlocked = useSelector(selectUserDetailIsMyProfileBlocked);
 
@@ -30,11 +24,7 @@ const PopperUserWindow: FC<PopperUserWindowProps> = (
 
     return (
         <div
-            className={classNames(
-                classes.popperUserWindow,
-                isTweetComponent && classes.tweetComponent,
-                isTweetImageModal && classes.tweetImageModal
-            )}
+            className={classNames(classes.popperUserWindow, isTweetComponent && classes.tweetComponent, isTweetImageModal && classes.tweetImageModal)}
         >
             <PopperHeader />
             <PopperInfo />

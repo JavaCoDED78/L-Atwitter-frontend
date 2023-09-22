@@ -15,17 +15,7 @@ interface RegistrationInputProps {
     maxTextLength: number;
 }
 
-const RegistrationInput: FC<RegistrationInputProps> = (
-    {
-        onChange,
-        value,
-        helperText,
-        error,
-        name,
-        label,
-        maxTextLength
-    }
-): ReactElement => {
+const RegistrationInput: FC<RegistrationInputProps> = ({ onChange, value, helperText, error, name, label, maxTextLength }): ReactElement => {
     const classes = useRegistrationInputStyles();
     const { focused, onFocus, onBlur } = useFocus();
 

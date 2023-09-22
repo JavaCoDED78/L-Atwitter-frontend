@@ -54,26 +54,14 @@ const ChangeUsername: FC = (): ReactElement => {
                     <Typography variant={"h5"} component={"div"}>
                         Suggestions
                     </Typography>
-                    <Typography
-                        id={"suggestedUsername"}
-                        onClick={setSuggestedUsername}
-                        variant={"body1"}
-                        component={"span"}
-                    >
+                    <Typography id={"suggestedUsername"} onClick={setSuggestedUsername} variant={"body1"} component={"span"}>
                         {`${myProfileUsername}123`}
                     </Typography>
                 </div>
                 <Divider />
             </div>
             <div className={classnames(classes.buttonWrapper, globalClasses.itemInfoWrapper)}>
-                <Button
-                    onClick={changeUsername}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    disabled={!username || isLoading}
-                >
+                <Button onClick={changeUsername} type="submit" variant="contained" color="primary" size="small" disabled={!username || isLoading}>
                     Save
                 </Button>
             </div>

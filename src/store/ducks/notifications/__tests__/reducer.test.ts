@@ -1,12 +1,7 @@
 import { testActionDispatch } from "../../../../util/test-utils/test-helper";
 import { initialNotificationsState, notificationsReducer } from "../reducer";
 import { NotificationsActions, NotificationsActionsType } from "../contracts/actionTypes";
-import {
-    NotificationInfoResponse,
-    NotificationReplyResponse,
-    NotificationResponse,
-    NotificationUserResponse
-} from "../../../../types/notification";
+import { NotificationInfoResponse, NotificationReplyResponse, NotificationResponse, NotificationUserResponse } from "../../../../types/notification";
 import { LoadingStatus, NotificationType } from "../../../../types/common";
 
 describe("notificationsReducer:", () => {

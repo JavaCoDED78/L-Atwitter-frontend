@@ -12,13 +12,7 @@ import GifTopics from "./GifTopics/GifTopics";
 import GifList from "./GifList/GifList";
 import Spinner from "../../../Spinner/Spinner";
 import { GiphyDataProps } from "../../../../types/tweet";
-import {
-    fetchGifs,
-    resetGifs,
-    setGif,
-    setGifs,
-    setLoadingGifsState
-} from "../../../../store/ducks/addTweetForm/actionCreators";
+import { fetchGifs, resetGifs, setGif, setGifs, setLoadingGifsState } from "../../../../store/ducks/addTweetForm/actionCreators";
 import { selectIsGifsLoaded, selectIsGifsLoading } from "../../../../store/ducks/addTweetForm/selector";
 import { LoadingStatus } from "../../../../types/common";
 
@@ -72,25 +66,19 @@ const GifModalWindow: FC<GifModalWindowProps> = ({ visible, onClose }): ReactEle
                     onChange={handleChangeText}
                     value={text}
                     InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                {SearchIcon}
-                            </InputAdornment>
-                        )
+                        startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>
                     }}
                     marginTop={0}
                     width={520}
                 />
             </DialogTitle>
             <DialogContent className={globalClasses.dialogContent}>
-                {(isGifsLoading && text !== "") ? (
+                {isGifsLoading && text !== "" ? (
                     <Spinner />
+                ) : isGifsLoaded && text === "" ? (
+                    <GifTopics onClickGifTopic={onClickGifTopic} />
                 ) : (
-                    (isGifsLoaded && text === "") ? (
-                        <GifTopics onClickGifTopic={onClickGifTopic} />
-                    ) : (
-                        <GifList onClickGif={onClickGif} />
-                    )
+                    <GifList onClickGif={onClickGif} />
                 )}
             </DialogContent>
         </Dialog>

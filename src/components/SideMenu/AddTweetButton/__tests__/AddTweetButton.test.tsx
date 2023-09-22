@@ -8,7 +8,6 @@ import AddTweetModal from "../../../AddTweetModal/AddTweetModal";
 import CloseButton from "../../../CloseButton/CloseButton";
 
 describe("AddTweetButton", () => {
-
     it("should open and close Add Tweet Modal  window", () => {
         const wrapper = mountWithStore(<AddTweetButton />, createMockRootState(LoadingStatus.SUCCESS));
         expect(wrapper.find(AddTweetModal).prop("visible")).toBe(false);

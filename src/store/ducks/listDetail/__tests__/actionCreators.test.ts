@@ -1,12 +1,6 @@
 import axios from "axios";
 import { testAction } from "../../../../util/test-utils/test-helper";
-import {
-    fetchListDetail,
-    resetListDetailState,
-    setListDetail,
-    setListDetailLoadingState,
-    updateFollowListDetail
-} from "../actionCreators";
+import { fetchListDetail, resetListDetailState, setListDetail, setListDetailLoadingState, updateFollowListDetail } from "../actionCreators";
 import { ListDetailActionsType } from "../contracts/actionTypes";
 import { BaseListResponse } from "../../../../types/lists";
 import { LoadingStatus } from "../../../../types/common";

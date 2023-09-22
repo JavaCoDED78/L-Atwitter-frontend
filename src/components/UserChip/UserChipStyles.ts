@@ -17,6 +17,6 @@ export const useUserChipStyles = makeStyles((theme) => ({
             "&:focus": {
                 backgroundColor: "rgb(29, 155, 240, 0.1)"
             }
-        },
+        }
     }
 }));

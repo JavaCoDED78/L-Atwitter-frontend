@@ -53,20 +53,13 @@ const CheckEmailCode: FC = (): ReactElement => {
                         Incorrect code. Please try again.
                     </Typography>
                 )}
-                <Button
-                    className={classes.button}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <Button className={classes.button} type="submit" variant="contained" color="primary" size="small">
                     Verify
                 </Button>
             </form>
             <div>
                 <Typography variant={"body1"} component={"div"} className={classes.footerText}>
-                    If you don't see the email, check other places it might be, like your junk, spam, social,
-                    or other folders.
+                    If you don't see the email, check other places it might be, like your junk, spam, social, or other folders.
                 </Typography>
                 <MuiLink href={REGAIN_ACCESS} variant="subtitle2" target="_blank" rel="noopener">
                     Didn’t receive your code?

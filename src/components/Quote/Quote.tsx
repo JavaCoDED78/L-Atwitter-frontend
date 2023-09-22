@@ -31,8 +31,12 @@ const Quote: FC<QuoteProps> = memo(({ quoteTweet }): ReactElement => {
                     </Typography>
                     <Typography component={"span"} className={classes.quoteTweetUsername}>
                         @{quoteTweet.user.username}
-                    </Typography>&nbsp;
-                    <Typography component={"span"} className={classes.quoteTweetUsername}>·</Typography>&nbsp;
+                    </Typography>
+                    &nbsp;
+                    <Typography component={"span"} className={classes.quoteTweetUsername}>
+                        ·
+                    </Typography>
+                    &nbsp;
                     <Typography component={"span"} className={classes.quoteTweetUsername}>
                         {formatDate(new Date(quoteTweet.dateTime))}
                     </Typography>

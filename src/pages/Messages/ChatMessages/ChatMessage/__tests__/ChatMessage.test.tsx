@@ -23,8 +23,7 @@ describe("ChatMessage", () => {
     });
 
     it("should render participant message with tweet", () => {
-        const wrapper = mountWithStore(<ChatMessage message={mockUserMessageWithTweet}
-                                                    isParticipantMessage />, mockChatStore);
+        const wrapper = mountWithStore(<ChatMessage message={mockUserMessageWithTweet} isParticipantMessage />, mockChatStore);
         expect(wrapper.text().includes(formatDate(new Date(mockUserMessageWithTweet.tweet.dateTime)))).toBe(true);
     });
 
@@ -33,14 +32,12 @@ describe("ChatMessage", () => {
             ...mockUserMessageWithTweet,
             tweet: { ...mockUserMessageWithTweet.tweet, isDeleted: true }
         };
-        const wrapper = mountWithStore(<ChatMessage message={mockMessageDeletedTweet}
-                                                    isParticipantMessage />, mockChatStore);
+        const wrapper = mountWithStore(<ChatMessage message={mockMessageDeletedTweet} isParticipantMessage />, mockChatStore);
         expect(wrapper.text().includes("Tweet deleted")).toBe(true);
     });
 
     it("should render my message", () => {
-        const wrapper = mountWithStore(<ChatMessage message={mockMyMessage}
-                                                    isParticipantMessage={false} />, mockChatStore);
+        const wrapper = mountWithStore(<ChatMessage message={mockMyMessage} isParticipantMessage={false} />, mockChatStore);
         expect(wrapper.text().includes(mockMyMessage.text)).toBe(true);
         expect(wrapper.text().includes(formatChatMessageDate(new Date(mockMyMessage.date)))).toBe(true);
         expect(wrapper.find("#checkIcon").exists()).toBeTruthy();

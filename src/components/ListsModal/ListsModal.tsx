@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Dialog, DialogContent, List, ListItem, Typography } from "@material-ui/core";
 
 import { useListsModalStyles } from "./ListsModalStyles";
-import {
-    selectIsSimpleListsLoaded,
-    selectIsSimpleListsLoading,
-    selectSimpleListsItems
-} from "../../store/ducks/lists/selectors";
+import { selectIsSimpleListsLoaded, selectIsSimpleListsLoading, selectSimpleListsItems } from "../../store/ducks/lists/selectors";
 import { fetchSimpleLists, processUserToLists, resetListsState } from "../../store/ducks/lists/actionCreators";
 import { SimpleListResponse } from "../../types/lists";
 import Spinner from "../Spinner/Spinner";
@@ -66,7 +62,7 @@ const ListsModal: FC<ListsModalProps> = ({ userId, visible, onClose }): ReactEle
     }
 
     return (
-        <Dialog open={visible} onClose={onClose} >
+        <Dialog open={visible} onClose={onClose}>
             <form onSubmit={onSubmit}>
                 <DialogTitleComponent title={"Pick a List"} onClose={onClose}>
                     <Button type="submit" variant="contained" color="primary" size="small">
@@ -83,13 +79,7 @@ const ListsModal: FC<ListsModalProps> = ({ userId, visible, onClose }): ReactEle
                         ) : (
                             <List>
                                 {lists.map((list) => (
-                                    <ListItem
-                                        key={list.id}
-                                        onClick={() => onSelect(list.id)}
-                                        selected={list.isMemberInList}
-                                        dense
-                                        button
-                                    >
+                                    <ListItem key={list.id} onClick={() => onSelect(list.id)} selected={list.isMemberInList} dense button>
                                         <ListsModalItem list={list} />
                                     </ListItem>
                                 ))}

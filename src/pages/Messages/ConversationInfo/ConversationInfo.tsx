@@ -47,12 +47,15 @@ const ConversationInfo: FC<ConversationInfoProps> = ({ participantId, chatId }):
         };
     }, []);
 
-    const onBlockUser = useCallback((event: React.MouseEvent<HTMLButtonElement>): void => {
-        event.preventDefault();
-        dispatch(processUserToBlocklist({ userId: chatParticipant?.id! }));
-        setVisibleBlockUserModal(false);
-        dispatch(setOpenSnackBar(`@${chatParticipant?.username!} has been ${chatParticipant?.isUserBlocked ? "unblocked" : "blocked"}.`));
-    }, [chatParticipant?.id]);
+    const onBlockUser = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>): void => {
+            event.preventDefault();
+            dispatch(processUserToBlocklist({ userId: chatParticipant?.id! }));
+            setVisibleBlockUserModal(false);
+            dispatch(setOpenSnackBar(`@${chatParticipant?.username!} has been ${chatParticipant?.isUserBlocked ? "unblocked" : "blocked"}.`));
+        },
+        [chatParticipant?.id]
+    );
 
     const onOpenBlockUserModal = useCallback((): void => {
         setVisibleBlockUserModal(true);
@@ -81,18 +84,16 @@ const ConversationInfo: FC<ConversationInfoProps> = ({ participantId, chatId }):
                                             isPrivateProfile={chatParticipant?.isPrivateProfile}
                                         />
                                         <div className={classes.buttonWrapper}>
-                                            {(!chatParticipant?.isFollower) ? (
-                                                (chatParticipant?.isUserBlocked) ? (
+                                            {!chatParticipant?.isFollower ? (
+                                                chatParticipant?.isUserBlocked ? (
                                                     <BlockButton onBlockUser={onBlockUser} />
+                                                ) : chatParticipant?.isWaitingForApprove ? (
+                                                    <PendingButton userId={chatParticipant?.id!} />
                                                 ) : (
-                                                    (chatParticipant?.isWaitingForApprove) ? (
-                                                        <PendingButton userId={chatParticipant?.id!} />
-                                                    ) : (
-                                                        <FollowButton
-                                                            isPrivateProfile={chatParticipant?.isPrivateProfile!}
-                                                            userId={chatParticipant?.id!}
-                                                        />
-                                                    )
+                                                    <FollowButton
+                                                        isPrivateProfile={chatParticipant?.isPrivateProfile!}
+                                                        userId={chatParticipant?.id!}
+                                                    />
                                                 )
                                             ) : (
                                                 <UnfollowButton

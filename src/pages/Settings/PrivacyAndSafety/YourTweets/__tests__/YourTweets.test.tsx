@@ -7,7 +7,6 @@ import { MEDIA_POLICY } from "../../../../../constants/url-constants";
 import { SETTINGS_PRIVACY_AND_SAFETY_LOCATION } from "../../../../../constants/path-constants";
 
 describe("YourTweets", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<YourTweets />, createMockRootState());
         expect(wrapper.text().includes("Manage the information associated with your Tweets.")).toBe(true);

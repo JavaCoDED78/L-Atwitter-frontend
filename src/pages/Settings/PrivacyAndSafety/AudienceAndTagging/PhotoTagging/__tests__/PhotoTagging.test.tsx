@@ -5,7 +5,6 @@ import PhotoTagging from "../PhotoTagging";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 
 describe("PhotoTagging", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<PhotoTagging />, createMockRootState());
 

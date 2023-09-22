@@ -16,15 +16,7 @@ interface DialogWrapperProps {
     children?: ReactNode;
 }
 
-const DialogWrapper: FC<DialogWrapperProps> = (
-    {
-        isOpen,
-        onClick,
-        disabledButton,
-        logo = true,
-        children
-    }
-): ReactElement => {
+const DialogWrapper: FC<DialogWrapperProps> = ({ isOpen, onClick, disabledButton, logo = true, children }): ReactElement => {
     const classes = useDialogWrapperStyles();
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoading);

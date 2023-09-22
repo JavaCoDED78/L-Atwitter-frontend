@@ -40,7 +40,7 @@ describe("Suggested", () => {
                 followedTopics: mockTopics,
                 topicsByCategories: [
                     { topicCategory: TopicCategory.GAMING, topicsByCategories: mockTopics },
-                    { topicCategory: TopicCategory.ONLY_ON_TWITTER, topicsByCategories: mockTopics },
+                    { topicCategory: TopicCategory.ONLY_ON_TWITTER, topicsByCategories: mockTopics }
                 ]
             }
         };
@@ -60,5 +60,4 @@ describe("Suggested", () => {
         wrapper.unmount();
         expect(mockDispatchFn).nthCalledWith(3, { type: TopicsActionsType.RESET_TOPICS_STATE });
     });
-
 });

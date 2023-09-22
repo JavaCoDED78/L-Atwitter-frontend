@@ -21,12 +21,7 @@ import {
     API_TWEETS_USER_TWEETS,
     API_TWEETS_VIDEO
 } from "../../../../constants/endpoint-constants";
-import {
-    mockFullTweet,
-    mockTweets,
-    mockUsers,
-    mockUserTweetAdditionalInfo
-} from "../../../../util/test-utils/mock-test-data";
+import { mockFullTweet, mockTweets, mockUsers, mockUserTweetAdditionalInfo } from "../../../../util/test-utils/mock-test-data";
 import { TweetApi } from "../tweetApi";
 
 describe("TweetApi", () => {
@@ -203,11 +198,27 @@ describe("TweetApi", () => {
         const mockChangeReplyType = { tweetId: 1, userId: 1, replyType: ReplyType.MENTION };
 
         it("[200] should change tweet reply type Success", () => {
-            testApiCall(mockAdapter, "onGet", `${API_TWEETS_CHANGE_REPLY}/1/1`, 200, mockFullTweet, TweetApi.changeTweetReplyType, mockChangeReplyType);
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_TWEETS_CHANGE_REPLY}/1/1`,
+                200,
+                mockFullTweet,
+                TweetApi.changeTweetReplyType,
+                mockChangeReplyType
+            );
         });
 
         it("[404] should return tweet Not Found", () => {
-            testApiCall(mockAdapter, "onGet", `${API_TWEETS_CHANGE_REPLY}/1/1`, 404, tweetNotFoundError, TweetApi.changeTweetReplyType, mockChangeReplyType);
+            testApiCall(
+                mockAdapter,
+                "onGet",
+                `${API_TWEETS_CHANGE_REPLY}/1/1`,
+                404,
+                tweetNotFoundError,
+                TweetApi.changeTweetReplyType,
+                mockChangeReplyType
+            );
         });
     });
 });

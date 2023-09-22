@@ -15,9 +15,7 @@ const MessageSettings = memo((): ReactElement => {
         <Paper className={classnames(globalClasses.pageContainer, classes.chatContainer)} variant="outlined">
             <Paper className={classnames(globalClasses.pageHeader, classes.chatHeader)} variant="outlined">
                 <BackButton />
-                <Typography variant="h5">
-                    Direct Messages
-                </Typography>
+                <Typography variant="h5">Direct Messages</Typography>
             </Paper>
             <div className={globalClasses.contentWrapper}>
                 <DirectMessages />

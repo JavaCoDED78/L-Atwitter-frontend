@@ -17,7 +17,9 @@ describe("TweetAnalyticsModal", () => {
                 text={mockFullTweet.text}
                 visible
                 onClose={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.text().includes("Tweet Analytics")).toBe(true);
         expect(wrapper.text().includes(mockFullTweet.user.fullName)).toBe(true);
         expect(wrapper.text().includes(mockFullTweet.user.username)).toBe(true);
@@ -35,7 +37,9 @@ describe("TweetAnalyticsModal", () => {
                 text={mockFullTweet.text}
                 visible={false}
                 onClose={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.find(Dialog).exists()).toBeFalsy();
     });
 });

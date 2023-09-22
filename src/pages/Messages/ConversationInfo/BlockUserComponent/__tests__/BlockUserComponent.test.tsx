@@ -17,11 +17,9 @@ describe("BlockUserComponent", () => {
 
     const testBlockUserComponent = (isUserBlocked: boolean, mockText: string): void => {
         const wrapper = mountWithStore(
-            <BlockUserComponent
-                onOpenBlockUserModal={jest.fn()}
-                username={"test_name"}
-                isUserBlocked={isUserBlocked}
-            />, mockRootState);
+            <BlockUserComponent onOpenBlockUserModal={jest.fn()} username={"test_name"} isUserBlocked={isUserBlocked} />,
+            mockRootState
+        );
         expect(wrapper.text().includes(`${mockText}  @test_name`)).toBe(true);
     };
 });

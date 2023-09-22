@@ -26,10 +26,12 @@ export function* fetchNotificationsRequest({ payload }: FetchNotificationsAction
     try {
         yield put(setNotificationsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<NotificationResponse[]> = yield call(NotificationApi.getUserNotifications, payload);
-        yield put(setNotifications({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setNotifications({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setNotificationsLoadingState(LoadingStatus.ERROR));
     }
@@ -49,10 +51,12 @@ export function* fetchNotificationsFromTweetAuthorsRequest({ payload }: FetchNot
     try {
         yield put(setNotificationsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(NotificationApi.getNotificationsFromTweetAuthors, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setNotificationsLoadingState(LoadingStatus.ERROR));
     }
@@ -62,10 +66,12 @@ export function* fetchMentionsRequest({ payload }: FetchMentionsActionInterface)
     try {
         yield put(setTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(NotificationApi.getUserMentionsNotifications, payload);
-        yield put(setPageableTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setPageableTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTweetsLoadingState(LoadingStatus.ERROR));
     }

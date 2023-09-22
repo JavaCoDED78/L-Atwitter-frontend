@@ -1,8 +1,4 @@
-import {
-    selectFollowerRequestsItems,
-    selectFollowerRequestsPagesCount,
-    selectIsFollowerRequestsLoading
-} from "../selectors";
+import { selectFollowerRequestsItems, selectFollowerRequestsPagesCount, selectIsFollowerRequestsLoading } from "../selectors";
 import { createMockRootState } from "../../../../util/test-utils/test-helper";
 import { FollowerUserResponse } from "../../../../types/user";
 import { LoadingStatus } from "../../../../types/common";
@@ -13,10 +9,12 @@ describe("followerRequests selectors:", () => {
 
     describe("selectFollowerRequestsItems", () => {
         it("should return FollowerUserResponse array", () => {
-            expect(selectFollowerRequestsItems({
-                ...mockState,
-                followerRequests: { ...mockState.notifications, items: mockFollowerUserResponse }
-            })).toBe(mockFollowerUserResponse);
+            expect(
+                selectFollowerRequestsItems({
+                    ...mockState,
+                    followerRequests: { ...mockState.notifications, items: mockFollowerUserResponse }
+                })
+            ).toBe(mockFollowerUserResponse);
         });
     });
 

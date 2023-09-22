@@ -1,12 +1,6 @@
 import { Action } from "redux";
 
-import {
-    ListMembersState,
-    ListUsersRequest,
-    ProcessUserListRequest,
-    SearchListUsersRequest,
-    UserToListPayload
-} from "./state";
+import { ListMembersState, ListUsersRequest, ProcessUserListRequest, SearchListUsersRequest, UserToListPayload } from "./state";
 import { LoadingStatus } from "../../../../types/common";
 
 export enum ListMembersActionsType {
@@ -21,7 +15,7 @@ export enum ListMembersActionsType {
     RESET_LIST_SUGGESTED_STATE = "listMembers/RESET_LIST_SUGGESTED_STATE",
     RESET_LIST_MEMBERS = "listMembers/RESET_LIST_MEMBERS",
     SET_LOADING_MEMBERS_STATE = "listMembers/SET_LOADING_MEMBERS_STATE",
-    SET_LOADING_SUGGESTED_STATE = "listMembers/SET_LOADING_SUGGESTED_STATE",
+    SET_LOADING_SUGGESTED_STATE = "listMembers/SET_LOADING_SUGGESTED_STATE"
 }
 
 export interface SetListMembersActionInterface extends Action<ListMembersActionsType> {
@@ -89,4 +83,4 @@ export type ListMembersActions =
     | ResetListMembersActionInterface
     | SetUserToListActionInterface
     | SetLoadingMembersStateActionInterface
-    | SetLoadingSuggestedStateActionInterface
+    | SetLoadingSuggestedStateActionInterface;

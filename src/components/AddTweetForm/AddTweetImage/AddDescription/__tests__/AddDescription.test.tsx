@@ -6,7 +6,6 @@ import { LoadingStatus } from "../../../../../types/common";
 import ImageAction from "../../ImageAction/ImageAction";
 
 describe("AddDescription", () => {
-
     it("should render correctly", () => {
         testAddDescriptionComponent();
     });
@@ -22,9 +21,6 @@ describe("AddDescription", () => {
             addTweetForm: { ...mockStore.addTweetForm, imageDescription: imageDescription }
         };
         const wrapper = mountWithStore(<AddDescription />, mockListStore);
-        expect(wrapper.find(ImageAction).prop("subtitle")).toBe(
-            imageDescription === ""
-                ? "Add description"
-                : imageDescription);
+        expect(wrapper.find(ImageAction).prop("subtitle")).toBe(imageDescription === "" ? "Add description" : imageDescription);
     };
 });

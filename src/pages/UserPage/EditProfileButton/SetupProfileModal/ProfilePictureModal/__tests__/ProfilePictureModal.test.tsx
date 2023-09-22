@@ -22,7 +22,9 @@ describe("ProfilePictureModal", () => {
                 avatar={mockImage}
                 onChangeAvatar={jest.fn()}
                 onOpenProfileHeaderModal={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(false);
     });
@@ -35,7 +37,9 @@ describe("ProfilePictureModal", () => {
                 avatar={undefined}
                 onChangeAvatar={jest.fn()}
                 onOpenProfileHeaderModal={jest.fn()}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         expect(wrapper.find(Dialog).prop("open")).toBe(true);
         expect(wrapper.text().includes("Pick a profile picture")).toBe(true);
@@ -53,7 +57,9 @@ describe("ProfilePictureModal", () => {
                 avatar={mockImage}
                 onChangeAvatar={jest.fn()}
                 onOpenProfileHeaderModal={mockOnOpenProfileHeaderModal}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         wrapper.find(Button).simulate("click");
 

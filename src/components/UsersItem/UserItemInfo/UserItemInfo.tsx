@@ -13,16 +13,7 @@ interface UserItemInfoProps {
     size?: UserItemSize;
 }
 
-const UserItemInfo: FC<UserItemInfoProps> = memo((
-    {
-        fullName,
-        username,
-        about,
-        isPrivateProfile,
-        isMyProfileBlocked,
-        size
-    }
-): ReactElement => {
+const UserItemInfo: FC<UserItemInfoProps> = memo(({ fullName, username, about, isPrivateProfile, isMyProfileBlocked, size }): ReactElement => {
     return (
         <>
             <Typography variant={"h6"} display={"inline"}>
@@ -32,12 +23,10 @@ const UserItemInfo: FC<UserItemInfoProps> = memo((
             <Typography variant={"subtitle1"} component={"div"}>
                 @{username}
             </Typography>
-            {!isMyProfileBlocked && (
-                (size !== UserItemSize.SMALL) && (
-                    <Typography variant={"body1"} display="block">
-                        {about}
-                    </Typography>
-                )
+            {!isMyProfileBlocked && size !== UserItemSize.SMALL && (
+                <Typography variant={"body1"} display="block">
+                    {about}
+                </Typography>
             )}
         </>
     );

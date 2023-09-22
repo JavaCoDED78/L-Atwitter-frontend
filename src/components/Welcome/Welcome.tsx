@@ -20,16 +20,10 @@ const Welcome: FC = (): ReactElement => {
                 Welcome to Twitter!
             </Typography>
             <Typography variant={"subtitle1"} component={"div"}>
-                This is the best place to see what’s happening in your world.
-                Find some people and topics to follow now.
+                This is the best place to see what’s happening in your world. Find some people and topics to follow now.
             </Typography>
             <div className={classes.infoButtonContainer}>
-                <Button
-                    onClick={onHandleClick}
-                    color="primary"
-                    variant="contained"
-                    size="small"
-                >
+                <Button onClick={onHandleClick} color="primary" variant="contained" size="small">
                     Let's go
                 </Button>
             </div>

@@ -1,9 +1,4 @@
-import {
-    selectIsListMembersLoading,
-    selectIsListSuggestedError,
-    selectListMembersItems,
-    selectListSuggestedItems
-} from "../selectors";
+import { selectIsListMembersLoading, selectIsListSuggestedError, selectListMembersItems, selectListSuggestedItems } from "../selectors";
 import { createMockRootState } from "../../../../util/test-utils/test-helper";
 import { mockListsOwnerMember } from "../../../../util/test-utils/mock-test-data";
 import { LoadingStatus } from "../../../../types/common";
@@ -13,10 +8,12 @@ describe("listMembers selectors:", () => {
 
     describe("selectListMembersItems", () => {
         it("should return ListsOwnerMemberResponse list", () => {
-            expect(selectListMembersItems({
-                ...mockState,
-                listMembers: { ...mockState.listMembers, members: mockListsOwnerMember }
-            })).toBe(mockListsOwnerMember);
+            expect(
+                selectListMembersItems({
+                    ...mockState,
+                    listMembers: { ...mockState.listMembers, members: mockListsOwnerMember }
+                })
+            ).toBe(mockListsOwnerMember);
         });
     });
 
@@ -28,10 +25,12 @@ describe("listMembers selectors:", () => {
 
     describe("selectListSuggestedItems", () => {
         it("should return ListsOwnerMemberResponse list", () => {
-            expect(selectListSuggestedItems({
-                ...mockState,
-                listMembers: { ...mockState.listMembers, suggested: mockListsOwnerMember }
-            })).toBe(mockListsOwnerMember);
+            expect(
+                selectListSuggestedItems({
+                    ...mockState,
+                    listMembers: { ...mockState.listMembers, suggested: mockListsOwnerMember }
+                })
+            ).toBe(mockListsOwnerMember);
         });
     });
 

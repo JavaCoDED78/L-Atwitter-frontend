@@ -49,7 +49,6 @@ import {
     setUserFollowing,
     setUserLoadingStatus,
     setUsername,
-    startUseTwitter,
     updateBackgroundColor,
     updateColorScheme,
     updateCountry,
@@ -71,39 +70,13 @@ import { AuthenticationResponse, LoginRequest } from "../../../../types/auth";
 import { EndRegistrationRequest } from "../../../../pages/Authentication/SetPasswordModal/SetPasswordModal";
 import { NotificationUserResponse } from "../../../../types/notification";
 import { setBlockedToTweetsState, setFollowToTweetsState, setMutedToTweetsState } from "../../tweets/actionCreators";
-import {
-    setBlockedUsersTweetState,
-    setFollowToUsersTweetState,
-    setMutedUsersTweetState
-} from "../../userTweets/actionCreators";
-import {
-    setBlocked,
-    setFollowRequestToUserProfile,
-    setFollowToUserProfile,
-    setMuted
-} from "../../userProfile/actionCreators";
-import {
-    setBlockUserDetail,
-    setFollowRequestToUserDetail,
-    setFollowToUserDetail
-} from "../../userDetail/actionCreators";
-import {
-    setBlockedUsersState,
-    setFollowRequestToUsers,
-    setFollowToUsersState,
-    setMutedUsersState
-} from "../../users/actionCreators";
-import {
-    setBlockUsersSearchState,
-    setFollowRequestToUsersSearchState,
-    setFollowToUsersSearchState
-} from "../../usersSearch/actionCreators";
+import { setBlockedUsersTweetState, setFollowToUsersTweetState, setMutedUsersTweetState } from "../../userTweets/actionCreators";
+import { setBlocked, setFollowRequestToUserProfile, setFollowToUserProfile, setMuted } from "../../userProfile/actionCreators";
+import { setBlockUserDetail, setFollowRequestToUserDetail, setFollowToUserDetail } from "../../userDetail/actionCreators";
+import { setBlockedUsersState, setFollowRequestToUsers, setFollowToUsersState, setMutedUsersState } from "../../users/actionCreators";
+import { setBlockUsersSearchState, setFollowRequestToUsersSearchState, setFollowToUsersSearchState } from "../../usersSearch/actionCreators";
 import { setBlockedToTweetState, setFollowToTweetState, setMutedToTweetState } from "../../tweet/actionCreators";
-import {
-    setBlockedNotificationInfo,
-    setFollowRequestToNotificationInfo,
-    setFollowToNotificationInfo
-} from "../../notifications/actionCreators";
+import { setBlockedNotificationInfo, setFollowRequestToNotificationInfo, setFollowToNotificationInfo } from "../../notifications/actionCreators";
 import { ChatMessageApi } from "../../../../services/api/chat-service/chatMessageApi";
 import { UserSettingsApi } from "../../../../services/api/user-service/userSettingsApi";
 import { setBlockedUser, setMutedUser } from "../../blockedAndMutedUsers/actionCreators";
@@ -173,16 +146,37 @@ describe("userSaga:", () => {
         testSetResponse(worker, mockNotificationUserResponse, setFollowToTweetsState, mockPayload, "NotificationUserResponse");
         testSetResponse(worker, mockNotificationUserResponse, setFollowToUsersTweetState, mockPayload, "NotificationUserResponse");
         testSetResponse(worker, mockNotificationUserResponse, setUserFollowing, true, "NotificationUserResponse");
-        testSetResponse(worker, mockNotificationUserResponse, setFollowToUserProfile, { userId: 1, isFollower: true }, "NotificationUserResponse");
+        testSetResponse(
+            worker,
+            mockNotificationUserResponse,
+            setFollowToUserProfile,
+            {
+                userId: 1,
+                isFollower: true
+            },
+            "NotificationUserResponse"
+        );
         testSetResponse(worker, mockNotificationUserResponse, setFollowToUserDetail, true, "NotificationUserResponse");
-        testSetResponse(worker, mockNotificationUserResponse, setFollowToUsersState, {
-            userId: 1,
-            isFollower: true
-        }, "NotificationUserResponse");
-        testSetResponse(worker, mockNotificationUserResponse, setFollowToUsersSearchState, {
-            userId: 1,
-            isFollower: true
-        }, "NotificationUserResponse");
+        testSetResponse(
+            worker,
+            mockNotificationUserResponse,
+            setFollowToUsersState,
+            {
+                userId: 1,
+                isFollower: true
+            },
+            "NotificationUserResponse"
+        );
+        testSetResponse(
+            worker,
+            mockNotificationUserResponse,
+            setFollowToUsersSearchState,
+            {
+                userId: 1,
+                isFollower: true
+            },
+            "NotificationUserResponse"
+        );
         testSetResponse(worker, mockNotificationUserResponse, setFollowToTweetState, true, "NotificationUserResponse");
         testSetResponse(worker, mockNotificationUserResponse, setFollowToNotificationInfo, true, "NotificationUserResponse");
         testLoadingStatus(worker, setUserLoadingStatus, LoadingStatus.ERROR);

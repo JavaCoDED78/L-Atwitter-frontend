@@ -7,18 +7,16 @@ import FollowedTopicButton from "../FollowedTopicButton/FollowedTopicButton";
 import TopicButton from "../TopicButton/TopicButton";
 
 describe("TopicBlock", () => {
-
     it("should render FollowedTopicButton", () => {
         const wrapper = mountWithStore(
             <TopicBlock topics={mockTopics} startTopicValue={0} endTopicValue={5} isFollowedTopic />,
-            createMockRootState());
+            createMockRootState()
+        );
         expect(wrapper.find(FollowedTopicButton).length).toEqual(3);
     });
 
     it("should render TopicButton", () => {
-        const wrapper = mountWithStore(
-            <TopicBlock topics={mockTopics} startTopicValue={0} endTopicValue={5} />,
-            createMockRootState());
+        const wrapper = mountWithStore(<TopicBlock topics={mockTopics} startTopicValue={0} endTopicValue={5} />, createMockRootState());
         expect(wrapper.find(TopicButton).length).toEqual(3);
     });
 });

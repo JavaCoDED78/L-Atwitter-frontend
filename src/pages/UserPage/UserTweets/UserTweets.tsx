@@ -32,7 +32,7 @@ const UserTweets: FC<UserTweetsProps> = memo(({ activeTab, handleChangeTab }): R
 
     useEffect(() => {
         if (isUserProfileSuccessLoaded) {
-            setPage(prevState => prevState + 1);
+            setPage((prevState) => prevState + 1);
         }
     }, [isUserProfileSuccessLoaded]);
 
@@ -48,7 +48,7 @@ const UserTweets: FC<UserTweetsProps> = memo(({ activeTab, handleChangeTab }): R
         }
 
         if (isTweetsLoaded) {
-            setPage(prevState => prevState + 1);
+            setPage((prevState) => prevState + 1);
         }
     };
 
@@ -65,22 +65,22 @@ const UserTweets: FC<UserTweetsProps> = memo(({ activeTab, handleChangeTab }): R
 
     const handleShowUserTweets = (): void => {
         dispatch(fetchUserTweets({ userId: params.userId, page: 0 }));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const handleShowUserRetweetsAndReplies = (): void => {
         dispatch(fetchUserRetweetsAndReplies({ userId: params.userId, page: 0 }));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const handleShowMediaTweets = (): void => {
         dispatch(fetchUserMediaTweets({ userId: params.userId, page: 0 }));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const handleShowLikedTweets = (): void => {
         dispatch(fetchUserLikedTweets({ userId: params.userId, page: 0 }));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     return (

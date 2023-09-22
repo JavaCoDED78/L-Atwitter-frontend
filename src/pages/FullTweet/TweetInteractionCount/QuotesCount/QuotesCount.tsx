@@ -19,7 +19,7 @@ const QuotesCount = memo((): ReactElement => {
 
     return (
         <>
-            {(quotesCount !== 0) && (
+            {quotesCount !== 0 && (
                 <span className={classes.interactionCount} onClick={onClickQuotes}>
                     <div className={classes.contentItem}>
                         <Typography variant={"h6"} component={"span"}>

@@ -3,13 +3,9 @@ import { Link as MuiLink } from "@material-ui/core";
 
 import Discoverability from "../Discoverability";
 import { createMockRootState, mountWithStore } from "../../../../../util/test-utils/test-helper";
-import {
-    EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS,
-    UPLOAD_YOUR_CONTACTS_TO_SEARCH
-} from "../../../../../constants/url-constants";
+import { EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS, UPLOAD_YOUR_CONTACTS_TO_SEARCH } from "../../../../../constants/url-constants";
 
 describe("Discoverability", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Discoverability />, createMockRootState());
 

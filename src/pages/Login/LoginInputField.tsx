@@ -25,11 +25,6 @@ export const useLoginTextFieldStyles = makeStyles((theme) =>
 export const LoginTextField = (props: TextFieldProps) => {
     const classes = useLoginTextFieldStyles();
 
-    return (
-        <TextField
-            InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-            {...props}
-        />
-    );
+    return <TextField InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>} {...props} />;
 };
 

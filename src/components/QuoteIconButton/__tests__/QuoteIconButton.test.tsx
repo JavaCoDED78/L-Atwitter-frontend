@@ -88,6 +88,8 @@ describe("QuoteIconButton", () => {
                 user={mockFullTweet.user}
                 isTweetRetweeted={isTweetRetweetedByMe}
                 retweetsCount={retweetsCount}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
     };
 });

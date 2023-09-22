@@ -8,7 +8,6 @@ import { TOPICS_FOLLOWED, TOPICS_NOT_INTERESTED, TOPICS_SUGGESTED } from "../../
 import Topics from "../Topics";
 
 describe("Topics", () => {
-
     it("should render Not Interested tab", () => {
         testTab("not_interested", 2, "Not Interested");
     });

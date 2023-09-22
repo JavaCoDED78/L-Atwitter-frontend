@@ -11,7 +11,6 @@ export const useVoteComponentStyles = makeStyles((theme) => ({
         width: "100%",
         height: 30,
         marginTop: 4
-
     },
     voteChoice: {
         zIndex: 1,

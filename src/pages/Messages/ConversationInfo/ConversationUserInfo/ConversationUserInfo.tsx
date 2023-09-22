@@ -9,13 +9,7 @@ interface ConversationUserInfoProps {
     isPrivateProfile?: boolean;
 }
 
-const ConversationUserInfo: FC<ConversationUserInfoProps> = memo((
-    {
-        username,
-        fullName,
-        isPrivateProfile
-    }
-): ReactElement => {
+const ConversationUserInfo: FC<ConversationUserInfoProps> = memo(({ username, fullName, isPrivateProfile }): ReactElement => {
     return (
         <div>
             <Typography variant={"h6"} component={"span"}>

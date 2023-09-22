@@ -12,15 +12,7 @@ interface SettingsItemProps {
     title: string;
 }
 
-const SettingsItem: FC<SettingsItemProps> = (
-    {
-        index,
-        linkTo,
-        selectedIndex,
-        handleListItemClick,
-        title
-    }
-): ReactElement => {
+const SettingsItem: FC<SettingsItemProps> = ({ index, linkTo, selectedIndex, handleListItemClick, title }): ReactElement => {
     return (
         <NavLink to={linkTo}>
             <ListItem selected={selectedIndex === index} onClick={() => handleListItemClick(index)}>

@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@material-ui/core";
 
 import { processFollowRequest, unfollowUser } from "../../../store/ducks/user/actionCreators";
-import {
-    selectUserProfileId,
-    selectUserProfileIsFollower,
-    selectUserProfileIsPrivateProfile
-} from "../../../store/ducks/userProfile/selectors";
+import { selectUserProfileId, selectUserProfileIsFollower, selectUserProfileIsPrivateProfile } from "../../../store/ducks/userProfile/selectors";
 import { useUserPageStyles } from "../UserPageStyles";
 
 const UnfollowUserButton = memo((): ReactElement => {

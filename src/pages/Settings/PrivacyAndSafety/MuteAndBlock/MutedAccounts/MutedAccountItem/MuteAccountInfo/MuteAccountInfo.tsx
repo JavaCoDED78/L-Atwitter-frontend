@@ -13,14 +13,7 @@ interface MuteAccountInfoProps {
     about: string;
 }
 
-const MuteAccountInfo: FC<MuteAccountInfoProps> = memo((
-    {
-        userId,
-        fullName,
-        username,
-        about
-    }
-): ReactElement => {
+const MuteAccountInfo: FC<MuteAccountInfoProps> = memo(({ userId, fullName, username, about }): ReactElement => {
     const globalClasses = useGlobalStyles({});
     const classes = useMutedAccountItemStyles();
 

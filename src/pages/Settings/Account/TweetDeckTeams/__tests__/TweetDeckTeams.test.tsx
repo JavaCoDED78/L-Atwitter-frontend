@@ -5,7 +5,6 @@ import TweetDeckTeams from "../TweetDeckTeams";
 import { createMockRootState, mountWithStore } from "../../../../../util/test-utils/test-helper";
 
 describe("TweetDeckTeams", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<TweetDeckTeams />, createMockRootState());
 

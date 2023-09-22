@@ -24,13 +24,7 @@ const TweetListModal: FC<TweetListModalProps> = ({ visibleModalWindow, onCloseMo
         <Dialog className={classes.content} open={visibleModalWindow} onClose={onCloseModalWindow}>
             <DialogTitleComponent onClose={onCloseModalWindow} />
             <DialogContent className={classes.dialogContent}>
-                <AddTweetForm
-                    tweetList={list}
-                    minRows={1}
-                    title={"What's happening?"}
-                    buttonName={"Tweet"}
-                    onCloseModal={onCloseModalWindow}
-                />
+                <AddTweetForm tweetList={list} minRows={1} title={"What's happening?"} buttonName={"Tweet"} onCloseModal={onCloseModalWindow} />
             </DialogContent>
         </Dialog>
     );

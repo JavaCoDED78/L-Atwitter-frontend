@@ -10,7 +10,7 @@ interface ScheduleIconButtonProps {
     disabled: boolean;
 }
 
-const ScheduleIconButton: FC<ScheduleIconButtonProps> = memo(({ buttonName, disabled, }): ReactElement => {
+const ScheduleIconButton: FC<ScheduleIconButtonProps> = memo(({ buttonName, disabled }): ReactElement => {
     const [visibleScheduleModal, setVisibleScheduleModal] = useState<boolean>(false);
     const [visibleUnsentTweetsModal, setVisibleUnsentTweetsModal] = useState<boolean>(false);
 
@@ -34,24 +34,11 @@ const ScheduleIconButton: FC<ScheduleIconButtonProps> = memo(({ buttonName, disa
 
     return (
         <>
-            {(buttonName !== "Reply") && (
+            {buttonName !== "Reply" && (
                 <>
-                    <ActionIconButton
-                        actionText={"Schedule"}
-                        icon={ScheduleIcon}
-                        onClick={onOpenScheduleModal}
-                        size={"medium"}
-                        disabled={disabled}
-                    />
-                    <ScheduleModal
-                        visible={visibleScheduleModal}
-                        onClose={onCloseScheduleModal}
-                        onOpenUnsentTweetsModal={onOpenUnsentTweetsModal}
-                    />
-                    <UnsentTweetsModal
-                        visible={visibleUnsentTweetsModal}
-                        onClose={onCloseUnsentTweetsModal}
-                    />
+                    <ActionIconButton actionText={"Schedule"} icon={ScheduleIcon} onClick={onOpenScheduleModal} size={"medium"} disabled={disabled} />
+                    <ScheduleModal visible={visibleScheduleModal} onClose={onCloseScheduleModal} onOpenUnsentTweetsModal={onOpenUnsentTweetsModal} />
+                    <UnsentTweetsModal visible={visibleUnsentTweetsModal} onClose={onCloseUnsentTweetsModal} />
                 </>
             )}
         </>

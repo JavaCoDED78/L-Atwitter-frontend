@@ -24,13 +24,17 @@ describe("usersSearch actions", () => {
         payload: [{ id: 1 }] as UserResponse[]
     });
 
-    testAction(setPageableUsersSearch, setPageableUsersSearch({
-        items: [{ id: 1 }] as UserResponse[],
-        pagesCount: 1
-    }), {
-        type: UsersSearchActionsType.SET_PAGEABLE_USERS,
-        payload: { items: [{ id: 1 }] as UserResponse[], pagesCount: 1 }
-    });
+    testAction(
+        setPageableUsersSearch,
+        setPageableUsersSearch({
+            items: [{ id: 1 }] as UserResponse[],
+            pagesCount: 1
+        }),
+        {
+            type: UsersSearchActionsType.SET_PAGEABLE_USERS,
+            payload: { items: [{ id: 1 }] as UserResponse[], pagesCount: 1 }
+        }
+    );
 
     testAction(setPageableFollowers, setPageableFollowers({ items: [{ id: 1 }] as UserResponse[], pagesCount: 1 }), {
         type: UsersSearchActionsType.SET_PAGEABLE_FOLLOWERS,
@@ -42,13 +46,17 @@ describe("usersSearch actions", () => {
         payload: { userId: 1, isFollower: true }
     });
 
-    testAction(setFollowRequestToUsersSearchState, setFollowRequestToUsersSearchState({
-        userId: 1,
-        isWaitingForApprove: true
-    }), {
-        type: UsersSearchActionsType.SET_FOLLOW_REQUEST_TO_USERS_SEARCH_STATE,
-        payload: { userId: 1, isWaitingForApprove: true }
-    });
+    testAction(
+        setFollowRequestToUsersSearchState,
+        setFollowRequestToUsersSearchState({
+            userId: 1,
+            isWaitingForApprove: true
+        }),
+        {
+            type: UsersSearchActionsType.SET_FOLLOW_REQUEST_TO_USERS_SEARCH_STATE,
+            payload: { userId: 1, isWaitingForApprove: true }
+        }
+    );
 
     testAction(setBlockUsersSearchState, setBlockUsersSearchState({ userId: 1, isUserBlocked: true }), {
         type: UsersSearchActionsType.SET_BLOCK_USERS_SEARCH_STATE,

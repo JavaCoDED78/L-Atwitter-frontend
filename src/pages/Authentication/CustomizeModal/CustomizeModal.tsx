@@ -27,15 +27,16 @@ const CustomizeModal: FC = (): ReactElement => {
                 Track where you see Twitter content across the web
             </Typography>
             <Typography variant={"subtitle1"} component={"div"} className={classes.text}>
-                Twitter uses this data to personalize your experience. This web browsing history will never be
-                stored with your name, email, or phone number.
+                Twitter uses this data to personalize your experience. This web browsing history will never be stored with your name, email, or phone
+                number.
             </Typography>
             <Radio className={classes.radio} color="primary" checked />
             <Typography variant={"body1"} component={"div"}>
                 {"For more details about these settings, visit the "}
                 <MuiLink href={NEW_ACCOUNT_SETTINGS} variant="body1" target="_blank" rel="noopener">
                     Help Center
-                </MuiLink>.
+                </MuiLink>
+                .
             </Typography>
         </DialogWrapper>
     );

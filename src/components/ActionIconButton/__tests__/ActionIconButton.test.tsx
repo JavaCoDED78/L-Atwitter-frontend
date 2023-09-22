@@ -13,14 +13,9 @@ describe("ActionIconButton", () => {
     it("should render correctly", () => {
         jest.useFakeTimers();
         const wrapper = mountWithStore(
-            <ActionIconButton
-                id={"test"}
-                onClick={jest.fn()}
-                actionText={"Test message"}
-                icon={GifIcon}
-                size={"medium"}
-                disabled={false}
-            />, mockStore);
+            <ActionIconButton id={"test"} onClick={jest.fn()} actionText={"Test message"} icon={GifIcon} size={"medium"} disabled={false} />,
+            mockStore
+        );
         expect(wrapper.find(HoverAction).at(0).prop("visible")).toBe(false);
 
         wrapper.find(IconButton).at(0).find("button").simulate("mouseenter");

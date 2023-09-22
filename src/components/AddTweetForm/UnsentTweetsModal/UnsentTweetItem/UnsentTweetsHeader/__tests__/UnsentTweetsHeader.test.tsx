@@ -6,7 +6,6 @@ import { LoadingStatus } from "../../../../../../types/common";
 import UnsentTweetsHeader from "../UnsentTweetsHeader";
 
 describe("UnsentTweetsHeader", () => {
-
     it("should click Unsent Tweets button", () => {
         const mockOnCloseEditTweetModal = jest.fn();
         const wrapper = mountWithStore(
@@ -17,7 +16,9 @@ describe("UnsentTweetsHeader", () => {
                 onOpenEditTweetList={jest.fn()}
                 onCloseEditTweetModal={mockOnCloseEditTweetModal}
                 onClose={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADED));
+            />,
+            createMockRootState(LoadingStatus.LOADED)
+        );
         wrapper.find(Button).simulate("click");
         expect(wrapper.text().includes("Unsent Tweets")).toBe(true);
         expect(mockOnCloseEditTweetModal).toHaveBeenCalled();
@@ -33,7 +34,9 @@ describe("UnsentTweetsHeader", () => {
                 onOpenEditTweetList={jest.fn()}
                 onCloseEditTweetModal={jest.fn()}
                 onClose={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADED));
+            />,
+            createMockRootState(LoadingStatus.LOADED)
+        );
         wrapper.find(Button).simulate("click");
         expect(wrapper.text().includes("Unsent Tweets")).toBe(true);
         expect(wrapper.text().includes("Done")).toBe(true);
@@ -50,7 +53,9 @@ describe("UnsentTweetsHeader", () => {
                 onOpenEditTweetList={mockOnOpenEditTweetList}
                 onCloseEditTweetModal={jest.fn()}
                 onClose={jest.fn()}
-            />, createMockRootState(LoadingStatus.LOADED));
+            />,
+            createMockRootState(LoadingStatus.LOADED)
+        );
         wrapper.find(Button).simulate("click");
         expect(wrapper.text().includes("Edit")).toBe(true);
         expect(mockOnOpenEditTweetList).toHaveBeenCalled();

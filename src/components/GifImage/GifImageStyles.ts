@@ -11,12 +11,12 @@ export const useGifImageStyles = makeStyles<Theme, GifImageStylesProps>((theme) 
         position: "relative",
         display: "flex",
         justifyContent: "center",
-        backgroundColor: ({ width, height }) => (width === height || width > height) ? "auto" : "rgb(0 ,0 ,0)",
+        backgroundColor: ({ width, height }) => (width === height || width > height ? "auto" : "rgb(0 ,0 ,0)"),
         borderRadius: 16,
         "& img": {
-            borderRadius: ({ width, height }) => (width === height || width > height) ? "inherit" : "auto",
-            height: ({ width, height }) => (width === height || width < height) ? 504 : "auto",
-            width: ({ width, height }) => (width === height || width > height) ? 504 : "auto"
+            borderRadius: ({ width, height }) => (width === height || width > height ? "inherit" : "auto"),
+            height: ({ width, height }) => (width === height || width < height ? 504 : "auto"),
+            width: ({ width, height }) => (width === height || width > height ? 504 : "auto")
         }
     },
     gifRemove: {

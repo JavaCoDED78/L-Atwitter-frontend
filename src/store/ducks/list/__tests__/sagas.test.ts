@@ -36,9 +36,13 @@ describe("listSaga:", () => {
         testLoadingStatus(worker, setListLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(listSaga, [
-        { actionType: ListActionType.FETCH_LIST_BY_ID, workSaga: fetchListByIdRequest },
-        { actionType: ListActionType.DELETE_LIST, workSaga: deleteListRequest },
-        { actionType: ListActionType.EDIT_LIST, workSaga: editListRequest }
-    ], takeEvery);
+    testWatchSaga(
+        listSaga,
+        [
+            { actionType: ListActionType.FETCH_LIST_BY_ID, workSaga: fetchListByIdRequest },
+            { actionType: ListActionType.DELETE_LIST, workSaga: deleteListRequest },
+            { actionType: ListActionType.EDIT_LIST, workSaga: editListRequest }
+        ],
+        takeEvery
+    );
 });

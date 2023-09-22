@@ -15,7 +15,7 @@ const LikesCount = memo((): ReactElement => {
 
     return (
         <>
-            {(likedTweetsCount !== 0) && (
+            {likedTweetsCount !== 0 && (
                 <span className={classes.interactionCount} onClick={onOpenModalWindow}>
                     <div className={classes.contentItem}>
                         <Typography variant={"h6"} component={"span"}>

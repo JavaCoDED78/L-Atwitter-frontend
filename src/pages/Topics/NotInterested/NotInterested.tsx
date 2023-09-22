@@ -24,16 +24,16 @@ const NotInterested = (): ReactElement => {
         <>
             {isTopicsLoading ? (
                 <Spinner />
+            ) : topics.length === 0 ? (
+                <EmptyPageDescription
+                    title={"No interest? No problem."}
+                    subtitle={
+                        "When you tell us you're not interested in a Topic, it will show up here. We won't " +
+                        "recommend Tweets, events, or ads related to Topics you aren't into."
+                    }
+                />
             ) : (
-                (topics.length === 0) ? (
-                    <EmptyPageDescription
-                        title={"No interest? No problem."}
-                        subtitle={"When you tell us you're not interested in a Topic, it will show up here. We won't " +
-                            "recommend Tweets, events, or ads related to Topics you aren't into."}
-                    />
-                ) : (
-                    topics.map((topic) => <TopicItem key={topic.id} topic={topic} />)
-                )
+                topics.map((topic) => <TopicItem key={topic.id} topic={topic} />)
             )}
         </>
     );

@@ -35,7 +35,11 @@ describe("SendDirectTweetModal", () => {
     it("should search by text and cancel", () => {
         const { wrapper } = createWrapper();
 
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         expect(wrapper.find(ModalInputWrapper).prop("value")).toBe(mockText);
         expect(wrapper.find(DirectUserItem).length).toEqual(2);
         expect(mockDispatchFn).nthCalledWith(2, { type: UsersSearchActionsType.RESET_USERS_STATE });
@@ -44,14 +48,22 @@ describe("SendDirectTweetModal", () => {
             type: UsersSearchActionsType.FETCH_PARTICIPANTS_BY_NAME
         });
 
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: "" } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "" } });
         expect(wrapper.find(ModalInputWrapper).prop("value")).toBe("");
     });
 
     it("should click select and click deselect user", () => {
         const { wrapper } = createWrapper();
 
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(ListItem).at(0).simulate("click");
         expect(wrapper.find(ListItem).at(0).prop("selected")).toBe(true);
 
@@ -64,7 +76,11 @@ describe("SendDirectTweetModal", () => {
 
         expect(wrapper.find(Chip).exists()).toBeFalsy();
 
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(ListItem).at(0).simulate("click");
         expect(wrapper.find(ListItem).at(0).prop("selected")).toBe(true);
         expect(wrapper.find(Chip).at(0).prop("label")).toBe(mockUsers[0].fullName);
@@ -78,8 +94,16 @@ describe("SendDirectTweetModal", () => {
 
         expect(wrapper.find(IconButton).at(1).prop("disabled")).toBe(true);
 
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
-        wrapper.find(SendDirectMessageInput).find("textarea").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(SendDirectMessageInput)
+            .find("textarea")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(ListItem).at(0).simulate("click");
         expect(wrapper.find(IconButton).at(1).prop("disabled")).toBe(false);
         wrapper.find(IconButton).at(1).simulate("click");
@@ -108,7 +132,11 @@ describe("SendDirectTweetModal", () => {
     it("should scroll list of Users by input text", () => {
         const mockState = { ...mockRootState, usersSearch: { ...mockRootState.usersSearch, pagesCount: 10 } };
         const { wrapper } = createWrapper(mockState);
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(InfiniteScroll).prop("next")();
 
         expect(mockDispatchFn).nthCalledWith(4, {
@@ -130,12 +158,7 @@ describe("SendDirectTweetModal", () => {
 
     const createWrapper = (mockState = mockRootState, visible = true) => {
         const mockOnClose = jest.fn();
-        const wrapper = mountWithStore(
-            <SendDirectTweetModal
-                tweetId={9}
-                visible={visible}
-                onClose={mockOnClose}
-            />, mockState);
+        const wrapper = mountWithStore(<SendDirectTweetModal tweetId={9} visible={visible} onClose={mockOnClose} />, mockState);
 
         return { wrapper, mockOnClose };
     };

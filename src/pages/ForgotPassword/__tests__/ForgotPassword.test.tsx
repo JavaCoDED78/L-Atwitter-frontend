@@ -17,7 +17,6 @@ import {
 } from "../../../constants/path-constants";
 
 describe("ForgotPassword", () => {
-
     it("should route correctly", () => {
         const wrapper = mountWithStore(<ForgotPassword />, createMockRootState());
         const pathMap = wrapper.find(Route).reduce((pathMap: any, route) => {

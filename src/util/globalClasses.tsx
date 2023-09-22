@@ -167,7 +167,7 @@ export const useGlobalStyles = makeStyles<Theme, UseGlobalStylesProps>((theme) =
         }
     },
     dialogContent: {
-        height: props => props.dialogContentHeight ?? 550,
+        height: (props) => props.dialogContentHeight ?? 550,
         width: 598,
         padding: 0,
         overflowX: "hidden"

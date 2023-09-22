@@ -91,17 +91,23 @@ describe("addTweetForm selectors:", () => {
 
     describe("selectIsGifsLoading", () => {
         it("should return LoadingStatus.LOADING", () => {
-            expect(selectIsGifsLoading({
-                ...mockState, addTweetForm: { ...mockState.addTweetForm, loadingState: LoadingStatus.LOADING }
-            })).toBe(true);
+            expect(
+                selectIsGifsLoading({
+                    ...mockState,
+                    addTweetForm: { ...mockState.addTweetForm, loadingState: LoadingStatus.LOADING }
+                })
+            ).toBe(true);
         });
     });
 
     describe("selectIsGifsLoaded", () => {
         it("should return LoadingStatus.LOADED", () => {
-            expect(selectIsGifsLoaded({
-                ...mockState, addTweetForm: { ...mockState.addTweetForm, loadingState: LoadingStatus.LOADED }
-            })).toBe(true);
+            expect(
+                selectIsGifsLoaded({
+                    ...mockState,
+                    addTweetForm: { ...mockState.addTweetForm, loadingState: LoadingStatus.LOADED }
+                })
+            ).toBe(true);
         });
     });
 });

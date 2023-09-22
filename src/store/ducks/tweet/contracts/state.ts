@@ -19,7 +19,6 @@ export interface FetchTweetUsersPayload {
     pageNumber: number;
 }
 
-
 export interface TweetState {
     tweet?: TweetResponse;
     errorMessage: string;

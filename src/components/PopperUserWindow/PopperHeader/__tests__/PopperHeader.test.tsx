@@ -35,8 +35,11 @@ describe("PopperHeader", () => {
         const wrapper = mountWithStore(<PopperHeader />, {
             ...mockState,
             userDetail: {
-                ...mockState.userDetail, item: {
-                    ...mockUserDetailResponse, isFollower: false, isWaitingForApprove: true
+                ...mockState.userDetail,
+                item: {
+                    ...mockUserDetailResponse,
+                    isFollower: false,
+                    isWaitingForApprove: true
                 }
             }
         });
@@ -47,8 +50,11 @@ describe("PopperHeader", () => {
         const wrapper = mountWithStore(<PopperHeader />, {
             ...mockState,
             userDetail: {
-                ...mockState.userDetail, item: {
-                    ...mockUserDetailResponse, isFollower: false, isUserBlocked: true
+                ...mockState.userDetail,
+                item: {
+                    ...mockUserDetailResponse,
+                    isFollower: false,
+                    isUserBlocked: true
                 }
             }
         });

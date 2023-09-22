@@ -14,12 +14,7 @@ describe("TopTweetActions", () => {
     });
 
     it("should render Latest Tweets info", () => {
-        const wrapper = mountWithStore(
-            <TopTweetActions
-                switchTweets={true}
-                handleLatestTweets={jest.fn()}
-                handleTopTweets={jest.fn()}
-            />, mockStore);
+        const wrapper = mountWithStore(<TopTweetActions switchTweets={true} handleLatestTweets={jest.fn()} handleTopTweets={jest.fn()} />, mockStore);
 
         expect(wrapper.text().includes("Latest Tweets show up as they happen")).toBe(true);
         expect(wrapper.text().includes("Go back Home")).toBe(true);
@@ -29,11 +24,9 @@ describe("TopTweetActions", () => {
 
     it("should render Top Tweets info", () => {
         const wrapper = mountWithStore(
-            <TopTweetActions
-                switchTweets={false}
-                handleLatestTweets={jest.fn()}
-                handleTopTweets={jest.fn()}
-            />, mockStore);
+            <TopTweetActions switchTweets={false} handleLatestTweets={jest.fn()} handleTopTweets={jest.fn()} />,
+            mockStore
+        );
 
         expect(wrapper.text().includes("Home shows you top Tweets first")).toBe(true);
         expect(wrapper.text().includes("See latest Tweets instead")).toBe(true);
@@ -41,24 +34,14 @@ describe("TopTweetActions", () => {
     });
 
     it("should click Top Tweet Actions", () => {
-        const wrapper = mountWithStore(
-            <TopTweetActions
-                switchTweets={true}
-                handleLatestTweets={jest.fn()}
-                handleTopTweets={jest.fn()}
-            />, mockStore);
+        const wrapper = mountWithStore(<TopTweetActions switchTweets={true} handleLatestTweets={jest.fn()} handleTopTweets={jest.fn()} />, mockStore);
         wrapper.find(IconButton).simulate("click");
 
         expect(wrapper.find(TopTweetActions).exists()).toBe(true);
     });
 
     it("should click Away", () => {
-        const wrapper = mountWithStore(
-            <TopTweetActions
-                switchTweets={true}
-                handleLatestTweets={jest.fn()}
-                handleTopTweets={jest.fn()}
-            />, mockStore);
+        const wrapper = mountWithStore(<TopTweetActions switchTweets={true} handleLatestTweets={jest.fn()} handleTopTweets={jest.fn()} />, mockStore);
         // @ts-ignore
         wrapper.find(ClickAwayListener).prop("onClickAway")(jest.fn());
 
@@ -67,11 +50,7 @@ describe("TopTweetActions", () => {
 
     it("should hover Top Tweets icon and render Hover Action", () => {
         jest.useFakeTimers();
-        const wrapper = mountWithStore(<TopTweetActions
-            switchTweets={true}
-            handleLatestTweets={jest.fn()}
-            handleTopTweets={jest.fn()}
-        />, mockStore);
+        const wrapper = mountWithStore(<TopTweetActions switchTweets={true} handleLatestTweets={jest.fn()} handleTopTweets={jest.fn()} />, mockStore);
         wrapper.find(IconButton).at(0).simulate("mouseenter");
         jest.runAllTimers();
         wrapper.update();

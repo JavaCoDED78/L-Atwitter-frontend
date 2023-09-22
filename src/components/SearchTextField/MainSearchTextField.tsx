@@ -12,8 +12,8 @@ const useMainSearchTextFieldStyles = makeStyles<Theme, MainSearchTextFieldProps>
             borderRadius: 30,
             padding: 19,
             height: 20,
-            width: props => props.width ?? 450,
-            marginTop: props => props.marginTop ?? 6,
+            width: (props) => props.width ?? 450,
+            marginTop: (props) => props.marginTop ?? 6,
             "&.Mui-focused": {
                 backgroundColor: theme.palette.background.paper,
                 "& fieldset": { borderWidth: 1, borderColor: theme.palette.primary.main },
@@ -44,8 +44,6 @@ const useMainSearchTextFieldStyles = makeStyles<Theme, MainSearchTextFieldProps>
 export const MainSearchTextField = (props: TextFieldProps & MainSearchTextFieldProps) => {
     const classes = useMainSearchTextFieldStyles(props);
 
-    return (
-        <TextField className={classes.root} {...props} />
-    );
+    return <TextField className={classes.root} {...props} />;
 };
 

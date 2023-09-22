@@ -5,7 +5,6 @@ import { createMockRootState, mountWithStore, testClickOnLink } from "../../../.
 import { SETTINGS_PRIVACY_AND_SAFETY_AUDIENCES } from "../../../../../constants/path-constants";
 
 describe("AdsPreferences", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<AdsPreferences />, createMockRootState());
 

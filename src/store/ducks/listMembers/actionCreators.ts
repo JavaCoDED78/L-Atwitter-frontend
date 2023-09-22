@@ -13,13 +13,7 @@ import {
     SetLoadingSuggestedStateActionInterface,
     SetUserToListActionInterface
 } from "./contracts/actionTypes";
-import {
-    ListMembersState,
-    ListUsersRequest,
-    ProcessUserListRequest,
-    SearchListUsersRequest,
-    UserToListPayload
-} from "./contracts/state";
+import { ListMembersState, ListUsersRequest, ProcessUserListRequest, SearchListUsersRequest, UserToListPayload } from "./contracts/state";
 import { LoadingStatus } from "../../../types/common";
 
 export const setListMembers = (payload: ListMembersState["members"]): SetListMembersActionInterface => ({

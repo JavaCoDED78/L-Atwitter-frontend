@@ -13,7 +13,7 @@ export enum AuthenticationTypes {
     FETCH_CHECK_REGISTRATION_CODE = "authentication/FETCH_CHECK_REGISTRATION_CODE",
     SET_OPEN_MODAL = "authentication/SET_OPEN_MODAL",
     SET_CLOSE_MODAL = "authentication/SET_CLOSE_MODAL",
-    SET_LOADING_STATE = "authentication/SET_LOADING_STATE",
+    SET_LOADING_STATE = "authentication/SET_LOADING_STATE"
 }
 
 export interface SetRegistrationInfoActionInterface extends Action<AuthenticationTypes> {
@@ -60,9 +60,9 @@ export interface SetLoadingAuthStateActionInterface extends Action<Authenticatio
 }
 
 export type AuthenticationActions =
-    SetRegistrationInfoActionInterface |
-    SetRegistrationStepActionInterface |
-    SetErrorMessageActionInterface |
-    SetOpenModalActionInterface |
-    SetCloseModalActionInterface |
-    SetLoadingAuthStateActionInterface
+    | SetRegistrationInfoActionInterface
+    | SetRegistrationStepActionInterface
+    | SetErrorMessageActionInterface
+    | SetOpenModalActionInterface
+    | SetCloseModalActionInterface
+    | SetLoadingAuthStateActionInterface;

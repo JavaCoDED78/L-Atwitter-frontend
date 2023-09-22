@@ -7,10 +7,7 @@ import { Divider, Link as MuiLink, Typography } from "@material-ui/core";
 import BlockedAccountItem from "./BlockedAccountItem/BlockedAccountItem";
 import Spinner from "../../../../../components/Spinner/Spinner";
 import { useGlobalStyles } from "../../../../../util/globalClasses";
-import {
-    fetchBlockedUsers,
-    resetBlockedAndMutedUsersState
-} from "../../../../../store/ducks/blockedAndMutedUsers/actionCreators";
+import { fetchBlockedUsers, resetBlockedAndMutedUsersState } from "../../../../../store/ducks/blockedAndMutedUsers/actionCreators";
 import {
     selectBlockedUsersItems,
     selectIsBlockedAndMutedUsersLoaded,
@@ -18,10 +15,7 @@ import {
     selectUsersPagesCount
 } from "../../../../../store/ducks/blockedAndMutedUsers/selectors";
 import { withDocumentTitle } from "../../../../../hoc/withDocumentTitle";
-import {
-    ADVANCED_TWITTER_BLOCK_OPTIONS,
-    BLOCKING_AND_UNBLOCKING_ACCOUNTS
-} from "../../../../../constants/url-constants";
+import { ADVANCED_TWITTER_BLOCK_OPTIONS, BLOCKING_AND_UNBLOCKING_ACCOUNTS } from "../../../../../constants/url-constants";
 import InfiniteScrollWrapper from "../../../../../components/InfiniteScrollWrapper/InfiniteScrollWrapper";
 
 const BlockedAccounts: FC = (): ReactElement => {
@@ -50,11 +44,7 @@ const BlockedAccounts: FC = (): ReactElement => {
     };
 
     return (
-        <InfiniteScrollWrapper
-            dataLength={blockedUsers.length}
-            pagesCount={blockedUsersPagesCount}
-            loadItems={loadBlockedUsers}
-        >
+        <InfiniteScrollWrapper dataLength={blockedUsers.length} pagesCount={blockedUsersPagesCount} loadItems={loadBlockedUsers}>
             <div className={globalClasses.tabs}>
                 <Tabs value={activeTab} indicatorColor="primary" textColor="primary" onChange={handleChangeTab}>
                     <Tab className={globalClasses.tab} label="All" />
@@ -73,47 +63,37 @@ const BlockedAccounts: FC = (): ReactElement => {
             <Divider />
             {isBlockedUsersLoading && !blockedUsers.length ? (
                 <Spinner />
-            ) : (
-                (isBlockedUsersLoaded && !blockedUsers.length) ? (
-                    <div className={globalClasses.infoText}>
-                        <Typography variant={"h4"} component={"div"}>
-                            {(activeTab === 0) ? (
-                                "You aren’t blocking anyone"
-                            ) : (
-                                "You haven’t imported a list of accounts to block"
-                            )}
-                        </Typography>
-                        <Typography variant={"subtitle1"} component={"div"}>
-                            {(activeTab === 0) ? (
-                                <>
-                                    {`When you block someone, that person won’t be able to follow or message you, and you
+            ) : isBlockedUsersLoaded && !blockedUsers.length ? (
+                <div className={globalClasses.infoText}>
+                    <Typography variant={"h4"} component={"div"}>
+                        {activeTab === 0 ? "You aren’t blocking anyone" : "You haven’t imported a list of accounts to block"}
+                    </Typography>
+                    <Typography variant={"subtitle1"} component={"div"}>
+                        {activeTab === 0 ? (
+                            <>
+                                {`When you block someone, that person won’t be able to follow or message you, and you
                                         won’t see notifications from them. `}
-                                    <MuiLink href={BLOCKING_AND_UNBLOCKING_ACCOUNTS} variant="subtitle1" target="_blank"
-                                             rel="noopener"
-                                    >
-                                        Learn more
-                                    </MuiLink>
-                                </>
-                            ) : (
-                                <>
-                                    {`Find out how you can import a block list. `}
-                                    <MuiLink href={ADVANCED_TWITTER_BLOCK_OPTIONS} variant="subtitle1" target="_blank"
-                                             rel="noopener"
-                                    >
-                                        Learn more
-                                    </MuiLink>
-                                </>
-                            )}
-                        </Typography>
-                    </div>
-                ) : (
-                    <>
-                        {blockedUsers.map((blockedUser) => (
-                            <BlockedAccountItem key={blockedUser.id} blockedUser={blockedUser} />
-                        ))}
-                        {isBlockedUsersLoading && <Spinner />}
-                    </>
-                )
+                                <MuiLink href={BLOCKING_AND_UNBLOCKING_ACCOUNTS} variant="subtitle1" target="_blank" rel="noopener">
+                                    Learn more
+                                </MuiLink>
+                            </>
+                        ) : (
+                            <>
+                                {`Find out how you can import a block list. `}
+                                <MuiLink href={ADVANCED_TWITTER_BLOCK_OPTIONS} variant="subtitle1" target="_blank" rel="noopener">
+                                    Learn more
+                                </MuiLink>
+                            </>
+                        )}
+                    </Typography>
+                </div>
+            ) : (
+                <>
+                    {blockedUsers.map((blockedUser) => (
+                        <BlockedAccountItem key={blockedUser.id} blockedUser={blockedUser} />
+                    ))}
+                    {isBlockedUsersLoading && <Spinner />}
+                </>
             )}
         </InfiniteScrollWrapper>
     );

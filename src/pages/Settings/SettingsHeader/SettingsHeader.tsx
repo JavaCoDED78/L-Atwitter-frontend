@@ -13,10 +13,8 @@ interface SettingsHeaderProps {
 const SettingsHeader: FC<SettingsHeaderProps> = ({ path, title, excludeBackButton }): ReactElement => {
     return (
         <Route exact path={path}>
-            {!excludeBackButton && <BackButton/>}
-            <Typography variant="h5">
-                {title}
-            </Typography>
+            {!excludeBackButton && <BackButton />}
+            <Typography variant="h5">{title}</Typography>
         </Route>
     );
 };

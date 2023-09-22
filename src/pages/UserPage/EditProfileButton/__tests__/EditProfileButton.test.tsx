@@ -45,7 +45,10 @@ describe("EditProfileButton", () => {
 
     it("should open SetupProfileModal", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: `${PROFILE}/2`, hash: "", search: "", state: { isRegistered: true }
+            pathname: `${PROFILE}/2`,
+            hash: "",
+            search: "",
+            state: { isRegistered: true }
         });
         const wrapper = mountWithStore(<EditProfileButton />, mockRootState);
         expect(wrapper.find(SetupProfileModal).prop("visible")).toBe(true);

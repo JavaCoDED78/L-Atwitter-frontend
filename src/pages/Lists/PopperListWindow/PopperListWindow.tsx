@@ -31,13 +31,7 @@ const PopperListWindow: FC<PopperListWindowProps> = ({ visible }): ReactElement 
                 <PopperListDescription />
                 <PopperListInteractionCount />
                 <div className={classes.buttonWrapper}>
-                    {(myProfileId !== listOwnerId) && (
-                        isFollower ? (
-                            <UnfollowListButton />
-                        ) : (
-                            <FollowListButton />
-                        ))
-                    }
+                    {myProfileId !== listOwnerId && (isFollower ? <UnfollowListButton /> : <FollowListButton />)}
                 </div>
             </div>
         </div>

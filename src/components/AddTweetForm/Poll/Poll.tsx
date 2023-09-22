@@ -29,19 +29,13 @@ const Poll: FC = memo((): ReactElement | null => {
         <Paper className={classes.container} variant="outlined">
             <div className={classes.pollInputWrapper}>
                 <Grid container spacing={0}>
-                    <Grid md={(pollInputSize !== 2) ? (11) : (12)} item>
+                    <Grid md={pollInputSize !== 2 ? 11 : 12} item>
                         <PollInput id={"choice1"} label={"Choice 1"} value={choice1} />
                         <PollInput id={"choice2"} label={"Choice 2"} value={choice2} />
-                        {(pollInputSize >= 1) && (
-                            <PollInput id={"choice3"} label={"Choice 3 (optional)"} value={choice3} />
-                        )}
-                        {(pollInputSize === 2) && (
-                            <PollInput id={"choice4"} label={"Choice 4 (optional)"} value={choice4} />
-                        )}
+                        {pollInputSize >= 1 && <PollInput id={"choice3"} label={"Choice 3 (optional)"} value={choice3} />}
+                        {pollInputSize === 2 && <PollInput id={"choice4"} label={"Choice 4 (optional)"} value={choice4} />}
                     </Grid>
-                    {(pollInputSize !== 2) && (
-                        <AddPollInputButton pollInputSize={pollInputSize} addPollInput={addPollInput} />
-                    )}
+                    {pollInputSize !== 2 && <AddPollInputButton pollInputSize={pollInputSize} addPollInput={addPollInput} />}
                 </Grid>
             </div>
             <Paper className={classes.pollLength} variant="outlined">

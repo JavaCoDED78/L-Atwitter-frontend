@@ -11,23 +11,14 @@ interface DialogTitleComponentProps {
     children?: ReactNode;
 }
 
-const DialogTitleComponent: FC<DialogTitleComponentProps> = (
-    {
-        title,
-        onClose,
-        children,
-        borderBottom
-    }
-): ReactElement => {
+const DialogTitleComponent: FC<DialogTitleComponentProps> = ({ title, onClose, children, borderBottom }): ReactElement => {
     const classes = useDialogTitleComponentStyles({ borderBottom });
 
     return (
         <DialogTitle className={classes.dialogTitle}>
             {onClose && <CloseButton onClose={onClose} />}
             {title}
-            <div className={classes.button}>
-                {children}
-            </div>
+            <div className={classes.button}>{children}</div>
         </DialogTitle>
     );
 };

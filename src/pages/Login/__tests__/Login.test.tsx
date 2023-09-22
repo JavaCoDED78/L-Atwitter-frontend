@@ -42,15 +42,17 @@ describe("Login", () => {
                 email: mockEmail,
                 password: mockPassword,
                 history: history
-            }, type: UserActionsType.FETCH_SIGN_IN
+            },
+            type: UserActionsType.FETCH_SIGN_IN
         });
     });
 
     it("should render error", () => {
         const wrapper = mountWithStore(<Login />, createMockRootState(LoadingStatus.ERROR));
 
-        expect(wrapper.text().includes("The username and password you entered did not match our records. " +
-            "Please double-check and try again.")).toBe(true);
+        expect(
+            wrapper.text().includes("The username and password you entered did not match our records. " + "Please double-check and try again.")
+        ).toBe(true);
     });
 
     it("should component unmount", () => {

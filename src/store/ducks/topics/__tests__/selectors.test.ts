@@ -16,31 +16,37 @@ describe("topics selectors:", () => {
 
     describe("selectTopicsItems", () => {
         it("should return TopicResponse array", () => {
-            expect(selectTopicsItems({
-                ...mockState,
-                topics: { ...mockState.topics, topics: mockTopics }
-            })).toBe(mockTopics);
+            expect(
+                selectTopicsItems({
+                    ...mockState,
+                    topics: { ...mockState.topics, topics: mockTopics }
+                })
+            ).toBe(mockTopics);
         });
     });
 
     describe("selectFollowedTopicsItems", () => {
         it("should return TopicResponse array", () => {
-            expect(selectFollowedTopicsItems({
-                ...mockState,
-                topics: { ...mockState.topics, followedTopics: mockTopics }
-            })).toBe(mockTopics);
+            expect(
+                selectFollowedTopicsItems({
+                    ...mockState,
+                    topics: { ...mockState.topics, followedTopics: mockTopics }
+                })
+            ).toBe(mockTopics);
         });
     });
 
     describe("selectTopicsByCategories", () => {
         it("should return TopicsByCategoriesResponse array", () => {
-            expect(selectTopicsByCategories({
-                ...mockState,
-                topics: {
-                    ...mockState.topics,
-                    topicsByCategories: [{ topicCategory: TopicCategory.GAMING, topicsByCategories: mockTopics }]
-                }
-            })).toStrictEqual([{ topicCategory: TopicCategory.GAMING, topicsByCategories: mockTopics }]);
+            expect(
+                selectTopicsByCategories({
+                    ...mockState,
+                    topics: {
+                        ...mockState.topics,
+                        topicsByCategories: [{ topicCategory: TopicCategory.GAMING, topicsByCategories: mockTopics }]
+                    }
+                })
+            ).toStrictEqual([{ topicCategory: TopicCategory.GAMING, topicsByCategories: mockTopics }]);
         });
     });
 

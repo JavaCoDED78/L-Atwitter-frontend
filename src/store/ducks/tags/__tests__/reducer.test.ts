@@ -49,7 +49,8 @@ describe("tagsReducer:", () => {
                 },
                 {
                     type: TagsActionsType.RESET_TRENDS_STATE
-                }),
+                }
+            ),
             {
                 ...initialTagsState,
                 trends: [],
@@ -60,11 +61,10 @@ describe("tagsReducer:", () => {
 
         testActionDispatch(
             TagsActionsType.SET_TAGS_LOADING_STATE,
-            tagsReducer(initialTagsState,
-                {
-                    type: TagsActionsType.SET_TAGS_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            tagsReducer(initialTagsState, {
+                type: TagsActionsType.SET_TAGS_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialTagsState,
                 loadingTagsState: LoadingStatus.SUCCESS
@@ -73,11 +73,10 @@ describe("tagsReducer:", () => {
 
         testActionDispatch(
             TagsActionsType.SET_TRENDS_LOADING_STATE,
-            tagsReducer(initialTagsState,
-                {
-                    type: TagsActionsType.SET_TRENDS_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            tagsReducer(initialTagsState, {
+                type: TagsActionsType.SET_TRENDS_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialTagsState,
                 loadingTrendsState: LoadingStatus.SUCCESS

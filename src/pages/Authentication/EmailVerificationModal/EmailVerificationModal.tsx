@@ -5,11 +5,7 @@ import { Link as MuiLink, Typography } from "@material-ui/core";
 import { useEmailVerificationModalStyles } from "./EmailVerificationModalStyles";
 import { RegistrationInputField } from "../RegistrationInput/RegistrationInputField";
 import DialogWrapper from "../DialogWrapper/DialogWrapper";
-import {
-    selectErrorMessage,
-    selectRegistrationInfo,
-    selectRegistrationStep4
-} from "../../../store/ducks/authentication/selector";
+import { selectErrorMessage, selectRegistrationInfo, selectRegistrationStep4 } from "../../../store/ducks/authentication/selector";
 import { fetchCheckRegistrationCode } from "../../../store/ducks/authentication/actionCreators";
 
 const EmailVerificationModal: FC = (): ReactElement => {
@@ -29,11 +25,7 @@ const EmailVerificationModal: FC = (): ReactElement => {
     };
 
     return (
-        <DialogWrapper
-            isOpen={registrationStep4}
-            onClick={checkEmailVerificationCode}
-            disabledButton={!verificationCode}
-        >
+        <DialogWrapper isOpen={registrationStep4} onClick={checkEmailVerificationCode} disabledButton={!verificationCode}>
             <Typography variant={"h3"} component={"div"}>
                 We sent you a code
             </Typography>

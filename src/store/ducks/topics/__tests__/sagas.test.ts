@@ -76,10 +76,16 @@ describe("topicsSaga:", () => {
     describe("processNotInterestedTopicRequest:", () => {
         const worker = processNotInterestedTopicRequest(processNotInterestedTopic(2));
         testCall(worker, TopicApi.processNotInterestedTopic, 2);
-        testSetResponse(worker, true, setNotInterestedTopic, {
-            topicsId: 2,
-            isTopicNotInterested: undefined
-        }, "TopicResponse");
+        testSetResponse(
+            worker,
+            true,
+            setNotInterestedTopic,
+            {
+                topicsId: 2,
+                isTopicNotInterested: undefined
+            },
+            "TopicResponse"
+        );
         testLoadingStatus(worker, setTopicsLoadingState, LoadingStatus.ERROR);
     });
 

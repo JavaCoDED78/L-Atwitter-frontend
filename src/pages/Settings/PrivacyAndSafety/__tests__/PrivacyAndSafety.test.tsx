@@ -17,7 +17,6 @@ import {
 import { createMockRootState, mountWithStore, testClickOnLink } from "../../../../util/test-utils/test-helper";
 
 describe("PrivacyAndSafety", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<PrivacyAndSafety />, createMockRootState());
 

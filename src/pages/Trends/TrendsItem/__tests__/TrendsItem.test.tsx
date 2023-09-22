@@ -8,7 +8,6 @@ import { createMockRootState, mountWithStore } from "../../../../util/test-utils
 import { mockTags } from "../../../../util/test-utils/mock-test-data";
 
 describe("TrendsItem", () => {
-
     it("should render correctly", () => {
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");

@@ -83,10 +83,12 @@ export function* fetchLikedUsersRequest({ payload }: FetchLikedUsersActionInterf
     try {
         yield put(setLikedUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(LikeTweetApi.getLikedUsersByTweetId, payload);
-        yield put(setLikedUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setLikedUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setLikedUsersLoadingState(LoadingStatus.ERROR));
     }
@@ -96,10 +98,12 @@ export function* fetchRetweetedUsersRequest({ payload }: FetchRetweetedUsersActi
     try {
         yield put(setRetweetedUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(RetweetApi.getRetweetedUsersByTweetId, payload);
-        yield put(setRetweetedUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setRetweetedUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setRetweetedUsersLoadingState(LoadingStatus.ERROR));
     }
@@ -109,10 +113,12 @@ export function* fetchTaggedImageUsersRequest({ payload }: FetchTaggedImageUsers
     try {
         yield put(setTaggedImageUsersLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<UserResponse[]> = yield call(TweetApi.getTaggedImageUsers, payload);
-        yield put(setTaggedImageUsers({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setTaggedImageUsers({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (error) {
         yield put(setTaggedImageUsersLoadingState(LoadingStatus.ERROR));
     }

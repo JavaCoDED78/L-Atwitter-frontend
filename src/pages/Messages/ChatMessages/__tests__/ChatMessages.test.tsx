@@ -11,8 +11,7 @@ import { MessageInput } from "../../MessageInput/MessageInput";
 import { ChatMessagesActionsType } from "../../../../store/ducks/chatMessages/contracts/actionTypes";
 import { LoadingStatus } from "../../../../types/common";
 
-window.HTMLElement.prototype.scrollIntoView = () => {
-};
+window.HTMLElement.prototype.scrollIntoView = () => {};
 
 describe("ChatMessages", () => {
     const mockStore = createMockRootState(LoadingStatus.LOADED);
@@ -30,9 +29,7 @@ describe("ChatMessages", () => {
     });
 
     it("should render correctly no messages selected", () => {
-        const wrapper = mountWithStore(
-            <ChatMessages chatId={mockChat.id} />,
-            mockChatMessagesStore);
+        const wrapper = mountWithStore(<ChatMessages chatId={mockChat.id} />, mockChatMessagesStore);
 
         expect(wrapper.text().includes("You don’t have a message selected")).toBe(true);
         expect(wrapper.text().includes("Choose one from your existing messages, or start a new one.")).toBe(true);
@@ -46,17 +43,13 @@ describe("ChatMessages", () => {
             chats: { ...mockStore.chats, items: mockChats },
             chatMessages: { ...mockStore.chatMessages, items: mockMessages }
         };
-        const wrapper = mountWithStore(
-            <ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />,
-            mockChatMessagesStore);
+        const wrapper = mountWithStore(<ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />, mockChatMessagesStore);
 
         expect(wrapper.find(Spinner).exists()).toBe(true);
     });
 
     it("should open/close Popup", (done) => {
-        const wrapper = mountWithStore(
-            <ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />,
-            mockChatMessagesStore);
+        const wrapper = mountWithStore(<ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />, mockChatMessagesStore);
         expect(wrapper.find(Popover).prop("open")).toBe(false);
         expect(wrapper.find(Popover).prop("id")).toBe(undefined);
 
@@ -75,9 +68,7 @@ describe("ChatMessages", () => {
     });
 
     it("should add Emoji and send message", () => {
-        const wrapper = mountWithStore(
-            <ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />,
-            mockChatMessagesStore);
+        const wrapper = mountWithStore(<ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />, mockChatMessagesStore);
 
         wrapper.find("#handleOpenPopup").simulate("click");
         wrapper.find(Popover).find(Picker).find("li").at(0).find("button").simulate("click");
@@ -91,9 +82,7 @@ describe("ChatMessages", () => {
     });
 
     it("should unmount ChatMessages", () => {
-        const wrapper = mountWithStore(
-            <ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />,
-            mockChatMessagesStore);
+        const wrapper = mountWithStore(<ChatMessages participantId={mockParticipant.id} chatId={mockChat.id} />, mockChatMessagesStore);
         wrapper.unmount();
         expect(mockDispatchFn).nthCalledWith(5, { type: ChatMessagesActionsType.RESET_CHAT_MESSAGES });
     });

@@ -4,12 +4,7 @@ import { List } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-    fetchLikedUsers,
-    fetchRetweetedUsers,
-    resetLikedUsersState,
-    resetRetweetedUsersState
-} from "../../store/ducks/tweet/actionCreators";
+import { fetchLikedUsers, fetchRetweetedUsers, resetLikedUsersState, resetRetweetedUsersState } from "../../store/ducks/tweet/actionCreators";
 import {
     selectIsLikedUsersLoading,
     selectIsRetweetedUsersLoading,
@@ -33,17 +28,10 @@ interface UsersListModalProps {
 export enum UsersListModalAction {
     LIKED = "LIKED",
     RETWEETED = "RETWEETED",
-    QUOTED = "QUOTED",
+    QUOTED = "QUOTED"
 }
 
-const UsersListModal: FC<UsersListModalProps> = (
-    {
-        tweetId,
-        usersListModalAction,
-        visible,
-        onClose
-    }
-): ReactElement | null => {
+const UsersListModal: FC<UsersListModalProps> = ({ tweetId, usersListModalAction, visible, onClose }): ReactElement | null => {
     const globalClasses = useGlobalStyles({});
     const dispatch = useDispatch();
     const isLiked = usersListModalAction === UsersListModalAction.LIKED;
@@ -60,10 +48,14 @@ const UsersListModal: FC<UsersListModalProps> = (
     }, [visible]);
 
     const loadUsers = (page: number): void => {
-        dispatch(isLiked ? fetchLikedUsers({ tweetId, pageNumber: page }) : fetchRetweetedUsers({
-            tweetId,
-            pageNumber: page
-        }));
+        dispatch(
+            isLiked
+                ? fetchLikedUsers({ tweetId, pageNumber: page })
+                : fetchRetweetedUsers({
+                      tweetId,
+                      pageNumber: page
+                  })
+        );
     };
 
     const onCloseUsersListModal = (): void => {

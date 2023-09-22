@@ -5,7 +5,6 @@ import { TweetResponse } from "../../../../types/tweet";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("unsentTweetsReducer:", () => {
-
     describe("initial state:", () => {
         it("should return initial state", () => {
             expect(unsentTweetsReducer(undefined, {} as UnsentTweetsActions)).toEqual(initialUnsentTweetsState);
@@ -29,13 +28,16 @@ describe("unsentTweetsReducer:", () => {
 
         testActionDispatch(
             UnsentTweetActionType.RESET_UNSENT_TWEETS,
-            unsentTweetsReducer({
-                ...initialUnsentTweetsState,
-                items: [{ id: 1 }] as TweetResponse[],
-                pagesCount: 2
-            }, {
-                type: UnsentTweetActionType.RESET_UNSENT_TWEETS
-            }),
+            unsentTweetsReducer(
+                {
+                    ...initialUnsentTweetsState,
+                    items: [{ id: 1 }] as TweetResponse[],
+                    pagesCount: 2
+                },
+                {
+                    type: UnsentTweetActionType.RESET_UNSENT_TWEETS
+                }
+            ),
             {
                 ...initialUnsentTweetsState,
                 items: [],

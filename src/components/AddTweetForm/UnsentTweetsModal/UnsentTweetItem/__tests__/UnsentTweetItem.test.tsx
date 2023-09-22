@@ -20,7 +20,9 @@ describe("UnsentTweetItem", () => {
                 onToggleCheckTweet={jest.fn()}
                 isTweetSelected
                 visibleEditListFooter
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         wrapper.find("div").at(0).simulate("click");
         expect(wrapper.find(Checkbox).at(0).prop("value")).toBe(9);
@@ -41,7 +43,9 @@ describe("UnsentTweetItem", () => {
                 onToggleCheckTweet={mockOnToggleCheckTweet}
                 isTweetSelected
                 visibleEditListFooter
-            />, mockRootState);
+            />,
+            mockRootState
+        );
 
         wrapper.find(Checkbox).simulate("click");
 

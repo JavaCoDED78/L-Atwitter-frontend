@@ -20,11 +20,7 @@ const LikeIconButton = memo((): ReactElement => {
 
     return (
         <div className={classes.likeIcon}>
-            <ActionIconButton
-                actionText={isTweetLiked ? "Unlike" : "Like"}
-                onClick={handleLike}
-                icon={isTweetLiked ? LikeIcon : LikeOutlinedIcon}
-            />
+            <ActionIconButton actionText={isTweetLiked ? "Unlike" : "Like"} onClick={handleLike} icon={isTweetLiked ? LikeIcon : LikeOutlinedIcon} />
         </div>
     );
 });

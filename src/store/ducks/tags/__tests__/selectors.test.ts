@@ -1,10 +1,4 @@
-import {
-    selectIsTagsLoading,
-    selectIsTrendsLoading,
-    selectTagsItems,
-    selectTrendsItems,
-    selectTrendsPagesCount
-} from "../selectors";
+import { selectIsTagsLoading, selectIsTrendsLoading, selectTagsItems, selectTrendsItems, selectTrendsPagesCount } from "../selectors";
 import { createMockRootState } from "../../../../util/test-utils/test-helper";
 import { mockTags } from "../../../../util/test-utils/mock-test-data";
 import { LoadingStatus } from "../../../../types/common";
@@ -14,10 +8,12 @@ describe("tags selectors:", () => {
 
     describe("selectTagsItems", () => {
         it("should return TagResponse array", () => {
-            expect(selectTagsItems({
-                ...mockState,
-                tags: { ...mockState.tags, tags: mockTags }
-            })).toBe(mockTags);
+            expect(
+                selectTagsItems({
+                    ...mockState,
+                    tags: { ...mockState.tags, tags: mockTags }
+                })
+            ).toBe(mockTags);
         });
     });
 
@@ -29,10 +25,12 @@ describe("tags selectors:", () => {
 
     describe("selectTrendsItems", () => {
         it("should return TagResponse array", () => {
-            expect(selectTrendsItems({
-                ...mockState,
-                tags: { ...mockState.tags, trends: mockTags }
-            })).toBe(mockTags);
+            expect(
+                selectTrendsItems({
+                    ...mockState,
+                    tags: { ...mockState.tags, trends: mockTags }
+                })
+            ).toBe(mockTags);
         });
     });
 

@@ -43,7 +43,7 @@ import {
 import { testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { ListsApi } from "../../../../services/api/lists-service/listsApi";
 import { ListResponse, ListUserResponse, PinnedListResponse, SimpleListResponse } from "../../../../types/lists";
-import { ListsRequest, AddUserToListsRequest } from "../contracts/state";
+import { AddUserToListsRequest, ListsRequest } from "../contracts/state";
 import { updateFollowToFullList } from "../../list/actionCreators";
 import { updateFollowListDetail } from "../../listDetail/actionCreators";
 import { ListsActionType } from "../contracts/actionTypes";
@@ -159,18 +159,22 @@ describe("listsSaga:", () => {
         testLoadingStatus(worker, setLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(listsSaga, [
-        { actionType: ListsActionType.FETCH_LISTS, workSaga: fetchListsRequest },
-        { actionType: ListsActionType.FETCH_USER_LISTS, workSaga: fetchUserListsRequest },
-        { actionType: ListsActionType.FETCH_USER_LISTS_BY_ID, workSaga: fetchUserListsByIdRequest },
-        { actionType: ListsActionType.FETCH_TWEET_LISTS_WHICH_USER_IN, workSaga: fetchTweetListsWhichUserInRequest },
-        { actionType: ListsActionType.FETCH_PINNED_LISTS, workSaga: fetchPinnedListsRequest },
-        { actionType: ListsActionType.FETCH_SIMPLE_LISTS, workSaga: fetchSimpleListsRequest },
-        { actionType: ListsActionType.CREATE_LIST, workSaga: createListRequest },
-        { actionType: ListsActionType.PIN_LIST, workSaga: pinListRequest },
-        { actionType: ListsActionType.UNPIN_LIST, workSaga: unpinListRequest },
-        { actionType: ListsActionType.FOLLOW_LIST, workSaga: followListRequest },
-        { actionType: ListsActionType.UNFOLLOW_LIST, workSaga: unfollowListRequest },
-        { actionType: ListsActionType.PROCESS_USER_TO_LISTS, workSaga: processUserToListsRequest }
-    ], takeEvery);
+    testWatchSaga(
+        listsSaga,
+        [
+            { actionType: ListsActionType.FETCH_LISTS, workSaga: fetchListsRequest },
+            { actionType: ListsActionType.FETCH_USER_LISTS, workSaga: fetchUserListsRequest },
+            { actionType: ListsActionType.FETCH_USER_LISTS_BY_ID, workSaga: fetchUserListsByIdRequest },
+            { actionType: ListsActionType.FETCH_TWEET_LISTS_WHICH_USER_IN, workSaga: fetchTweetListsWhichUserInRequest },
+            { actionType: ListsActionType.FETCH_PINNED_LISTS, workSaga: fetchPinnedListsRequest },
+            { actionType: ListsActionType.FETCH_SIMPLE_LISTS, workSaga: fetchSimpleListsRequest },
+            { actionType: ListsActionType.CREATE_LIST, workSaga: createListRequest },
+            { actionType: ListsActionType.PIN_LIST, workSaga: pinListRequest },
+            { actionType: ListsActionType.UNPIN_LIST, workSaga: unpinListRequest },
+            { actionType: ListsActionType.FOLLOW_LIST, workSaga: followListRequest },
+            { actionType: ListsActionType.UNFOLLOW_LIST, workSaga: unfollowListRequest },
+            { actionType: ListsActionType.PROCESS_USER_TO_LISTS, workSaga: processUserToListsRequest }
+        ],
+        takeEvery
+    );
 });

@@ -6,10 +6,7 @@ import { ArrowRightIcon } from "../../../../icons";
 import { useGlobalStyles } from "../../../../util/globalClasses";
 import { withDocumentTitle } from "../../../../hoc/withDocumentTitle";
 import { SETTINGS_PRIVACY_AND_SAFETY_CONTACTS_DASHBOARD } from "../../../../constants/path-constants";
-import {
-    EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS,
-    UPLOAD_YOUR_CONTACTS_TO_SEARCH
-} from "../../../../constants/url-constants";
+import { EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS, UPLOAD_YOUR_CONTACTS_TO_SEARCH } from "../../../../constants/url-constants";
 
 const Discoverability: FC = (): ReactElement => {
     const globalClasses = useGlobalStyles({});
@@ -28,8 +25,7 @@ const Discoverability: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Decide whether people who have your email address or phone number can find and connect with you on
-                    Twitter.
+                    Decide whether people who have your email address or phone number can find and connect with you on Twitter.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>
@@ -41,8 +37,7 @@ const Discoverability: FC = (): ReactElement => {
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {"Let people who have your email address find and connect with you on Twitter. "}
-                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>
@@ -56,8 +51,7 @@ const Discoverability: FC = (): ReactElement => {
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {"Let people who have your phone number find and connect with you on Twitter. "}
-                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>

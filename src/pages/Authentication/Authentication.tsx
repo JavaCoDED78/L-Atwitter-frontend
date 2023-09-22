@@ -35,28 +35,12 @@ const Authentication: FC = (): ReactElement => {
                     <Typography className={classes.rightSideTittle} variant="h4">
                         Happening now
                     </Typography>
-                    <Typography variant="h4">
-                        Join today!
-                    </Typography>
+                    <Typography variant="h4">Join today!</Typography>
                     <br />
-                    <Button
-                        className={classes.button}
-                        onClick={handleClickOpenSignUp}
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        fullWidth
-                    >
+                    <Button className={classes.button} onClick={handleClickOpenSignUp} variant="contained" color="primary" size="large" fullWidth>
                         Sign up
                     </Button>
-                    <Button
-                        className={classes.button}
-                        onClick={handleClickOpenSignIn}
-                        variant="outlined"
-                        color="primary"
-                        size="large"
-                        fullWidth
-                    >
+                    <Button className={classes.button} onClick={handleClickOpenSignIn} variant="outlined" color="primary" size="large" fullWidth>
                         Log in
                     </Button>
                     <RegistrationModal />

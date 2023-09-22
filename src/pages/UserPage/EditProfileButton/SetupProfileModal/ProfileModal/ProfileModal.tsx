@@ -17,19 +17,17 @@ interface ProfileModalProps {
     children: ReactNode;
 }
 
-const ProfileModal: FC<ProfileModalProps> = (
-    {
-        isOpen,
-        onClose,
-        title,
-        subtitle,
-        onClick,
-        isComponentSelected,
-        isProfileUpdated,
-        hideBackdrop,
-        children
-    }
-): ReactElement => {
+const ProfileModal: FC<ProfileModalProps> = ({
+    isOpen,
+    onClose,
+    title,
+    subtitle,
+    onClick,
+    isComponentSelected,
+    isProfileUpdated,
+    hideBackdrop,
+    children
+}): ReactElement => {
     const classes = useProfileModalStyles({ isProfileUpdated });
 
     return (

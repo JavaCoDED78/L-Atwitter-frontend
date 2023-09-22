@@ -7,8 +7,7 @@ export interface ListDetailState {
     loadingState: LoadingStatus;
 }
 
-
 export interface ListDetailsRequest {
-    listId: number,
-    cancelTokenSource: CancelTokenSource
+    listId: number;
+    cancelTokenSource: CancelTokenSource;
 }

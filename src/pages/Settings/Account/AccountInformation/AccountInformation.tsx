@@ -59,9 +59,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 @{username}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <Link to={SETTINGS_INFO_PHONE}>
@@ -74,9 +72,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {`${getPhoneCode(countryCode)}${phone}`}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <Link to={SETTINGS_INFO_EMAIL}>
@@ -89,9 +85,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {email}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <div className={globalClasses.itemInfoWrapper}>
@@ -100,9 +94,7 @@ const AccountInformation: FC = (): ReactElement => {
                     </Typography>
                     <Typography variant={"subtitle2"} component={"div"}>
                         {"No. "}
-                        <MuiLink variant="subtitle2">
-                            Request Verification
-                        </MuiLink>
+                        <MuiLink variant="subtitle2">Request Verification</MuiLink>
                     </Typography>
                 </div>
                 <Divider />
@@ -116,9 +108,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {isPrivateProfile ? "Yes" : "No"}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <div className={globalClasses.itemInfoWrapper}>
@@ -140,9 +130,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {getCountry(countryCode)}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <Link to={SETTINGS_ACCESSIBILITY_DISPLAY_AND_LANGUAGES_LANGUAGES}>
@@ -155,9 +143,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {language}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <Link to={SETTINGS_INFO_GENDER}>
@@ -170,9 +156,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 {gender}
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
                 <div className={globalClasses.itemInfoWrapper}>
@@ -181,9 +165,7 @@ const AccountInformation: FC = (): ReactElement => {
                     </Typography>
                     <Typography variant={"subtitle2"} component={"div"}>
                         {"Add your date of birth to your "}
-                        <MuiLink variant="subtitle2">
-                            profile.
-                        </MuiLink>
+                        <MuiLink variant="subtitle2">profile.</MuiLink>
                     </Typography>
                 </div>
                 <Divider />
@@ -197,9 +179,7 @@ const AccountInformation: FC = (): ReactElement => {
                                 13-64
                             </Typography>
                         </div>
-                        <div className={globalClasses.arrowIcon}>
-                            {ArrowRightIcon}
-                        </div>
+                        <div className={globalClasses.arrowIcon}>{ArrowRightIcon}</div>
                     </ListItem>
                 </Link>
             </List>

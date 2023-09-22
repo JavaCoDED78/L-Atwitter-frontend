@@ -29,14 +29,18 @@ describe("chatMessages actions", () => {
         payload: { chatId: 1, text: "text" } as ChatMessageRequest
     });
 
-    testAction(addChatMessageWithTweet, addChatMessageWithTweet({
-        text: "text",
-        tweetId: 1,
-        usersIds: [1, 2]
-    } as ChatMessageWithTweetRequest), {
-        type: ChatMessagesActionsType.ADD_CHAT_MESSAGE_WITH_TWEET,
-        payload: { text: "text", tweetId: 1, usersIds: [1, 2] } as ChatMessageWithTweetRequest
-    });
+    testAction(
+        addChatMessageWithTweet,
+        addChatMessageWithTweet({
+            text: "text",
+            tweetId: 1,
+            usersIds: [1, 2]
+        } as ChatMessageWithTweetRequest),
+        {
+            type: ChatMessagesActionsType.ADD_CHAT_MESSAGE_WITH_TWEET,
+            payload: { text: "text", tweetId: 1, usersIds: [1, 2] } as ChatMessageWithTweetRequest
+        }
+    );
 
     testAction(fetchChatMessages, fetchChatMessages(1), {
         type: ChatMessagesActionsType.FETCH_CHAT_MESSAGES,

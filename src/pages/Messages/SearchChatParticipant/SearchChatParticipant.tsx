@@ -14,11 +14,7 @@ const SearchChatParticipant = memo((): ReactElement => {
             onChange={(event) => setText(event.target.value)}
             value={text}
             InputProps={{
-                startAdornment: (
-                    <InputAdornment position="start">
-                        {SearchIcon}
-                    </InputAdornment>
-                )
+                startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>
             }}
         />
     );

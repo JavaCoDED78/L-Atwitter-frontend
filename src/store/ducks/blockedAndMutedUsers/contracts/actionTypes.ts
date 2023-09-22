@@ -11,7 +11,7 @@ export enum BlockedAndMutedUsersActionsType {
     FETCH_BLOCKED_USERS = "blockedAndMutedUsers/FETCH_BLOCKED_USERS",
     FETCH_MUTED_USERS = "blockedAndMutedUsers/FETCH_MUTED_USERS",
     RESET_TAGS_STATE = "blockedAndMutedUsers/RESET_TRENDS_STATE",
-    SET_LOADING_STATE = "blockedAndMutedUsers/SET_LOADING_STATE",
+    SET_LOADING_STATE = "blockedAndMutedUsers/SET_LOADING_STATE"
 }
 
 export interface SetBlockedUsersActionInterface extends Action<BlockedAndMutedUsersActionsType> {

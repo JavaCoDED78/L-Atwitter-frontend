@@ -12,7 +12,7 @@ import UserRequestsInfo from "./UserRequestsInfo/UserRequestsInfo";
 import UserRequestsAvatar from "./UserRequestsAvatar/UserRequestsAvatar";
 
 interface FollowerRequestsItemProps {
-    user: FollowerUserResponse,
+    user: FollowerUserResponse;
     onClose: () => void;
 }
 
@@ -45,24 +45,12 @@ const FollowerRequestsItem: FC<FollowerRequestsItemProps> = memo(({ user, onClos
                 <UserRequestsInfo user={user} />
                 <div className={classes.buttonWrapper}>
                     <div className={classNames(classes.buttonItemWrapper, classes.declineButton)}>
-                        <Button
-                            onClick={handleDeclineFollowerRequest}
-                            color="primary"
-                            variant="outlined"
-                            size="small"
-                            fullWidth
-                        >
+                        <Button onClick={handleDeclineFollowerRequest} color="primary" variant="outlined" size="small" fullWidth>
                             Decline
                         </Button>
                     </div>
                     <div className={classNames(classes.buttonItemWrapper, classes.acceptButton)}>
-                        <Button
-                            onClick={handleAcceptFollowerRequest}
-                            color="primary"
-                            variant="outlined"
-                            size="small"
-                            fullWidth
-                        >
+                        <Button onClick={handleAcceptFollowerRequest} color="primary" variant="outlined" size="small" fullWidth>
                             Accept
                         </Button>
                     </div>

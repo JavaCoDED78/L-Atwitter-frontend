@@ -15,13 +15,7 @@ const EmojiIconButton: FC<EmojiIconButtonProps> = memo(({ addEmoji }): ReactElem
 
     return (
         <>
-            <ActionIconButton
-                id={"onClickAddEmoji"}
-                actionText={"Emoji"}
-                icon={EmojiIcon}
-                onClick={handleOpenPopup}
-                size={"medium"}
-            />
+            <ActionIconButton id={"onClickAddEmoji"} actionText={"Emoji"} icon={EmojiIcon} onClick={handleOpenPopup} size={"medium"} />
             <Popover
                 id={popoverId}
                 open={openPopover}

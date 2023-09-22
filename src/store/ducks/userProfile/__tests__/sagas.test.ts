@@ -1,12 +1,6 @@
 import { AxiosResponse } from "axios";
 
-import {
-    fetchChatParticipantRequest,
-    fetchImagesRequest,
-    fetchUserRequest,
-    processSubscribeRequest,
-    userProfileSaga
-} from "../sagas";
+import { fetchChatParticipantRequest, fetchImagesRequest, fetchUserRequest, processSubscribeRequest, userProfileSaga } from "../sagas";
 import {
     fetchChatParticipant,
     fetchImages,

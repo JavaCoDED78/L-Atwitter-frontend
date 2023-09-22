@@ -26,8 +26,8 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
     useEffect(() => {
         const background = localStorage.getItem(BACKGROUND);
         const color = localStorage.getItem(COLOR);
-        setSelectedBackgroundColor((background !== null) ? background as BackgroundTheme : BackgroundTheme.DEFAULT);
-        setSelectedColor((color !== null) ? color as ColorScheme : ColorScheme.BLUE);
+        setSelectedBackgroundColor(background !== null ? (background as BackgroundTheme) : BackgroundTheme.DEFAULT);
+        setSelectedColor(color !== null ? (color as ColorScheme) : ColorScheme.BLUE);
     }, []);
 
     const handleChangeBackgroundColor = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -51,16 +51,8 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
 
     const ColorSelector: FC<{ color: ColorScheme }> = ({ color }): JSX.Element => {
         return (
-            <div
-                id={color.toLowerCase()}
-                className={classes.colorItem}
-                onClick={() => onClickColor(color)}
-            >
-                {(color === selectedColor) && (
-                    <span className={classes.checkIcon}>
-                        {CheckIcon}
-                    </span>
-                )}
+            <div id={color.toLowerCase()} className={classes.colorItem} onClick={() => onClickColor(color)}>
+                {color === selectedColor && <span className={classes.checkIcon}>{CheckIcon}</span>}
             </div>
         );
     };
@@ -69,17 +61,14 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    Manage your font size, color, and background. These settings affect all the Twitter accounts on this
-                    browser.
+                    Manage your font size, color, and background. These settings affect all the Twitter accounts on this browser.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <div className={classes.tweetInfoWrapper}>
                     <div>
                         <div className={classes.tweetIconWrapper}>
-                        <span className={classes.tweetIcon}>
-                            {TweetIcon}
-                        </span>
+                            <span className={classes.tweetIcon}>{TweetIcon}</span>
                         </div>
                     </div>
                     <div>
@@ -87,17 +76,14 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
                             <Typography variant={"h6"} component={"span"} className={classes.tweetTitle}>
                                 Twitter
                             </Typography>
-                            <span className={classes.tweetVerifiedIcon}>
-                                {VerifiedIcon}
-                            </span>
+                            <span className={classes.tweetVerifiedIcon}>{VerifiedIcon}</span>
                             <Typography variant={"subtitle1"} component={"span"}>
                                 @Twitter · 31m
                             </Typography>
                         </div>
                         <Typography variant={"body1"} component={"div"} className={classes.tweetText}>
-                            At the heart of Twitter are short messages called Tweets — just like this one — which can
-                            include photos, videos, links, text, hashtags, and mentions like <span
-                            className={classes.tweetLink}>@Twitter</span>
+                            At the heart of Twitter are short messages called Tweets — just like this one — which can include photos, videos, links,
+                            text, hashtags, and mentions like <span className={classes.tweetLink}>@Twitter</span>
                         </Typography>
                     </div>
                 </div>
@@ -145,9 +131,7 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
             </div>
             <div className={classes.backgroundContainer}>
                 <div className={classes.backgroundWrapper}>
-                    <div id={"default"} className={classes.backgroundItem}
-                         onClick={() => onClickBackgroundColor(BackgroundTheme.DEFAULT)}
-                    >
+                    <div id={"default"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.DEFAULT)}>
                         <div className={classes.backgroundItemWrapper}>
                             <Radio
                                 checked={selectedBackgroundColor === BackgroundTheme.DEFAULT}
@@ -166,9 +150,7 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
                     </div>
                 </div>
                 <div className={classes.backgroundWrapper}>
-                    <div id={"dim"} className={classes.backgroundItem}
-                         onClick={() => onClickBackgroundColor(BackgroundTheme.DIM)}
-                    >
+                    <div id={"dim"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.DIM)}>
                         <div className={classes.backgroundItemWrapper}>
                             <Radio
                                 checked={selectedBackgroundColor === BackgroundTheme.DIM}
@@ -187,9 +169,7 @@ const Display: FC<DisplayProps> = ({ changeBackgroundColor, changeColorScheme })
                     </div>
                 </div>
                 <div className={classes.backgroundWrapper}>
-                    <div id={"lights_out"} className={classes.backgroundItem}
-                         onClick={() => onClickBackgroundColor(BackgroundTheme.LIGHTS_OUT)}
-                    >
+                    <div id={"lights_out"} className={classes.backgroundItem} onClick={() => onClickBackgroundColor(BackgroundTheme.LIGHTS_OUT)}>
                         <div className={classes.backgroundItemWrapper}>
                             <Radio
                                 checked={selectedBackgroundColor === BackgroundTheme.LIGHTS_OUT}

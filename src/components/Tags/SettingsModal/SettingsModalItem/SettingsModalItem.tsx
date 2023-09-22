@@ -25,7 +25,7 @@ const SettingsModalItem: FC<SettingsModalItemProps> = ({ title, subtitle, text }
                     <Typography variant={"body1"} component={"span"}>
                         {subtitle}
                     </Typography>
-                    <Checkbox checked={checked} onChange={() => setChecked(prevState => !prevState)} />
+                    <Checkbox checked={checked} onChange={() => setChecked((prevState) => !prevState)} />
                 </div>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {text}

@@ -17,13 +17,13 @@ export enum ColorScheme {
     CRIMSON = "CRIMSON",
     VIOLET = "VIOLET",
     ORANGE = "ORANGE",
-    GREEN = "GREEN",
+    GREEN = "GREEN"
 }
 
 export enum BackgroundTheme {
     DEFAULT = "DEFAULT",
     DIM = "DIM",
-    LIGHTS_OUT = "LIGHTS_OUT",
+    LIGHTS_OUT = "LIGHTS_OUT"
 }
 
 export interface Image {
@@ -49,7 +49,7 @@ export enum NotificationType {
     REPLY = "REPLY",
     FOLLOW = "FOLLOW",
     TWEET = "TWEET",
-    LISTS = "LISTS",
+    LISTS = "LISTS"
 }
 
 export interface SameFollowerResponse {

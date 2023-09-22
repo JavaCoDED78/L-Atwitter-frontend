@@ -7,17 +7,17 @@ interface UseTopicsButtonStyles {
 
 export const useTopicButtonStyles = makeStyles<Theme, UseTopicsButtonStyles>((theme) => ({
     topicItem: {
-        opacity: props => props.isTopicNotInterested ? 0.5 : 1,
+        opacity: (props) => (props.isTopicNotInterested ? 0.5 : 1),
         padding: "4px 0px",
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "flex-start",
         "& .MuiButtonBase-root": {
-            backgroundColor: props => props.isTopicFollowed ? theme.palette.primary.main : theme.palette.background.default
+            backgroundColor: (props) => (props.isTopicFollowed ? theme.palette.primary.main : theme.palette.background.default)
         },
         "& .MuiTypography-h6": {
-            color: props => props.isTopicFollowed && theme.palette.common.white,
+            color: (props) => props.isTopicFollowed && theme.palette.common.white,
             fontWeight: 700,
             marginRight: 12
         },
@@ -27,12 +27,15 @@ export const useTopicButtonStyles = makeStyles<Theme, UseTopicsButtonStyles>((th
         "& svg": {
             width: "1.172rem",
             height: "1.172rem",
-            fill: (props: { isTopicFollowed: any; isTopicNotInterested: any; }) =>
-                props.isTopicNotInterested ? theme.palette.common.white :
-                    props.isTopicFollowed ? theme.palette.common.white : theme.palette.primary.main
+            fill: (props: { isTopicFollowed: any; isTopicNotInterested: any }) =>
+                props.isTopicNotInterested
+                    ? theme.palette.common.white
+                    : props.isTopicFollowed
+                    ? theme.palette.common.white
+                    : theme.palette.primary.main
         },
         "& .MuiButton-root:hover": {
-            backgroundColor: props => props.isTopicFollowed ? theme.palette.primary.dark : theme.palette.secondary.light
+            backgroundColor: (props) => (props.isTopicFollowed ? theme.palette.primary.dark : theme.palette.secondary.light)
         }
     },
     topicItemTextInfo: {

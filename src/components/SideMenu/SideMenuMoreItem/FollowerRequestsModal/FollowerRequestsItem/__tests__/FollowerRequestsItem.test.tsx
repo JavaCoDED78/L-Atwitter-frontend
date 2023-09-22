@@ -54,11 +54,7 @@ describe("FollowerRequestsItem", () => {
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");
         const mockOnClose = jest.fn();
-        const wrapper = mountWithStore(
-            <FollowerRequestsItem
-                user={mockUser}
-                onClose={mockOnClose}
-            />, mockRootState, history);
+        const wrapper = mountWithStore(<FollowerRequestsItem user={mockUser} onClose={mockOnClose} />, mockRootState, history);
 
         wrapper.find(Paper).simulate("click");
 

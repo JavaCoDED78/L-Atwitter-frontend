@@ -52,7 +52,7 @@ export enum UserActionsType {
     SET_NEW_NOTIFICATION = "user/SET_NEW_NOTIFICATION",
     RESET_NOTIFICATIONS = "user/RESET_NOTIFICATIONS",
     SET_NEW_MENTION = "user/SET_NEW_MENTION",
-    RESET_MENTIONS = "user/RESET_MENTIONS",
+    RESET_MENTIONS = "user/RESET_MENTIONS"
 }
 
 export interface SignOutActionInterface extends Action<UserActionsType> {
@@ -295,4 +295,4 @@ export type UserActions =
     | SetProfileStartedActionInterface
     | SetPinTweetIdActionInterface
     | SetReadMessageActionInterface
-    | SetUserFollowingActionInterface
+    | SetUserFollowingActionInterface;

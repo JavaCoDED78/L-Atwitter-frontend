@@ -13,7 +13,6 @@ describe("TweetInteractionCount", () => {
 
     it("should open/close RetweetsModalWindow", () => {
         testClickModalWindow("2Retweets", 0, UsersListModalAction.RETWEETED);
-
     });
 
     it("should open/close LikesModalWindow", () => {
@@ -22,9 +21,13 @@ describe("TweetInteractionCount", () => {
 
     it("should render empty TweetInteractionCount", () => {
         const mockState = {
-            ...mockRootState, tweet: {
-                ...mockRootState.tweet, tweet: {
-                    ...mockFullTweet, retweetsCount: 0, likedTweetsCount: 0
+            ...mockRootState,
+            tweet: {
+                ...mockRootState.tweet,
+                tweet: {
+                    ...mockFullTweet,
+                    retweetsCount: 0,
+                    likedTweetsCount: 0
                 }
             }
         };

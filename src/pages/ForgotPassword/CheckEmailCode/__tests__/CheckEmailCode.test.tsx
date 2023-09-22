@@ -21,7 +21,9 @@ describe("CheckEmailCode", () => {
 
         expect(wrapper.text().includes("Check your email")).toBe(true);
         expect(wrapper.text().includes("You'll receive a code to verify here so you can reset your account password.")).toBe(true);
-        expect(wrapper.text().includes("If you don't see the email, check other places it might be, like your junk, spam, social, or other folders.")).toBe(true);
+        expect(
+            wrapper.text().includes("If you don't see the email, check other places it might be, like your junk, spam, social, or other folders.")
+        ).toBe(true);
         expect(wrapper.find(Button).at(0).text()).toEqual("Verify");
         expect(wrapper.find(MuiLink).at(0).text()).toEqual("Didn’t receive your code?");
     });

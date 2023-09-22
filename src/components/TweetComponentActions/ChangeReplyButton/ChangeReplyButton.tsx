@@ -8,7 +8,6 @@ interface ChangeReplyButton {
 }
 
 const ChangeReplyButton: FC<ChangeReplyButton> = memo(({ handleClickReplyDropdown }): ReactElement => {
-
     return (
         <ListItem id={"clickReplyDropdown"} onClick={handleClickReplyDropdown}>
             <>{ReplyIcon}</>

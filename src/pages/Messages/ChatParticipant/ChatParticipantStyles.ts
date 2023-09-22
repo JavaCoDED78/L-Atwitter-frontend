@@ -27,5 +27,4 @@ export const useChatParticipantStyles = makeStyles((theme) => ({
     username: {
         marginLeft: 5
     }
-
 }));

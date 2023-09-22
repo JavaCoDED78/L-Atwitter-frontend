@@ -45,9 +45,8 @@ const DeactivateAccount: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    You’re about to start the process of deactivating your Twitter account. Your display name,
-                    @username, and public profile will no longer be viewable on Twitter.com, Twitter for iOS, or
-                    Twitter for Android.
+                    You’re about to start the process of deactivating your Twitter account. Your display name, @username, and public profile will no
+                    longer be viewable on Twitter.com, Twitter for iOS, or Twitter for Android.
                 </Typography>
             </div>
             <div className={globalClasses.itemInfoWrapper}>
@@ -57,16 +56,14 @@ const DeactivateAccount: FC = (): ReactElement => {
             </div>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    You can restore your Twitter account if it was accidentally or wrongfully deactivated for up
-                    to 30 days after deactivation.
+                    You can restore your Twitter account if it was accidentally or wrongfully deactivated for up to 30 days after deactivation.
                 </Typography>
             </div>
             <Divider />
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {"Some account information may still be available in search engines, such as Google or Bing. "}
-                    <MuiLink href={REMOVE_TWITTER_PROFILE_FROM_GOOGLE_SEARCH} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    <MuiLink href={REMOVE_TWITTER_PROFILE_FROM_GOOGLE_SEARCH} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>
@@ -93,9 +90,8 @@ const DeactivateAccount: FC = (): ReactElement => {
             <Divider />
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    If you want to download your Twitter data, you’ll need to complete both the request and
-                    download process before deactivating your account. Links to download your data cannot be
-                    sent to deactivated accounts.
+                    If you want to download your Twitter data, you’ll need to complete both the request and download process before deactivating your
+                    account. Links to download your data cannot be sent to deactivated accounts.
                 </Typography>
             </div>
             <Divider />

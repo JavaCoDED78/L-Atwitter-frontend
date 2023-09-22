@@ -4,13 +4,7 @@ import { fetchTagsRequest, fetchTrendsRequest, tagsSaga } from "../sagas";
 import { TagApi } from "../../../../services/api/tag-service/tagApi";
 import { fetchTrends, setTags, setTagsLoadingState, setTrends, setTrendsLoadingState } from "../actionCreators";
 import { TagResponse } from "../../../../types/tag";
-import {
-    mockExpectedResponse,
-    testCall,
-    testLoadingStatus,
-    testSetResponse,
-    testWatchSaga
-} from "../../../../util/test-utils/test-helper";
+import { mockExpectedResponse, testCall, testLoadingStatus, testSetResponse, testWatchSaga } from "../../../../util/test-utils/test-helper";
 import { TagsActionsType } from "../contracts/actionTypes";
 import { LoadingStatus } from "../../../../types/common";
 

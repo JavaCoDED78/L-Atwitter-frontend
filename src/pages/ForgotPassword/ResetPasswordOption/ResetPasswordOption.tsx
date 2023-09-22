@@ -45,14 +45,7 @@ const ResetPasswordOption: FC = (): ReactElement => {
                         {location.state.email}
                     </Typography>
                 </div>
-                <Button
-                    className={classes.button}
-                    disabled={isLoading}
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                >
+                <Button className={classes.button} disabled={isLoading} type="submit" variant="contained" color="primary" size="small">
                     Next
                 </Button>
             </form>

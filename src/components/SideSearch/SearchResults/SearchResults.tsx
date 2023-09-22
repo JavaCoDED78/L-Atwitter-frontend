@@ -28,8 +28,12 @@ const SearchResults: FC = (): ReactElement => {
                 <List>
                     {searchedText && <TextSearchResult text={searchedText} />}
                     {searchedText && tweetCount != 0 && <TextSearchResult text={searchedText} tweetCount={tweetCount} />}
-                    {tags?.map((tag, index) => <TextSearchResult key={index} text={tag} />)}
-                    {users?.map((user) => <UserSearchResult key={user.id} user={user} />)}
+                    {tags?.map((tag, index) => (
+                        <TextSearchResult key={index} text={tag} />
+                    ))}
+                    {users?.map((user) => (
+                        <UserSearchResult key={user.id} user={user} />
+                    ))}
                 </List>
             )}
         </>

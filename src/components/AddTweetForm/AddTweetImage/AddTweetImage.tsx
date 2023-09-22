@@ -26,19 +26,14 @@ const AddTweetImage: FC = memo((): ReactElement | null => {
     }
 
     return (
-        <div className={(location.pathname.includes(MODAL)) ? classes.imageSmall : classes.image}>
+        <div className={location.pathname.includes(MODAL) ? classes.imageSmall : classes.image}>
             <img src={images[0].src} alt={images[0].src} />
             <div>
                 <TagPeople />
                 <AddDescription />
             </div>
             <div className={classes.imageRemove}>
-                <ActionIconButton
-                    actionText={"Remove"}
-                    icon={CloseIcon}
-                    onClick={onClickRemoveImage}
-                    size={"medium"}
-                />
+                <ActionIconButton actionText={"Remove"} icon={CloseIcon} onClick={onClickRemoveImage} size={"medium"} />
             </div>
         </div>
     );

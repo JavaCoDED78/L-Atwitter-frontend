@@ -7,13 +7,7 @@ import { CompatClient, Stomp } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import TweetComponent from "../TweetComponent/TweetComponent";
 import { useTweetImageStyles } from "./TweetImageModalStyles";
-import {
-    fetchReplies,
-    fetchTweetData,
-    resetRepliesState,
-    resetTweetState,
-    updateTweetData
-} from "../../store/ducks/tweet/actionCreators";
+import { fetchReplies, fetchTweetData, resetRepliesState, resetTweetState, updateTweetData } from "../../store/ducks/tweet/actionCreators";
 import {
     selectIsRepliesLoading,
     selectIsTweetLoadedSuccess,
@@ -125,13 +119,7 @@ const TweetImageModal = (): ReactElement | null => {
                         <AddReplyToTweet />
                     </div>
                     <Divider />
-                    {isRepliesLoading ? (
-                        <Spinner />
-                    ) : (
-                        replies.map((tweet) => (
-                            <TweetComponent key={tweet.id} tweet={tweet} isTweetImageModal />
-                        ))
-                    )}
+                    {isRepliesLoading ? <Spinner /> : replies.map((tweet) => <TweetComponent key={tweet.id} tweet={tweet} isTweetImageModal />)}
                 </div>
                 <div id={"imageFooter"} className={classes.imageFooterContainer}>
                     <div className={classNames(classes.imageFooterWrapper)}>

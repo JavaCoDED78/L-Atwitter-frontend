@@ -30,32 +30,11 @@ const ChatFooter: FC<ChatFooterProps> = ({ chatId }): ReactElement => {
 
     return (
         <Paper className={classes.chatFooter}>
-            <ActionIcon
-                actionText={"Media"}
-                className={"chatIcon"}
-                icon={MediaIcon}
-                positionTop
-            />
-            <ActionIcon
-                actionText={"GIF"}
-                className={"chatIcon"}
-                icon={GifIcon}
-                positionTop
-            />
-            <MessageInput
-                multiline
-                value={text}
-                onChange={handleChangeText}
-                variant="outlined"
-                placeholder="Start a new message"
-            />
+            <ActionIcon actionText={"Media"} className={"chatIcon"} icon={MediaIcon} positionTop />
+            <ActionIcon actionText={"GIF"} className={"chatIcon"} icon={GifIcon} positionTop />
+            <MessageInput multiline value={text} onChange={handleChangeText} variant="outlined" placeholder="Start a new message" />
             <div id={"handleOpenPopup"} onClick={handleOpenPopup}>
-                <ActionIcon
-                    actionText={"Emoji"}
-                    className={"emojiIcon"}
-                    icon={EmojiIcon}
-                    positionTop
-                />
+                <ActionIcon actionText={"Emoji"} className={"emojiIcon"} icon={EmojiIcon} positionTop />
             </div>
             <div style={{ marginLeft: 8 }}>
                 <ActionIcon

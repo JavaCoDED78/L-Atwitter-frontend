@@ -63,14 +63,14 @@ describe("NotificationsPage", () => {
                 tweetAuthors: [
                     ...mockTweetAuthors,
                     {
-                        "id": 4,
-                        "username": "JavaCat",
-                        "fullName": "JavaCat",
-                        "avatar": {
-                            "id": 5,
-                            "src": "https://twitterclonestorage.s3.eu-central-1.amazonaws.com/b999d944-c9ec-4a9c-b356-db937211df5c_Ec1OBK3XsAEjVZR.png"
+                        id: 4,
+                        username: "JavaCat",
+                        fullName: "JavaCat",
+                        avatar: {
+                            id: 5,
+                            src: "https://twitterclonestorage.s3.eu-central-1.amazonaws.com/b999d944-c9ec-4a9c-b356-db937211df5c_Ec1OBK3XsAEjVZR.png"
                         },
-                        "isFollower": false
+                        isFollower: false
                     }
                 ]
             }

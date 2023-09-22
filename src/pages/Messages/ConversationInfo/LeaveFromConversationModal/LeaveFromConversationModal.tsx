@@ -9,13 +9,7 @@ interface LeaveFromConversationModalProps {
     onClose: () => void;
 }
 
-const LeaveFromConversationModal: FC<LeaveFromConversationModalProps> = (
-    {
-        handleLeaveFromConversation,
-        visible,
-        onClose
-    }
-): ReactElement | null => {
+const LeaveFromConversationModal: FC<LeaveFromConversationModalProps> = ({ handleLeaveFromConversation, visible, onClose }): ReactElement | null => {
     const classes = useLeaveFromConversationModalStyles();
 
     if (!visible) {
@@ -30,8 +24,7 @@ const LeaveFromConversationModal: FC<LeaveFromConversationModalProps> = (
                         Leave conversation?
                     </Typography>
                     <Typography variant={"subtitle1"} component={"div"}>
-                        This conversation will be deleted from your inbox. Other people in the conversation will still
-                        be able to see it.
+                        This conversation will be deleted from your inbox. Other people in the conversation will still be able to see it.
                     </Typography>
                     <Button
                         className={classes.blockButton}
@@ -43,13 +36,7 @@ const LeaveFromConversationModal: FC<LeaveFromConversationModalProps> = (
                     >
                         Leave
                     </Button>
-                    <Button
-                        onClick={onClose}
-                        variant="outlined"
-                        color="primary"
-                        size="large"
-                        fullWidth
-                    >
+                    <Button onClick={onClose} variant="outlined" color="primary" size="large" fullWidth>
                         Cancel
                     </Button>
                 </div>

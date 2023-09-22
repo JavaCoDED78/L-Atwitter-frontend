@@ -25,11 +25,7 @@ const MutedAccountItem: FC<MutedAccountItemProps> = memo(({ mutedUser }): ReactE
                         username={mutedUser?.username!}
                         about={mutedUser?.about!}
                     />
-                    <MuteAccountButton
-                        userId={mutedUser?.id!}
-                        username={mutedUser?.username!}
-                        isUserMuted={mutedUser?.isUserMuted!}
-                    />
+                    <MuteAccountButton userId={mutedUser?.id!} username={mutedUser?.username!} isUserMuted={mutedUser?.isUserMuted!} />
                 </div>
             </div>
         </Paper>

@@ -3,11 +3,7 @@ import { Checkbox, Link as MuiLink } from "@material-ui/core";
 
 import DirectMessages from "../DirectMessages";
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../../../util/test-utils/test-helper";
-import {
-    DIRECT_MESSAGES,
-    DIRECT_MESSAGES_RECEIPTS,
-    DIRECT_MESSAGES_RECEIVE
-} from "../../../../../constants/url-constants";
+import { DIRECT_MESSAGES, DIRECT_MESSAGES_RECEIPTS, DIRECT_MESSAGES_RECEIVE } from "../../../../../constants/url-constants";
 import { UserActionsType } from "../../../../../store/ducks/user/contracts/actionTypes";
 import { LoadingStatus } from "../../../../../types/common";
 
@@ -36,7 +32,11 @@ describe("DirectMessages", () => {
         const wrapper = mountWithStore(<DirectMessages />, mockStore);
         expect(wrapper.find(Checkbox).at(0).prop("checked")).toBe(false);
 
-        wrapper.find(Checkbox).find("input").at(0).simulate("change", { target: { checked: true } });
+        wrapper
+            .find(Checkbox)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { checked: true } });
 
         expect(wrapper.find(Checkbox).at(0).prop("checked")).toBe(true);
         expect(mockDispatchFn).nthCalledWith(1, {

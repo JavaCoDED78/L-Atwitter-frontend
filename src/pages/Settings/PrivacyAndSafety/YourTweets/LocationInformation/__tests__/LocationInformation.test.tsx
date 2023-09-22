@@ -6,7 +6,6 @@ import { createMockRootState, mountWithStore } from "../../../../../../util/test
 import { TWEET_LOCATION_SETTINGS } from "../../../../../../constants/url-constants";
 
 describe("LocationInformation", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<LocationInformation />, createMockRootState());
         expect(wrapper.text().includes("If enabled, you will be able to attach location information to your Tweets.")).toBe(true);

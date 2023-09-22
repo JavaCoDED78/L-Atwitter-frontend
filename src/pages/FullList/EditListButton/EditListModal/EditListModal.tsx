@@ -7,8 +7,7 @@ import * as yup from "yup";
 
 import { useEditListModalStyles } from "./EditListModalStyles";
 import UploadProfileImage from "../../../../components/UploadProfileImage/UploadProfileImage";
-import CreateListsModalInput
-    from "../../../Lists/ListsHeader/CreateListsModal/CreateListsModalInput/CreateListsModalInput";
+import CreateListsModalInput from "../../../Lists/ListsHeader/CreateListsModal/CreateListsModalInput/CreateListsModalInput";
 import { ImageObj } from "../../../../components/AddTweetForm/AddTweetForm";
 import ManageMembersModal from "./ManageMembersModal/ManageMembersModal";
 import DeleteListModal from "./DeleteListModal/DeleteListModal";
@@ -45,7 +44,11 @@ const EditListModal: FC<EditListModalProps> = ({ visible, onClose }): ReactEleme
     const [isListPrivate, setIsListPrivate] = useState<boolean>(false);
     const listWrapperSrc = list?.wallpaper ?? list?.altWallpaper;
 
-    const { control, handleSubmit, formState: { errors } } = useForm<EditListModalFormProps>({
+    const {
+        control,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<EditListModalFormProps>({
         defaultValues: {
             id: list?.id,
             name: list?.name,
@@ -67,12 +70,14 @@ const EditListModal: FC<EditListModalProps> = ({ visible, onClose }): ReactEleme
         if (wallpaper) {
             wallpaperResponse = await uploadImage(wallpaper.file);
         }
-        dispatch(editList({
-            ...data,
-            isPrivate: isListPrivate,
-            listOwner: list?.listOwner!,
-            wallpaper: wallpaperResponse
-        }));
+        dispatch(
+            editList({
+                ...data,
+                isPrivate: isListPrivate,
+                listOwner: list?.listOwner!,
+                wallpaper: wallpaperResponse
+            })
+        );
         onClose();
     };
 
@@ -95,12 +100,7 @@ const EditListModal: FC<EditListModalProps> = ({ visible, onClose }): ReactEleme
                 <DialogContent className={globalClasses.dialogContent}>
                     <div>
                         <div className={classes.wallpaperWrapper}>
-                            <img
-                                className={classes.wallpaperImg}
-                                key={listWrapperSrc}
-                                src={listWrapperSrc}
-                                alt={listWrapperSrc}
-                            />
+                            <img className={classes.wallpaperImg} key={listWrapperSrc} src={listWrapperSrc} alt={listWrapperSrc} />
                             <div className={classes.wallpaperEditImg}>
                                 <UploadProfileImage name={"wallpaper"} image={wallpaper} onChangeImage={setWallpaper} />
                             </div>
@@ -140,12 +140,7 @@ const EditListModal: FC<EditListModalProps> = ({ visible, onClose }): ReactEleme
                                 <Typography variant={"body1"} component={"div"}>
                                     Make private
                                 </Typography>
-                                <Checkbox
-                                    checked={isListPrivate}
-                                    onChange={handleChange}
-                                    name="private"
-                                    color="primary"
-                                />
+                                <Checkbox checked={isListPrivate} onChange={handleChange} name="private" color="primary" />
                             </div>
                             <Typography variant={"subtitle2"} component={"div"}>
                                 When you make a List private, only you can see it.

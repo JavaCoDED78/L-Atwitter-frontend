@@ -155,8 +155,7 @@ describe("ConversationInfo", () => {
     it("should open leave conversation modal and leave", () => {
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");
-        const wrapper = mountWithStore(<ConversationInfo participantId={1}
-                                                         chatId={1} />, mockUserProfileStore, history);
+        const wrapper = mountWithStore(<ConversationInfo participantId={1} chatId={1} />, mockUserProfileStore, history);
 
         expect(wrapper.find("#leaveFromConversation").text().includes("Leave conversation")).toBe(true);
         expect(wrapper.find(LeaveFromConversationModal).prop("visible")).toBe(false);

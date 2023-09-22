@@ -20,20 +20,13 @@ const ChatHeader = memo((): ReactElement => {
         <Paper className={classnames(globalClasses.pageHeader, classes.chatHeader)}>
             <Avatar className={classes.chatAvatar} src={chatParticipant?.avatar ?? DEFAULT_PROFILE_IMG} />
             <div style={{ flex: 1 }}>
-                <Typography variant="h5">
-                    {chatParticipant?.fullName}
-                </Typography>
+                <Typography variant="h5">{chatParticipant?.fullName}</Typography>
                 <Typography variant="subtitle2" component={"div"}>
                     @{chatParticipant?.username}
                 </Typography>
             </div>
             <div className={classes.iconGroup}>
-                <ActionIcon
-                    path={`${MESSAGES}/${chatParticipant?.id}/info`}
-                    actionText={"Details"}
-                    className={"icon"}
-                    icon={DetailsIcon}
-                />
+                <ActionIcon path={`${MESSAGES}/${chatParticipant?.id}/info`} actionText={"Details"} className={"icon"} icon={DetailsIcon} />
             </div>
         </Paper>
     );

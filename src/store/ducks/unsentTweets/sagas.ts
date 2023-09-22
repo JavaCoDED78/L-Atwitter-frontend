@@ -12,10 +12,12 @@ export function* fetchUnsentTweetsRequest({ payload }: FetchUnsentTweetsActionIn
     try {
         yield put(setUnsentTweetsLoadingState(LoadingStatus.LOADING));
         const response: AxiosResponse<TweetResponse[]> = yield call(ScheduledTweetApi.getScheduledTweets, payload);
-        yield put(setUnsentTweets({
-            items: response.data,
-            pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
-        }));
+        yield put(
+            setUnsentTweets({
+                items: response.data,
+                pagesCount: parseInt(response.headers[PAGE_TOTAL_COUNT])
+            })
+        );
     } catch (e) {
         yield put(setUnsentTweetsLoadingState(LoadingStatus.ERROR));
     }

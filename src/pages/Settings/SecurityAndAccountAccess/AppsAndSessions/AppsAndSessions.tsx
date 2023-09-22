@@ -22,8 +22,7 @@ const AppsAndSessions: FC = (): ReactElement => {
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
-                    See information about when you logged into your account and the apps you connected to your
-                    account.
+                    See information about when you logged into your account and the apps you connected to your account.
                 </Typography>
             </div>
             <div className={classnames(classes.listWrapper, globalClasses.svg)}>

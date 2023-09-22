@@ -5,7 +5,6 @@ import { createMockRootState, mountWithStore, testClickOnLink } from "../../../.
 import { SETTINGS_SECURITY, SETTINGS_SECURITY_APPS_AND_SESSIONS } from "../../../../constants/path-constants";
 
 describe("SecurityAndAccountAccess", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<SecurityAndAccountAccess />, createMockRootState());
         expect(wrapper.text().includes("Manage your account’s security and keep track")).toBe(true);

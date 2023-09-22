@@ -16,7 +16,7 @@ describe("GifModalWindow", () => {
     const mockRootState = createMockRootState(LoadingStatus.LOADED);
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(<GifModalWindow onClose={jest.fn()} visible />, mockRootState);
@@ -38,15 +38,22 @@ describe("GifModalWindow", () => {
 
     it("should search gif", () => {
         const wrapper = mountWithStore(<GifModalWindow onClose={jest.fn()} visible />, mockRootState);
-        wrapper.find(MainSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        wrapper
+            .find(MainSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         expect(wrapper.find(MainSearchTextField).prop("value")).toBe("test_value");
         expect(wrapper.find(GifList).exists()).toBeTruthy();
     });
 
     it("should render Spinner", () => {
-        const wrapper = mountWithStore(<GifModalWindow onClose={jest.fn()}
-                                                       visible />, createMockRootState(LoadingStatus.LOADING));
-        wrapper.find(MainSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        const wrapper = mountWithStore(<GifModalWindow onClose={jest.fn()} visible />, createMockRootState(LoadingStatus.LOADING));
+        wrapper
+            .find(MainSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         expect(wrapper.find(Spinner).exists()).toBe(true);
     });
 
@@ -54,7 +61,11 @@ describe("GifModalWindow", () => {
         const mockRootState = createMockRootState(LoadingStatus.LOADED);
         const mockState = { ...mockRootState, addTweetForm: { ...mockRootState.addTweetForm, gifs: mockGiphyData } };
         const wrapper = mountWithStore(<GifModalWindow onClose={jest.fn()} visible />, mockState);
-        wrapper.find(MainSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        wrapper
+            .find(MainSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         expect(wrapper.find(ImageListItem).length).toEqual(2);
         wrapper.find(GifList).find(ImageListItem).at(0).simulate("click");
         expect(mockDispatchFn).nthCalledWith(1, {

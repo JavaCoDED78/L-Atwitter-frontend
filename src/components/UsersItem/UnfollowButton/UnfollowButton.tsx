@@ -45,12 +45,7 @@ const UnfollowButton: FC<UnfollowButtonProps> = ({ user }): ReactElement => {
             >
                 {btnText}
             </Button>
-            <UnfollowModal
-                fullName={user?.fullName!}
-                visible={visibleModalWindow}
-                onClose={onCloseModalWindow}
-                handleUnfollow={handleUnfollow}
-            />
+            <UnfollowModal fullName={user?.fullName!} visible={visibleModalWindow} onClose={onCloseModalWindow} handleUnfollow={handleUnfollow} />
         </>
     );
 };

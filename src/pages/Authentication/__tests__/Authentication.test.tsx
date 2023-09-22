@@ -28,7 +28,7 @@ describe("Authentication", () => {
     };
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Authentication />, mockRootStore);

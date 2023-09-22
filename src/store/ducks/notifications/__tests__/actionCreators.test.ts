@@ -18,11 +18,7 @@ import {
     updateNotificationInfoTweet
 } from "../actionCreators";
 import { NotificationsActionsType } from "../contracts/actionTypes";
-import {
-    NotificationInfoResponse,
-    NotificationResponse,
-    NotificationUserResponse
-} from "../../../../types/notification";
+import { NotificationInfoResponse, NotificationResponse, NotificationUserResponse } from "../../../../types/notification";
 import { LoadingStatus } from "../../../../types/common";
 
 describe("notifications actions", () => {

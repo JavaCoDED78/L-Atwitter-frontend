@@ -5,10 +5,7 @@ import { Link as MuiLink, Typography } from "@material-ui/core";
 import { ArrowRightIcon } from "../../../../icons";
 import { useGlobalStyles } from "../../../../util/globalClasses";
 import { withDocumentTitle } from "../../../../hoc/withDocumentTitle";
-import {
-    SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS,
-    SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS
-} from "../../../../constants/path-constants";
+import { SETTINGS_NOTIFICATION_EMAIL_NOTIFICATIONS, SETTINGS_NOTIFICATION_PUSH_NOTIFICATIONS } from "../../../../constants/path-constants";
 import { NOTIFICATIONS_ON_MOBILE_DEVICES } from "../../../../constants/url-constants";
 
 const Preferences: FC = (): ReactElement => {

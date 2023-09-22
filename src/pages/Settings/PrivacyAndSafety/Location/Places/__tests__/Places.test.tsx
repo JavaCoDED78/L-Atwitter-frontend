@@ -4,7 +4,6 @@ import Places from "../Places";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 
 describe("Places", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Places />, createMockRootState());
 

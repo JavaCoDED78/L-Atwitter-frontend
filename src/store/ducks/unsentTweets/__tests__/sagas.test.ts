@@ -10,7 +10,6 @@ import { PAGE_TOTAL_COUNT } from "../../../../constants/common-constants";
 import { ScheduledTweetApi } from "../../../../services/api/tweet-service/scheduledTweetApi";
 
 describe("unsentTweetsSaga:", () => {
-
     describe("fetchUnsentTweetsRequest:", () => {
         const mockTweets = [{ id: 1 }, { id: 2 }] as TweetResponse[];
         const mockPageableTweets = {
@@ -21,14 +20,18 @@ describe("unsentTweetsSaga:", () => {
 
         testLoadingStatus(worker, setUnsentTweetsLoadingState, LoadingStatus.LOADING);
         testCall(worker, ScheduledTweetApi.getScheduledTweets, 1);
-        testSetResponse(worker, mockPageableTweets, setUnsentTweets, {
-            items: mockPageableTweets.data,
-            pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
-        }, "TweetResponse");
+        testSetResponse(
+            worker,
+            mockPageableTweets,
+            setUnsentTweets,
+            {
+                items: mockPageableTweets.data,
+                pagesCount: parseInt(mockPageableTweets.headers[PAGE_TOTAL_COUNT])
+            },
+            "TweetResponse"
+        );
         testLoadingStatus(worker, setUnsentTweetsLoadingState, LoadingStatus.ERROR);
     });
 
-    testWatchSaga(unsentTweetsSaga, [
-        { actionType: UnsentTweetActionType.FETCH_UNSENT_TWEETS, workSaga: fetchUnsentTweetsRequest }
-    ]);
+    testWatchSaga(unsentTweetsSaga, [{ actionType: UnsentTweetActionType.FETCH_UNSENT_TWEETS, workSaga: fetchUnsentTweetsRequest }]);
 });

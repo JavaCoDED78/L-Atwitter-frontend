@@ -104,9 +104,21 @@ describe("ChangeYourPassword", () => {
     });
 
     const submitChangePasswordForm = (wrapper: ReactWrapper<any, React.Component["state"], React.Component>): void => {
-        wrapper.find(ChangeInfoTextField).at(0).find("input").simulate("change", { target: { value: mockPassword } });
-        wrapper.find(ChangeInfoTextField).at(1).find("input").simulate("change", { target: { value: mockNewPassword } });
-        wrapper.find(ChangeInfoTextField).at(2).find("input").simulate("change", { target: { value: mockNewPassword } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(0)
+            .find("input")
+            .simulate("change", { target: { value: mockPassword } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(1)
+            .find("input")
+            .simulate("change", { target: { value: mockNewPassword } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(2)
+            .find("input")
+            .simulate("change", { target: { value: mockNewPassword } });
         wrapper.find(Button).simulate("submit");
     };
 });

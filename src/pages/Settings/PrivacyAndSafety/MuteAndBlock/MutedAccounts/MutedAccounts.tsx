@@ -11,10 +11,7 @@ import {
     selectMutedUsersItems,
     selectUsersPagesCount
 } from "../../../../../store/ducks/blockedAndMutedUsers/selectors";
-import {
-    fetchMutedUsers,
-    resetBlockedAndMutedUsersState
-} from "../../../../../store/ducks/blockedAndMutedUsers/actionCreators";
+import { fetchMutedUsers, resetBlockedAndMutedUsersState } from "../../../../../store/ducks/blockedAndMutedUsers/actionCreators";
 import { withDocumentTitle } from "../../../../../hoc/withDocumentTitle";
 import { TWITTER_MUTE } from "../../../../../constants/url-constants";
 import InfiniteScrollWrapper from "../../../../../components/InfiniteScrollWrapper/InfiniteScrollWrapper";
@@ -40,11 +37,7 @@ const MutedAccounts: FC = (): ReactElement => {
     };
 
     return (
-        <InfiniteScrollWrapper
-            dataLength={mutedUsers.length}
-            pagesCount={mutedUsersPagesCount}
-            loadItems={loadMutedUsers}
-        >
+        <InfiniteScrollWrapper dataLength={mutedUsers.length} pagesCount={mutedUsersPagesCount} loadItems={loadMutedUsers}>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle2"} component={"div"}>
                     {`Here’s everyone you muted. You can add or remove them from this list. `}
@@ -54,29 +47,27 @@ const MutedAccounts: FC = (): ReactElement => {
                 </Typography>
             </div>
             <Divider />
-            {(isMutedUsersLoading && !mutedUsers.length) ? (
+            {isMutedUsersLoading && !mutedUsers.length ? (
                 <Spinner />
+            ) : isMutedUsersLoaded && !mutedUsers.length ? (
+                <div className={globalClasses.infoText}>
+                    <Typography variant={"h4"} component={"div"}>
+                        You aren’t muting anyone
+                    </Typography>
+                    <Typography variant={"subtitle1"} component={"div"}>
+                        {`When you mute accounts, you won’t see their Tweets in your timeline. `}
+                        <MuiLink href={TWITTER_MUTE} variant="subtitle2" target="_blank" rel="noopener">
+                            Learn more
+                        </MuiLink>
+                    </Typography>
+                </div>
             ) : (
-                (isMutedUsersLoaded && !mutedUsers.length) ? (
-                    <div className={globalClasses.infoText}>
-                        <Typography variant={"h4"} component={"div"}>
-                            You aren’t muting anyone
-                        </Typography>
-                        <Typography variant={"subtitle1"} component={"div"}>
-                            {`When you mute accounts, you won’t see their Tweets in your timeline. `}
-                            <MuiLink href={TWITTER_MUTE} variant="subtitle2" target="_blank" rel="noopener">
-                                Learn more
-                            </MuiLink>
-                        </Typography>
-                    </div>
-                ) : (
-                    <>
-                        {mutedUsers.map((mutedUser) => (
-                            <MutedAccountItem key={mutedUser.id} mutedUser={mutedUser} />
-                        ))}
-                        {isMutedUsersLoading && <Spinner />}
-                    </>
-                )
+                <>
+                    {mutedUsers.map((mutedUser) => (
+                        <MutedAccountItem key={mutedUser.id} mutedUser={mutedUser} />
+                    ))}
+                    {isMutedUsersLoading && <Spinner />}
+                </>
             )}
         </InfiniteScrollWrapper>
     );

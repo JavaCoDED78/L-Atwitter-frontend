@@ -1,10 +1,6 @@
 import { Action } from "redux";
 
-import {
-    NotificationInfoResponse,
-    NotificationReplyResponse,
-    NotificationResponse
-} from "../../../../types/notification";
+import { NotificationInfoResponse, NotificationReplyResponse, NotificationResponse } from "../../../../types/notification";
 import { NotificationsState } from "./state";
 import { LoadingStatus, PageableResponse } from "../../../../types/common";
 
@@ -24,7 +20,7 @@ export enum NotificationsActionsType {
     UPDATE_NOTIFICATION_INFO_TWEET = "notification/UPDATE_NOTIFICATION_INFO_TWEET",
     RESET_NOTIFICATION_STATE = "notification/RESET_NOTIFICATION_STATE",
     SET_TWEET_AUTHORS_LOADING_STATE = "notification/SET_TWEET_AUTHORS_LOADING_STATE",
-    SET_LOADING_STATE = "notification/SET_LOADING_STATE",
+    SET_LOADING_STATE = "notification/SET_LOADING_STATE"
 }
 
 export interface SetNotificationsActionInterface extends Action<NotificationsActionsType> {

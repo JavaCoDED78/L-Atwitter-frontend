@@ -23,7 +23,9 @@ describe("ListInfoDescription", () => {
                 listOwnerFullName={mockList.listOwner.fullName}
                 listOwnerUsername={mockList.listOwner.username}
                 listOwnerAvatar={mockList.listOwner.avatar}
-            />, mockStore);
+            />,
+            mockStore
+        );
         expect(wrapper.text().includes(mockList.name)).toBe(true);
         expect(wrapper.text().includes(mockList.description)).toBe(true);
         expect(wrapper.text().includes(mockList.listOwner.fullName)).toBe(true);
@@ -40,7 +42,9 @@ describe("ListInfoDescription", () => {
                 listIsPrivate={true}
                 listOwnerFullName={mockList.listOwner.fullName}
                 listOwnerUsername={mockList.listOwner.username}
-            />, mockStore);
+            />,
+            mockStore
+        );
         expect(wrapper.find(LockIcon).exists()).toBeTruthy();
         expect(wrapper.find(Avatar).prop("src")).toBe(DEFAULT_PROFILE_IMG);
         expect(wrapper.find(PopperListWindow).at(0).prop("visible")).toBe(false);

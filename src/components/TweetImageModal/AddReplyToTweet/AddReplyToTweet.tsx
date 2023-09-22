@@ -18,17 +18,9 @@ const AddReplyToTweet = (): ReactElement => {
         <>
             <Typography variant={"subtitle1"} component={"div"} className={classes.replyWrapper}>
                 {"Replying to "}
-                <Link to={`${PROFILE}/${tweetUserId}`}>
-                    @{username}
-                </Link>
+                <Link to={`${PROFILE}/${tweetUserId}`}>@{username}</Link>
             </Typography>
-            <AddTweetForm
-                tweetId={tweetId}
-                addressedUsername={username}
-                maxRows={15}
-                title={"Tweet your reply"}
-                buttonName={"Reply"}
-            />
+            <AddTweetForm tweetId={tweetId} addressedUsername={username} maxRows={15} title={"Tweet your reply"} buttonName={"Reply"} />
         </>
     );
 };

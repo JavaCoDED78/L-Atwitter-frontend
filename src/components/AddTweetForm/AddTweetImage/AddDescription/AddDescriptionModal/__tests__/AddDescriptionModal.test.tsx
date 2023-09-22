@@ -22,7 +22,11 @@ describe("AddDescriptionModal", () => {
     it("should click onSubmit", (done) => {
         const mockOnClose = jest.fn();
         const wrapper = mountWithStore(<AddDescriptionModal visible={true} onClose={mockOnClose} />, mockRootState);
-        wrapper.find(TweetInput).at(0).find("textarea").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(TweetInput)
+            .at(0)
+            .find("textarea")
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(Button).at(0).simulate("submit");
         setImmediate(() => {
             wrapper.update();

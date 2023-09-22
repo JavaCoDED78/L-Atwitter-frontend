@@ -9,9 +9,7 @@ interface TweetReplyingUsernameProps {
     addressedUsername?: string;
 }
 
-const TweetReplyingUsername: FC<TweetReplyingUsernameProps> = memo((
-    { addressedId, addressedUsername }
-): ReactElement => {
+const TweetReplyingUsername: FC<TweetReplyingUsernameProps> = memo(({ addressedId, addressedUsername }): ReactElement => {
     return (
         <object>
             <Typography variant={"subtitle1"} component={"div"}>

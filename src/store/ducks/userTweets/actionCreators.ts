@@ -17,12 +17,7 @@ import {
     SetUserVoteActionInterface,
     UserTweetsActionType
 } from "./contracts/actionTypes";
-import {
-    BlockedToTweetsPayload,
-    FollowToTweetsPayload,
-    MutedToTweetsPayload,
-    TweetResponse
-} from "../../../types/tweet";
+import { BlockedToTweetsPayload, FollowToTweetsPayload, MutedToTweetsPayload, TweetResponse } from "../../../types/tweet";
 import { NotificationReplyResponse, NotificationResponse } from "../../../types/notification";
 import { LoadingStatus, PageableResponse } from "../../../types/common";
 

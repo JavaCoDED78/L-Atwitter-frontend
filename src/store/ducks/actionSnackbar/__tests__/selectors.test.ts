@@ -6,19 +6,23 @@ describe("actionSnackbar selectors:", () => {
 
     describe("selectSnackBarMessage", () => {
         it("should return message string", () => {
-            expect(selectSnackBarMessage({
-                ...mockState,
-                actionSnackbar: { ...mockState.actionSnackbar, snackBarMessage: "test_message" }
-            })).toBe("test_message");
+            expect(
+                selectSnackBarMessage({
+                    ...mockState,
+                    actionSnackbar: { ...mockState.actionSnackbar, snackBarMessage: "test_message" }
+                })
+            ).toBe("test_message");
         });
     });
 
     describe("selectOpenSnackBar", () => {
         it("should return openSnackBar", () => {
-            expect(selectOpenSnackBar({
-                ...mockState,
-                actionSnackbar: { ...mockState.actionSnackbar, openSnackBar: true }
-            })).toBe(true);
+            expect(
+                selectOpenSnackBar({
+                    ...mockState,
+                    actionSnackbar: { ...mockState.actionSnackbar, openSnackBar: true }
+                })
+            ).toBe(true);
         });
     });
 });

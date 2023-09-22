@@ -11,8 +11,7 @@ describe("AddPollInputButton", () => {
 
     it("should render medium input", () => {
         const mockAddPollInput = jest.fn();
-        const wrapper = mountWithStore(<AddPollInputButton pollInputSize={0}
-                                                           addPollInput={mockAddPollInput} />, mockStore);
+        const wrapper = mountWithStore(<AddPollInputButton pollInputSize={0} addPollInput={mockAddPollInput} />, mockStore);
         wrapper.find(ActionIconButton).find(IconButton).simulate("click");
         expect(mockAddPollInput).toHaveBeenCalled();
     });

@@ -8,11 +8,7 @@ import { useSuggestedStyles } from "./SuggestedStyles";
 import SuggestedButton from "./SuggestedButton";
 import { useTopicsStyles } from "../TopicsStyles";
 import TopicsCarousel from "../TopicsCarousel/TopicsCarousel";
-import {
-    fetchTopicsByCategories,
-    fetchTopicsByIds,
-    resetTopicsState
-} from "../../../store/ducks/topics/actionCreators";
+import { fetchTopicsByCategories, fetchTopicsByIds, resetTopicsState } from "../../../store/ducks/topics/actionCreators";
 import { topicsIds } from "../Followed/Followed";
 import {
     selectIsTopicsByCategoriesLoading,
@@ -120,18 +116,13 @@ const Suggested = (): ReactElement => {
                 ) : (
                     <TopicsCarousel>
                         <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
-                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={0}
-                                        endTopicValue={2} />
-                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={2}
-                                        endTopicValue={4} />
-                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={4}
-                                        endTopicValue={6} />
-                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={6}
-                                        endTopicValue={8} />
+                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={0} endTopicValue={2} />
+                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={2} endTopicValue={4} />
+                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={4} endTopicValue={6} />
+                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={6} endTopicValue={8} />
                         </div>
                         <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
-                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={6}
-                                        endTopicValue={8} />
+                            <TopicBlock topics={topicsByCategories[0].topicsByCategories} startTopicValue={6} endTopicValue={8} />
                         </div>
                     </TopicsCarousel>
                 )}
@@ -151,20 +142,14 @@ const Suggested = (): ReactElement => {
                 ) : (
                     <TopicsCarousel>
                         <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={0}
-                                        endTopicValue={2} />
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={2}
-                                        endTopicValue={4} />
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={4}
-                                        endTopicValue={6} />
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={6}
-                                        endTopicValue={8} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={0} endTopicValue={2} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={2} endTopicValue={4} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={4} endTopicValue={6} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={6} endTopicValue={8} />
                         </div>
                         <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={4}
-                                        endTopicValue={6} />
-                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={6}
-                                        endTopicValue={8} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={4} endTopicValue={6} />
+                            <TopicBlock topics={topicsByCategories[1].topicsByCategories} startTopicValue={6} endTopicValue={8} />
                         </div>
                     </TopicsCarousel>
                 )}

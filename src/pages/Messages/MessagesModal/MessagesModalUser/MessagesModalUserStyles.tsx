@@ -12,8 +12,8 @@ export const useMessagesModalUserStyles = makeStyles<Theme, MessagesModalUserSty
         paddingLeft: 15,
         paddingTop: 8,
         paddingBottom: 8,
-        cursor: props => props.mutedDirectMessages ? "default" : "pointer",
-        opacity: props => props.mutedDirectMessages ? 0.5 : 1
+        cursor: (props) => (props.mutedDirectMessages ? "default" : "pointer"),
+        opacity: (props) => (props.mutedDirectMessages ? 0.5 : 1)
     },
     listAvatar: {
         width: theme.spacing(5),

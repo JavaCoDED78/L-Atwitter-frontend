@@ -19,11 +19,7 @@ import BackButton from "../../components/BackButton/BackButton";
 import { selectIsTweetsLoaded, selectPagesCount, selectTweetsItemsSize } from "../../store/ducks/tweets/selectors";
 import { useExploreStyles } from "./ExploreStyles";
 import { EditIcon, SearchIcon } from "../../icons";
-import {
-    fetchUsersSearch,
-    fetchUsersSearchByUsername,
-    resetUsersState
-} from "../../store/ducks/usersSearch/actionCreators";
+import { fetchUsersSearch, fetchUsersSearchByUsername, resetUsersState } from "../../store/ducks/usersSearch/actionCreators";
 import { selectUsersPagesCount } from "../../store/ducks/usersSearch/selectors";
 import { useGlobalStyles } from "../../util/globalClasses";
 import { withDocumentTitle } from "../../hoc/withDocumentTitle";
@@ -39,7 +35,7 @@ const Explore: FC = (): ReactElement => {
     const tweetsSize = useSelector(selectTweetsItemsSize);
     const tweetsPagesCount = useSelector(selectPagesCount);
     const usersPagesCount = useSelector(selectUsersPagesCount);
-    const location = useLocation<{ tag: string | undefined; text: string | undefined; }>();
+    const location = useLocation<{ tag: string | undefined; text: string | undefined }>();
     const history = useHistory();
     const [text, setText] = useState<string>("");
     const [activeTab, setActiveTab] = useState<number>(0);
@@ -87,7 +83,7 @@ const Explore: FC = (): ReactElement => {
         }
 
         if (isTweetsLoaded) {
-            setPage(prevState => prevState + 1);
+            setPage((prevState) => prevState + 1);
         }
     };
 
@@ -121,22 +117,22 @@ const Explore: FC = (): ReactElement => {
 
     const showTopTweets = (): void => {
         dispatch(fetchTweets(0));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const showUsers = (): void => {
         dispatch(fetchUsersSearch(0));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const showMediaTweets = (): void => {
         dispatch(fetchMediaTweets(0));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     const showTweetsWithVideos = (): void => {
         dispatch(fetchTweetsWithVideo(0));
-        setPage(prevState => prevState + 1);
+        setPage((prevState) => prevState + 1);
     };
 
     return (
@@ -153,11 +149,7 @@ const Explore: FC = (): ReactElement => {
                             onChange={(event) => setText(event.target.value)}
                             value={text}
                             InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        {SearchIcon}
-                                    </InputAdornment>
-                                )
+                                startAdornment: <InputAdornment position="start">{SearchIcon}</InputAdornment>
                             }}
                         />
                         <IconButton className={classes.editButton} color="primary" size="small">
@@ -183,11 +175,7 @@ const Explore: FC = (): ReactElement => {
                     hasMore={page < (activeTab === 2 ? usersPagesCount : tweetsPagesCount)}
                     loader={null}
                 >
-                    {(activeTab !== 2) ? (
-                        <TweetsList />
-                    ) : (
-                        <UsersList />
-                    )}
+                    {activeTab !== 2 ? <TweetsList /> : <UsersList />}
                 </InfiniteScroll>
             </div>
         </Paper>

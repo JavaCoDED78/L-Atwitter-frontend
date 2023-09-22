@@ -18,7 +18,9 @@ describe("SmallLinkPreview", () => {
                 linkCover={mockFullTweet.linkCover}
                 onOpenYouTubeVideo={mockOnOpenYouTubeVideo}
                 isFullTweet
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         wrapper.find("#openYouTubeVideo").simulate("click");
         expect(mockOnOpenYouTubeVideo).toHaveBeenCalled();
         expect(wrapper.text().includes(mockFullTweet.linkTitle)).toBe(true);
@@ -33,7 +35,9 @@ describe("SmallLinkPreview", () => {
                 linkDescription={mockFullTweet.linkDescription}
                 linkCover={mockFullTweet.linkCover}
                 isFullTweet={false}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.find("#openYouTubeVideo").exists()).toBeFalsy();
         expect(wrapper.find("a").prop("href")).toBe(mockFullTweet.link);
     });

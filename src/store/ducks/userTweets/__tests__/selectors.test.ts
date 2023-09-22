@@ -1,9 +1,4 @@
-import {
-    selectIsUserTweetsLoaded,
-    selectIsUserTweetsLoading,
-    selectPagesCount,
-    selectUserTweetsItems
-} from "../selectors";
+import { selectIsUserTweetsLoaded, selectIsUserTweetsLoading, selectPagesCount, selectUserTweetsItems } from "../selectors";
 import { createMockRootState } from "../../../../util/test-utils/test-helper";
 import { mockTweets } from "../../../../util/test-utils/mock-test-data";
 import { LoadingStatus } from "../../../../types/common";
@@ -13,10 +8,12 @@ describe("userTweets selectors:", () => {
 
     describe("selectUserTweetsItems", () => {
         it("should return TweetResponse array", () => {
-            expect(selectUserTweetsItems({
-                ...mockState,
-                userTweets: { ...mockState.userTweets, items: mockTweets }
-            })).toBe(mockTweets);
+            expect(
+                selectUserTweetsItems({
+                    ...mockState,
+                    userTweets: { ...mockState.userTweets, items: mockTweets }
+                })
+            ).toBe(mockTweets);
         });
     });
 

@@ -7,7 +7,7 @@ export enum ChatActionsType {
     SET_CHAT = "chat/SET_CHAT",
     FETCH_CHAT = "chat/FETCH_CHAT",
     RESET_CHAT_STATE = "chat/RESET_CHAT_STATE",
-    SET_LOADING_STATE = "chat/SET_LOADING_STATE",
+    SET_LOADING_STATE = "chat/SET_LOADING_STATE"
 }
 
 export interface SetChatActionInterface extends Action<ChatActionsType> {

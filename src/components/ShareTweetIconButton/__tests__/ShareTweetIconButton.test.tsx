@@ -76,7 +76,10 @@ describe("ShareTweetIconButton", () => {
 
     it("should click remove tweet from Bookmarks", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: BOOKMARKS, hash: "", search: "", state: undefined
+            pathname: BOOKMARKS,
+            hash: "",
+            search: "",
+            state: undefined
         });
         const wrapper = mountWithStore(<ShareTweetIconButton tweetId={1} isFullTweet={false} />, mockRootState);
 

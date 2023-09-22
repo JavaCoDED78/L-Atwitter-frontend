@@ -4,7 +4,6 @@ import YourAdvertiserList from "../YourAdvertiserList";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 
 describe("YourAdvertiserList", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<YourAdvertiserList />, createMockRootState());
 

@@ -10,7 +10,6 @@ export const initialUserState: UserState = {
 };
 
 export const userReducer = produce((draft: Draft<UserState>, action: UserActions) => {
-
     switch (action.type) {
         case UserActionsType.SET_USER_DATA:
             draft.data = action.payload;

@@ -50,31 +50,26 @@ const ListsMemberships: FC = (): ReactElement => {
     return (
         <Paper className={globalClasses.pageContainer} variant="outlined">
             <PageHeaderWrapper backButton>
-                <PageHeaderTitle
-                    title={`Lists ${(myProfileId === userProfile?.id) ? "you’re on" : ""}`}
-                    subtitle={`@${userProfile?.username}`}
-                />
+                <PageHeaderTitle title={`Lists ${myProfileId === userProfile?.id ? "you’re on" : ""}`} subtitle={`@${userProfile?.username}`} />
             </PageHeaderWrapper>
             <div className={globalClasses.contentWrapper}>
-                {(isListsLoading && !lists.length) ? (
+                {isListsLoading && !lists.length ? (
                     <Spinner />
+                ) : !isListsLoading && !lists.length ? (
+                    <EmptyPageDescription
+                        title={
+                            myProfileId === userProfile?.id
+                                ? "You haven’t been added to any Lists yet"
+                                : `@${userProfile?.username} hasn’t created any Lists`
+                        }
+                        subtitle={
+                            myProfileId === userProfile?.id
+                                ? "When someone adds you to a List, it’ll show up here."
+                                : "When they do, they’ll show up here."
+                        }
+                    />
                 ) : (
-                    (!isListsLoading && !lists.length) ? (
-                        <EmptyPageDescription
-                            title={(myProfileId === userProfile?.id) ? (
-                                "You haven’t been added to any Lists yet"
-                            ) : (
-                                `@${userProfile?.username} hasn’t created any Lists`
-                            )}
-                            subtitle={(myProfileId === userProfile?.id) ? (
-                                "When someone adds you to a List, it’ll show up here."
-                            ) : (
-                                "When they do, they’ll show up here."
-                            )}
-                        />
-                    ) : (
-                        lists.map((list) => <ListsItem key={list.id} list={list} />)
-                    )
+                    lists.map((list) => <ListsItem key={list.id} list={list} />)
                 )}
             </div>
         </Paper>

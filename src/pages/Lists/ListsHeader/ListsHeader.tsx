@@ -43,9 +43,7 @@ const ListsHeader = (): ReactElement => {
                             {open && (
                                 <Link to={`${LISTS_MEMBERSHIPS}/${myProfileId}`} className={classes.dropdownLink}>
                                     <div className={classes.dropdown}>
-                                        <span className={classes.textIcon}>
-                                            {ListsIcon}
-                                        </span>
+                                        <span className={classes.textIcon}>{ListsIcon}</span>
                                         <Typography variant={"body1"} component={"span"}>
                                             Lists you’re on
                                         </Typography>

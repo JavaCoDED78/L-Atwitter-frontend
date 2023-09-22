@@ -26,7 +26,7 @@ const Users: FC = (): ReactElement => {
 
     return (
         <>
-            {(history.location.pathname !== HOME_CONNECT) && (
+            {history.location.pathname !== HOME_CONNECT && (
                 <Paper className={classes.container}>
                     <Paper className={classes.header} variant="outlined">
                         <Typography variant={"h5"} component={"div"}>

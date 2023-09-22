@@ -1,12 +1,5 @@
 import { Action } from "redux";
-import {
-    BlockedUsersPayload,
-    FollowRequestUsersPayload,
-    FollowUsersPayload,
-    MutedUsersPayload,
-    SubscribedUsersPayload,
-    UsersState
-} from "./state";
+import { BlockedUsersPayload, FollowRequestUsersPayload, FollowUsersPayload, MutedUsersPayload, SubscribedUsersPayload, UsersState } from "./state";
 import { LoadingStatus, PageableResponse } from "../../../../types/common";
 
 export enum UsersActionsType {
@@ -20,7 +13,7 @@ export enum UsersActionsType {
     SET_MUTED_USERS_STATE = "users/SET_MUTED_USERS_STATE",
     SET_SUBSCRIBED_USERS_STATE = "users/SET_SUBSCRIBED_USERS_STATE",
     RESET_USERS_STATE = "users/RESET_USERS_STATE",
-    SET_USER_LOADING_STATE = "users/SET_USER_LOADING_STATE",
+    SET_USER_LOADING_STATE = "users/SET_USER_LOADING_STATE"
 }
 
 export interface FetchUsersActionInterface extends Action<UsersActionsType> {

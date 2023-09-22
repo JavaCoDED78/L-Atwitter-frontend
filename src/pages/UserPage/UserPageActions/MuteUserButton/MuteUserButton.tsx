@@ -5,11 +5,7 @@ import { ListItem, Typography } from "@material-ui/core";
 import { MuteIcon, UnmuteIcon } from "../../../../icons";
 import { processUserToMuteList } from "../../../../store/ducks/user/actionCreators";
 import { setOpenSnackBar } from "../../../../store/ducks/actionSnackbar/actionCreators";
-import {
-    selectUserProfileId,
-    selectUserProfileIsUserMuted,
-    selectUserProfileUsername
-} from "../../../../store/ducks/userProfile/selectors";
+import { selectUserProfileId, selectUserProfileIsUserMuted, selectUserProfileUsername } from "../../../../store/ducks/userProfile/selectors";
 
 interface MuteUserButtonProps {
     onCloseUserPageActions: () => void;

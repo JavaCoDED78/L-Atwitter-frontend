@@ -14,22 +14,9 @@ const ProfileUpdatedModal: FC<ProfileUpdatedModalProps> = ({ isOpen, onClose, on
     const classes = useProfileUpdatedModalStyles();
 
     return (
-        <ProfileModal
-            isOpen={isOpen}
-            onClose={onClose}
-            title={"Your profile is updated"}
-            isComponentSelected
-            isProfileUpdated
-            hideBackdrop
-        >
+        <ProfileModal isOpen={isOpen} onClose={onClose} title={"Your profile is updated"} isComponentSelected isProfileUpdated hideBackdrop>
             <div className={classes.buttonWrapper}>
-                <Button
-                    className={classes.button}
-                    onClick={onSubmit}
-                    variant="contained"
-                    color="primary"
-                    size="medium"
-                >
+                <Button className={classes.button} onClick={onSubmit} variant="contained" color="primary" size="medium">
                     See profile
                 </Button>
             </div>

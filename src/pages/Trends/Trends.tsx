@@ -36,7 +36,9 @@ const Trends: FC = (): ReactElement => {
                     <Spinner paddingTop={80} />
                 ) : (
                     <List style={{ paddingTop: 48 }}>
-                        {trends.map((trend) => <TrendsItem key={trend.id} tag={trend} />)}
+                        {trends.map((trend) => (
+                            <TrendsItem key={trend.id} tag={trend} />
+                        ))}
                         {isLoading && <Spinner />}
                     </List>
                 )}

@@ -7,15 +7,11 @@ import { HOME } from "../../../../constants/path-constants";
 import { HomeIcon, HomeIconFilled } from "../../../../icons";
 
 describe("SideMenuHomeItem", () => {
-
     it("should render homeNotification", () => {
         const wrapper = mountWithStore(
-            <SideMenuHomeItem
-                title={"Home"}
-                path={HOME}
-                icon={HomeIcon}
-                filledIcon={HomeIconFilled}
-        />, createMockRootState(LoadingStatus.SUCCESS));
+            <SideMenuHomeItem title={"Home"} path={HOME} icon={HomeIcon} filledIcon={HomeIconFilled} />,
+            createMockRootState(LoadingStatus.SUCCESS)
+        );
         expect(wrapper.find("#homeNotification").exists()).toBeFalsy();
     });
 });

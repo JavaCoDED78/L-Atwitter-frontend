@@ -30,7 +30,7 @@ export const useSmallLinkPreviewStyles = makeStyles<Theme, SmallLinkPreviewStyle
         width: 129,
         height: 129,
         borderRight: `1px solid ${theme.palette.divider}`,
-        backgroundImage: props => props.linkCover ? `url(${props.linkCover})` : "",
+        backgroundImage: (props) => (props.linkCover ? `url(${props.linkCover})` : ""),
         backgroundSize: "cover",
         backgroundPosition: "center center",
         borderRadius: "16px 0px 0px 16px"
@@ -57,7 +57,7 @@ export const useSmallLinkPreviewStyles = makeStyles<Theme, SmallLinkPreviewStyle
         marginTop: "auto",
         marginBottom: "auto",
         width: "100%",
-        maxWidth: props => props.isFullTweet ? 428 : 370,
+        maxWidth: (props) => (props.isFullTweet ? 428 : 370),
         height: 103,
         display: "inline-block",
         "& .MuiTypography-body1": {

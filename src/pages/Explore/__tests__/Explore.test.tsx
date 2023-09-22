@@ -18,7 +18,7 @@ describe("Explore", () => {
     const mockStore = createMockRootState(LoadingStatus.LOADED);
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     it("should render loading Spinner", () => {
         const wrapper = mountWithStore(<Explore />, createMockRootState());
@@ -110,7 +110,15 @@ describe("Explore", () => {
         });
     };
 
-    const testRenderTweetsByLocation = (location: { tag: string; } | { text: string; }, mockText: string, actionType: TweetsActionType): void => {
+    const testRenderTweetsByLocation = (
+        location:
+            | { tag: string }
+            | {
+                  text: string;
+              },
+        mockText: string,
+        actionType: TweetsActionType
+    ): void => {
         mockLocation(location);
         const wrapper = mountWithStore(<Explore />, mockStore);
         expect(wrapper.find("input").prop("value")).toBe(mockText);

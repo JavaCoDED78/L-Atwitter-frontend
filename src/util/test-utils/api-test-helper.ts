@@ -19,10 +19,9 @@ export const testApiCall = (
                 testExpectResponse(error.response, statusCode, expectedUrl, expectedData);
             });
     } else {
-        apiCall(...requestArgs)
-            .then((response) => {
-                testExpectResponse(response, statusCode, expectedUrl, expectedData);
-            });
+        apiCall(...requestArgs).then((response) => {
+            testExpectResponse(response, statusCode, expectedUrl, expectedData);
+        });
     }
 };
 

@@ -30,11 +30,10 @@ const FollowersYouKnow: FC = (): ReactElement => {
         dispatch(fetchUserProfile(parseInt(params.id)));
         setOverallFollowers([]);
         setIsLoading(true);
-        FollowerUserApi.overallFollowers(params.id)
-            .then(response => {
-                setOverallFollowers(response.data);
-                setIsLoading(false);
-            });
+        FollowerUserApi.overallFollowers(params.id).then((response) => {
+            setOverallFollowers(response.data);
+            setIsLoading(false);
+        });
     }, []);
 
     useEffect(() => {
@@ -52,30 +51,19 @@ const FollowersYouKnow: FC = (): ReactElement => {
     return (
         <Paper className={globalClasses.pageContainer} variant="outlined">
             <PageHeaderWrapper backButton>
-                {!isLoading && (
-                    <PageHeaderTitle
-                        title={userProfile?.fullName!}
-                        subtitle={`@${userProfile?.username}`}
-                    />
-                )}
+                {!isLoading && <PageHeaderTitle title={userProfile?.fullName!} subtitle={`@${userProfile?.username}`} />}
             </PageHeaderWrapper>
-            {(isLoading && (overallFollowers.length === 0)) ? (
+            {isLoading && overallFollowers.length === 0 ? (
                 <Spinner paddingTop={150} />
-            ) : (
-                (!isLoading && (overallFollowers.length === 0)) ? (
-                    <div className={globalClasses.contentWrapper}>
-                        <EmptyPageDescription
-                            title={`@${userProfile?.username} doesn’t have any followers you know yet`}
-                            subtitle={"When someone you know follows them, they’ll be listed here."}
-                        />
-                    </div>
-                ) : (
-                    <ConnectToUsers
-                        title={"Followers you know"}
-                        isUsersLoading={isLoading}
-                        users={overallFollowers}
+            ) : !isLoading && overallFollowers.length === 0 ? (
+                <div className={globalClasses.contentWrapper}>
+                    <EmptyPageDescription
+                        title={`@${userProfile?.username} doesn’t have any followers you know yet`}
+                        subtitle={"When someone you know follows them, they’ll be listed here."}
                     />
-                )
+                </div>
+            ) : (
+                <ConnectToUsers title={"Followers you know"} isUsersLoading={isLoading} users={overallFollowers} />
             )}
         </Paper>
     );

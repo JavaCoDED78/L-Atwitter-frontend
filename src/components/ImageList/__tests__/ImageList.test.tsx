@@ -10,8 +10,7 @@ describe("ImageList", () => {
 
     it("should render correctly", () => {
         const mockRemoveImage = jest.fn();
-        const wrapper = mountWithStore(
-            <ImageList images={[{ id: 1, src: "test_img" }]} removeImage={mockRemoveImage} />, mockRootState);
+        const wrapper = mountWithStore(<ImageList images={[{ id: 1, src: "test_img" }]} removeImage={mockRemoveImage} />, mockRootState);
 
         wrapper.find(IconButton).at(0).simulate("click");
 

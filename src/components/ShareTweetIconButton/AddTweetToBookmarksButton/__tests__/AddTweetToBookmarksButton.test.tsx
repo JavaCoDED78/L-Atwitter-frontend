@@ -16,8 +16,7 @@ describe("AddTweetToBookmarksButton", () => {
     });
 
     it("should click add Tweet to Bookmarks", () => {
-        const wrapper = mountWithStore(<AddTweetToBookmarksButton tweetId={1} isTweetBookmarked={false}
-                                                                  closeShareTweet={jest.fn()} />);
+        const wrapper = mountWithStore(<AddTweetToBookmarksButton tweetId={1} isTweetBookmarked={false} closeShareTweet={jest.fn()} />);
         wrapper.find("#clickAddTweetToBookmarks").at(0).simulate("click");
         expect(wrapper.text().includes("Add Tweet to Bookmarks")).toBe(true);
         expect(mockDispatchFn).nthCalledWith(1, {
@@ -32,10 +31,12 @@ describe("AddTweetToBookmarksButton", () => {
 
     it("should click remove Tweet From Bookmarks", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: BOOKMARKS, hash: "", search: "", state: undefined
+            pathname: BOOKMARKS,
+            hash: "",
+            search: "",
+            state: undefined
         });
-        const wrapper = mountWithStore(<AddTweetToBookmarksButton tweetId={1} isTweetBookmarked
-                                                                  closeShareTweet={jest.fn()} />);
+        const wrapper = mountWithStore(<AddTweetToBookmarksButton tweetId={1} isTweetBookmarked closeShareTweet={jest.fn()} />);
         wrapper.find("#clickAddTweetToBookmarks").at(0).simulate("click");
         expect(wrapper.text().includes("Remove Tweet from Bookmarks")).toBe(true);
         expect(mockDispatchFn).nthCalledWith(1, {

@@ -12,11 +12,9 @@ const YourAdvertiserList: FC = (): ReactElement => {
         <>
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle1"} component={"div"}>
-                    Tailored audiences are often built from email lists or browsing behaviors. They help advertisers
-                    reach prospective customers or people who have already expressed interest in their business.
-                    {" "}
-                    <MuiLink href={PRIVACY_CONTROLS_FOR_TAILORED_ADS} variant="subtitle2" target="_blank"
-                             rel="noopener">
+                    Tailored audiences are often built from email lists or browsing behaviors. They help advertisers reach prospective customers or
+                    people who have already expressed interest in their business.{" "}
+                    <MuiLink href={PRIVACY_CONTROLS_FOR_TAILORED_ADS} variant="subtitle2" target="_blank" rel="noopener">
                         Learn more
                     </MuiLink>
                 </Typography>
@@ -37,8 +35,8 @@ const YourAdvertiserList: FC = (): ReactElement => {
             <Divider />
             <div className={globalClasses.itemInfoWrapper}>
                 <Typography variant={"subtitle1"} component={"div"}>
-                    You can opt out of interest-based advertising in your personalization and data settings. This will
-                    change the ads you see on Twitter, however it won’t remove you from advertisers’ audiences.
+                    You can opt out of interest-based advertising in your personalization and data settings. This will change the ads you see on
+                    Twitter, however it won’t remove you from advertisers’ audiences.
                 </Typography>
             </div>
         </>

@@ -27,7 +27,6 @@ import { ImageObj } from "../../../../components/AddTweetForm/AddTweetForm";
 import { UserResponse } from "../../../../types/user";
 
 describe("addTweetForm actions", () => {
-
     testAction(setOpenPoll, setOpenPoll(), {
         type: AddTweetFormTypes.SET_OPEN_POLL
     });

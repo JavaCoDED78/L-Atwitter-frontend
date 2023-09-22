@@ -8,7 +8,6 @@ export interface UsersSearchState {
     loadingState: LoadingStatus;
 }
 
-
 export interface FollowUsersPayload {
     userId: number;
     isFollower: boolean;

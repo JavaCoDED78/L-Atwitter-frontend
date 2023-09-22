@@ -2,7 +2,7 @@ import { Action } from "redux";
 
 export enum ActionSnackbarTypes {
     SET_OPEN_SNACKBAR = "actionSnackbar/SET_OPEN_SNACKBAR",
-    SET_CLOSE_SNACKBAR = "actionSnackbar/SET_CLOSE_SNACKBAR",
+    SET_CLOSE_SNACKBAR = "actionSnackbar/SET_CLOSE_SNACKBAR"
 }
 
 export interface SetOpenSnackBarActionInterface extends Action<ActionSnackbarTypes> {

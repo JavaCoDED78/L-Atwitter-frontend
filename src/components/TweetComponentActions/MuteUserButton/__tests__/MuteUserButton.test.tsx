@@ -21,13 +21,7 @@ describe("MuteUserButton", () => {
     });
 
     const testClickButton = (isUserMuted: boolean, iconId: string, text: string, snackbarText: string): void => {
-        const wrapper = mountWithStore(
-            <MuteUserButton
-                tweetId={1}
-                userId={1}
-                username={"test_username"}
-                isUserMuted={isUserMuted}
-            />);
+        const wrapper = mountWithStore(<MuteUserButton tweetId={1} userId={1} username={"test_username"} isUserMuted={isUserMuted} />);
         expect(wrapper.find(iconId).exists()).toBeTruthy();
         expect(wrapper.text().includes(`${text} @test_username`)).toBe(true);
         wrapper.find("#onMuteUser").at(0).simulate("click");

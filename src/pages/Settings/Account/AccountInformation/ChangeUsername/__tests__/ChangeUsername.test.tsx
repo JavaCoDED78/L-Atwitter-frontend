@@ -33,7 +33,10 @@ describe("ChangeUsername", () => {
     it("should change username", () => {
         const wrapper = mountWithStore(<ChangeUsername />, mockStore);
 
-        wrapper.find(ChangeInfoTextField).find("input").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .find("input")
+            .simulate("change", { target: { value: "test" } });
         wrapper.find(Button).simulate("click");
 
         expect(wrapper.find(ChangeInfoTextField).prop("value")).toBe("test");

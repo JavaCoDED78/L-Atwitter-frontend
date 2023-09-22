@@ -3,11 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 import { MODAL } from "../../../constants/path-constants";
-import {
-    selectTweetImageDescription,
-    selectTweetImages,
-    selectTweetTaggedImageUsers
-} from "../../../store/ducks/tweet/selectors";
+import { selectTweetImageDescription, selectTweetImages, selectTweetTaggedImageUsers } from "../../../store/ducks/tweet/selectors";
 import { useFullTweetStyles } from "../FullTweetStyles";
 import TaggedImageUsers from "../../../components/TaggedImageUsers/TaggedImageUsers";
 import ImageDescription from "../../../components/ImageDescription/ImageDescription";
@@ -31,12 +27,8 @@ const TweetImage = memo((): ReactElement => {
                         </div>
                     </Link>
                     {imageDescription && <ImageDescription imageDescription={imageDescription} isFullTweet />}
-                    {(taggedImageUsers && taggedImageUsers.length !== 0) && (
-                        <TaggedImageUsers
-                            tweetId={Number(params.id)}
-                            taggedImageUsers={taggedImageUsers}
-                            isFullTweet
-                        />
+                    {taggedImageUsers && taggedImageUsers.length !== 0 && (
+                        <TaggedImageUsers tweetId={Number(params.id)} taggedImageUsers={taggedImageUsers} isFullTweet />
                     )}
                 </>
             )}

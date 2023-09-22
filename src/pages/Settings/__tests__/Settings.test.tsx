@@ -77,14 +77,12 @@ import TweetDeckTeams from "../Account/TweetDeckTeams/TweetDeckTeams";
 import DeactivateAccount from "../Account/DeactivateAccount/DeactivateAccount";
 import SecurityAndAccountAccess from "../SecurityAndAccountAccess/SecurityAndAccountAccess";
 import Security from "../SecurityAndAccountAccess/Security/Security";
-import TwoFactorAuthentication
-    from "../SecurityAndAccountAccess/Security/TwoFactorAuthentication/TwoFactorAuthentication";
+import TwoFactorAuthentication from "../SecurityAndAccountAccess/Security/TwoFactorAuthentication/TwoFactorAuthentication";
 import AppsAndSessions from "../SecurityAndAccountAccess/AppsAndSessions/AppsAndSessions";
 import ConnectedApps from "../SecurityAndAccountAccess/AppsAndSessions/ConnectedApps/ConnectedApps";
 import Sessions from "../SecurityAndAccountAccess/AppsAndSessions/Sessions/Sessions";
 import CurrentSession from "../SecurityAndAccountAccess/AppsAndSessions/Sessions/CurrentSession/CurrentSession";
-import AccountAccessHistory
-    from "../SecurityAndAccountAccess/AppsAndSessions/AccountAccessHistory/AccountAccessHistory";
+import AccountAccessHistory from "../SecurityAndAccountAccess/AppsAndSessions/AccountAccessHistory/AccountAccessHistory";
 import LoggedDevices from "../SecurityAndAccountAccess/AppsAndSessions/LoggedDevices/LoggedDevices";
 import PrivacyAndSafety from "../PrivacyAndSafety/PrivacyAndSafety";
 import AudienceAndTagging from "../PrivacyAndSafety/AudienceAndTagging/AudienceAndTagging";
@@ -123,7 +121,6 @@ import PersonalizationAndData from "../Notifications/PersonalizationAndData/Pers
 import { LoadingStatus } from "../../../types/common";
 
 describe("Settings", () => {
-
     it("should navigate to Your account", () => {
         testNavigation(SETTINGS, "Your account", 0);
     });
@@ -178,7 +175,10 @@ describe("Settings", () => {
 
     it("should route correctly", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: "", hash: "", search: "", state: ""
+            pathname: "",
+            hash: "",
+            search: "",
+            state: ""
         });
         const wrapper = createWrapper();
         const pathMap = wrapper.find(Route).reduce((pathMap: any, route) => {
@@ -246,7 +246,10 @@ describe("Settings", () => {
 
     const testNavigation = (pathname: string, mockText: string, itemIndex: number): void => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: pathname, hash: "", search: "", state: ""
+            pathname: pathname,
+            hash: "",
+            search: "",
+            state: ""
         });
         const wrapper = createWrapper();
         testListItems(wrapper, mockText, itemIndex);
@@ -254,7 +257,10 @@ describe("Settings", () => {
 
     const testClickNavigation = (mockText: string, itemIndex: number): void => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: "", hash: "", search: "", state: ""
+            pathname: "",
+            hash: "",
+            search: "",
+            state: ""
         });
         const wrapper = createWrapper();
         wrapper.find(ListItem).at(itemIndex).simulate("click");

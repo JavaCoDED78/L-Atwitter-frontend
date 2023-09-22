@@ -4,7 +4,6 @@ import PushNotifications from "../PushNotifications";
 import { createMockRootState, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 
 describe("PushNotifications", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<PushNotifications />, createMockRootState());
 

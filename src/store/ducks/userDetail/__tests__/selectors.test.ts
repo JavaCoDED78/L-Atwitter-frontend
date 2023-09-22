@@ -21,7 +21,6 @@ import { LoadingStatus } from "../../../../types/common";
 import { mockUserDetailResponse } from "../../../../util/test-utils/mock-test-data";
 
 describe("userDetail selectors:", () => {
-
     describe("selectUserDetailItem", () => {
         it("should return UserDetailResponse", () => {
             expect(selectUserDetailItem(createMockRootState())).toBe(mockUserDetailResponse);

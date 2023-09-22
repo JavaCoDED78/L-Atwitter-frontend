@@ -29,9 +29,7 @@ const TextSearchResult: FC<TextSearchResultProps> = memo(({ text, tweetCount, re
 
     return (
         <ListItem className={classes.searchTextResult} onClick={onClickSearchResult}>
-            <span className={classes.searchIcon}>
-                {SearchIcon}
-            </span>
+            <span className={classes.searchIcon}>{SearchIcon}</span>
             <div>
                 <Typography variant={"h6"} component={"div"}>
                     {text}

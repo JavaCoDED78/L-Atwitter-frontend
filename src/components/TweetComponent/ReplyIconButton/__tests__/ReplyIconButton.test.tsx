@@ -22,7 +22,9 @@ describe("ReplyIconButton", () => {
                 tweetUser={mockFullTweet.user}
                 repliesCount={1}
                 isUserCanReply={false}
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.find("#repliesCount").exists()).toBeTruthy();
         expect(wrapper.find(ReplyModal).prop("visible")).toBe(false);
         wrapper.find(ActionIconButton).find(IconButton).simulate("click");
@@ -41,7 +43,9 @@ describe("ReplyIconButton", () => {
                 tweetUser={mockFullTweet.user}
                 repliesCount={0}
                 isUserCanReply
-            />, mockRootState);
+            />,
+            mockRootState
+        );
         expect(wrapper.find(ActionIconButton).prop("disabled")).toBe(true);
         expect(wrapper.find("#repliesCount").exists()).toBeFalsy();
     });

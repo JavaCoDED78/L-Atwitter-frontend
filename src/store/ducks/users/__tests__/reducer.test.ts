@@ -108,7 +108,8 @@ describe("usersReducer:", () => {
                 },
                 {
                     type: UsersActionsType.RESET_USERS_STATE
-                }),
+                }
+            ),
             {
                 ...initialUsersState,
                 users: [],
@@ -118,11 +119,10 @@ describe("usersReducer:", () => {
 
         testActionDispatch(
             UsersActionsType.SET_USER_LOADING_STATE,
-            usersReducer(initialUsersState,
-                {
-                    type: UsersActionsType.SET_USER_LOADING_STATE,
-                    payload: LoadingStatus.SUCCESS
-                }),
+            usersReducer(initialUsersState, {
+                type: UsersActionsType.SET_USER_LOADING_STATE,
+                payload: LoadingStatus.SUCCESS
+            }),
             {
                 ...initialUsersState,
                 loadingState: LoadingStatus.SUCCESS

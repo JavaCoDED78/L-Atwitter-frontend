@@ -7,7 +7,6 @@ import { ACCESSING_YOUR_TWITTER_DATA } from "../../../../../../constants/url-con
 import { SETTINGS_SECURITY_CONNECTED_APPS } from "../../../../../../constants/path-constants";
 
 describe("AccountAccessHistory", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<AccountAccessHistory />, createMockRootState());
         expect(wrapper.text().includes("Connected apps")).toBe(true);

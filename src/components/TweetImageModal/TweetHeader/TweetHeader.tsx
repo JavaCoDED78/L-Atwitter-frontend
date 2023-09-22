@@ -8,12 +8,7 @@ import classnames from "classnames";
 import { PROFILE } from "../../../constants/path-constants";
 import LinkWrapper from "../../LinkWrapper/LinkWrapper";
 import PopperUserWindow from "../../PopperUserWindow/PopperUserWindow";
-import {
-    selectTweetUserAvatar,
-    selectTweetUserFullName,
-    selectTweetUserId,
-    selectTweetUserUsername
-} from "../../../store/ducks/tweet/selectors";
+import { selectTweetUserAvatar, selectTweetUserFullName, selectTweetUserId, selectTweetUserUsername } from "../../../store/ducks/tweet/selectors";
 import { useGlobalStyles } from "../../../util/globalClasses";
 import { HoverItemDetail, useHoverItem } from "../../../hook/useHoverItem";
 import { useTweetHeaderStyles } from "./TweetHeaderStyles";

@@ -11,7 +11,7 @@ export enum ChatMessagesActionsType {
     ADD_CHAT_MESSAGE_WITH_TWEET = "chatMessages/ADD_CHAT_MESSAGE_WITH_TWEET",
     FETCH_CHAT_MESSAGES = "chatMessages/FETCH_CHAT_MESSAGES",
     RESET_CHAT_MESSAGES = "chatMessages/RESET_CHAT_MESSAGES",
-    SET_LOADING_STATE = "chatMessages/SET_LOADING_STATE",
+    SET_LOADING_STATE = "chatMessages/SET_LOADING_STATE"
 }
 
 export interface SetChatMessagesActionInterface extends Action<ChatMessagesActionsType> {

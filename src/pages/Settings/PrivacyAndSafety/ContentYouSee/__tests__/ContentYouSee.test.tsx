@@ -4,7 +4,6 @@ import ContentYouSee from "../ContentYouSee";
 import { createMockRootState, mountWithStore } from "../../../../../util/test-utils/test-helper";
 
 describe("ContentYouSee", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<ContentYouSee />, createMockRootState());
 

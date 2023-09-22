@@ -56,11 +56,8 @@ describe("UsersListModal", () => {
 
     const mountUsersListModal = (usersListModalAction: UsersListModalAction, mockState = mockRootState, visible = true) => {
         return mountWithStore(
-            <UsersListModal
-                tweetId={1}
-                usersListModalAction={usersListModalAction}
-                visible={visible}
-                onClose={jest.fn()}
-            />, mockState);
+            <UsersListModal tweetId={1} usersListModalAction={usersListModalAction} visible={visible} onClose={jest.fn()} />,
+            mockState
+        );
     };
 });

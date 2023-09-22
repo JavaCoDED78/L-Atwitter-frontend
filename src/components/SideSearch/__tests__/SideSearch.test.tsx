@@ -36,7 +36,11 @@ describe("SideSearch", () => {
         expect(wrapper.find("#closeIcon").exists()).toBeFalsy();
         expect(wrapper.find(SearchResults).exists()).toBeFalsy();
         wrapper.find(SideSearchTextField).find("input").at(0).simulate("click");
-        wrapper.find(SideSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        wrapper
+            .find(SideSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         expect(wrapper.find(SideSearchTextField).prop("value")).toBe("test_value");
         expect(wrapper.find("#closeIcon").exists()).toBeTruthy();
         expect(wrapper.find(SearchResults).exists()).toBeTruthy();
@@ -47,7 +51,11 @@ describe("SideSearch", () => {
         expect(wrapper.find(SideSearchTextField).prop("value")).toBe("");
         expect(wrapper.find("#closeIcon").exists()).toBeFalsy();
         wrapper.find(SideSearchTextField).find("input").at(0).simulate("click");
-        wrapper.find(SideSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        wrapper
+            .find(SideSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         expect(wrapper.find(SideSearchTextField).prop("value")).toBe("test_value");
         expect(wrapper.find("#closeIcon").exists()).toBeTruthy();
         wrapper.find("#clearText").at(0).simulate("click");
@@ -59,7 +67,11 @@ describe("SideSearch", () => {
     it("should click open popup and dispatch search by text", () => {
         jest.useFakeTimers();
         const wrapper = mountWithStore(<SideSearch />, createMockRootState());
-        wrapper.find(SideSearchTextField).find("input").at(0).simulate("change", { target: { value: "test_value" } });
+        wrapper
+            .find(SideSearchTextField)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test_value" } });
         wrapper.find(SideSearchTextField).find("input").at(0).simulate("click");
         jest.runAllTimers();
         wrapper.update();

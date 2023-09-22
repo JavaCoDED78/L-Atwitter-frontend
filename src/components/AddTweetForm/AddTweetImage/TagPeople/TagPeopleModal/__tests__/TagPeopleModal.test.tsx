@@ -46,13 +46,21 @@ describe("TagPeopleModal", () => {
 
     it("should search users by text and clear input", () => {
         const wrapper = createTagPeopleModalWrapper();
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         expect(mockDispatchFn).nthCalledWith(1, { type: UsersSearchActionsType.RESET_USERS_STATE });
         expect(mockDispatchFn).nthCalledWith(2, {
             payload: { pageNumber: 0, username: mockText },
             type: UsersSearchActionsType.FETCH_USERS_BY_NAME
         });
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: "" } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "" } });
         expect(mockDispatchFn).nthCalledWith(3, {
             payload: [],
             type: UsersSearchActionsType.SET_USERS
@@ -63,7 +71,11 @@ describe("TagPeopleModal", () => {
         const mockStore = createMockRootState(LoadingStatus.LOADED);
         const mockRootState = { ...mockStore, usersSearch: { ...mockStore.usersSearch, pagesCount: 10 } };
         const wrapper = mountWithStore(<TagPeopleModal visible={true} onClose={jest.fn()} />, mockRootState);
-        wrapper.find(ModalInputWrapper).find("input").at(0).simulate("change", { target: { value: mockText } });
+        wrapper
+            .find(ModalInputWrapper)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: mockText } });
         wrapper.find(InfiniteScroll).prop("next")();
         expect(mockDispatchFn).nthCalledWith(3, {
             payload: { username: mockText, pageNumber: 1 },

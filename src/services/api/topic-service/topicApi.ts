@@ -8,11 +8,7 @@ import {
     API_TOPICS_SUGGESTED
 } from "../../../constants/endpoint-constants";
 import { TopicResponse } from "../../../types/topic";
-import {
-    SuggestedTopicsRequest,
-    TopicsByCategoriesResponse,
-    TopicsCategoriesRequest
-} from "../../../store/ducks/topics/contracts/state";
+import { SuggestedTopicsRequest, TopicsByCategoriesResponse, TopicsCategoriesRequest } from "../../../store/ducks/topics/contracts/state";
 
 export const TopicApi = {
     async getTopicsByIds(request: SuggestedTopicsRequest): Promise<AxiosResponse<TopicResponse[]>> {

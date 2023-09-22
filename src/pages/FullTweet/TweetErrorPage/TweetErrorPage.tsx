@@ -27,12 +27,7 @@ const TweetErrorPage = (): ReactElement => {
                 Try searching for something else.
             </Typography>
             <Link to={SEARCH} className={globalClasses.link}>
-                <Button
-                    className={classes.searchButton}
-                    color="primary"
-                    variant="contained"
-                    size="small"
-                >
+                <Button className={classes.searchButton} color="primary" variant="contained" size="small">
                     Search
                 </Button>
             </Link>

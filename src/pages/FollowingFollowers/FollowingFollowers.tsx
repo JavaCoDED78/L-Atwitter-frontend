@@ -32,7 +32,7 @@ const FollowingFollowers: FC = (): ReactElement => {
     const classes = useFollowingFollowersStyles();
     const dispatch = useDispatch();
     const history = useHistory();
-    const params = useParams<{ id: string, follow: string }>();
+    const params = useParams<{ id: string; follow: string }>();
     const myProfileId = useSelector(selectUserDataId);
     const userProfileId = useSelector(selectUserProfileId);
     const username = useSelector(selectUserProfileUsername);
@@ -96,18 +96,16 @@ const FollowingFollowers: FC = (): ReactElement => {
                         <Tab className={classes.tab} label="Followers" />
                     </Tabs>
                 </div>
-                {(isUsersLoading && !users.length) ? (
+                {isUsersLoading && !users.length ? (
                     <Spinner />
+                ) : !isUsersLoading && !users.length ? (
+                    <EmptyFollowersDescription activeTab={activeTab} />
                 ) : (
-                    (!isUsersLoading && !users.length) ? (
-                        <EmptyFollowersDescription activeTab={activeTab} />
-                    ) : (
-                        <List>
-                            {users.map((user) => (
-                                <UsersItem key={user.id} user={user} size={UserItemSize.MEDIUM} />
-                            ))}
-                        </List>
-                    )
+                    <List>
+                        {users.map((user) => (
+                            <UsersItem key={user.id} user={user} size={UserItemSize.MEDIUM} />
+                        ))}
+                    </List>
                 )}
             </div>
         </Paper>

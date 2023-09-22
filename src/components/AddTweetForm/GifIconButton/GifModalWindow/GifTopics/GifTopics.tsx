@@ -26,18 +26,17 @@ const GifTopics: FC<GifTopicsProps> = ({ onClickGifTopic }): ReactElement => {
     return (
         <ImageList cols={2} rowHeight={150}>
             {gifsPreview.map((gif) => (
-                    <ImageListItem
-                        key={gif.id}
-                        className={classes.imageListItem}
-                        onClick={() => onClickGifTopic(gif.title)}
-                    >
-                        <img alt="" src={gif.imgSrc} />
-                        <ImageListItemBar
-                            title={<Typography variant={"h5"} component={"div"}>{gif.title}</Typography>}
-                        />
-                    </ImageListItem>
-                )
-            )}
+                <ImageListItem key={gif.id} className={classes.imageListItem} onClick={() => onClickGifTopic(gif.title)}>
+                    <img alt="" src={gif.imgSrc} />
+                    <ImageListItemBar
+                        title={
+                            <Typography variant={"h5"} component={"div"}>
+                                {gif.title}
+                            </Typography>
+                        }
+                    />
+                </ImageListItem>
+            ))}
         </ImageList>
     );
 };

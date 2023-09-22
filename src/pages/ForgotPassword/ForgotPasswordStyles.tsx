@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 export const useForgotPasswordStyles = makeStyles((theme) => ({
     container: {
-        fontFamily: "\"Helvetica Neue\",Helvetica,Arial,sans-serif",
+        fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
         "& a": {
             textDecoration: "none"
         }

@@ -12,25 +12,13 @@ interface SideMenuNotificationItemProps {
     filledIcon: JSX.Element;
 }
 
-const SideMenuNotificationItem: FC<SideMenuNotificationItemProps> = (
-    {
-        title,
-        path,
-        icon,
-        filledIcon
-    }
-): ReactElement => {
+const SideMenuNotificationItem: FC<SideMenuNotificationItemProps> = ({ title, path, icon, filledIcon }): ReactElement => {
     const classes = useSideMenuStyles();
     const notificationsCount = useSelector(selectUserDataNotificationsCount);
 
     return (
-        <SideMenuItem
-            title={title}
-            path={path}
-            icon={icon}
-            filledIcon={filledIcon}
-        >
-            {(notificationsCount !== 0) && (
+        <SideMenuItem title={title} path={path} icon={icon} filledIcon={filledIcon}>
+            {notificationsCount !== 0 && (
                 <span id={"notificationsCount"} className={classes.count}>
                     {notificationsCount}
                 </span>

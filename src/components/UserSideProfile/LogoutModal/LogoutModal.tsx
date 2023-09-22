@@ -42,24 +42,14 @@ const LogoutModal = (): ReactElement => {
                             Log out of Twitter?
                         </Typography>
                         <Typography variant={"subtitle1"} component={"div"}>
-                            You can always log back in at any time. If you just want to switch accounts,
-                            you can do that by adding an existing account.
+                            You can always log back in at any time. If you just want to switch accounts, you can do that by adding an existing
+                            account.
                         </Typography>
                         <div className={classes.modalButtonWrapper}>
-                            <Button
-                                className={classes.modalCancelButton}
-                                onClick={onCloseModalWindow}
-                                variant="contained"
-                                size="large"
-                            >
+                            <Button className={classes.modalCancelButton} onClick={onCloseModalWindow} variant="contained" size="large">
                                 Cancel
                             </Button>
-                            <Button
-                                onClick={handleSignOut}
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                            >
+                            <Button onClick={handleSignOut} variant="contained" color="primary" size="large">
                                 Log out
                             </Button>
                         </div>

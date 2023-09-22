@@ -10,12 +10,7 @@ const GifIconButton: FC = memo((): ReactElement => {
 
     return (
         <>
-            <ActionIconButton
-                actionText={"GIF"}
-                icon={GifIcon}
-                onClick={onOpenModalWindow}
-                size={"medium"}
-            />
+            <ActionIconButton actionText={"GIF"} icon={GifIcon} onClick={onOpenModalWindow} size={"medium"} />
             <GifModalWindow visible={visibleModalWindow} onClose={onCloseModalWindow} />
         </>
     );

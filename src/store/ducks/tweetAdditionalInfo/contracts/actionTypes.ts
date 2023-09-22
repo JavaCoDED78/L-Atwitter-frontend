@@ -12,7 +12,7 @@ export enum TweetAdditionalInfoType {
     FETCH_IS_TWEET_BOOKMARKED_ADDITIONAL_INFO = "tweetAdditionalInfo/FETCH_IS_TWEET_BOOKMARKED_ADDITIONAL_INFO",
     SET_IS_TWEET_BOOKMARKED_ADDITIONAL_INFO = "tweetAdditionalInfo/SET_IS_TWEET_BOOKMARKED_ADDITIONAL_INFO",
     RESET_TWEET_ADDITIONAL_INFO_STATE = "tweetAdditionalInfo/RESET_TWEET_ADDITIONAL_INFO_STATE",
-    SET_TWEET_ADDITIONAL_INFO_LOADING_STATE = "tweetAdditionalInfo/SET_TWEET_ADDITIONAL_INFO_LOADING_STATE",
+    SET_TWEET_ADDITIONAL_INFO_LOADING_STATE = "tweetAdditionalInfo/SET_TWEET_ADDITIONAL_INFO_LOADING_STATE"
 }
 
 export interface SetTweetAdditionalInfoActionInterface extends Action<TweetAdditionalInfoType> {
@@ -60,10 +60,10 @@ export interface SetTweetAdditionalInfoLoadingStateActionInterface extends Actio
 }
 
 export type TweetAdditionalInfoActions =
-    SetTweetAdditionalInfoActionInterface |
-    ResetTweetAdditionalInfoActionInterface |
-    SetTweetAdditionalInfoLoadingStateActionInterface |
-    SetMutedTweetAdditionalInfoActionInterface |
-    SetBlockedTweetAdditionalInfoActionInterface |
-    SetFollowedTweetAdditionalInfoActionInterface |
-    SetIsTweetBookmarkedAdditionalInfoActionInterface;
+    | SetTweetAdditionalInfoActionInterface
+    | ResetTweetAdditionalInfoActionInterface
+    | SetTweetAdditionalInfoLoadingStateActionInterface
+    | SetMutedTweetAdditionalInfoActionInterface
+    | SetBlockedTweetAdditionalInfoActionInterface
+    | SetFollowedTweetAdditionalInfoActionInterface
+    | SetIsTweetBookmarkedAdditionalInfoActionInterface;

@@ -11,13 +11,7 @@ const EditListButton = (): ReactElement => {
 
     return (
         <>
-            <Button
-                className={classes.listOutlinedButton}
-                onClick={onOpenModalWindow}
-                variant="outlined"
-                color="primary"
-                size="small"
-            >
+            <Button className={classes.listOutlinedButton} onClick={onOpenModalWindow} variant="outlined" color="primary" size="small">
                 Edit List
             </Button>
             <EditListModal visible={visibleModalWindow} onClose={onCloseModalWindow} />

@@ -21,7 +21,7 @@ describe("FollowersYouKnow", () => {
     const mockUserId = 1234;
     let mockDispatchFn: jest.Mock;
 
-    beforeEach(() => mockDispatchFn = mockDispatch());
+    beforeEach(() => (mockDispatchFn = mockDispatch()));
 
     const setupTest = (userId: number, mockUsers: UserResponse[]) => {
         jest.spyOn(ReactRouter, "useParams").mockReturnValue({ id: userId.toString() });

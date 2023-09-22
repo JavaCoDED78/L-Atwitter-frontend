@@ -13,7 +13,12 @@ describe("PollInput", () => {
     it("should change input field", () => {
         const mockDispatchFn = mockDispatch();
         const wrapper = mountWithStore(<PollInput id={"choice1"} value={"25"} label={"Choice 1"} />, mockRootState);
-        wrapper.find(PollInputField).at(0).find("input").at(0).simulate("change", { target: { value: "test poll 1" } });
+        wrapper
+            .find(PollInputField)
+            .at(0)
+            .find("input")
+            .at(0)
+            .simulate("change", { target: { value: "test poll 1" } });
         expect(mockDispatchFn).nthCalledWith(1, {
             payload: { choice1: "test poll 1" },
             type: AddTweetFormTypes.SET_POLL_VALUE
@@ -21,9 +26,7 @@ describe("PollInput", () => {
     });
 
     it("should focus and blur input field", () => {
-        const wrapper = mountWithStore(
-            <PollInput id={"choice1"} value={"1111111111111111111111111"} label={"Choice 1"} />,
-            mockRootState);
+        const wrapper = mountWithStore(<PollInput id={"choice1"} value={"1111111111111111111111111"} label={"Choice 1"} />, mockRootState);
         wrapper.find(PollInputField).at(0).find("input").at(0).simulate("focus");
         expect(wrapper.find(InputLabel).at(0).text().includes("25 / 25")).toBe(true);
         wrapper.find(PollInputField).at(0).find("input").at(0).simulate("blur");

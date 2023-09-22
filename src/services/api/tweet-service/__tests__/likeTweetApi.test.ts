@@ -2,11 +2,7 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
 import { testApiCall } from "../../../../util/test-utils/api-test-helper";
-import {
-    API_TWEETS_LIKE,
-    API_TWEETS_LIKED_USERS,
-    API_TWEETS_USER_LIKED
-} from "../../../../constants/endpoint-constants";
+import { API_TWEETS_LIKE, API_TWEETS_LIKED_USERS, API_TWEETS_USER_LIKED } from "../../../../constants/endpoint-constants";
 import { mockTweets, mockUsers } from "../../../../util/test-utils/mock-test-data";
 import { LikeTweetApi } from "../likeTweetApi";
 
@@ -19,7 +15,7 @@ describe("LikeTweetApi", () => {
     const mockPageable = { userId: 1, page: 1 };
 
     beforeEach(() => mockAdapter.reset());
-    
+
     describe("should fetch LikeTweetApi.getUserLikedTweets", () => {
         it("[200] should get user liked tweets Success", () => {
             testApiCall(mockAdapter, "onGet", API_TWEETS_USER_LIKED(1), 200, mockTweets, LikeTweetApi.getUserLikedTweets, mockPageable);

@@ -9,11 +9,7 @@ import UnsentTweetItem from "./UnsentTweetItem/UnsentTweetItem";
 import EmptyPageDescription from "../../EmptyPageDescription/EmptyPageDescription";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUnsentTweets, resetUnsentTweets } from "../../../store/ducks/unsentTweets/actionCreators";
-import {
-    selectIstUnsentTweetsLoading,
-    selectUnsentTweets,
-    selectUnsentTweetsPagesCount
-} from "../../../store/ducks/unsentTweets/selectors";
+import { selectIstUnsentTweetsLoading, selectUnsentTweets, selectUnsentTweetsPagesCount } from "../../../store/ducks/unsentTweets/selectors";
 import InfiniteScrollWrapper from "../../InfiniteScrollWrapper/InfiniteScrollWrapper";
 import UnsentTweetsHeader from "./UnsentTweetItem/UnsentTweetsHeader/UnsentTweetsHeader";
 import UnsentTweetsTab from "./UnsentTweetItem/UnsentTweetsTab/UnsentTweetsTab";
@@ -72,7 +68,7 @@ const UnsentTweetsModal: FC<UnsentTweetsModalProps> = ({ visible, onClose }): Re
         const currentIndex = checkboxIndexes.findIndex((checkboxIndex) => checkboxIndex === tweetId) !== -1;
 
         if (currentIndex) {
-            setCheckboxIndexes(checkboxIndexes.filter((checkboxIndex) => (checkboxIndex !== tweetId)));
+            setCheckboxIndexes(checkboxIndexes.filter((checkboxIndex) => checkboxIndex !== tweetId));
         } else {
             setCheckboxIndexes([...checkboxIndexes, tweetId]);
         }
@@ -92,7 +88,7 @@ const UnsentTweetsModal: FC<UnsentTweetsModalProps> = ({ visible, onClose }): Re
     }, []);
 
     const onSelectAllTweets = (): void => {
-        setCheckboxIndexes([...unsentTweets.map(tweet => tweet.id)]);
+        setCheckboxIndexes([...unsentTweets.map((tweet) => tweet.id)]);
     };
 
     const onDeselectAllTweets = (): void => {
@@ -101,8 +97,9 @@ const UnsentTweetsModal: FC<UnsentTweetsModalProps> = ({ visible, onClose }): Re
 
     const handleDeleteScheduledTweets = (): void => {
         if (checkboxIndexes.length !== 0) {
-            ScheduledTweetApi.deleteScheduledTweets({ tweetsIds: checkboxIndexes.map(value => Number(value)) })
-                .then(() => dispatch(fetchUnsentTweets(0)));
+            ScheduledTweetApi.deleteScheduledTweets({ tweetsIds: checkboxIndexes.map((value) => Number(value)) }).then(() =>
+                dispatch(fetchUnsentTweets(0))
+            );
             setCheckboxIndexes([]);
             setVisibleEditListFooter(false);
         }
@@ -122,38 +119,32 @@ const UnsentTweetsModal: FC<UnsentTweetsModalProps> = ({ visible, onClose }): Re
                 onCloseEditTweetModal={onCloseEditTweetModal}
                 onClose={onClose}
             />
-            {(!visibleEditTweetModal) ? (
+            {!visibleEditTweetModal ? (
                 <>
                     <DialogContent id="scrollableDiv" className={classes.content}>
                         <UnsentTweetsTab activeTab={activeTab} handleChangeTab={handleChangeTab} />
-                        <InfiniteScrollWrapper
-                            dataLength={unsentTweets.length}
-                            pagesCount={pagesCount}
-                            loadItems={loadUnsentTweets}
-                        >
+                        <InfiniteScrollWrapper dataLength={unsentTweets.length} pagesCount={pagesCount} loadItems={loadUnsentTweets}>
                             {isUnsentTweetsLoading && !unsentTweets.length ? (
                                 <Spinner />
+                            ) : !isUnsentTweetsLoading && !unsentTweets.length ? (
+                                <EmptyPageDescription
+                                    title={`You don’t have any ${activeTab === 0 ? "scheduled" : "unsent"} Tweets`}
+                                    subtitle={"When you do, you’ll find them here."}
+                                />
                             ) : (
-                                (!isUnsentTweetsLoading && !unsentTweets.length) ? (
-                                    <EmptyPageDescription
-                                        title={`You don’t have any ${activeTab === 0 ? "scheduled" : "unsent"} Tweets`}
-                                        subtitle={"When you do, you’ll find them here."}
-                                    />
-                                ) : (
-                                    <>
-                                        {unsentTweets.map((tweet) => (
-                                            <UnsentTweetItem
-                                                key={tweet.id}
-                                                tweet={tweet}
-                                                onOpenEditTweetModal={onOpenEditTweetModal}
-                                                onToggleCheckTweet={onToggleCheckTweet}
-                                                isTweetSelected={isTweetSelected(tweet.id)}
-                                                visibleEditListFooter={visibleEditListFooter}
-                                            />
-                                        ))}
-                                        {isUnsentTweetsLoading && <Spinner />}
-                                    </>
-                                )
+                                <>
+                                    {unsentTweets.map((tweet) => (
+                                        <UnsentTweetItem
+                                            key={tweet.id}
+                                            tweet={tweet}
+                                            onOpenEditTweetModal={onOpenEditTweetModal}
+                                            onToggleCheckTweet={onToggleCheckTweet}
+                                            isTweetSelected={isTweetSelected(tweet.id)}
+                                            visibleEditListFooter={visibleEditListFooter}
+                                        />
+                                    ))}
+                                    {isUnsentTweetsLoading && <Spinner />}
+                                </>
                             )}
                         </InfiniteScrollWrapper>
                     </DialogContent>
@@ -161,13 +152,13 @@ const UnsentTweetsModal: FC<UnsentTweetsModalProps> = ({ visible, onClose }): Re
                         {visibleEditListFooter && (
                             <div id={"editListFooter"} className={classes.footer}>
                                 <Button
-                                    onClick={(checkboxIndexes.length === 0) ? onSelectAllTweets : onDeselectAllTweets}
+                                    onClick={checkboxIndexes.length === 0 ? onSelectAllTweets : onDeselectAllTweets}
                                     type="submit"
                                     variant="text"
                                     color="primary"
                                     size="small"
                                 >
-                                    {(checkboxIndexes.length === 0) ? "Select All" : "Deselect All"}
+                                    {checkboxIndexes.length === 0 ? "Select All" : "Deselect All"}
                                 </Button>
                                 <Button
                                     className={classes.footerDeleteButton}

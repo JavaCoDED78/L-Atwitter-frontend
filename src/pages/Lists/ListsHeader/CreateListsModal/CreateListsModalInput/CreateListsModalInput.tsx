@@ -15,17 +15,7 @@ interface CreateListsModalInputProps {
     error?: boolean;
 }
 
-const CreateListsModalInput: FC<CreateListsModalInputProps> = (
-    {
-        onChange,
-        value,
-        name,
-        label,
-        maxTextLength,
-        helperText,
-        error
-    }
-): ReactElement => {
+const CreateListsModalInput: FC<CreateListsModalInputProps> = ({ onChange, value, name, label, maxTextLength, helperText, error }): ReactElement => {
     const classes = useCreateListsModalInputStyles();
     const { focused, onFocus, onBlur } = useFocus();
 

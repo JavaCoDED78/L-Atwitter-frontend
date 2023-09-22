@@ -14,15 +14,7 @@ interface TweetAnalyticsModalStyles {
     onClose: () => void;
 }
 
-const TweetAnalyticsModal: FC<TweetAnalyticsModalStyles> = (
-    {
-        fullName,
-        username,
-        text,
-        visible,
-        onClose
-    }
-): ReactElement | null => {
+const TweetAnalyticsModal: FC<TweetAnalyticsModalStyles> = ({ fullName, username, text, visible, onClose }): ReactElement | null => {
     const classes = useTweetAnalyticsModalStyles();
 
     if (!visible) {
@@ -64,18 +56,12 @@ const TweetAnalyticsModal: FC<TweetAnalyticsModalStyles> = (
                         </div>
                     </div>
                     <div className={classes.engagementsButton}>
-                        <Button
-                            variant="outlined"
-                            color="primary"
-                            size="small"
-                            fullWidth
-                        >
+                        <Button variant="outlined" color="primary" size="small" fullWidth>
                             View all engagements
                         </Button>
                     </div>
                     <div className={classes.promoteWrapper}>
-                        <img className={classes.promoteImage}
-                             src="https://ton.twimg.com/tfb/promote-a54f43f3904fb8073e4f16564fe00058.png" />
+                        <img className={classes.promoteImage} src="https://ton.twimg.com/tfb/promote-a54f43f3904fb8073e4f16564fe00058.png" />
                         <Typography className={classes.promoteTitle} component={"div"}>
                             Promote your Tweet
                         </Typography>
@@ -85,12 +71,7 @@ const TweetAnalyticsModal: FC<TweetAnalyticsModalStyles> = (
                         </Typography>
                     </div>
                     <div className={classes.engagementsButton}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            fullWidth
-                        >
+                        <Button variant="contained" color="primary" size="small" fullWidth>
                             Promote your Tweet
                         </Button>
                     </div>

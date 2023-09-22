@@ -44,21 +44,13 @@ const ContentPreferences = (): ReactElement => {
                     Explore
                 </Typography>
             </div>
-            <div
-                id={"searchSettings"}
-                className={globalClasses.contentLink}
-                onClick={() => onOpenSettingsModal(true)}
-            >
+            <div id={"searchSettings"} className={globalClasses.contentLink} onClick={() => onOpenSettingsModal(true)}>
                 <Typography variant={"body1"} component={"span"}>
                     Search settings
                 </Typography>
                 {ArrowRightIcon}
             </div>
-            <div
-                id={"exploreSettings"}
-                className={globalClasses.contentLink}
-                onClick={() => onOpenSettingsModal(false)}
-            >
+            <div id={"exploreSettings"} className={globalClasses.contentLink} onClick={() => onOpenSettingsModal(false)}>
                 <Typography variant={"body1"} component={"span"}>
                     Explore settings
                 </Typography>
@@ -70,11 +62,7 @@ const ContentPreferences = (): ReactElement => {
                     Languages
                 </Typography>
             </div>
-            <div
-                id={"openVisibleRecommendationsModal"}
-                className={globalClasses.contentLink}
-                onClick={onOpenVisibleRecommendationsModal}
-            >
+            <div id={"openVisibleRecommendationsModal"} className={globalClasses.contentLink} onClick={onOpenVisibleRecommendationsModal}>
                 <Typography variant={"body1"} component={"span"}>
                     Recommendations
                 </Typography>
@@ -126,15 +114,8 @@ const ContentPreferences = (): ReactElement => {
                     {ArrowRightIcon}
                 </div>
             </Link>
-            <ExploreModal
-                visible={visibleExploreModal}
-                onClose={onCloseModal}
-                isSearchModal={isSearchModal}
-            />
-            <RecommendationsModal
-                visible={visibleRecommendationsModal}
-                onClose={onCloseModal}
-            />
+            <ExploreModal visible={visibleExploreModal} onClose={onCloseModal} isSearchModal={isSearchModal} />
+            <RecommendationsModal visible={visibleRecommendationsModal} onClose={onCloseModal} />
         </>
     );
 };

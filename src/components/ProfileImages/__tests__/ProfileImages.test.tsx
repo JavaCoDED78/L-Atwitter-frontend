@@ -69,10 +69,14 @@ describe("ProfileImages", () => {
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");
         const mockImagesArray = createImagesArray(6);
-        const wrapper = mountWithStore(<ProfileImages />, {
-            ...mockState,
-            userProfile: { ...mockState.userProfile, images: mockImagesArray }
-        }, history);
+        const wrapper = mountWithStore(
+            <ProfileImages />,
+            {
+                ...mockState,
+                userProfile: { ...mockState.userProfile, images: mockImagesArray }
+            },
+            history
+        );
 
         wrapper.find(Link).at(imageIndex).simulate("click", { button: 0 });
 
@@ -92,12 +96,11 @@ describe("ProfileImages", () => {
             userProfile: { ...mockState.userProfile, images: mockImagesArray }
         });
 
-        expect(wrapper.find(ImageList).prop("cols")).toBe((imagesLength <= 4) ? 2 : 3);
+        expect(wrapper.find(ImageList).prop("cols")).toBe(imagesLength <= 4 ? 2 : 3);
         expect(wrapper.find(ImageListItem).length).toEqual(imagesLength);
         for (let i = 0; i < imagesLength; i++) {
-            expect(wrapper.find(ImageListItem).at(i).prop("cols")).toBe(
-                (imagesLength === 3 && i === 2 || imagesLength === 5 && i === 4) ? 2 : 1);
-            expect(wrapper.find(ImageListItem).at(i).prop("rows")).toBe((imagesLength === 2) ? 2 : 1);
+            expect(wrapper.find(ImageListItem).at(i).prop("cols")).toBe((imagesLength === 3 && i === 2) || (imagesLength === 5 && i === 4) ? 2 : 1);
+            expect(wrapper.find(ImageListItem).at(i).prop("rows")).toBe(imagesLength === 2 ? 2 : 1);
             expect(wrapper.find("img").at(i).prop("src")).toBe(mockImagesArray[i].src);
         }
     };
@@ -107,7 +110,9 @@ describe("ProfileImages", () => {
 
         for (let i = 0; i < arrayLength; i++) {
             imagesArray.push({
-                tweetId: 10 + i, imageId: 10 + i, src: `https://test${i}.test/test.jpg`
+                tweetId: 10 + i,
+                imageId: 10 + i,
+                src: `https://test${i}.test/test.jpg`
             });
         }
         return imagesArray;

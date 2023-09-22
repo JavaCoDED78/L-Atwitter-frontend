@@ -42,7 +42,15 @@ describe("UserSettingsApi", () => {
         });
 
         it("[400] should return Incorrect username length error", () => {
-            testApiCall(mockAdapter, "onPut", API_SETTINGS_UPDATE_USERNAME, 400, "Incorrect username length", UserSettingsApi.updateUsername, mockRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_SETTINGS_UPDATE_USERNAME,
+                400,
+                "Incorrect username length",
+                UserSettingsApi.updateUsername,
+                mockRequest
+            );
         });
     });
 
@@ -54,7 +62,15 @@ describe("UserSettingsApi", () => {
         });
 
         it("[403] should return Email has already been taken error", () => {
-            testApiCall(mockAdapter, "onPut", API_SETTINGS_UPDATE_EMAIL, 403, "Email has already been taken.", UserSettingsApi.updateEmail, mockRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_SETTINGS_UPDATE_EMAIL,
+                403,
+                "Email has already been taken.",
+                UserSettingsApi.updateEmail,
+                mockRequest
+            );
         });
     });
 
@@ -106,13 +122,29 @@ describe("UserSettingsApi", () => {
 
     describe("should call UserSettingsApi.updateColorScheme", () => {
         it("[200] should update color scheme Success", () => {
-            testApiCall(mockAdapter, "onPut", API_SETTINGS_UPDATE_COLOR_SCHEME, 200, ColorScheme.GREEN, UserSettingsApi.updateColorScheme, mockRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_SETTINGS_UPDATE_COLOR_SCHEME,
+                200,
+                ColorScheme.GREEN,
+                UserSettingsApi.updateColorScheme,
+                mockRequest
+            );
         });
     });
 
     describe("should call UserSettingsApi.updateBackgroundColor", () => {
         it("[200] should update background color Success", () => {
-            testApiCall(mockAdapter, "onPut", API_SETTINGS_UPDATE_BACKGROUND_COLOR, 200, BackgroundTheme.LIGHTS_OUT, UserSettingsApi.updateBackgroundColor, mockRequest);
+            testApiCall(
+                mockAdapter,
+                "onPut",
+                API_SETTINGS_UPDATE_BACKGROUND_COLOR,
+                200,
+                BackgroundTheme.LIGHTS_OUT,
+                UserSettingsApi.updateBackgroundColor,
+                mockRequest
+            );
         });
     });
 });

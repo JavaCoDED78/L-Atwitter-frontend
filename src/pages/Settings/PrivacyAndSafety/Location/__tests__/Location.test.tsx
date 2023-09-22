@@ -4,13 +4,9 @@ import { Link as MuiLink } from "@material-ui/core";
 import Location from "../Location";
 import { createMockRootState, mountWithStore, testClickOnLink } from "../../../../../util/test-utils/test-helper";
 import { EMAIL_AND_PHONE_DISCOVERABILITY_SETTINGS } from "../../../../../constants/url-constants";
-import {
-    SETTINGS_PRIVACY_AND_SAFETY_LOCATION,
-    SETTINGS_PRIVACY_AND_SAFETY_LOCATIONS
-} from "../../../../../constants/path-constants";
+import { SETTINGS_PRIVACY_AND_SAFETY_LOCATION, SETTINGS_PRIVACY_AND_SAFETY_LOCATIONS } from "../../../../../constants/path-constants";
 
 describe("Location", () => {
-
     it("should render correctly", () => {
         const wrapper = mountWithStore(<Location />, createMockRootState());
 

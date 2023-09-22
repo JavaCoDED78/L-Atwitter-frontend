@@ -16,7 +16,9 @@ describe("RecentSearchResults", () => {
     const mockSearchResult = {
         ...mockStore,
         search: {
-            ...mockStore.search, recentSearchResult: { users: mockListsOwnerMember, tags: ["#test"], text: ["test"] } }
+            ...mockStore.search,
+            recentSearchResult: { users: mockListsOwnerMember, tags: ["#test"], text: ["test"] }
+        }
     };
     let mockDispatchFn: jest.Mock;
 

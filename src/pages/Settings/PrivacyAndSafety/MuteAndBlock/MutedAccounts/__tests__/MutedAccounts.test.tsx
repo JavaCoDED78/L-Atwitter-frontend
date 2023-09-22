@@ -5,9 +5,7 @@ import MutedAccounts from "../MutedAccounts";
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../../../../util/test-utils/test-helper";
 import Spinner from "../../../../../../components/Spinner/Spinner";
 import { TWITTER_MUTE } from "../../../../../../constants/url-constants";
-import {
-    BlockedAndMutedUsersActionsType
-} from "../../../../../../store/ducks/blockedAndMutedUsers/contracts/actionTypes";
+import { BlockedAndMutedUsersActionsType } from "../../../../../../store/ducks/blockedAndMutedUsers/contracts/actionTypes";
 import { mockMutedUsers } from "../../../../../../util/test-utils/mock-test-data";
 import MutedAccountItem from "../MutedAccountItem/MutedAccountItem";
 import { LoadingStatus } from "../../../../../../types/common";

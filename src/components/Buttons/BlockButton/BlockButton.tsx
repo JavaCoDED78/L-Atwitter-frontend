@@ -17,15 +17,7 @@ interface BlockButtonProps {
     isOpenBlockModal?: boolean;
 }
 
-const BlockButton: FC<BlockButtonProps> = (
-    {
-        userId,
-        username,
-        isUserBlocked,
-        size,
-        isOpenBlockModal
-    }
-): ReactElement => {
+const BlockButton: FC<BlockButtonProps> = ({ userId, username, isUserBlocked, size, isOpenBlockModal }): ReactElement => {
     const classes = useBlockButtonStyles();
     const dispatch = useDispatch();
     const [btnText, setBtnText] = useState<string>("Blocked");

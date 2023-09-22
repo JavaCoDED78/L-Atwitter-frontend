@@ -14,26 +14,11 @@ interface ActionIconProps {
     disabled?: boolean;
 }
 
-const ActionIcon: FC<ActionIconProps> = (
-    {
-        path,
-        onClick,
-        actionText,
-        className,
-        icon,
-        disabled
-    }
-): ReactElement => {
+const ActionIcon: FC<ActionIconProps> = ({ path, onClick, actionText, className, icon, disabled }): ReactElement => {
     const classes = useActionIconStyles();
 
     const Icon = (): JSX.Element => {
-        return <ActionIconButton
-            onClick={onClick}
-            actionText={actionText}
-            disabled={disabled}
-            icon={icon}
-            size={"medium"}
-        />;
+        return <ActionIconButton onClick={onClick} actionText={actionText} disabled={disabled} icon={icon} size={"medium"} />;
     };
 
     return (

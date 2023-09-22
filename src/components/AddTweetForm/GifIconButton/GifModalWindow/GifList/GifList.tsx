@@ -17,11 +17,10 @@ const GifList: FC<GifListProps> = ({ onClickGif }): ReactElement => {
     return (
         <ImageList cols={2} rowHeight={150}>
             {gifs.map((gif) => (
-                    <ImageListItem key={gif.id} className={classes.imageListItem} onClick={() => onClickGif(gif)}>
-                        <img src={gif.images.downsized.url} alt={gif.title} />
-                    </ImageListItem>
-                )
-            )}
+                <ImageListItem key={gif.id} className={classes.imageListItem} onClick={() => onClickGif(gif)}>
+                    <img src={gif.images.downsized.url} alt={gif.title} />
+                </ImageListItem>
+            ))}
         </ImageList>
     );
 };

@@ -17,19 +17,7 @@ interface TweeterInputProps {
     rows?: number;
 }
 
-const TweetInput: FC<TweeterInputProps> = (
-    {
-        onChange,
-        value,
-        helperText,
-        error,
-        name,
-        label,
-        maxTextLength,
-        multiline,
-        rows
-    }
-): ReactElement => {
+const TweetInput: FC<TweeterInputProps> = ({ onChange, value, helperText, error, name, label, maxTextLength, multiline, rows }): ReactElement => {
     const classes = useTweetInputStyles();
     const { focused, onFocus, onBlur } = useFocus();
 
@@ -37,9 +25,7 @@ const TweetInput: FC<TweeterInputProps> = (
         <div className={classes.container}>
             <div className={classes.content}>
                 <div className={classes.inputLabel}>
-                    <InputLabel style={{ fontSize: 13 }}>
-                        {label}
-                    </InputLabel>
+                    <InputLabel style={{ fontSize: 13 }}>{label}</InputLabel>
                 </div>
                 {focused && (
                     <div className={classes.inputCount}>

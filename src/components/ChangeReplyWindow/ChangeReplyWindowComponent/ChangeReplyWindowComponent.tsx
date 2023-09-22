@@ -14,38 +14,25 @@ interface ChangeReplyWindowComponentProps {
     onChangeTweetReplyType: (replyType: ReplyType) => void;
 }
 
-const ChangeReplyWindowComponent: FC<ChangeReplyWindowComponentProps> = (
-    {
-        id,
-        replyType,
-        replyTypeIcon,
-        replyTypeTitle,
-        currentReplyType,
-        onChangeTweetReplyType
-    }
-): ReactElement => {
+const ChangeReplyWindowComponent: FC<ChangeReplyWindowComponentProps> = ({
+    id,
+    replyType,
+    replyTypeIcon,
+    replyTypeTitle,
+    currentReplyType,
+    onChangeTweetReplyType
+}): ReactElement => {
     const classes = useChangeReplyWindowComponentStyles();
 
     return (
-        <ListItem
-            id={id}
-            className={classes.listItem}
-            onClick={() => onChangeTweetReplyType(currentReplyType)}
-            button
-        >
+        <ListItem id={id} className={classes.listItem} onClick={() => onChangeTweetReplyType(currentReplyType)} button>
             <div className={classes.iconCircle}>
-                <span className={classes.icon}>
-                    {replyTypeIcon}
-                </span>
+                <span className={classes.icon}>{replyTypeIcon}</span>
             </div>
             <Typography variant={"body1"} component={"span"}>
                 {replyTypeTitle}
             </Typography>
-            {(replyType === currentReplyType) && (
-                <span className={classes.checkIcon}>
-                    {CheckIcon}
-                </span>
-            )}
+            {replyType === currentReplyType && <span className={classes.checkIcon}>{CheckIcon}</span>}
         </ListItem>
     );
 };

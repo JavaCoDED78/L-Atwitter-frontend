@@ -52,7 +52,6 @@ describe("ChangeGender", () => {
         expect(wrapper.find(Radio).at(1).prop("checked")).toBe(false);
     });
 
-
     it("should render Other gender", () => {
         const mockFemaleGender = {
             ...mockStore,
@@ -98,7 +97,11 @@ describe("ChangeGender", () => {
         expect(wrapper.find(ChangeInfoTextField).exists()).toBeTruthy();
         expect(wrapper.find(ChangeInfoTextField).prop("value")).toBe(mockStore.user.data?.gender);
 
-        wrapper.find(ChangeInfoTextField).at(0).find("input").simulate("change", { target: { value: "test" } });
+        wrapper
+            .find(ChangeInfoTextField)
+            .at(0)
+            .find("input")
+            .simulate("change", { target: { value: "test" } });
         expect(wrapper.find(ChangeInfoTextField).prop("value")).toBe("test");
 
         wrapper.find(Button).simulate("click");

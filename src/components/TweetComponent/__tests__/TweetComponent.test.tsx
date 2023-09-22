@@ -5,12 +5,7 @@ import { IconButton, Link as MuiLink } from "@material-ui/core";
 import routeData from "react-router";
 
 import { createMockRootState, mockDispatch, mountWithStore } from "../../../util/test-utils/test-helper";
-import {
-    mockFullTweet,
-    mockMyTweetAdditionalInfo,
-    mockUser,
-    mockUserProfile
-} from "../../../util/test-utils/mock-test-data";
+import { mockFullTweet, mockMyTweetAdditionalInfo, mockUser, mockUserProfile } from "../../../util/test-utils/mock-test-data";
 import TweetActionResult, { TweetActionResults } from "../../TweetActionResult/TweetActionResult";
 import { HOME_TWEET, MODAL, PROFILE } from "../../../constants/path-constants";
 import TweetComponent from "../TweetComponent";
@@ -259,10 +254,11 @@ describe("TweetComponent", () => {
     it("should open and close TweetAnalyticsModal", () => {
         const { wrapper } = createTweetComponentWrapper(
             {
-                ...mockRootState, tweetAdditionalInfo:
-                    { ...mockRootState.tweetAdditionalInfo, tweetAdditionalInfo: mockMyTweetAdditionalInfo }
+                ...mockRootState,
+                tweetAdditionalInfo: { ...mockRootState.tweetAdditionalInfo, tweetAdditionalInfo: mockMyTweetAdditionalInfo }
             },
-            { ...mockFullTweet, user: { ...mockFullTweet.user, id: 2 } });
+            { ...mockFullTweet, user: { ...mockFullTweet.user, id: 2 } }
+        );
         expect(wrapper.find(TweetAnalyticsModal).prop("visible")).toBe(false);
         wrapper.find(TweetComponentActions).find(IconButton).at(0).simulate("click");
         wrapper.find(TweetComponentActions).find("#tweetAnalytics").at(0).simulate("click");
@@ -328,7 +324,10 @@ describe("TweetComponent", () => {
 
     it("should change tweet styles", () => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MODAL, hash: "", search: "", state: undefined
+            pathname: MODAL,
+            hash: "",
+            search: "",
+            state: undefined
         });
         const mockTweet = { ...mockFullTweet, replyType: ReplyType.MENTION };
         mountWithStore(<TweetComponent tweet={mockTweet} isTweetImageModal={false} />, mockRootState);
@@ -349,16 +348,18 @@ describe("TweetComponent", () => {
 
     const createTweetComponentWrapper = (mockState = mockRootState, mockTweet = mockFullTweet, activeTab = 111, isTweetImageModal = true) => {
         jest.spyOn(routeData, "useLocation").mockReturnValue({
-            pathname: MODAL, hash: "", search: "", state: undefined
+            pathname: MODAL,
+            hash: "",
+            search: "",
+            state: undefined
         });
         const history = createMemoryHistory();
         const pushSpy = jest.spyOn(history, "push");
         const wrapper = mountWithStore(
-            <TweetComponent
-                tweet={mockTweet}
-                activeTab={activeTab}
-                isTweetImageModal={isTweetImageModal}
-            />, mockState, history);
+            <TweetComponent tweet={mockTweet} activeTab={activeTab} isTweetImageModal={isTweetImageModal} />,
+            mockState,
+            history
+        );
 
         return { wrapper, pushSpy };
     };
