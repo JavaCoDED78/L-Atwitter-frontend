@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Checkbox, Dialog, DialogContent, Typography } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,6 +14,7 @@ import { createList } from "../../../../store/ducks/lists/actionCreators";
 import { wallpapers } from "../../../../util/wallpapers";
 import DialogTitleComponent from "../../../../components/DialogTitleComponent/DialogTitleComponent";
 import { useGlobalStyles } from "../../../../util/globalClasses";
+import { selectUserDataId } from "../../../../store/ducks/user/selectors";
 
 interface CreateListsModalProps {
     visible?: boolean;
@@ -36,6 +37,7 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
     const classes = useCreateListsModalStyles();
     const dispatch = useDispatch();
     const [wallpaper, setWallpaper] = useState<ImageObj>();
+    const listCurrentOwnerId = useSelector(selectUserDataId);
     const {
         control,
         watch,
@@ -58,7 +60,8 @@ const CreateListsModal: FC<CreateListsModalProps> = ({ visible, onClose }): Reac
             createList({
                 ...data,
                 altWallpaper: wallpapers[altWallpaper],
-                wallpaper: wallpaperResponse
+                wallpaper: wallpaperResponse,
+                listOwnerId: listCurrentOwnerId
             })
         );
         onClose();

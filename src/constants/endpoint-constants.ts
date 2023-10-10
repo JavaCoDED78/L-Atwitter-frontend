@@ -111,13 +111,13 @@ export const API_USER_DETAILS = `${API_ENDPOINT}/user/details`;
 export const API_USER_TOKEN = `${API_ENDPOINT}/user/token`;
 
 // UserSettingsApi
-export const API_SETTINGS_UPDATE_USERNAME = `${API_ENDPOINT}/settings/update/username`;
-export const API_SETTINGS_UPDATE_EMAIL = `${API_ENDPOINT}/settings/update/email`;
-export const API_SETTINGS_UPDATE_PHONE = `${API_ENDPOINT}/settings/update/phone`;
-export const API_SETTINGS_UPDATE_COUNTRY = `${API_ENDPOINT}/settings/update/country`;
-export const API_SETTINGS_UPDATE_GENDER = `${API_ENDPOINT}/settings/update/gender`;
-export const API_SETTINGS_UPDATE_LANGUAGE = `${API_ENDPOINT}/settings/update/language`;
-export const API_SETTINGS_UPDATE_DIRECT = `${API_ENDPOINT}/settings/update/direct`;
-export const API_SETTINGS_UPDATE_PRIVATE = `${API_ENDPOINT}/settings/update/private`;
-export const API_SETTINGS_UPDATE_COLOR_SCHEME = `${API_ENDPOINT}/settings/update/color_scheme`;
-export const API_SETTINGS_UPDATE_BACKGROUND_COLOR = `${API_ENDPOINT}/settings/update/background_color`;
+export const API_SETTINGS_UPDATE_USERNAME = `${API_ENDPOINT}/user/settings/update/username`;
+export const API_SETTINGS_UPDATE_EMAIL = `${API_ENDPOINT}/user/settings/update/email`;
+export const API_SETTINGS_UPDATE_PHONE = `${API_ENDPOINT}/user/settings/update/phone`;
+export const API_SETTINGS_UPDATE_COUNTRY = `${API_ENDPOINT}/user/settings/update/country`;
+export const API_SETTINGS_UPDATE_GENDER = `${API_ENDPOINT}/user/settings/update/gender`;
+export const API_SETTINGS_UPDATE_LANGUAGE = `${API_ENDPOINT}/user/settings/update/language`;
+export const API_SETTINGS_UPDATE_DIRECT = `${API_ENDPOINT}/user/settings/update/direct`;
+export const API_SETTINGS_UPDATE_PRIVATE = `${API_ENDPOINT}/user/settings/update/private`;
+export const API_SETTINGS_UPDATE_COLOR_SCHEME = `${API_ENDPOINT}/user/settings/update/color_scheme`;
+export const API_SETTINGS_UPDATE_BACKGROUND_COLOR = `${API_ENDPOINT}/user/settings/update/background_color`;

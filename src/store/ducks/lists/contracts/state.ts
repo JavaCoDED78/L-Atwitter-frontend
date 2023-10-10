@@ -19,6 +19,7 @@ export interface ListsRequest {
     isPrivate: boolean;
     altWallpaper?: string;
     wallpaper?: string;
+    listOwnerId?: number;
 }
 
 export interface AddUserToListsRequest {

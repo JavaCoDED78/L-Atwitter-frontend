@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUserProfileUsername } from "../../../store/ducks/user/selectors";
 import { signOut } from "../../../store/ducks/user/actionCreators";
 import { ACCOUNT_SIGNIN } from "../../../constants/path-constants";
-import { TOKEN } from "../../../constants/common-constants";
+import { BACKGROUND, COLOR, TOKEN } from "../../../constants/common-constants";
 import { useModalWindow } from "../../../hook/useModalWindow";
 
 const LogoutModal = (): ReactElement => {
@@ -23,6 +23,8 @@ const LogoutModal = (): ReactElement => {
 
     const handleSignOut = (): void => {
         window.localStorage.removeItem(TOKEN);
+        window.localStorage.removeItem(COLOR);
+        window.localStorage.removeItem(BACKGROUND);
         dispatch(signOut());
         history.push(ACCOUNT_SIGNIN);
     };
