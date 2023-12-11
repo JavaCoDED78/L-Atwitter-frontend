@@ -12,6 +12,7 @@ import {
     selectFollowedTopicsItems,
     selectIsFollowedTopicsLoading,
     selectIsTopicsLoading,
+    selectTopicsByCategories,
     selectTopicsItems
 } from "../../../store/ducks/topics/selectors";
 import { fetchFollowedTopics, fetchTopicsByIds, resetTopicsState } from "../../../store/ducks/topics/actionCreators";

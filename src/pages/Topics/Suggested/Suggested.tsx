@@ -32,7 +32,7 @@ const Suggested = (): ReactElement => {
 
     useEffect(() => {
         dispatch(fetchTopicsByIds({ topicsIds }));
-        dispatch(fetchTopicsByCategories({ categories: ["GAMING", "ONLY_ON_TWITTER"] }));
+        dispatch(fetchTopicsByCategories({ categories: ["GAMING", "ONLY_ON_TWITTER", "CAREERS"] }));
 
         return () => {
             dispatch(resetTopicsState());
@@ -154,7 +154,33 @@ const Suggested = (): ReactElement => {
                     </TopicsCarousel>
                 )}
             </div>
+            <Typography variant={"body1"} component={"div"} className={topicClasses.moreTopics}>
+                View all
+            </Typography>
             <Divider />
+            <div className={globalClasses.itemInfoWrapper}>
+                <Typography variant={"h5"} component={"div"}>
+                    CAREERS
+                </Typography>
+            </div>
+            <div className={topicClasses.topicsItems}>
+                {isTopicsByCategoriesLoading ? (
+                    <Spinner />
+                ) : (
+                    <TopicsCarousel>
+                        <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={0} endTopicValue={2} />
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={2} endTopicValue={4} />
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={4} endTopicValue={6} />
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={6} endTopicValue={8} />
+                        </div>
+                        <div className={classnames(globalClasses.itemInfoWrapper, topicClasses.topicsInfo)}>
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={4} endTopicValue={6} />
+                            <TopicBlock topics={topicsByCategories[2].topicsByCategories} startTopicValue={6} endTopicValue={8} />
+                        </div>
+                    </TopicsCarousel>
+                )}
+            </div>
         </>
     );
 };
