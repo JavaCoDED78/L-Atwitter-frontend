@@ -1,6 +1,4 @@
 [![Lines-of-Code](https://tokei.rs/b1/github.com/javacoded78/l-atwitter-frontend)](https://github.com/javacoded78/l-atwitter-frontend)
-[![Hits-of-Code](https://hitsofcode.com/github.com/javacoded78/l-atwitter-frontend?branch=main)](https://github.com/javacoded78/l-atwitter-frontend/view?branch=main)
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
